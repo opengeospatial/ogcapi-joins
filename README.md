@@ -1,2 +1,2 @@
 # tjs
-Table Join Service SWG public repo
+Table Joining Service SWG public repo
