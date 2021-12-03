@@ -1,0 +1,72 @@
+[[joins-resource-definition]]
+
+[discrete]
+====== joins
+The `joins` property of the response provides a description of each individual join hosted by the server.
+
+[[req_core_joins-get-success-items]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/joins-get-success-items*
+^|A |For each join resource accessible through the server, metadata describing that join SHALL be provided in the property `joins`.
+|===
+
+[discrete]
+====== links
+
+To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the joins.
+
+Property `links` in the `JoinsResponseObject`:
+
+[[req_core_joins-get-success-links]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/joins-get-success-links* 
+^|A |`200`-response SHALL include the following links in the `links` property of the response:
+
+* A link to this response document (relation: `self`)
+
+* A link to the response document in every other media type supported by the service (relation: `alternate`)
+^|B |All links SHALL include the `rel` and `type` properties.
+|===
+
+Property `links` in the `JoinsObject`:
+
+[[req_core_joins-get-success-items-links]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/joins-get-success-items-links*
+^|A |For each item included in the `joins` array in the response, the `links` property of that item SHALL include a link for each supported encoding to the join resource (relation: `join`).
+^|B |All links SHALL include the `rel` and `type` properties.
+|===
+
+[discrete]
+====== id
+
+Identifier of the join.
+
+[discrete]
+====== numberReturned
+
+The number of joins that are available in the server that match the selection parameters in the request.
+
+[discrete]
+====== numberMatched
+
+The number of joins returned in the response.
+
+[discrete]
+====== timeStamp
+
+Property `timeStamp` in the `JoinsResponseObject`:
+
+[[req_core_joins-get-success-timeStamp]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/collections-get-success-timeStamp*
+^|A |If a property `timeStamp` is included in the response, the value SHALL be set to the time when the response was generated.
+|===
+
+Property `timeStamp` in the `JoinsObject`:
+
+The time when the join was generated.

@@ -1,0 +1,25 @@
+[[req_core_collections-get-success]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/collections-get-success*
+^|A |A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
+^|B |The content of that response SHALL be based upon the <<collections_schema,Collections schema>>.
+|===
+
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/collections-get-op-bbox-unsupported* 
+^|A |If the `bbox` parameter is provided by the client but it is not supported by the server, then the server SHALL process the request as if the parameter had not been provided.
+|===
+
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/collections-get-op-datetime-unsupported* 
+^|A |If the `datetime` parameter is provided by the client but it is not supported by the server, then the server SHALL process the request as if the parameter had not been provided.
+|===
+
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/collections-get-op-limit-unsupported* 
+^|A |If the `limit` parameter is provided by the client but it is not supported by the server, then the server SHALL process the request as if the parameter had not been provided.
+|===

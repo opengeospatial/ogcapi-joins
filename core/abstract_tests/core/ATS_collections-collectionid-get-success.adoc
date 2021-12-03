@@ -1,0 +1,27 @@
+[[ats_core_collections-collectionid-get-success]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/core/collections-collectionid-get-success*
+^|Test Purpose | Validate that the Collection content complies with the required structure and contents.
+^|Requirement | <<ats_core_collections-collectionid-get-success-content, /ats/core/collections-collectionid-get-success-content>>
+^|Test Method | 
+. Validate the structure and content of the response document using <<collections_collectionid_schema, collection schema>>.
+. Verify that the content of the response is consistent with the content for this Resource Collection in the `/collections` response. That is, the values for `id`, `title`, `description` and `extent` are identical.
+|===
+
+[[ats_core_collections-collectionid-get-success-content]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/core/collections-collectionid-get-success-content*
+^|Test Purpose | Validate that a Collection document complies with the required structure and values.
+^|Requirement | <<,/req/collections/collection-definition>> +
+<<,/req/collections/rc-md-items-links>> +
+<<,/req/collections/rc-md-extent>>
+^|Test Method | 
+FOR a each Collection document, validate:
+
+. That the Collection document includes an `id` property.
+. That the Collection document complies with <<ats ,/ats/collections/rc-md-items-links>>
+. That any extent properties included in the Collection document comply with <<ats ,/collections/rc-md-extent>>
+. Validate the content of the Collection document for all supported media types using the <<collections_collectionid_schema, Collection schema>> and test <<ats , /ats/json/content>>.
+|===

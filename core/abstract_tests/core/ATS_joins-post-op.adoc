@@ -1,0 +1,44 @@
+[[ats_core_joins-post-op]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/core/joins-post-op*
+^|Test Purpose | . Validate that the attribute data can be joined from an attribute dataset file with a Collection available on the server from the expected location.
+. Validate that if the server supports it, that the data can be joined from an attribute dataset file with a Collection available on the server with a direct GeoJSON output from the expected location.
+. Validate that the data can be joined from an attribute dataset file directly with a inputted GeoJSON file from the expected location, if the server supports the file joining.
+^|Requirement | <<req_core_joins-post-op,/req/core/joins-post-op>> +
+<<req_core_joins-post-op-common-parameters,/req/core/joins-post-common-parameters>> +
+<<req_core_joins-post-op-hosted-parameters, /req/core/joins-post-op-hosted-parameters>> +
+<<req_core_joins-post-op-file-parameters, /req/core/joins-post-op-file-parameters>> +
+<<req_core_joins-post-success, /req/core/joins-post-success>>
+^|Test Method | 
+*Data joining to a Collection*
+
+. Issue an HTTP POST request to the URL `{root}/joins` where 
+* The request contains the header: `Content-Type: multipart/form-data;` 
+* The form data parameter `joinType` has the value `hosted`.
+* The form data parameter `collectionId` is the `id` property of a collection (from query `{root}/collections`).
+. Validate that a document was returned with a status code `201`.
+. Validate the contents of the returned document using test <<ats_core_joins-post-success, /ats/core/joins-post-success>>
+
+*Data joining to a Collection with a direct GeoJSON output*
+
+If the server supports the data joining to a Collection with a direct GeoJSON output:
+
+1. Issue an HTTP POST request to the URL `{root}/joins` where 
+* The request contains the header: `Content-Type: multipart/form-data;` 
+* The form data parameter `joinType` has the value `hosted`.
+* The form data parameter `collectionId` is the `id` property of a collection (from query `{root}/collections`).
+* The form data parameter `outputFormats` has the value `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson-direct`.
+2. Validate that a document was returned with a status code `200`.
+3. Validate the contents of the returned document using test <<ats_core_joins-post-success, /ats/core/joins-post-success>>
+
+*Data joining to a Inputted Spatial Data Files*
+
+If the server supports the data joining with inputted Spatial Data files:
+
+1. Issue an HTTP POST request to the URL `{root}/joins` where
+* The request contains the header: `Content-Type: multipart/form-data;` 
+* The form data parameter `joinType` has the value `file`.
+2. Validate that a document was returned with a status code `200`.
+3. Validate the contents of the returned document using test <<ats_core_joins-post-success, /ats/core/joins-post-success>>
+|===

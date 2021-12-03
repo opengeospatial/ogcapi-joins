@@ -1,0 +1,39 @@
+[[collections_collectionid_keys_schema]]
+.Collection's Key Fields Schema
+----
+schema:
+  $ref: '#/components/schemas/CollectionKeysResponseObject'
+
+CollectionKeysResponseObject:
+  required:
+  - keys
+  - links
+  type: object
+  properties:
+    links:
+      type: array
+      items:
+        $ref: '#/components/schemas/Link'
+    keys:
+      type: array
+      items:
+        $ref: '#/components/schemas/CollectionKeysObject'
+
+CollectionKeysObject:
+  required:
+  - id
+  - isDefault
+  - links
+  type: object
+  properties:
+    isDefault:
+      type: boolean
+    language:
+      type: string
+    id:
+      type: string
+    links:
+      type: array
+      items:
+        $ref: '#/components/schemas/Link'
+----

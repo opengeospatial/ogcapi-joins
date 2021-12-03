@@ -1,0 +1,4 @@
+[[req_core_collections-collectionid-get-error]]
+
+
+If the parameter `collectionId` does not exist on the server, the status code of the response will be `404`.

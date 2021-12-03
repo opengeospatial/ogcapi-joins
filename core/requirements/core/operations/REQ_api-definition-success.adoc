@@ -1,0 +1,22 @@
+[[req_core_api-definition-success]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/api-definition-success*
+^|A |A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
+^|B |The content of that response SHALL be an API Definition document.
+^|C |The API Definition document SHALL be consistent with the media type identified through HTTP content negotiation.
+^|NOTE: |The -f parameter MAY be used to satisfy this requirement.
+|===
+
+[[req_core_api-definition-oas]]
+[width="90%",cols="2,6a"]
+|===
+^|*Recommendation {counter:rec-id}* |*/req/core/api-definition-oas*
+^|A |	
+[%hardbreaks]
+If the API definition document uses the OpenAPI Specification 3.0,
+THEN 
+The document SHOULD conform to the OpenAPI Specification 3.0 requirements class 
+`http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30`
+(defined in the <<ogcapi-common-part1,OGC API - Common - Part 1>> document).
+|===

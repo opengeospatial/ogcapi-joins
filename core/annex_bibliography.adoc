@@ -1,0 +1,8 @@
+[appendix]
+:appendix-caption: Annex
+[[Bibliography]]
+== Bibliography
+
+* [[link-relations]] IANA: **Link Relation Types**, Available at: https://www.iana.org/assignments/link-relations/link-relations.xml
+
+* [[spatial_data_on_the_web]] Open Geospatial Consortium (OGC) / World Wide Web Consortium (W3C): **Spatial Data on the Web Best Practices**, Edited by J. Tandy, L. van den Brink and P. Barnaghi. 2017. Available at: https://www.w3.org/TR/sdw-bp/.

@@ -1,0 +1,7 @@
+[[req_core_joins-joinid-delete-op]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/joins-joinid-delete-op* 
+^|A |The server MAY support the HTTP DELETE operation at the path `{root}/joins/{joinId}`.
+^|B |The parameter `joinId` is the `id` property in the `joins` response (JSONPath: `$.joins.id`).
+|===

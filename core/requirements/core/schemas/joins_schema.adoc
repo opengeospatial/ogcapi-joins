@@ -1,0 +1,45 @@
+[[joins_schema]]
+.Joins Schema
+----
+schema:
+  $ref: '#/components/schemas/JoinsResponseObject'
+
+JoinsResponseObject:
+  required:
+  - joins
+  - links
+  type: object
+  properties:
+    links:
+      type: array
+      items:
+        $ref: '#/components/schemas/Link'
+    joins:
+      type: array
+      items:
+        $ref: '#/components/schemas/JoinsObject'
+    numberMatched:
+      type: integer
+    numberReturned:
+      type: integer
+    timeStamp:
+      type: string
+      format: date-time
+
+JoinsObject:
+  required:
+  - id
+  - links
+  - timeStamp
+  type: object
+  properties:
+    id:
+      type: string
+    timeStamp:
+      type: string
+      format: date-time
+    links:
+      type: array
+      items:
+        $ref: '#/components/schemas/Link'
+----

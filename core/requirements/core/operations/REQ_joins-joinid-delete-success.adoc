@@ -1,0 +1,7 @@
+[[req_core_joins-joinid-delete-success]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/joins-joinid-delete-success*
+^|A |A successful execution of the operation SHALL be reported as a response with a HTTP status code `204`. 
+^|B |The body of the response body SHALL be empty.
+|===

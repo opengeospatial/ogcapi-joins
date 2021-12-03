@@ -1,0 +1,22 @@
+[[req_core_joins-joinid-put-success]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/joins-joinid-put-success*
+^|A |A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
+^|B | The content of that response is based on the <<join_schema, Join Schema>>. 
+|===
+
+[[req_core_joins-joinid-put-success-attribute-data-file-csv-multiple-keys]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/joins-joinid-put-attribute-data-file-csv-multiple-keys*
+^|A |If the attribute data file is in CSV format and it contains multiple rows with the same key value, the value is used in the join operation from the row where it is encountered first.
+|===
+
+[[req_core_joins-joinid-put-success-attribute-data-file-csv-attribute-names]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/joins-joinid-put-attribute-data-file-csv-attribute-names*
+^|A |If the attribute data file is in CSV format and it contains the header row, the names for the joined attributes SHALL be the values of the joined columns from the header row.
+^|B |If the attribute data file is in CSV format and it doesn't contain a header row, the server SHALL generate the names for the joined attributes. 
+|===

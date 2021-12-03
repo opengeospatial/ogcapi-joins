@@ -1,0 +1,19 @@
+[[ats_core_joins-joinid-put-op]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/core/joins-joinid-put-op*
+^|Test Purpose | Validate that the Join can be updated fully with attribute data from an attribute dataset file data from expected location.
+^|Requirement | <<req_core_joins-joinid-put-op,/req/core/joins-joinid-put-op>> +
+<<req_core_joins-joinid-put-op-parameters,/req/core/join-joinid-put-op-parameters>> +
+<<req_core_joins-joinid-put-success, /req/core/joins-joinid-put-success>>
+^|Test Method | 
+. Issue an HTTP PUT request to the URL `{root}/joins/{joinId}` where: 
+
+* {joinId} is the `id` property of a Join (from HTTP GET query `{root}/joins/{joinId}`).
+* The request contains the header: `Content-Type: multipart/form-data;`
+* The form data parameter `collectionId` is the `id` property of a Collection (from query `{root}/collections`).
+
+. Validate that a document was returned with a status code `200`.
+. Validate the contents of the returned document using test <<ats_core_joins-joinid-put-success, /ats/core/joins-joinid-put-success>>
+
+|===

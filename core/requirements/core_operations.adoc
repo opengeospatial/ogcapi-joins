@@ -1,0 +1,296 @@
+=== API Landing Page
+
+The HTTP GET operation at service root path `{root}/` returns the API landing page document. The API landing page provides a starting point for the use of the API and it contains links to:
+
+* API definition document.
+* Conformance information.
+* Metadata on collections available on the server.
+* Joins available on the server.
+
+==== Request
+
+include::core/operations/REQ_root-op.adoc[]
+
+==== Response
+
+include::core/operations/REQ_root-success.adoc[]
+
+===== Response Schema for the  Landing Page
+The landing page response is based on the following schema (from <<ogcapi-common-part1,OGC - API - Common: Part 1>> document).
+
+include::core/schemas/root_schema.adoc[]
+
+===== Service metadata
+include::core/operations/REQ_root-service-metadata.adoc[]
+
+==== Error Situations
+See <<http_status_codes,HTTP status codes>> for general guidance.
+
+=== API Definition
+
+Servers SHOULD provide an API Definition resource that describes the capabilities of the server. This resource can be used by client developers to understand the supported services, by software clients to connect to the server, and by development tools to support the implementation of servers and clients.
+
+==== Request
+
+include::core/operations/REQ_api-definition-op.adoc[]
+
+==== Response
+
+include::core/operations/REQ_api-definition-success.adoc[]
+
+==== Error Situations
+
+See <<http_status_codes,HTTP status codes>> for general guidance.
+
+=== Declaration of Conformance Classes
+
+The HTTP GET operation at path `{root}/conformance` returns a list of conformance classes that the server supports.
+
+==== Request
+
+include::core/operations/REQ_conformance-op.adoc[]
+
+==== Response
+
+include::core/operations/REQ_conformance-success.adoc[]
+
+===== Response Schema for the Conformance Declaration
+
+The schema for the conformance response is based on the following schema (from <<ogcapi-common-part1,OGC API - Common - Part 1>> document).
+
+include::core/schemas/conformance_schema.adoc[]
+
+==== Error Situations
+
+See <<http_status_codes,HTTP status codes>> for general guidance.
+
+[[collections-op]]
+=== Collections
+
+The HTTP GET operation at path `{root}/collections` returns metadata on the collections that are available on the server.
+
+==== Request
+
+include::core/operations/REQ_collections-get-op.adoc[]
+
+==== Response
+
+include::core/operations/REQ_collections-get-success.adoc[]
+
+===== Response Schema for the Collections
+
+The response is based on the following schema (from <<ogcapi-common-part2,OGC - API - Common: Part 2>> document).
+
+include::core/schemas/collections_schema.adoc[]
+
+include::core/operations/REQ_collections-get-resource-definition.adoc[]
+
+==== Error Situations
+
+See <<http_status_codes,HTTP status codes>> for general guidance.
+
+[[collection-op]]
+=== Collection
+
+The HTTP GET operation at path `{root}/collections/{collectionId}` returns metadata on a specific collection available on the server.
+
+==== Request
+
+include::core/operations/REQ_collections-collectionid-get-op.adoc[]
+
+==== Response
+
+include::core/operations/REQ_collections-collectionid-get-success.adoc[]
+
+[[response_schema_for_the_collection]]
+===== Response Schema for the Collection
+The Collection response is based on the following schema (from <<ogcapi-common-part2,OGC - API - Common: Part 2>> document).
+
+include::core/schemas/collections_collectionid_schema.adoc[]
+
+include::core/operations/REQ_collections-collectionid-resource-definition.adoc[]
+
+==== Error Situations
+See <<http_status_codes,HTTP status codes>> for general guidance.
+
+If the parameter `collectionId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 3>>).
+
+[[collection_key_fields-op]]
+=== Collection's Key Fields
+
+The HTTP GET operation at path `{root}/collections/{collectionId}/keys` returns a list of key fields of a specific collection.
+
+==== Request
+
+include::core/operations/REQ_collections-collectionid-keys-get-op.adoc[]
+
+==== Response
+
+include::core/operations/REQ_collections-collectionid-keys-get-success.adoc[]
+
+=====  Response Schema for the Collection's Key Fields
+include::core/schemas/collections_collectionid_keys_schema.adoc[]
+
+include::core/operations/REQ_collections-collectionid-keys-resource-definition.adoc[]
+
+==== Error Situations
+See <<http_status_codes,HTTP status codes>> for general guidance.
+
+If the parameter `collectionId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 3>>).
+
+[[collection_key_field-op]]
+=== Collection's Key Field
+
+The HTTP GET operation at path `{root}/collections/{collectionId}/keys/{keyFieldId}` returns a list of key values of a specific key field of a specific collection.
+
+==== Request
+
+include::core/operations/REQ_collections-collectionid-keys-keyfieldid-get-op.adoc[]
+
+==== Response
+
+include::core/operations/REQ_collections-collectionid-keys-keyfieldid-get-success.adoc[]
+
+===== Response Schema for the Collection's Key Field
+include::core/schemas/collections_collectionid_keys_keyfieldid_schema.adoc[]
+
+include::core/operations/REQ_collections-collectionid-keys-keyfieldid-resource-definition.adoc[]
+
+==== Error Situations
+See <<http_status_codes,HTTP status codes>> for general guidance.
+
+If the parameter `collectionId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 3>>).
+
+If the parameter `keyFieldId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 3>>).
+
+[[joins-get-op]]
+=== Joins
+
+The HTTP GET operation at path `{root}/joins` returns a list of joins that are available on the server.
+
+==== Request
+
+include::core/operations/REQ_joins-get-op.adoc[]
+
+==== Response
+
+include::core/operations/REQ_joins-get-success.adoc[]
+
+===== Response schema for the Joins
+
+include::core/schemas/joins_schema.adoc[]
+
+include::core/operations/REQ_joins-resource-definition.adoc[]
+
+==== Error Situations
+See <<http_status_codes,HTTP status codes>> for general guidance.
+
+[[joins-post-op]]
+=== Join Creation
+
+The HTTP POST operation at path `{root}/joins` creates a new join. 
+
+The operation contains two joining modes: 
+
+. Joining attribute data from an inputted attribute data file with a collection hosted on the server. 
+
+. Joining attribute data from an inputted attribute data file directly with a spatial dataset file provided with the query.
+
+The core module contains support for the CSV format for the attribute data files and for the GeoJSON format for the spatial data files.
+
+The joins are executed via common key values that are available in both datasets.
+
+If the attribute dataset contains additional key values that are not available in the collection or spatial dataset, they will be not included to the joined output. The extension modules may alter this behavior.
+
+==== Request
+
+include::core/operations/REQ_joins-post-op.adoc[]
+
+==== Response
+
+include::core/operations/REQ_joins-post-success.adoc[]
+
+===== Response schema for the Join Creation
+
+The response shema for queries that create a join resource is expressed with the <<join_schema,Join Shema>>.
+
+For repsonses that produce a GeoJSON output, the response is a GeoJSON file that contains also the joined attributes.
+
+==== Error Situations
+See <<http_status_codes,HTTP status codes>> for general guidance.
+
+[[join-get-op]]
+=== Join
+
+The HTTP GET operation at path `{root}/joins/{joinId}` returns metadata on a specific join that is available on the server.
+
+==== Request
+
+include::core/operations/REQ_joins-joinid-get-op.adoc[]
+
+==== Response
+
+include::core/operations/REQ_joins-joinid-get-success.adoc[]
+
+===== Response Schema for the Join
+
+include::core/schemas/join_schema.adoc[]
+
+include::core/operations/REQ_joins-joinid-resource-definition.adoc[]
+
+==== Error Situations
+See <<http_status_codes,HTTP status codes>> for general guidance.
+
+If the parameter `joinId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 3>>).
+
+[[join-put-op]]
+=== Join Update
+
+The HTTP PUT operation at path `{root}/joins/{joinId}` updates fully the specific join.
+
+The operation contains functionality for joining attribute data from an inputted attribute data file with a collection hosted on the server. 
+
+The core module contains support for the CSV format for the attribute data files.
+
+The joins are executed via common key values that are available in both datasets.
+
+If the attribute dataset contains additional key values that are not available in the collection, they will be not included to the joined output. The extension modules may alter this behavior.
+
+==== Request
+
+include::core/operations/REQ_joins-joinid-put-op.adoc[]
+
+==== Response
+
+include::core/operations/REQ_joins-joinid-put-success.adoc[]
+
+===== Response schema for the Join Update
+
+The response shema for the join update is expressed with the <<join_schema,Join Shema>>.
+
+==== Error Situations
+See <<http_status_codes,HTTP status codes>> for general guidance.
+
+If the parameter `joinId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 3>>).
+
+[[join-delete-op]]
+=== Join Delete
+
+The HTTP DELETE operation at path `{root}/joins/{joinId}` deletes the specific join from the server. 
+
+==== Request
+
+include::core/operations/REQ_joins-joinid-delete-op.adoc[]
+
+==== Response
+
+include::core/operations/REQ_joins-joinid-delete-success.adoc[]
+
+===== Response schema for the Join Delete
+
+The response of the operation is empty.
+
+==== Error Situations
+See <<http_status_codes,HTTP status codes>> for general guidance.
+
+If the parameter `joinId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 3>>).

@@ -1,0 +1,57 @@
+[[req_core_collections-collectionid-keys-resource-definition]]
+
+[discrete]
+====== isDefault
+
+Information on the Collection's default key field for the data joins. Value `true` indicates the default key field. 
+
+[[req_core_collection-collectionsid-keys-default-key]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/collection-collectionsid-keys-default-key* 
+^|A |Exactly one object in the response's `keys` array SHALL have the `isDefault` property value `true`.
+|===
+
+[discrete]
+====== language
+
+Language in which the key field's key values are written (if applicable to the key field). The format of the language field follows the ISO 639-1 language code values.
+
+[discrete]
+====== id
+
+Identifier of the key field.
+
+[discrete]
+====== links
+
+To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the collection's key fields' key values.
+
+[[req_core_collections-collectionid-keys-key-values-link]]
+Description of the `links` property of the `CollectionKeysResponseObject`:
+
+[[req_core_collections-collectionid-keys-links]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/collections-collectionid-keys-links* 
+^|A |`200`-response SHALL include the following links in the `links` property of the response:
+
+* A link to this response document (relation: `self`).
+
+* A link to the response document in every other media type supported by the service (relation: `alternate`).
+
+^|B |All links SHALL include the `rel` and `type` properties.
+|===
+
+Description of `links` property of the `CollectionKeysObject`:
+
+[[req_core_collections-collectionid-keys-items-links]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/collections-collectionid-keys-items-links* 
+^|A |`200`-response SHALL include a following link in the `links` property for each key field included in the response's `keys` array:
+
+* A link to the key field's key values response document (relation: `key-values`).
+
+^|B |The links SHALL include the `rel` and `type` properties.
+|===

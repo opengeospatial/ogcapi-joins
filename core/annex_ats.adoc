@@ -1,0 +1,74 @@
+[[ats]]
+[appendix]
+:appendix-caption: Annex
+== Abstract Test Suite (Normative)
+
+[[ats_core]]
+===  Conformance Class "Core"
+[cols="1,4",width="90%"]
+|===
+2+|*Conformance Class*
+2+|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/core    
+|Target type |Web API
+|Requirements class |<<rc_core,Requirements Class "Core">>
+|===
+
+==== Landing Page {root}/
+include::abstract_tests/core/ATS_root-op.adoc[]
+
+include::abstract_tests/core/ATS_root-success.adoc[]
+
+==== API Definiton path {root}/api (link)
+include::abstract_tests/core/ATS_api-definition-op.adoc[]
+
+include::abstract_tests/core/ATS_api-definition-success.adoc[]
+
+==== Conformance {root}/conformance
+include::abstract_tests/core/ATS_conformance-op.adoc[]
+
+include::abstract_tests/core/ATS_conformance-success.adoc[]
+
+==== Collections {root}/collections
+include::abstract_tests/core/ATS_collections-get-op.adoc[]
+
+include::abstract_tests/core/ATS_collections-get-success.adoc[]
+
+==== Collection {root}/collections/{collectionId}
+include::abstract_tests/core/ATS_collections-collectionid-get-op.adoc[]
+
+include::abstract_tests/core/ATS_collections-collectionid-get-success.adoc[]
+
+==== Collection Key Fields {root}/collections/{collectionId}/keys
+include::abstract_tests/core/ATS_collections-collectionid-keys-op.adoc[]
+
+include::abstract_tests/core/ATS_collections-collectionid-keys-success.adoc[]
+
+==== Collection Key Field {root}/collections/{collectionId}/keys/{keyFieldId}
+include::abstract_tests/core/ATS_collections-collectionid-keys-keyfield-op.adoc[]
+
+include::abstract_tests/core/ATS_collections-collectionid-keys-keyfield-success.adoc[]
+
+==== Joins {root}/joins
+include::abstract_tests/core/ATS_joins-get-op.adoc[]
+
+include::abstract_tests/core/ATS_joins-get-success.adoc[]
+
+==== Join Creation {root}/joins
+include::abstract_tests/core/ATS_joins-post-op.adoc[]
+
+include::abstract_tests/core/ATS_joins-post-success.adoc[]
+
+==== Join {root}/joins/{joinId}
+include::abstract_tests/core/ATS_joins-joinid-get-op.adoc[]
+
+include::abstract_tests/core/ATS_joins-joinid-get-success.adoc[]
+
+==== Join Update {root}/joins/{joinId}
+include::abstract_tests/core/ATS_joins-joinid-put-op.adoc[]
+
+include::abstract_tests/core/ATS_joins-joinid-put-success.adoc[]
+
+==== Join Delete {root}/joins/{joinId}
+include::abstract_tests/core/ATS_joins-joinid-delete-op.adoc[]
+
+include::abstract_tests/core/ATS_joins-joinid-delete-success.adoc[]

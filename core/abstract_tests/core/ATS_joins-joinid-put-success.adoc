@@ -1,0 +1,10 @@
+[[ats_core_joins-joinid-put-success]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/core/joins-joinid-put-success*
+^|Test Purpose | Validate that the data can be joined from an attribute dataset file with a specific spatial dataset.
+^|Requirement | <<req_core_joins-joinid-put-success, /req/core/joins-joinid-put-success>>
+^|Test Method | 
+. Validate that the response document complies with <<join_schema, Join Schema>>.
+. Validate that the response document contains the joined data in all the requested output formats that are supported by the server.
+|===

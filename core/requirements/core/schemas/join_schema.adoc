@@ -1,0 +1,82 @@
+[[join_schema]]
+.Join Schema
+----
+schema:
+  $ref: '#/components/schemas/JoinResponseObject'
+
+JoinResponseObject:
+  required:
+  - join
+  - links
+  type: object
+  properties:
+    links:
+      type: array
+      items:
+        $ref: '#/components/schemas/Link'
+    join:
+      $ref: '#/components/schemas/JoinObject'
+	
+JoinObject:
+  required:
+  - id
+  - inputs
+  - outputs
+  - timeStamp
+  type: object
+  properties:
+    id:
+      type: string
+    timeStamp:
+      type: string
+      format: date-time
+    inputs:
+      $ref: '#/components/schemas/JoinInputsObject'
+    outputs:
+      type: array
+      items:
+        $ref: '#/components/schemas/Link'
+    joinInformation:
+      $ref: '#/components/schemas/JoinInformationObject'
+		
+JoinInputsObject:
+  required:
+  - attributeDataset
+  - collection
+  type: object
+  properties:
+    attributeDataset:
+      type: string
+    collection:
+      type: array
+      items:
+        $ref: '#/components/schemas/Link'		
+		
+JoinInformationObject:
+  type: object
+  properties:
+    numberOfMatchedCollectionKeys:
+      type: integer
+    numberOfUnmatchedCollectionKeys:
+      type: integer
+    numberOfAdditionalAttributeKeys:
+      type: integer
+    matchedCollectionKeys:
+      type: array
+      items:
+        type: string
+    unmatchedCollectionKeys:
+      type: array
+      items:
+        type: string
+    additionalAttributeKeys:
+      type: array
+      items:
+        type: string
+    duplicateAttributeKeys:
+      type: array
+      items:
+        type: string
+    numberOfDuplicateAttributeKeys:
+      type: integer
+----

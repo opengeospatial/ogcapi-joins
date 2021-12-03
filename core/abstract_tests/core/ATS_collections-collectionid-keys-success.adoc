@@ -1,0 +1,12 @@
+[[ats_core_collections-collectionid-keys-success]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/core/collections-collectionid-keys-success*
+^|Test Purpose | Validate that the response complies with the required structure and contents.
+^|Requirement | <<req_core_collections-collectionid-keys-success,/req/core/collections-collectionid-keys-success>>
+^|Test Method | 
+. Validate that the response document complies with <<collections_collectionid_keys_schema, Collection Key Fields schema>>.
+. Validate that the response document complies with <<req_core_collection-collectionsid-keys-default-key,/req/core/collection-collectionsid-keys-default-key>>
+. Validate that the response document complies with <<req_core_collections-collectionid-keys-links,/req/core/collection-collectionsid-keys-links>>
+. Validate that the response document complies with <<req_core_collections-collectionid-keys-items-links,/req/core/collections-collectionid-keys-items-links>>
+|===

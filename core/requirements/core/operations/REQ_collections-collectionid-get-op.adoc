@@ -1,0 +1,7 @@
+[[req_core_collections-collectionid-get-op]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/collections-collectionid-get-op* 
+^|A |The server SHALL support the HTTP GET operation at path `{root}/collections/{collectionId}`.
+^|B |The parameter `collectionId` is each `id` property in the `collections` response (JSONPath: `$.collections[*].id`).
+|===

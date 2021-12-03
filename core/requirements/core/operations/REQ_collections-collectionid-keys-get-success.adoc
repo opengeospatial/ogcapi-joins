@@ -1,0 +1,7 @@
+[[req_core_collections-collectionid-keys-success]]
+[width="90%",cols="2,6a"]
+|===
+^|*Requirement {counter:req-id}* |*/req/core/collections-collectionid-keys-success*
+^|A |A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
+^|B |The content of that response SHALL be based on the <<collections_collectionid_keys_schema,Collection's Key Fields Schema>>. 
+|===
