@@ -1,7 +1,0 @@
-[[req_core_joins-joinid-get-op]]
-[width="90%",cols="2,6a"]
-|===
-^|*Requirement {counter:req-id}* |*/req/core/joins-joinid-get-op* 
-^|A |The server SHALL support the HTTP GET operation at the path `/joins/{joinId}`.
-^|B |The parameter `joinId` is each id property in the `joins` response (JSONPath: `$.joins[*].id`).
-|===

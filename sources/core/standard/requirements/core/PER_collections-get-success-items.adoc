@@ -1,0 +1,5 @@
+[permission,type="general",id="/per/core/collections-get-success-items",label="/per/core/collections-get-success-items",obligation="permission"]
+[[per_core_collections-get-success-items]]
+====
+To support servers with many collections, servers MAY limit the number of items in the property `collections`.
+====

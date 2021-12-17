@@ -1,0 +1,13 @@
+[permission,type="general",id="/per/core/collections-get-op-simple-query",label="/per/core/collections-get-op-simple-query",obligation="permission"]
+[[per_core_collections-get-op-simple-query]]
+====
+The server MAY support the Simple Query Requirements Class (defined in the <<OGC20-024, OGC API - Common - Part 2>> document):
+
+* http://www.opengis.net/spec/ogcapi-common-2/1.0/req/simple-query
+
+The Simple Query Requirements Class defines the following HTTP query parameters:
+
+* `bbox` 
+* `datetime`
+* `limit`
+====

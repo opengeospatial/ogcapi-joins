@@ -1,0 +1,17 @@
+[requirement,type="general",id="/req/core/collection-collectionid-keys-keyfieldid-links",label="/req/core/collection-collectionid-keys-keyfieldid-links",obligation="requirement"]
+[[req_core_collection-collectionid-keys-keyfieldid-links]]
+====
+[.component,class=part]
+--
+`200`-response SHALL include the following links in the links property of the response:
+
+* A link to this response document (relation: `self`).
+
+* A link to the response document in every other media type supported by the service (relation: `alternate`).
+--
+
+[.component,class=part]
+--
+All links SHALL include the `rel` and `type` properties.
+--
+====

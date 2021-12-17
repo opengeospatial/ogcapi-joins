@@ -1,0 +1,13 @@
+[requirement,type="general",id="/req/core/conformance-success",label="/req/core/conformance-success",obligation="requirement"]
+[[req_core_conformance-success]]
+====
+[.component,class=part]
+--
+A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
+--
+
+[.component,class=part]
+--
+The content of that response SHALL be based upon <<conformance_schema,Conformance Declaration Schema>>. 
+--
+====

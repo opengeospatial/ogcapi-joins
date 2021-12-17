@@ -1,0 +1,5 @@
+[requirement,type="general",id="/req/json/definition",label="/req/json/definition",obligation="requirement"]
+[[req_json-definition]]
+====
+Every 200-response of an operation of the server SHALL support the media type application/json.
+====

@@ -1,0 +1,5 @@
+[requirement,type="general",id="/req/core/collections-get-success-timestamp",label="/req/core/collections-get-success-timestamp",obligation="requirement"]
+[[req_core_collections-get-success-timestamp]]
+====
+If a property `timeStamp` is included in the response, the value SHALL be set to the time when the response was generated.
+====

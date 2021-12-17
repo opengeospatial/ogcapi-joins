@@ -1,0 +1,5 @@
+[recommendation,type="general",id="/rec/core/joins-get-success-next-3",label="/rec/core/joins-get-success-next-3",obligation="requirement"]
+[[rec_core_joins-get-success-next-3]]
+====
+The number of resources in a response to a `next` link SHOULD follow the same rules as for the response to the original query and again include a `next` link, if there are more resources in the selection that have not yet been returned.
+====

@@ -1,0 +1,5 @@
+[recommendation,type="general",id="/rec/core/collections-collectionid-keys-keyfieldid-get-success-server-limit",label="/rec/core/collections-collectionid-keys-keyfieldid-get-success-server-limit",obligation="recommendation"]
+[[rec_core_collections-collectionid-keys-keyfieldid-get-success-server-limit]]
+====
+Clients SHOULD be prepared to handle a paged response even if they have not specified a `limit` parameter in their query.
+====

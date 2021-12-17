@@ -1,0 +1,59 @@
+= OGC API - Joins - Part 1: Core
+:doctype: standard
+:encoding: utf-8
+:lang: en
+:status: draft
+:committee: technical
+:draft: 3.0
+:external-id: http://www.opengis.net/doc/IS/ogcapi-joins-1/1.0
+:docnumber: YY-xxx
+:received-date: yyyy-mm-dd
+:issued-date: yyyy-mm-dd
+:published-date: yyyy-mm-dd
+:fullname: Pekka Latvala
+:docsubtype: Interface
+:keywords: ogcdoc, OGC document, API, openapi, html, joins
+:submitting-organizations: Finnish Geospatial Research Institute / National Land Survey of Finland
+:docfile: document.adoc
+:mn-document-class: ogc
+:mn-output-extensions: xml,html,doc,pdf
+:local-cache-only:
+:data-uri-image:
+:pdf-uri: ./document.pdf
+:xml-uri: ./document.xml
+:doc-uri: ./document.doc
+:edition: 1.0.0-SNAPSHOT
+
+////
+Make sure to complete each included document
+////
+include::clause_0_front_material.adoc[]
+
+include::clause_1_scope.adoc[]
+
+include::clause_2_conformance.adoc[]
+
+include::clause_3_references.adoc[]
+
+include::clause_4_terms_and_definitions.adoc[]
+
+include::clause_5_conventions.adoc[]
+
+include::clause_6_informative_text.adoc[]
+
+include::clause_7_normative_text.adoc[]
+
+include::clause_8_media_types.adoc[]
+
+////
+add or remove annexes after "A" as necessary
+////
+include::annex-a.adoc[]
+
+////
+Revision History should be the last annex before the Bibliography
+Bibliography should be the last annex
+////
+include::annex-history.adoc[]
+
+include::annex-bibliography.adoc[]

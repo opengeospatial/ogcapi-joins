@@ -1,0 +1,5 @@
+[permission,type="general",id="/per/core/joins-get-success-server-limit",label="/per/core/joins-get-success-server-limit",obligation="permission"]
+[[per_core_joins-get-success-server-limit]]
+====
+If a server is configured with a maximum response size, then the server MAY page responses which exceed that threshold.
+====

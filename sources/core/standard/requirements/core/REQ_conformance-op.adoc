@@ -1,0 +1,18 @@
+[requirement,type="general",id="/req/core/conformance-op",label="/req/core/conformance-op",obligation="requirement"]
+[[req_core_conformance-op]]
+====
+[.component,class=part]
+--
+The server SHALL support the HTTP GET operation at the path `{root}/conformance`.
+--
+
+[.component,class=part]
+--
+The server SHALL support the HTTP GET operation on all links from the landing page that have the relation type `http://www.opengis.net/def/rel/ogc/1.0/conformance`.
+--
+
+[.component,class=part]
+--
+The responses to all HTTP GET requests issued in A and B SHALL satisfy requirement <<req_core_conformance-success,/req/core/conformance-success>>.
+--
+====

@@ -1,0 +1,4 @@
+[recommendation,type="general",id="/rec/core/problem-details",label="/rec/core/problem-details",obligation="recommendation"]
+====
+The server SHOULD include a "problem details" report in any error response in accordance with <<rfc7807, IETF RFC 7807>>.
+====

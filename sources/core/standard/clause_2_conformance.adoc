@@ -1,0 +1,67 @@
+== Conformance
+This standard defines the requirement class "core" and encoding requirements classes "JSON", "HTML" and "GeoJSON" 
+
+The standardization targets of all conformance classes are "Web APIs."
+
+The main requirements class is:
+
+* <<rc_core,Core>>.
+
+The core requirements class specifies requirements that all Web APIs have to implement.
+
+The JSON encoding format is mandatory to be supported for service responses. 
+
+The support for HTML encoding is recommended.
+
+The GeoJSON encoding is mandatory to be supported for the joined data outputs.
+
+The CSV format is mandatory to be supported for the join inputs. 
+
+The GeoJSON format input may be supported for the file joining functionality.
+
+The Core does not mandate any encoding or format for the formal definition of the API. One option is the OpenAPI 3.0 specification and a requirements class has been specified in the <<OGC19-072,OGC API - Common - Part 1>>.
+
+The conformance class values defined in this core module are listed in <<conformance_classes_table, Table 1>>.
+
+[[conformance_classes_table]]
+.Conformance classes defined in this module
+[width="90%",cols="3,6a",options="header"]
+|===
+^|*Conformance class* |*URI*
+<|Core|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/core
+<|Data joining|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/core/data-joining
+<|File joining|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/core/file-joining
+<|Join delete|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/core/join-delete
+<|HTML|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/html
+<|JSON|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/json
+2+|*Input*
+<|File uploading with Query|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/file-upload
+<|File referencing with URL|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/http-ref
+<|CSV file input|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/csv
+<|GeoJSON file input|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/geojson
+2+|*Output*
+<|GeoJSON output for joined data|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson
+<|Direct GeoJSON output for joined data|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson-direct
+|===
+
+In addition, the following conformance classes that are used from the specifications <<OGC19-072,OGC API - Common - Part 1>> and <<OGC20-024,OGC API - Common - Part 2>> are listed in <<ogc_api_common_conformance_classes_table, Table 2>>.
+
+[[ogc_api_common_conformance_classes_table]]
+.Conformance classes
+[width="90%",cols="3,6a"]
+|===
+^|*Conformance class* |*URI*
+2+|*OGC API - Common - Part 1*
+<|Core|http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core
+<|Landing Page|http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/landing-page
+<|OpenAPI 3.0|http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/oas30
+2+|*OGC API - Common - Part 2*
+<|Collections|http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
+<|Simple Query|http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/simple-query
+|===
+
+Conformance with this standard shall be checked using all the relevant tests
+specified in <<annex-a,Annex A>> (normative) of this document. The framework, concepts, and
+methodology for testing, and the criteria to be achieved to claim conformance
+are specified in the OGC Compliance Testing Policies and Procedures and the
+OGC Compliance Testing web site.

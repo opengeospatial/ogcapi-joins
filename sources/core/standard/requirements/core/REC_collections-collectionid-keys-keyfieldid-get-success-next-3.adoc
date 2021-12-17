@@ -1,0 +1,5 @@
+[recommendation,type="general",id="/rec/core/collections-collectionid-keys-keyfieldid-get-success-next-3",label="/rec/core/collections-collectionid-keys-keyfieldid-get-success-next-3",obligation="recommendation"]
+[[rec_core_collections-collectionid-keys-keyfieldid-get-success-next-3]]
+====
+The number of resources in a response to a `next` link SHOULD follow the same rules as for the response to the original query and again include a `next` link, if there are more resources in the selection that have not yet been returned.
+====

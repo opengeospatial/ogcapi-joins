@@ -1,0 +1,15 @@
+[requirement,type="general",id="/req/core/collections-collectionid-keys-items-links",label="/req/core/collections-collectionid-keys-items-links",obligation="requirement"]
+[[req_core_collections-collectionid-keys-items-links]]
+====
+[.component,class=part]
+--
+`200`-response SHALL include a following link in the `links` property for each key field included in the response's `keys` array:
+
+* A link to the key field's key values response document (relation: `key-values`).
+--
+
+[.component,class=part]
+--
+The links SHALL include the `rel` and `type` properties.
+--
+====

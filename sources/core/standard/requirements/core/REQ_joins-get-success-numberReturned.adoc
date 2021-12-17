@@ -1,0 +1,13 @@
+[requirement,type="general",id="/req/core/joins-get-success-numberReturned",label="/req/core/joins-get-success-numberReturned",obligation="requirement"]
+[[req_core_joins-get-success-numberReturned]]
+====
+[.component,class=part]
+--
+If a property `numberReturned` is included in the response, the value SHALL be identical to the number of items in the `joins` array in the response document.
+--
+
+[.component,class=part]
+--
+A server MAY omit this information in a response, if the information about the number of resources in the response is not known or difficult to compute.
+--
+====

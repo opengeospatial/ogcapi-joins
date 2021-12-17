@@ -1,0 +1,5 @@
+[recommendation,type="general",id="/rec/html/schema-org",label="/rec/html/schema-org",obligation="recommendation"]
+[[rec_html-schema-org]]
+====
+A 200-response with the media type `text/html`, SHOULD include Schema.org annotations.
+====

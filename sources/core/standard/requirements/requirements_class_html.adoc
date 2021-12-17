@@ -1,0 +1,11 @@
+[requirement,type="class",id="http://www.opengis.net/ogcapi-joins-1/1.0/req/html",obligation="requirement"]
+
+[requirements_class]
+====
+[%metadata]
+label:: http://www.opengis.net/ogcapi-joins-1/1.0/req/html
+subject:: Implementation Specification
+inherit:: <<rc_core,Requirements Class "Core">>
+inherit:: <html5,HTML5>>
+inherit:: <<schema.org,Schema.org>>
+====

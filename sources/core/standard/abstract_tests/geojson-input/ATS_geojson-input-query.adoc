@@ -1,0 +1,18 @@
+[[ats_file_joining-query]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/file-joining/query*
+^|Test Purpose | Verify that the server supports the `join-type` parameter value `hosted` for join creation.
+^|Requirement |
+<<req_core_joins-post-op,/req/core/joins-post-op>> +
+<<req_core_joins-post-success, /req/core/joins-post-success>>
+^|Test Method | 
+If the server supports the data joining with inputted Spatial Data files:
+
+1. Issue an HTTP POST request to the URL `{root}/joins` where
+* The request contains the header: `Content-Type: multipart/form-data;` 
+* The form data parameter `joinType` has the value `file`.
+2. Validate that a document was returned with a status code `200`.
+3. Validate the contents of the returned document using test <<ats_core_joins-post-success, /ats/core/joins-post-success>>
+
+|===

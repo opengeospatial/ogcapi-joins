@@ -1,0 +1,13 @@
+[requirement,type="general",id="/req/core//rc-md-items-descriptions",label="/req/core//rc-md-items-descriptions",obligation="requirement"]
+[[req_core_rc-md-items-descriptions]]
+====
+[.component,class=part]
+--
+If external schemas or descriptions exist that provide additional information about the structure or semantics of the collection, a `200`-response SHOULD include links to each of those resources in the `links` property of the response (relation: `describedby`).
+--
+
+[.component,class=part]
+--
+The `type` link parameter SHOULD be provided for each link.
+--
+====

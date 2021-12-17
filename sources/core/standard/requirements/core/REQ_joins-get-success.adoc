@@ -1,0 +1,13 @@
+[requirement,type="general",id="/req/core/joins-get-success",label="/req/core/joins-get-success",obligation="requirement"]
+[[req_core_joins-get-success]]
+====
+[.component,class=part]
+--
+A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
+--
+
+[.component,class=part]
+--
+The content of that response SHALL be based on the <<joins_schema, Joins Schema>>.
+--
+====

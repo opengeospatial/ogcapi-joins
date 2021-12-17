@@ -1,0 +1,13 @@
+[requirement,type="general",id="/req/core/collections-collectionid-get-op",label="/req/core/collections-collectionid-get-op",obligation="requirement"]
+[[req_core_collections-collectionid-get-op]]
+====
+[.component,class=part]
+--
+The server SHALL support the HTTP GET operation at path `{root}/collections/{collectionId}`.
+--
+
+[.component,class=part]
+--
+The parameter `collectionId` is each `id` property in the `collections` response (JSONPath: `$.collections[*].id`).
+--
+====

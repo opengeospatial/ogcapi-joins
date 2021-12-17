@@ -1,0 +1,17 @@
+[requirement,type="general",id="/req/core/joins-get-success-links",label="/req/core/joins-get-success-links",obligation="requirement"]
+[[req_core_joins-get-success-links]]
+====
+[.component,class=part]
+--
+`200`-response SHALL include the following links in the `links` property of the response:
+
+* A link to this response document (relation: `self`)
+
+* A link to the response document in every other media type supported by the service (relation: `alternate`)
+--
+
+[.component,class=part]
+--
+All links SHALL include the `rel` and `type` properties.
+--
+====

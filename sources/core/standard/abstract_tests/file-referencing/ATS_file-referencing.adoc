@@ -1,0 +1,21 @@
+[[ats_file-referencing-file-referencing]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/file-referencing/file-referencing*
+^|Test Purpose | 1. Validate that the input attribute file can be referenced via URL.
+2. Validate that the input attribute file and the other file can be referenced via URL
+^|Requirement |
+<<req_core_joins-post-op,/req/core/joins-post-op>> +
+<<req_core_joins-post-success, /req/core/joins-post-success>>
+^|Test Method | 
+
+Test method for (1): Execute the abstract test: <<ats_data_joining-query, /ats/data-joining/query>> where:
+
+* The request contains the form data parameter `attribute-dataset-url` that contains the URL of the attribute dataset file.
+
+Test method for (2): Execute the abstract test: <<ats_file_joining-query, /ats/file-joining/query>> where:
+
+* The request contains the form data parameter `attribute-dataset-url` that contains the URL of the attribute dataset file.
+
+* The request contains the form data parameter `spatial-dataset-url` that contains the URL of the other dataset file.
+|===

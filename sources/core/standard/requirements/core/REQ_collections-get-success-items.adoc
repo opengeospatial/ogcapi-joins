@@ -1,0 +1,13 @@
+[requirement,type="general",id="/req/core/collections-get-success-items",label="/req/core/collections-get-success-items",obligation="requirement"]
+[[req_core_collections-get-success-items]]
+====
+[.component,class=part]
+--
+For each dataset collection provided by the server, metadata describing that collection SHALL be provided in the `collections` property of the Collections response.
+--
+
+[.component,class=part]
+--
+The content of that response SHALL comply with the requirements in the `http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/collection` Requirements Class described in the <<OGC20-024,OGC - API - Common: Part 2>> document).
+--
+====

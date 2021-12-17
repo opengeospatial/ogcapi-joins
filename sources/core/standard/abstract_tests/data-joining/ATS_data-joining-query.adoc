@@ -1,0 +1,22 @@
+[[ats_data_joining-query]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/data-joining/query*
+^|Test Purpose | 1. Validate that attribute data can be joined from an attribute dataset file with a Collection available on the server from the expected location.
+2. If the server supports the direct GeoJSON output functionality, validate that the attribute data can be joined from the expected location from an attribute dataset file with a Collection available on the server with a direct GeoJSON output.
+^|Requirement |
+<<req_core_joins-post-op,/req/core/joins-post-op>> +
+<<req_core_joins-post-success, /req/core/joins-post-success>>
+^|Test Method | 
+Test method for (1): +
+1. Issue an HTTP POST request to the URL `{root}/joins` where: +
+- The request contains the header: `Content-Type: multipart/form-data;` +
+- The form data parameter `join-type` has the value `hosted`. +
+- The form data parameter `collection-id` has the same value as `id` property of a collection (from query `{root}/collections`). +
+- The request contains either the uploaded attribute dataset file or it is referenced via URL. +
+- Other query parameters are set correctly. +
+2. Validate that a document was returned with a status code `201`. +
+3. Validate the contents of the returned document using test <<ats_data_joining-success, /ats/data-joining/success>>
+
+Test method for (2): Execute the abstract test: <<ats_geojson_direct-query, /ats/geojson-direct/query>>
+|===

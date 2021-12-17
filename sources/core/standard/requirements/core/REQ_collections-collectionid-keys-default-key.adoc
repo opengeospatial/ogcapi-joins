@@ -1,0 +1,5 @@
+[requirement,type="general",id="/req/core/collection-collectionsid-keys-default-key",label="/req/core/collection-collectionsid-keys-default-key",obligation="requirement"]
+[[req_core_collections-collectionid-keys-default-key]]
+====
+Exactly one object in the response's `keys` array SHALL have the `isDefault` property value `true`.
+====

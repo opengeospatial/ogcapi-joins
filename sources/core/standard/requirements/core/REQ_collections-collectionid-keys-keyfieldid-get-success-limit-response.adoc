@@ -1,0 +1,13 @@
+[requirement,type="general",id="/req/core/collections-collectionid-keys-keyfieldid-get-success-limit-response",label="/req/core/collections-collectionid-keys-keyfieldid-get-success-limit-response",obligation="requirement"]
+[[req_core_collections-collectionid-keys-keyfieldid-get-success-limit-response]]
+====
+[.component,class=part]
+--
+If the `limit` parameter is provided by the client and supported by the server, then the response SHALL not contain more resources than specified by the `limit` parameter.
+--
+
+[.component,class=part]
+--
+If the service specifies a maximum value for the `limit` parameter, the response SHALL not contain more resources than this maximum value.
+--
+====

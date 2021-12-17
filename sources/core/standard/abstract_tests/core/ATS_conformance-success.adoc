@@ -1,0 +1,10 @@
+[[ats_core_conformance-success]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/core/conformance-success*
+^|Test Purpose | Validate that the conformance declaration response complies with the required structure and contents.
+^|Requirement | <<req_core_conformance-success,/req/core/conformance-success>>
+^|Test Method | 
+. Validate the response document against <<conformance_schema, conformance schema>>.
+. Validate that the document lists all OGC API conformance classes that the API implements
+|===

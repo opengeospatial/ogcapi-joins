@@ -1,0 +1,15 @@
+[requirement,type="general",id="/req/core/joins-joinid-outputs",label="/req/core/joins-joinid-outputs",obligation="requirement"]
+[[req_core_joins-joinid-outputs]]
+====
+[.component,class=part]
+--
+A `200`-response SHALL include the following links in the `links` property of the `outputs` property of the response:
+
+* A link to each produced output for the data join operation  (relation: `output`)
+--
+
+[.component,class=part]
+--
+All links SHALL include the `rel` and `type` properties.
+--
+====

@@ -1,0 +1,5 @@
+[recommendation,type="general",id="/rec/core/joins-get-success-next-2",label="/rec/core/joins-get-success-next-2",obligation="requirement"]
+[[rec_core_joins-get-success-next-2]]
+====
+Dereferencing a `next` link SHOULD return additional resources from the set of selected resources that have not yet been returned.
+====

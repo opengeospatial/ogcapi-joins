@@ -1,0 +1,19 @@
+[requirement,type="general",id="/req/core/rc-md-items-links",label="/req/core/rc-md-items-links",obligation="requirement"]
+[[req_core_rc-md-items-links]]
+====
+[.component,class=part]
+--
+`200`-response SHALL include the following links in the `links` property of the response:
+
+* A link to this response document (relation: `self`)
+
+* A link to the response document in every other media type supported by the service (relation: `alternate`)
+
+* A link to key fields metadata of this collection (relation: `keys`)
+--
+
+[.component,class=part]
+--
+All links SHALL include the `rel` and `type` properties.
+--
+====

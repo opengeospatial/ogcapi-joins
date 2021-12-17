@@ -1,0 +1,13 @@
+[requirement,type="general",id="/req/core/collections-collectionid-keys-keyfieldid-get-success",label="/req/core/collections-collectionid-keys-keyfieldid-get-success",obligation="requirement"]
+[[req_core_collections-collectionid-keys-keyfieldid-get-success]]
+====
+[.component,class=part]
+--
+A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
+--
+
+[.component,class=part]
+--
+The content of that response SHALL be based on the <<collections_collectionid_keys_keyfieldid_schema,Collection's Key Field Schema>>.
+--
+====

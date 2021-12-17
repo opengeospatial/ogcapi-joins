@@ -1,0 +1,20 @@
+[requirement,type="general",id="/req/core/root-success",label="/req/core/root-success",obligation="requirement"]
+[[req_core_root-success]]
+====
+[.component,class=part]
+--
+A successful execution of the operation SHALL be reported as a response with an HTTP status code `200`. 
+--
+
+[.component,class=part]
+--
+The content of that response SHALL be based upon <<landing_page_schema,Landing Page Schema>>. 
+
+The response SHALL include <<link-relation-types,links>> to following resources:
+
+* `/api` (link rel property value: `service-desc` or `service-doc`)
+* `/conformance` (link rel property value: `http://www.opengis.net/def/rel/ogc/1.0/conformance`)
+* `/collections` (link rel property value: `http://www.opengis.net/def/rel/ogc/1.0/data`)
+* `/joins` (link rel property value: `joins`)
+--
+====

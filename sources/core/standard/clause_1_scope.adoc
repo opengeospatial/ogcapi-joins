@@ -1,0 +1,10 @@
+== Scope
+
+This OpenGIS® standard specifies a Web API that defines the core module for the OGC API - Joins specification.
+
+The specification contains operations for obtaining general information on the service implementation. These include operations for accessing the API landing page, the API definition file and the service’s conformance information.
+
+The specification contains also functionalities for retrieving metadata and key values on the collections that are available on the server, operation for joining attribute data from attribute data files with these collections or inputted files and accessing  and deleting the created joins. 
+
+The core module contains support for attribute data files in the CSV format and for spatial data files in the GeoJSON format. The support for other data formats may be defined in potential extension modules.
+

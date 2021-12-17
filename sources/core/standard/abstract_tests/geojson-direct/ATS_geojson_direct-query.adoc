@@ -1,0 +1,17 @@
+[[ats_geojson_direct-query]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/geojson-direct/query*
+^|Test Purpose | Validate that the data join response complies with the required structure and contents.
+^|Requirement |<<req_core_joins-post-op,/req/core/joins-post-op>> +
+<<req_core_joins-post-success, /req/core/joins-post-success>>
+^|Test Method | 1. Issue an HTTP POST request to the URL `{root}/joins` where 
+* The request contains the header: `Content-Type: multipart/form-data;` 
+* The form data parameter `join-type` has value `hosted`
+* The request contains either the uploaded attribute dataset file or it is referenced via URL.
+* The form data parameter `collection-id` has the same value as `id` property of a collection (from query `{root}/collections`).
+* The form data parameter `outputFormats` has value `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson-direct`. 
+* Other query parameters are set correctly.
+2. Validate that a document was returned with a status code `200`.
+3. Validate that the content of the returned document using test <<ats_geojson_direct-success,/ats/geojson-direct/success>>. +
+|===

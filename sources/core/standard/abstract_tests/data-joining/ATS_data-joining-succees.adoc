@@ -1,0 +1,9 @@
+[[ats_data_joining-success]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/data-joining/success*
+^|Test Purpose |  Validate that the data join response complies with the required structure and contents.
+^|Requirement |<<req_core_joins-post-success, /req/core/joins-post-success>>
+^|Test Method | . Validate that the response document complies with the <<join_schema, Join Schema>>.
+. Validate that the response document contains the joined data in all the requested output formats that are supported by the server.
+|===

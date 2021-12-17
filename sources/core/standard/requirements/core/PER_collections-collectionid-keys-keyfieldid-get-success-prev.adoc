@@ -1,0 +1,5 @@
+[permission,type="general",id="/per/core/collections-collectionid-keys-keyfieldid-get-success-prev",label="/per/core/collections-collectionid-keys-keyfieldid-get-success-prev",obligation="permission"]
+[[per_core_collections-collectionid-keys-keyfieldid-get-success-prev]]
+====
+A response to a `next` link MAY include a `prev` link to the resource that included the `next` link.
+====

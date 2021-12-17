@@ -1,0 +1,5 @@
+[requirement,type="general",id="/req/core/joins-get-success-timeStamp",label="/req/core/joins-get-success-timeStamp",obligation="requirement"]
+[[req_core_joins-get-success-timeStamp]]
+====
+If a property `timeStamp` is included in the response, the value SHALL be set to the time when the response was generated.
+====

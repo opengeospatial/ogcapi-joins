@@ -1,0 +1,13 @@
+[requirement,type="general",id="/req/core/http",label="/req/core/http",obligation="requirement"]
+[[req_core_http]]
+====
+[.component,class=part]
+--
+The server SHALL conform to <<rfc2616,HTTP 1.1.>>
+--
+
+[.component,class=part]
+--
+If the API supports HTTPS, then the API SHALL also conform to <<rfc2818,HTTP over TLS>>.
+--
+====

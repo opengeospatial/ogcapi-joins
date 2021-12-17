@@ -1,0 +1,25 @@
+[[ats_file-upload-file-upload]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/file-upload/file-upload*
+^|Test Purpose | 1. Validate that the input attribute file can be uploaded with the query to the server in the data joining functionality.
+2. Validate that the input attribute file and the other file can be uploaded with the query to the server in the file data joining functionality.
+^|Requirement |
+<<req_core_joins-post-op,/req/core/joins-post-op>> +
+<<req_core_joins-post-success, /req/core/joins-post-success>>
+^|Test Method | 
+Test method for (1): Execute the abstract test: <<ats_data_joining-query, /ats/data-joining/query>> where:
+
+* The request contains the form data parameter `attribute-dataset-file` that contains the uploaded file.
+
+* The request contains the header `Content-Disposition: form-data; filename=”[attribute dataset file’s name]”; name=”attribute-dataset-file`”; +
+
+Test method for (2): Execute the abstract test: <<ats_file_joining-query, /ats/file-joining/query>> where:
+
+* The request contains the form data parameter `attribute-dataset-file` that contains the uploaded file. 
+
+* The request contains the header `Content-Disposition: form-data; filename=”[attribute dataset file’s name]”; name=”attribute-dataset-file`; +
+* The request contains the form data parameter `spatial-dataset-file` that contains the uploaded file. 
+
+ * The request contains the header `Content-Disposition: form-data; filename=”[spatial dataset file’s name]”; name=”spatial-dataset-file`;
+|===

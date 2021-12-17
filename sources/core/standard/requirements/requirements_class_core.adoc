@@ -1,0 +1,15 @@
+[requirement,type="class",id="http://www.opengis.net/ogcapi-joins-1/1.0/req/core",obligation="requirement"]
+
+[requirements_class]
+====
+[%metadata]
+label:: http://www.opengis.net/ogcapi-joins-1/1.0/req/core
+subject:: Implementation Specification
+inherit:: <<OGC19-072,OGC 19-072 (OGC - API - Common: Part 1)>>
+inherit:: <<OGC20-024,OGC 20-024 (OGC - API - Common: Part 2)>>
+inherit:: <<rfc2616,RFC 2616 (HTTP/1.1)>>
+inherit:: <<rfc2818,RFC 2818 (HTTP over TLS)>>
+inherit:: <<rfc3339,RFC 3339 (Date and Time on the Internet: Timestamps)>>
+inherit:: <<rfc7578,RFC 7578 Returning Values from Forms: multipart/form-data>>
+inherit:: <<rfc8288,RFC 8288 (Web Linking)>>
+====

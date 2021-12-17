@@ -1,0 +1,20 @@
+[[media_types]]
+== Media Types for any data encoding(s)
+
+JSON media types that would typically be supported by a server that supports JSON are:
+
+* `application/geo+json` for joined data outputs, and
+
+* `application/json` for all resources.
+
+The typical HTML media type for all "web pages" in a server would be `text/html`.
+
+=== Joined Data Outputs
+
+The server implementations are required to support the media type `application/geo+json` for the joined data outputs.
+
+The server implementations may support any other media types for the joined data outputs.
+
+=== Problem Details Media Types
+
+The media type that would typically be supported by a server that supports the Problem Details response defined in <<rfc7807,RFC 7807>> is `application/problem+json`.

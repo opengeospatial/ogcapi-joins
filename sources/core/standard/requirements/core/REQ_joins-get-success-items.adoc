@@ -1,0 +1,5 @@
+[requirement,type="general",id="/req/core/joins-get-success-items",label="/req/core/joins-get-success-items",obligation="requirement"]
+[[req_core_joins-get-success-items]]
+====
+For each join resource accessible through the server, metadata describing that join SHALL be provided in the property `joins`.
+====
