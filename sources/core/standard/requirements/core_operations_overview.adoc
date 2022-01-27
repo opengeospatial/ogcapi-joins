@@ -3,15 +3,20 @@
 [width="95%", cols="15,5,10", options="header"]
 |===
 ^|*Path*|*HTTP method*|*Description*
-
+3+|*Discovery operations*
 |/
 |GET
 |API landing page
+
+|/api (recommended path)
+|GET
+|API definition
 
 |/conformance
 |GET
 |API conformance declaration
 
+3+|*Data joining operations*
 |/collections
 |GET
 |Returns metadata on the collections available on the server
@@ -43,4 +48,9 @@
 |/joins/{joinId}
 |DELETE
 |Deletes a specific join
+
+3+|*File joining operations*
+|/filejoin
+|POST
+|Joins data between two input files
 |===

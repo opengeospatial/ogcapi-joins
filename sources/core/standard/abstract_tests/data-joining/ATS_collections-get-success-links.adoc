@@ -1,0 +1,15 @@
+[[ats_data_joiningcollections-get-success-links]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/data-joining/collections-get-success-links*
+^|Test Purpose | Validate that the required links are included in the Collections document.
+^|Requirement | <<req_core_collections-get-success-links,/req/core/collections-get-success-links>>
+^|Test Method | 
+Verify that the response document includes:
+
+. A link to this response document (relation: `self`).
+
+. A link to the response document in every other media type supported by the server (relation: `alternate`).
+
+Verify that all links include the `rel` and `type` link parameters.
+|===

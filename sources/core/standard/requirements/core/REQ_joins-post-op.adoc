@@ -3,17 +3,7 @@
 ====
 [.component,class=part]
 --
-The server SHALL support the HTTP POST operation at path `{root}/joins`.
---
-
-[.component,class=part]
---
-The server SHALL support the `join-type` parameter value `hosted`.
---
-
-[.component,class=part]
---
-The server MAY support the `join-type` parameter value `file`.
+If the server implements the __data joining operations__ operation set it SHALL support the HTTP POST operation at path `{root}/joins`.
 --
 
 [.component,class=part]
@@ -29,14 +19,7 @@ The request SHALL contain the header:
 --
 If the attribute dataset file is uploaded with the query, it SHALL contain the header
 
-* Content-Disposition: form-data; filename="[attribute dataset file's name]"; name="attribute-dataset-file";
---
-
-[.component,class=part]
---
-If the spatial dataset file is uploaded with the query, it SHALL contain the header:
-
-* Content-Disposition: form-data; filename="[spatial dataset file's name]"; name="spatial-dataset-file";
+* Content-Disposition: form-data; filename="[right dataset file's name]"; name="right-dataset-file";
 --
 
 [.component,class=part]
@@ -46,12 +29,12 @@ The input data files SHALL be encoded with the `UTF-8` encoding.
 
 [.component,class=part]
 --
-The server SHALL support the GeoJSON output format for the joined data in the `join-type` parameter value `hosted`.
+The server SHALL support the GeoJSON output format for the joined data.
 --
 
 [.component,class=part]
 --
-The server MAY support any other output formats for the joined data in the `join-type` parameter value `hosted`. The parameters of that request are listed in sections L and M.
+The server MAY support any other output formats for the joined data.
 --
 
 [.component,class=part]
@@ -61,47 +44,31 @@ The server MAY support a optional direct GeoJSON response for the joined data fo
 
 [.component,class=part]
 --
-If the server supports the `join-type` parameter value `file`, it SHALL support the GeoJSON output format for the joined data. The parameters of that request are listed in sections L and N.
---
-
-[.component,class=part]
---
-The Common Form Data Parameters for the join-type Parameter Values ‘hosted’ and ‘file’:
+The Form Data parameters for the query:
 
 [cols="4,1,1,2",options="header"]
 |===
 ^|Name				        | Description 	     | Type and values | Required
-^|join-type                 | The type of join.  | String, values: {'hosted', 'file'} | Mandatory
-^|execution-type	        | The join execution type. | String, value: {'synchronous'} | Optional^a^
-^|attribute-dataset-format  | The format of the attribute dataset. | String | Mandatory^b^
-^|attribute-dataset-file	| The attribute dataset file (uploaded file). | File | Optional^c^
-^|attribute-dataset-url	    | The attribute dataset URL. | URL | Optional^c^
-^|attribute-dataset-key	    | The key field in the attribute dataset that contains the key values. | String | Mandatory^d^
-^|attribute-dataset-data-value-list	| Fields in the attribute dataset that contain the attribute values that will be joined. | String, separated by commas | Mandatory^e^
+^| collection-id	        | The value of the `id` attribute of the collection available on the server, to which the attribute data will be joined. | String | Mandatory
+^| collection-key	        | The value of the `id` attribute of the key field of the collection that will be used in the join operation. | String | Optional^a^
+^|right-dataset-format  | The format of the attribute dataset. | String | Mandatory^b^
+^|right-dataset-file	| The attribute dataset file (uploaded file). | File | Optional^c^
+^|right-dataset-url	    | The attribute dataset URL. | URL | Optional^c^
+^|right-dataset-key	    | The key field in the attribute dataset that contains the key values. | String | Mandatory^d^
+^|right-dataset-data-value-list	| Fields in the attribute dataset that contain the attribute values that will be joined. | String, separated by commas | Mandatory^e^
 ^|csv-file-delimiter	    | The delimiter character used in the CSV file. | String | Optional^f^
-^|csv-file-contains-header-row 	| Information on the existence of header row in the CSV file. | Boolean, values: {true, false} | Optional^g^
-4+| ^a^  The core module supports only the value 'synchronous', other values may be defined in the extension modules.
-4+| ^b^  The core module contains support for the value: 'csv'.
-4+| ^c^  One of the parameters: __attribute-dataset-file__ or __attribute-dataset-url__ is mandatory to be used with the operation. The __attribute-dataset-file__ parameter can be used for uploading an attribute dataset file to the server. The __attribute-dataset-url__ parameter can be used for providing the attribute dataset file through URL link. If both parameters are provided in the query, the server SHALL send HTTP exception `400`.
+^| output-formats		    | List of output formats for the joined data that will be included to the response document.   | String, separated by commas | Optional^g^
+^| include-join-metadata     | Includes the joinInformation element to the response document. | Boolean, values: {true, false} | Optional^h^ 
+4+| ^a^ If the `collection-key` parameter is not provided in the request, a default key field value of the collection is used in the join operation.
+4+| ^b^  The core module contains support for the format: 
+
+ 'http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/csv'.
+
+4+| ^c^  One of the parameters: __right-dataset-file__ or __right-dataset-url__ is mandatory to be used with the operation. The __right-dataset-file__ parameter can be used for uploading an attribute dataset file to the server. The __right-dataset-url__ parameter can be used for providing the attribute dataset file through URL link. If both parameters are provided in the query, the server SHALL send HTTP exception `400`.
 4+| ^d^ The key field in the attribute dataset that contains the key values. For CSV format, this value is the column number that contains the key values (counting starts from 0).
-4+| ^e^  For CSV format, the values are the column numbers that contain the attribute values that will be joined (counting starts from 0).
-4+| ^f^ The __csv-file-delimiter__ parameter is mandatory to be used with the __attribute-dataset-format__ parameter value: 'csv'. The parameter is not required for other formats that may be defined in the extension modules.
-4+| ^g^ The __csv-file-contains-header-row__ parameter is optional to be used with the __attribute-dataset-format__ parameter value: 'csv'. The parameter is not required for other formats that may be defined in the extension modules. Values: (__true__, __false__). If parameter is not provided in the request, default value __false__ is used. If parameter has value __true__, CSV file's header is assumed to be on the first row of the CSV file and data values are assumed to start from the second row. If parameter has value __false__, the data values are assumed to start from CSV file's first row.
-|===
---
-
-[.component,class=part]
---
-Additional Form Data Parameters for join-type Parameter Value ‘hosted’:
-
-[cols="4,1,1,2",options="header"]
-|===
-| Name				        | Description 	     | Type and values | Required
-| output-formats		    | List of output formats for the joined data that will be included to the response document.   | String, separated by commas | Optional^a^
-| include-join-metadata     | Includes the joinInformation element to the response document. | Boolean, values: {true, false} | Optional^b^ 
-| collection-id	            | The value of the `id` attribute of the collection available on the server, to which the attribute data will be joined. | String | Mandatory
-| collection-key	        | The value of the `id` attribute of the key field of the collection that will be used in the join operation. | String | Optional^c^
-4+| ^a^  Comma-separated list of the outputs that will be included to the response document. The output formats that the server supports SHALL be listed in the server's conformance declaration. If the parameter value is not provided in the request, a default value 
+4+| ^e^  For CSV format, the values are the column numbers that contain the attribute values that will be joined with the collection (counting starts from 0).
+4+| ^f^ The __csv-file-delimiter__ parameter is mandatory to be used with the __right-dataset-format__ parameter value: 'http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/csv'. The parameter is not required for other formats that may be defined in the extension modules.
+4+| ^g^  Comma-separated list of the outputs that will be included to the response document. The output formats that the server supports SHALL be listed in the server's conformance declaration. If the parameter value is not provided in the request, a default value 
 
 `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson` 
 
@@ -109,29 +76,10 @@ is used. If the server supports the direct geojson response for the join it SHAL
 
 `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson-direct`.
 
-4+| ^b^ If parameter is not provided in the request, a default value __false__ is used. The parameter is not used with the `output-formats` parameter value
+4+| ^h^ If parameter is not provided in the request, a default value __false__ is used. The parameter is not used with the `output-formats` parameter value
 
 `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson-direct`
 
-4+| ^c^ If the `collection-key` parameter is not provided in the request, a default key field value of the collection will be used in the join operation.
-|===
---
-
-[.component,class=part]
---
-Additional Form Data Parameters for join-type Parameter Value ‘file’:
-[cols="4,1,1,2",options="header"]
-|===
-| Name				      | Description 	     | Type and values | Required
-| spatial-dataset-format  | The format of the spatial dataset. | String | Mandatory^a^
-| spatial-dataset-file    | The spatial dataset file (uploaded file) | File |  Optional^b^
-| spatial-dataset-url	  | A URL link to the spatial dataset file | URL |  Optional^b^
-| spatial-dataset-key     | The path to the key field in the spatial dataset file that contains key values. Example: 'features.properties.key' | String | Mandatory
-4+| ^a^  The core module contains support for the format: 
-
-`http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson`.
-
-4+| ^b^  One of the parameters: __spatial-dataset-file__ or __spatial-dataset-url__ is mandatory to be used with the operation. The __spatial-dataset-file__ parameter can be used for uploading the spatial dataset file to the server. The __spatial-dataset-url__ parameter can be used for providing the spatial dataset file through URL link. If both parameters are provided in the query, the server SHALL send HTTP exception `400`.
 |===
 --
 ====

@@ -1,0 +1,14 @@
+[requirement,type="general",id="/req/core/filejoin-post-success",label="/req/core/filejoin-post-success",obligation="requirement"]
+[[req_core_filejoin-post-success]]
+====
+
+[.component,class=part]
+--
+A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
+--
+
+[.component,class=part]
+--
+The content of the response in `A` SHALL be the joined dataset in the GeoJSON format.
+--
+====

@@ -1,18 +1,13 @@
-[[ats_file_joining-query]]
+[[ats_geojson-input-query]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/file-joining/query*
-^|Test Purpose | Verify that the server supports the `join-type` parameter value `hosted` for join creation.
+^|*Abstract Test {counter:ats-id}* |*/ats/geojson-input/query*
+^|Test Purpose | If the server supports the file joining functionality, validate that server supports the GeoJSON input files for the left dataset for the right dataset for the file joining operation.
 ^|Requirement |
-<<req_core_joins-post-op,/req/core/joins-post-op>> +
-<<req_core_joins-post-success, /req/core/joins-post-success>>
+<<req_core_filejoin-post-op,/req/core/filejoin-post-op>> +
+<<req_core_filejoin-post-success, /req/core/filejoin-post-success>>
 ^|Test Method | 
-If the server supports the data joining with inputted Spatial Data files:
-
-1. Issue an HTTP POST request to the URL `{root}/joins` where
-* The request contains the header: `Content-Type: multipart/form-data;` 
-* The form data parameter `joinType` has the value `file`.
-2. Validate that a document was returned with a status code `200`.
-3. Validate the contents of the returned document using test <<ats_core_joins-post-success, /ats/core/joins-post-success>>
-
+Test method for (1): Execute the abstract test: <<ats_file_joining_filejoin-post-op, /ats/file-joining/filejoin-post-op>> where: +
+- The form data parameter `left-dataset-format` has the value `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/geojson`. +
+- The request contains either the uploaded GeoJSON file in the form data parameter `left-dataset-file`or it is referenced via URL in the form data parameter `left-dataset-url`. +
 |===

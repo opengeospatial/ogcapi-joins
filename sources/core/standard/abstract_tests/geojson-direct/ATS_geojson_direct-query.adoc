@@ -7,8 +7,7 @@
 <<req_core_joins-post-success, /req/core/joins-post-success>>
 ^|Test Method | 1. Issue an HTTP POST request to the URL `{root}/joins` where 
 * The request contains the header: `Content-Type: multipart/form-data;` 
-* The form data parameter `join-type` has value `hosted`
-* The request contains either the uploaded attribute dataset file or it is referenced via URL.
+* The request contains either the uploaded input dat file or it is referenced via URL.
 * The form data parameter `collection-id` has the same value as `id` property of a collection (from query `{root}/collections`).
 * The form data parameter `outputFormats` has value `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson-direct`. 
 * Other query parameters are set correctly.

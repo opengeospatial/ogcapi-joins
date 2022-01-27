@@ -2,7 +2,11 @@
 
 This document defines the core module of the OGC API - Joins standard. The specification is a multi-part document that can be extended by specifying extension modules to the core module.
 
-This document does not suggest any updates to the OGC Abstract Specification
+The document originates from the work that was executed in order to renew the OGC standard: OpenGIS® Georeferenced Table Joining Service (TJS) Implementation Standard (document nr. <<OGC10-070r2,10-070r2>>), specified in 2010.
+
+This document specifies a service interface that allows data to be joined from inputted data files with feature collections that are available on the server or directly with other inputted files. The core module contains support for CSV and GeoJSON input files.
+
+Other functionalities include: viewing general metadata on the service implementation, metadata and key values on the available feature collections and functionalities for accessing and deleting the created joins.
 
 ////
 *OGC Declaration*
@@ -29,4 +33,7 @@ Attention is drawn to the possibility that some of the elements of this document
 [abstract]
 == Abstract
 
-This document is the specification for the core module of the OGC API - Joins standard. The core module specifies a service interface that allows attribute data to be joined either with collections that are hosted on the server or directly with inputted files. The core module contains support for CSV and GeoJSON files. The joining of the datasets is executed via common identifiers that are available in both datasets. The OGC API - Joins core module supports also operations for viewing metadata and key values on collections that are available on the server. It contains also operations for accessing and deleting the created joinsd.
+This document is the specification for the core module of the OGC API - Joins standard. It specifies a Web API that allows data to be joined from inputted data files either with feature collections that are available on the server or directly with other inputted files. 
+
+
+The document defines also functionalities for viewing general metadata on the service implementation, metadata and key values on the feature collections and functionalities for accessing and deleting the created joins.

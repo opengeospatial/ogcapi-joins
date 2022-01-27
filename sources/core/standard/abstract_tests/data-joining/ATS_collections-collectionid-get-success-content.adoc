@@ -1,0 +1,16 @@
+[[ats_data_joining_collections-collectionid-get-success-content]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/data-joining/collections-collectionid-get-success-content*
+^|Test Purpose | Validate that a Collection document complies with the required structure and values.
+^|Requirement | <<req_core_collections-get-success, /req/core/collections-collectionid-get-success>> +
+<<req_core_rc-md-items-links,/req/core/rc-md-items-links>> +
+<<req_core_rc-md-extent,/req/core/rc-md-extent>>
+^|Test Method | 
+FOR a each Collection document, validate:
+
+. That the Collection document includes an `id` property.
+. That the Collection document complies with <<req_core_rc-md-items-links,/req/core/rc-md-items-links>>.
+. That any extent properties included in the Collection document comply with <<req_core_rc-md-extent,req/core/rc-md-extent>>.
+. Validate the content of the Collection document for all supported media types using the <<collections_collectionid_schema, Collection schema>> and test <<ats_json-content, /ats/json/content>>.
+|===

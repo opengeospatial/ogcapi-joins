@@ -1,0 +1,75 @@
+[requirement,type="general",id="/req/core/filejoin-post-op",label="/req/core/filejoin-post-op",obligation="requirement"]
+[[req_core_filejoin-post-op]]
+====
+[.component,class=part]
+--
+If the server implements the __file joining operations__ operation set it SHALL support the HTTP POST operation at path `{root}/filejoin`.
+--
+
+[.component,class=part]
+--
+The request is made as a <<rfc7578,multipart/form-data>> request. 
+
+The request SHALL contain the header:
+
+* Content-Type: multipart/form-data;
+--
+
+[.component,class=part]
+--
+If the left dataset file is uploaded with the query, it SHALL contain the header:
+
+* Content-Disposition: form-data; filename="[left dataset file's name]"; name="left-dataset-file";
+--
+
+[.component,class=part]
+--
+The server SHALL support the GeoJSON format for the left dataset. The parameters of that request are listed in section B.
+--
+
+[.component,class=part]
+--
+If the right dataset file is uploaded with the query, it SHALL contain the header
+
+* Content-Disposition: form-data; filename="[right dataset file's name]"; name="right-dataset-file";
+--
+
+[.component,class=part]
+--
+The input data files SHALL be encoded with the `UTF-8` encoding.
+--
+
+[.component,class=part]
+--
+The Form Data parameters for the query:
+
+[cols="4,1,1,2",options="header"]
+|===
+^|Name | Description | Type and values | Required
+^|left-dataset-format | The format of the left dataset. | String | Mandatory^a^
+^|left-dataset-file | The left dataset file (uploaded file) | File | Optional^b^
+^|left-dataset-url	| A URL link to the left dataset file | URL | Optional^b^
+^|left-dataset-key  | The key field in the left dataset file that contains the key values. | String | Mandatory^c^
+^|right-dataset-format | The format of the right dataset. | String | Mandatory^d^
+^|right-dataset-file | The right dataset file (uploaded file). | File | Optional^e^
+^|right-dataset-url	 | The right dataset URL. | URL | Optional^e^
+^|right-dataset-key	 | The key field in the right dataset that contains the key values. | String | Mandatory^f^
+^|right-dataset-data-value-list	| Fields in the right dataset that contain the attribute values that will be joined with the left dataset. | String, separated by commas | Mandatory^g^
+^|csv-file-delimiter | The delimiter character used in the CSV file. | String | Optional^h^
+4+| ^a^  The core module contains support for the format: 
+
+`http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/geojson`.
+
+4+| ^b^  One of the parameters: __left-dataset-file__ or __left-dataset-url__ is mandatory to be used with the operation. The __left-dataset-file__ parameter can be used for uploading the left dataset file to the server. The __left-dataset-url__ parameter can be used for providing the left dataset file vis URL link. If both parameters are provided in the query, the server SHALL send HTTP exception `400`.
+4+| ^c^  For GeoJSON format, the value of the __left-dataset-key__ parameter is the path to the key field that contains the key values of the left dataset file. Example: 'features.properties.key'
+4+| ^d^  The core module contains support for the format: 
+
+ 'http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/csv'.
+
+4+| ^e^  One of the parameters: __right-dataset-file__ or __right-dataset-url__ is mandatory to be used with the operation. The __right-dataset-file__ parameter can be used for uploading the right dataset file to the server. The __right-dataset-url__ parameter can be used for providing the right dataset file via URL link. If both parameters are provided in the query, the server SHALL send HTTP exception `400`.
+4+| ^f^ For CSV format, the value of the __right-dataset-key__ parameter is the column number that contains the key values (counting starts from 0).
+4+| ^g^  For CSV format, the values are the column numbers that contain the attribute values that will be joined with the left dataset (counting starts from 0).
+4+| ^h^ The __csv-file-delimiter__ parameter is mandatory to be used with the __right-dataset-format__ parameter value: 'http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/csv'. The parameter is not required for other formats that may be defined in the extension modules.
+|===
+--
+====

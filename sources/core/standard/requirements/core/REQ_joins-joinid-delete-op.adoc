@@ -3,7 +3,7 @@
 ====
 [.component,class=part]
 --
-The server MAY support the HTTP DELETE operation at the path `{root}/joins/{joinId}`.
+If the server implements the __data joining operations__ operation set it MAY support the HTTP DELETE operation at the path `{root}/joins/{joinId}`.
 --
 
 

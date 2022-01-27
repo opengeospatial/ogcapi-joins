@@ -1,25 +1,27 @@
-[[ats_file-upload-file-upload]]
+[[ats_file-upload_file-upload]]
 [width="90%",cols="2,6a"]
 |===
 ^|*Abstract Test {counter:ats-id}* |*/ats/file-upload/file-upload*
-^|Test Purpose | 1. Validate that the input attribute file can be uploaded with the query to the server in the data joining functionality.
-2. Validate that the input attribute file and the other file can be uploaded with the query to the server in the file data joining functionality.
+^|Test Purpose | 1. Validate that the input data file can be uploaded with the query to the server in the data joining functionality.
+2. Validate that the input files can be uploaded with the query to the server in the file data joining functionality.
 ^|Requirement |
 <<req_core_joins-post-op,/req/core/joins-post-op>> +
-<<req_core_joins-post-success, /req/core/joins-post-success>>
+<<req_core_joins-post-success, /req/core/joins-post-success>> +
+<<req_core_filejoin-post-op,/req/core/filejoin-post-op>> +
+<<req_core_filejoin-post-success, /req/core/filejoin-post-success>>
 ^|Test Method | 
-Test method for (1): Execute the abstract test: <<ats_data_joining-query, /ats/data-joining/query>> where:
+Test method for (1): Execute the abstract test: <<ats_data_joining_joins-post-op, /ats/data-joining/joins-post-op>> where:
 
 * The request contains the form data parameter `attribute-dataset-file` that contains the uploaded file.
 
 * The request contains the header `Content-Disposition: form-data; filename=”[attribute dataset file’s name]”; name=”attribute-dataset-file`”; +
 
-Test method for (2): Execute the abstract test: <<ats_file_joining-query, /ats/file-joining/query>> where:
+Test method for (2): Execute the abstract test: <<ats_file_joining_filejoin-post-op, /ats/file-joining/filejoin-post-op>> where:
 
-* The request contains the form data parameter `attribute-dataset-file` that contains the uploaded file. 
+* The request contains the form data parameter `right-dataset-file` that contains the uploaded file. 
 
-* The request contains the header `Content-Disposition: form-data; filename=”[attribute dataset file’s name]”; name=”attribute-dataset-file`; +
-* The request contains the form data parameter `spatial-dataset-file` that contains the uploaded file. 
+* The request contains the header `Content-Disposition: form-data; filename=”[right dataset file’s name]”; name=”right-dataset-file`; +
+* The request contains the form data parameter `left-dataset-file` that contains the uploaded file. 
 
- * The request contains the header `Content-Disposition: form-data; filename=”[spatial dataset file’s name]”; name=”spatial-dataset-file`;
+ * The request contains the header `Content-Disposition: form-data; filename=”[left dataset file’s name]”; name=”left-dataset-file`;
 |===

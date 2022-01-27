@@ -3,7 +3,7 @@
 ====
 [.component,class=part]
 --
-The server SHALL support the HTTP GET operation at the path `{root}/collections/{collectionId}/keys`.
+If the server implements the __data joining operations__ operation set it SHALL support the HTTP GET operation at the path `{root}/collections/{collectionId}/keys`.
 --
 
 [.component,class=part]

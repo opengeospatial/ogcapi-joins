@@ -1,0 +1,8 @@
+[[ats_data_joining_collections-collectionid-keys-default-key]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/data-joining/collections-collectionid-keys-default-key*
+^|Test Purpose | Validate that the response `isDefault` value of the response.
+^|Requirement | <<req_core_collections-collectionid-keys-default-key,/req/core/collection-collectionsid-keys-default-key>>
+^|Test Method | Validate that the response's `keys` array contains exatly one object that has the `isDefault` property value `true`.
+|===

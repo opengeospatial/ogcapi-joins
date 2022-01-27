@@ -2,23 +2,18 @@
 [width="90%",cols="2,6a"]
 |===
 ^|*Abstract Test {counter:ats-id}* |*/ats/csv-input/query*
-^|Test Purpose | 1. Validate that server supports the CSV format for inputted attribute dataset files for the join creation operation.
-2. If the server supports the join update functionality, validate that server supports the CSV format for inputted attribute dataset files for join update operation.
+^|Test Purpose | 1. If the server supports the data joining functionality, validate that server supports the CSV input files for the join creation operation.
+2. If the server supports the file joining functionality, validate that server supports the CSV input files for the right dataset for the file joining operation.
 ^|Requirement | <<req_core_joins-post-op,/req/core/joins-post-op>> +
 <<req_core_joins-post-success, /req/core/joins-post-success>> +
-<<req_core_joins-put-op,/req/core/joins-put-op>> +
-<<req_core_joins-put-success, /req/core/joins-put-success>>
+<<req_core_filejoin-post-op,/req/core/filejoin-post-op>> +
+<<req_core_filejoin-post-success, /req/core/filejoin-post-success>>
 ^|Test Method | 
-Test method for (1):
-* Issue an HTTP POST request to the URL `{root}/joins` where 
-* The request contains the header: `Content-Type: multipart/form-data;` 
-* The form data parameter `join-type` has either the value `hosted` or `file`.
-* The form data parameter `collection-id` is the `id` property of a collection (from query `{root}/collections`).
-** The form data parameter `attribute-dataset-format` has the value `csv`.
-* The request contains either: 
-** The form data parameter `join-type` with the value `file`.uploaded attribute dataset file or it is referenced via URL.
-. Validate that a document was returned with a status code `201`.
-. Validate the contents of the returned document using test <<ats_data_joining-success, /ats/data-joining/success>>
+Test method for (1): Execute the abstract test: <<ats_data_joining_joins-post-op, /ats/data-joining/joins-post-op>> where: +
+- The form data parameter `attribute-dataset-format` has the value `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/csv`. +
+- The request contains either the uploaded attribute dataset file in the CSV format or a CSV file is referenced via URL. +
 
-Test method for (2): Execute the abstract test: <<ats_file_joining-query, /ats/file-joining/query>>
+Test method for (1): Execute the abstract test: <<ats_file_joining_filejoin-post-op, /ats/file-joining/filejoin-post-op>> where: +
+- The form data parameter `right-dataset-format` has the value `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/csv`. +
+- The request contains either the uploaded CSV file in the form data parameter `right-dataset-file`or it is referenced via URL in the form data parameter `right-dataset-url`.
 |===

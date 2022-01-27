@@ -1,0 +1,9 @@
+[[ats_file_joining_filejoin-post-success]]
+[width="90%",cols="2,6a"]
+|===
+^|*Abstract Test {counter:ats-id}* |*/ats/file_joining/_filejoin-post-success*
+^|Test Purpose | Verify the response of the file joining functionality
+^|Requirement |<<req_core_joins-post-op,/req/core/joins-post-op>> +
+<<req_core_joins-post-success, /req/core/joins-post-success>>
+^|Test Method | Validate that the response is a valid document in the correct output format and that it contains the attributes that were joined from the right dataset file.
+|===

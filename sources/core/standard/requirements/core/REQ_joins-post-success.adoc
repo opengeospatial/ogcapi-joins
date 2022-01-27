@@ -3,7 +3,7 @@
 ====
 [.component,class=part]
 --
-A successful execution of the operation for the `join-type` parameter value `hosted` with other `output-format` parameter values other than `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson-direct` SHALL be reported as a response with a HTTP status code `201`.
+A successful execution of the operation with other `output-format` parameter values than `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson-direct` SHALL be reported as a response with a HTTP status code `201`.
 --
 
 [.component,class=part]
@@ -13,7 +13,7 @@ The content of the response in `A` is based on the <<join_schema, Join Schema>>.
 
 [.component,class=part]
 --
-A successful execution of the operation for the `join-type` parameter value `hosted` for the output format `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson-direct` SHALL be reported as a response with a HTTP status code `200`. 
+A successful execution of the operation for the output format `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson-direct` SHALL be reported as a response with a HTTP status code `200`. 
 --
 
 [.component,class=part]
@@ -21,13 +21,4 @@ A successful execution of the operation for the `join-type` parameter value `hos
 The content of the response in `C` SHALL be the joined data in the GeoJSON format.
 --
 
-[.component,class=part]
---
-A successful execution of the operation for the `join-type` parameter value `file`  SHALL be reported as a response with a HTTP status code `200`.
---
-
-[.component,class=part]
---
-The content of the response in `E` SHALL be the joined data in the GeoJSON format.
---
 ====

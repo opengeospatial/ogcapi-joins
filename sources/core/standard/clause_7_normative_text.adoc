@@ -6,7 +6,22 @@ include::./requirements/requirements_class_core.adoc[]
 [[core-overview]]
 === Overview
 
-The core requirements class contains the following functionalities: 
+The core requirements class contains 3 operation sets: __discovery operations__, __data joining operations__ and __file joining operations__. The <<core-overview-table,Table 4>> contains an overview of the operations specified in the core module.
+
+The operation set __discovery operations__ contains functionalities for accessing the API landing page, the API definition document and the information on the service’s conformance to the standard. 
+
+The operation set __data joining operations__ contains functionalities for accessing metadata and key values on the feature collections that are available on the server, functionality for joining data from inputted data files with the collections and functionalities for and accessing and deleting the created joins.
+
+The operation set __file joining operations__ contains a functionality for joining data from inputted data files directly with other inputted data files.
+
+The core module contains the following input data file format support:
+
+* CSV format in the __data joining operations__ operation set.
+* CSV and GeoJSON format in the __file joining operations__ operation set.
+
+The server implementations SHALL support the _discovery operations__ operation set and at least one of the operation sets: __data joining operations__, and  __file joining operations__. If a server supports a particular operation set it SHALL implement all mandatory operations that belong to it.
+
+*Overview on the functionalities*
 
 The `Landing page` (path `/`) provides an entry point to the API. It contains links to:
 
@@ -19,7 +34,7 @@ The `API definition` describes the capabilities of the server that can be used b
 
 The `Conformance declaration` states the conformance classes from standards or community specifications, identified by a URI, that the API conforms to. Clients can but are not required to use this information. Accessing the `Conformance declaration` using HTTP GET returns the list of URIs of conformance classes implemented by the server.
 
-Accessing the `Collections` using HTTP GET returns a the list of datasets that are available on the server. 
+Accessing the `Collections` using HTTP GET returns a the list of feature collections that are available on the server. 
 
 Each `Collection` element in the Collections list can be accessed further in order to get the metadata on each indivual Collection by making an HTTP GET request at path `/collections/{collectionId}`.
 
@@ -29,18 +44,13 @@ Accessing the `Collection's Key Field` using HTTP GET at path `/collections/{col
 
 Accessing the `Joins` using HTTP GET returns a the list of Joins that are available on the server. 
 
-New `Joins` can be created by making a HTTP POST query to the path `/joins`. This is done by joining attribute data from inputted attribute data file with the Collection available on the server. Attribute data can be also joined directly with inputted spatial data files. 
+New `Joins` can be created by making a HTTP POST query at path `/joins`. This is done by joining data from inputted data file with a Collection available on the server. 
 
 Each `Join` element in the Joins list can be accessed further in order to get the metadata on each indivual Join by making an HTTP GET request at path `/joins/{joinId}`.
 
-Each `Join` can be deleted by making a HTTP DELETE request to path `/joins/{joinId}`.
+Each `Join` can be deleted by making a HTTP DELETE request at path `/joins/{joinId}`.
 
-The core module contains support for:
-
-* CSV format for the inputted attribute data files.
-* GeoJSON format for the inputted spatial data files.
-
-The <<core-overview-table,Table 4>> contains an overview of the operations specified in the core module.
+The data from input data file can be joined directly with other input data file by making a HTTP POST request at path `/filejoin`.
 
 include::./requirements/core_operations_overview.adoc[]
 
@@ -97,6 +107,7 @@ Two common mechanisms to support cross-origin requests are:
 * link:https://en.wikipedia.org/wiki/Cross-origin_resource_sharing[Cross-origin resource sharing (CORS)]
 
 * link:https://en.wikipedia.org/wiki/JSONP[JSONP (JSON with padding)]
+
 
 === API Landing Page
 
@@ -537,17 +548,17 @@ See <<http_status_codes,HTTP status codes>> for general guidance.
 
 The HTTP POST operation at path `{root}/joins` creates a new join. 
 
-The operation contains two joining modes: 
+The operation joins data from an inputted data file with a collection hosted on the server.
 
-. Joining attribute data from an inputted attribute data file with a collection hosted on the server. 
-
-. Joining attribute data from an inputted attribute data file directly with a spatial dataset file provided with the query.
-
-The core module contains support for the CSV format for the attribute data files and for the GeoJSON format for the spatial data files.
+The data file can either be uploaded to the server with the query or referenced via URL link.
 
 The joins are executed via common key values that are available in both datasets.
 
-If the attribute dataset contains additional key values that are not available in the collection or spatial dataset, they will be not included to the joined output. The extension modules may alter this behavior.
+If the input data file contains additional key values that are not available in the collection, they will not be included to the joined output. The extension modules may alter this behavior.
+
+The core module contains support for CSV format for the input data files.
+
+The inputted CSV files SHALL contain a header row in the first row. The data values SHALL begin from the second row. The names of the joined attributes are the names of the joined columns from the CSV file header row.
 
 ==== Request
 
@@ -559,7 +570,7 @@ include::./requirements/core/REQ_joins-post-success.adoc[]
 
 include::./requirements/core/REQ_joins-post-attribute-data-file-csv-multiple-keys.adoc[]
 
-include::./requirements/core/REQ_joins-joinid-post-success-attribute-data-file-csv-attribute-names.adoc[]
+include::./requirements/core/REQ_joins-post-success-attribute-data-file-csv-attribute-names.adoc[]
 
 ===== Response schema for the Join Creation
 
@@ -705,6 +716,44 @@ The response of the operation is empty.
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
 If the parameter `joinId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 5>>).
+
+[[filejoin-post-op]]
+=== File Joining
+
+The HTTP POST operation at path `{root}/filejoin` joins data from inputted data file directly with another inputted data file.
+
+The input data files can be either uploaded to the server with the query or referenced via URL links.
+
+The core module support data joining from the right dataset to the left dataset. 
+
+The core module contains support for:
+* The CSV format for the right dataset.
+* The GeoJSON format for the left dataset 
+
+The joins are executed via common key values that are available in both datasets. If the right dataset contains additional key values that are not available in the left dataset, they will not be included to the joined output. The extension modules may alter this behavior. 
+
+The result of the operation is the left dataset that contains also the joined attributes from the right dataset.
+
+The inputted CSV files SHALL contain a header row in the first row. The data values SHALL begin from the second row. The names of the joined attributes are the names of the joined columns from the CSV file header row.
+
+==== Request
+
+include::./requirements/core/REQ_filejoin-post-op.adoc[]
+
+==== Response
+
+include::./requirements/core/REQ_filejoin-post-success.adoc[]
+
+include::./requirements/core/REQ_filejoin-post-attribute-data-file-csv-multiple-keys.adoc[]
+
+include::./requirements/core/REQ_filejoin-post-success-attribute-data-file-csv-attribute-names.adoc[]
+
+===== Response schema for the File Joining
+
+The response is a GeoJSON file that contains also the joined attributes.
+
+==== Error Situations
+See <<http_status_codes,HTTP status codes>> for general guidance.
 
 [[rc_encodings]]
 == Requirements Classes for Encodings

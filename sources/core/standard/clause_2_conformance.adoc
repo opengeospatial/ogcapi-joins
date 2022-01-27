@@ -1,5 +1,5 @@
 == Conformance
-This standard defines the requirement class "core" and encoding requirements classes "JSON", "HTML" and "GeoJSON" 
+This standard defines the requirement class "core" and the encoding requirements classes "JSON", "HTML" and "GeoJSON" 
 
 The standardization targets of all conformance classes are "Web APIs."
 
@@ -7,19 +7,21 @@ The main requirements class is:
 
 * <<rc_core,Core>>.
 
-The core requirements class specifies requirements that all Web APIs have to implement.
+The core requirements class specifies 3 operation sets: __discovery opeations__, __data joining operations__ and __file joining operations__.
 
-The JSON encoding format is mandatory to be supported for service responses. 
+The service implementations SHALL support the operation set __discovery operations__ and they MAY support either one or both of the operation sets: __data joining operations__ and __file joining operations__.
 
-The support for HTML encoding is recommended.
+The CSV input file format is mandatory to be supported in the operation sets: __data joining operations__ and __file joining operations__.
 
-The GeoJSON encoding is mandatory to be supported for the joined data outputs.
+The GeoJSON input file format is mandatory to be supported in the operation set __file joining operations__.
 
-The CSV format is mandatory to be supported for the join inputs. 
+The JSON encoding format is generally mandatory to be supported for service responses. 
 
-The GeoJSON format input may be supported for the file joining functionality.
+The support for HTML encoding format is recommended for service responses.
 
-The Core does not mandate any encoding or format for the formal definition of the API. One option is the OpenAPI 3.0 specification and a requirements class has been specified in the <<OGC19-072,OGC API - Common - Part 1>>.
+The GeoJSON encoding is mandatory to be supported for the output that contains the joined data in the operation sets: __data joining operations__ and __file joining operations__.
+
+The Core does not mandate any encoding or format for the formal definition of the API. One option is to use the OpenAPI 3.0 specification and OpenAPI 3.0 Requirements Class, defined in the <<OGC19-072,OGC API - Common - Part 1>> document.
 
 The conformance class values defined in this core module are listed in <<conformance_classes_table, Table 1>>.
 
@@ -28,23 +30,23 @@ The conformance class values defined in this core module are listed in <<conform
 [width="90%",cols="3,6a",options="header"]
 |===
 ^|*Conformance class* |*URI*
-<|Core|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/core
-<|Data joining|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/core/data-joining
-<|File joining|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/core/file-joining
-<|Join delete|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/core/join-delete
-<|HTML|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/html
-<|JSON|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/json
+<|<<ats_core,Core>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/core
+<|<<ats_data_joining,Data joining>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/core/data-joining
+<|<<ats_file_joining,File joining>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/core/file-joining
+<|<<ats_join_delete,Join delete>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/core/join-delete
+<|<<ats_html,HTML>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/html
+<|<<ats_json,JSON>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/json
 2+|*Input*
-<|File uploading with Query|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/file-upload
-<|File referencing with URL|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/http-ref
-<|CSV file input|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/csv
-<|GeoJSON file input|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/geojson
+<|<<ats_file_uploading,File uploading with Query>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/file-upload
+<|<<ats_file_referencing,File referencing with URL>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/http-ref
+<|<<ats_csv_input,CSV file input>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/csv
+<|<<ats_geojson_input,GeoJSON file input>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/geojson
 2+|*Output*
-<|GeoJSON output for joined data|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson
-<|Direct GeoJSON output for joined data|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson-direct
+<|<<ats_geojson,GeoJSON output for joined data>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson
+<|<<ats_geojson_direct,Direct GeoJSON output for joined data>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson-direct
 |===
 
-In addition, the following conformance classes that are used from the specifications <<OGC19-072,OGC API - Common - Part 1>> and <<OGC20-024,OGC API - Common - Part 2>> are listed in <<ogc_api_common_conformance_classes_table, Table 2>>.
+In addition, come conformance classes are used from the specifications <<OGC19-072,OGC API - Common - Part 1>> and <<OGC20-024,OGC API - Common - Part 2>>. They are listed in <<ogc_api_common_conformance_classes_table, Table 2>>.
 
 [[ogc_api_common_conformance_classes_table]]
 .Conformance classes
