@@ -1,0 +1,15 @@
+type: object
+required:
+  - id
+  - links
+  - timeStamp
+properties:
+  id:
+    type: string
+  timeStamp:
+    type: string
+    format: date-time
+  links:
+    type: array
+    items:
+      $ref: link.yaml

@@ -1,0 +1,11 @@
+type: object
+required:
+  - join
+  - links
+properties:
+  links:
+    type: array
+    items:
+      $ref: link.yaml
+  join:
+    $ref: joinObject.yaml

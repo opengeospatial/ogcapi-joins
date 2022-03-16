@@ -1,0 +1,11 @@
+type: object
+required:
+  - attributeDataset
+  - collection
+properties:
+  attributeDataset:
+    type: string
+  collection:
+    type: array
+    items:
+      $ref: link.yaml

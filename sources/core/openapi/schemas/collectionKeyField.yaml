@@ -1,0 +1,17 @@
+type: object
+required:
+  - keys
+  - links
+properties:
+  links:
+    type: array
+    items:
+      $ref: link.yaml
+  keys:
+    type: array
+    items:
+    $ref: keyObject.yaml
+  numberMatched:
+    type: integer
+  numberReturned:
+    type: integer

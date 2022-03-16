@@ -1,0 +1,16 @@
+type: object
+required:
+  - id
+  - isDefault
+  - links
+properties:
+  isDefault:
+    type: boolean
+  language:
+    type: string
+  id:
+    type: string
+  links:
+    type: array
+    items:
+      $ref: link.yaml

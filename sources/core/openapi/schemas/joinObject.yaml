@@ -1,0 +1,20 @@
+type: object
+required:
+  - id
+  - inputs
+  - outputs
+  - timeStamp
+properties:
+  id:
+    type: string
+  timeStamp:
+    type: string
+    format: date-time
+  inputs:
+    $ref: joinInputsObject.yaml
+  outputs:
+    type: array
+    items:
+      $ref: link.yaml
+  joinInformation:
+    $ref: joinInformationObject.yaml

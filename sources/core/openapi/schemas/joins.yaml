@@ -1,0 +1,20 @@
+type: object
+required:
+  - joins
+  - links
+properties:
+  links:
+    type: array
+    items:
+      $ref: link.yaml
+  joins:
+    type: array
+    items:
+      $ref: joinsObject.yaml
+  numberMatched:
+    type: integer
+  numberReturned:
+    type: integer
+  timeStamp:
+    type: string
+    format: date-time

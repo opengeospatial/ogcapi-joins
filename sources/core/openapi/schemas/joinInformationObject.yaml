@@ -1,0 +1,26 @@
+type: object
+properties:
+  numberOfMatchedCollectionKeys:
+    type: integer
+  numberOfUnmatchedCollectionKeys:
+    type: integer
+  numberOfAdditionalAttributeKeys:
+    type: integer
+  matchedCollectionKeys:
+    type: array
+    items:
+      type: string
+  unmatchedCollectionKeys:
+    type: array
+    items:
+      type: string
+  additionalAttributeKeys:
+    type: array
+    items:
+      type: string
+  duplicateAttributeKeys:
+    type: array
+    items:
+      type: string
+  numberOfDuplicateAttributeKeys:
+    type: integer
