@@ -6,7 +6,7 @@
 :committee: technical
 :draft: 3.0
 :external-id: http://www.opengis.net/doc/IS/ogcapi-joins-1/1.0
-:docnumber: YY-xxx
+:docnumber: 22-026
 :received-date: yyyy-mm-dd
 :issued-date: yyyy-mm-dd
 :published-date: yyyy-mm-dd
