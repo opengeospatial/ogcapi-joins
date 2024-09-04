@@ -1,7 +1,7 @@
 [[ats_file_joining_response]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/file_joining/response*
+^|*Abstract Test {counter:ats-id}* |*/conf/file_joining/response*
 ^|Test Purpose | Verify support for File Joining functionality
 ^|Requirement |
 <<req_html-definition,/req/html/definition>>

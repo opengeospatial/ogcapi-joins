@@ -1,11 +1,11 @@
 [[ats_core_joins-get-op]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/core/joins-get-op*
+^|*Abstract Test {counter:ats-id}* |*/conf/core/joins-get-op*
 ^|Test Purpose | Validate that the information about Joins can be retrieved from the expected location.
 ^|Requirement | <<req_core_joins-get-op, /req/core/joins-get-op>> +
  <<req_core_joins-get-success, /req/core/joins-get-success>>
 ^|Test Method | 1. Issue an HTTP GET request to the URL `{root}/joins`.
 2. Validate that a document was returned with a status code `200`.
-3. Validate the contents of the returned document using test <<ats_core_joins-get-success, /ats/core/joins-get-success>>
+3. Validate the contents of the returned document using test <<ats_core_joins-get-success, /conf/core/joins-get-success>>
 |===

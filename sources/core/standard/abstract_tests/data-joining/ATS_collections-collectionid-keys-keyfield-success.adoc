@@ -1,7 +1,7 @@
 [[ats_data_joining_collections-collectionid-keys-keyfieldid-success]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/data-joining/collections-collection-keys-keyfield-success*
+^|*Abstract Test {counter:ats-id}* |*/conf/data-joining/collections-collection-keys-keyfield-success*
 ^|Test Purpose | Validate that the Collection key field's response complies with the required structure and contents.
 ^|Requirement | <<req_core_collections-collectionid-keys-keyfieldid-get-success,/req/core/collections-collectionid-keys-keyfieldid-get-success>>
 ^|Test Method | 

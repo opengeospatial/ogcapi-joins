@@ -1,7 +1,7 @@
 [[ats_file_joining-query]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/file-joining/query*
+^|*Abstract Test {counter:ats-id}* |*/conf/file-joining/query*
 ^|Test Purpose | Validate that the data can be joined from an inputted attribute dataset file directly with a inputted file from the expected location.
 ^|Requirement |
 <<req_core_joins-post-op,/req/core/joins-post-op>> +
@@ -14,6 +14,6 @@
 * The request contains either the uploaded other file to which the attributes will be joined or it is referenced via URL.
 * Other query parameters are set correctly.
 2. Validate that a document was returned with a status code `200`.
-3. Validate the contents of the returned document using test <<ats_file_joining-success, /ats/file_joining/response>>
+3. Validate the contents of the returned document using test <<ats_file_joining-success, /conf/file_joining/response>>
 
 |===

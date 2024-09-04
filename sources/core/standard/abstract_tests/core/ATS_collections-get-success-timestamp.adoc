@@ -1,7 +1,7 @@
 [[ats_core_collections-get-success-timestamp]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/core/collections-get-success-timestamp*
+^|*Abstract Test {counter:ats-id}* |*/conf/core/collections-get-success-timestamp*
 ^|Test Purpose | If a `timeStamp` property is included in the Collections document, then validate that the value of that property equates to the time that the response was generated.
 ^|Requirement | <<req_core_collections-get-success-timestamp,/req/core/collections-get-success-timestamp>>
 ^|Test Method |
