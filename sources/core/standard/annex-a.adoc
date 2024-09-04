@@ -206,7 +206,7 @@ include::abstract_tests/csv-input/ATS_csv-input-query.adoc[]
 |Requirements class |<<rc_core,Requirements Class "Core">>
 |===
 
-include::abstract_tests/csv-input/ATS_geojson-input-query.adoc[]
+include::abstract_tests/geojson-input/ATS_geojson-input-query.adoc[]
 
 [[ats_geojson]]
 ===  Conformance Class "GeoJSON Output for Joined Data"
