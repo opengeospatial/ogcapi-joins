@@ -1,7 +1,7 @@
 [[ats_data_joining_collections-collectionid-rc-md-items-links]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/data-joining/collections-collectionid-rc-md-items-links*
+^|*Abstract Test {counter:ats-id}* |*/conf/data-joining/collections-collectionid-rc-md-items-links*
 ^|Test Purpose | Validate that a Collection document includes all required links.
 ^|Requirement | 
 <<req_core_rc-md-items-links,/req/core/rc-md-items-links>>

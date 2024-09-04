@@ -1,7 +1,7 @@
 [[ats_data_joining_joins-post-success]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/data-joining/joins-post-success*
+^|*Abstract Test {counter:ats-id}* |*/conf/data-joining/joins-post-success*
 ^|Test Purpose |  Validate that the data join response complies with the required structure and contents.
 ^|Requirement |<<req_core_joins-post-success, /req/core/joins-post-success>>
 ^|Test Method | . Validate that the response document complies with the <<join_schema, Join Schema>>.

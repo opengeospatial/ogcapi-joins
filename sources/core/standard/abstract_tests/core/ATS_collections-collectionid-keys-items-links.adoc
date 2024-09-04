@@ -1,7 +1,7 @@
 [[ats_core_collections-collectionid-keys-items-links]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/core/collections-collectionid-keys-items-links*
+^|*Abstract Test {counter:ats-id}* |*/conf/core/collections-collectionid-keys-items-links*
 ^|Test Purpose | Validate that a response document includes all required links.
 ^|Requirement | <<req_core_collections-collectionid-keys-items-links,/req/core/collections-collectionid-keys-items-links>>
 ^|Test Method | 

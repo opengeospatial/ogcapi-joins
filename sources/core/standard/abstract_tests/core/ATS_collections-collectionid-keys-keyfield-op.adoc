@@ -1,11 +1,11 @@
 [[ats_core_collections-collectionid-keys-keyfieldid-op]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/core/collections-collectionid-keys-keyfield-op*
+^|*Abstract Test {counter:ats-id}* |*/conf/core/collections-collectionid-keys-keyfield-op*
 ^|Test Purpose | Validate that the key values of a Collection's key field can be retrieved from the expected location.
 ^|Requirement | <<req_core_collections-collectionid-keys-keyfieldid-get-op,/req/core/collections-collectionid-keys-keyfieldid-op>>.
 ^|Test Method | 
 . For every key field of a Collection described in the Collection's key fields response `{root}/collections/{collectionId}/keys/`, issue an HTTP GET request to the URL `{root}/collections/{collectionId}/keys/{keyFieldId}` where {collectionId} is the `id` property for a Collection and {keyFieldId} is the `id` property of a collection's key field.
 . Validate that a document was returned with a status code `200`.
-. Validate the contents of the returned document using test: <<ats_core_collections-collectionid-keys-keyfieldid-success, /ats/core/collections-collectionid-keys-keyfieldid-success>>.
+. Validate the contents of the returned document using test: <<ats_core_collections-collectionid-keys-keyfieldid-success, /conf/core/collections-collectionid-keys-keyfieldid-success>>.
 |===

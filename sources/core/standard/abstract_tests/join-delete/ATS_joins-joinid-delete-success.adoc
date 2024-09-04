@@ -1,7 +1,7 @@
 [[ats_core_joins-joinid-delete-success]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/core/joins-joinid-delete-success*
+^|*Abstract Test {counter:ats-id}* |*/conf/core/joins-joinid-delete-success*
 ^|Test Purpose | Validate that the join was deleted from the server.
 ^|Requirement | <<req_core_joins-joinid-delete-success,/req/core/joins-joinid-delete-success>>
 ^|Test Method | 1. Validate that the join has been deleted from the server by issuing an HTTP GET request to the URL `{root}/joins/{joinId}` where {joinId} is the same `id` property of the join that was used in the delete request.

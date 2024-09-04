@@ -1,7 +1,7 @@
 [[ats_data_joining_collections-get-success-items]]
 [width="90%",cols="2,6a"]
 |===
-^|*Abstract Test {counter:ats-id}* |*/ats/data-joining/collections-get-success-items*
+^|*Abstract Test {counter:ats-id}* |*/conf/data-joining/collections-get-success-items*
 ^|Test Purpose | Validate that each collection accessible through the API is described in the Collections document.
 ^|Requirement | <<req_core_collections-get-success-items,/req/core/collections-get-success-items>>
 ^|Test Method |
@@ -11,5 +11,5 @@
 
 . Verify that there is an entry in the `collections` property for each resource collection accessible through the API.
 
-. Verify that each entry in the `collections` array is valid according to <<ats_data_joining_collections-collectionid-get-success-content, /ats/data-joining/collections-collectionid-get-success-content>>.
+. Verify that each entry in the `collections` array is valid according to <<ats_data_joining_collections-collectionid-get-success-content, /conf/data-joining/collections-collectionid-get-success-content>>.
 |===
