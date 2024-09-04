@@ -11,7 +11,7 @@
 :issued-date: yyyy-mm-dd
 :published-date: yyyy-mm-dd
 :fullname: Pekka Latvala
-:docsubtype: Interface
+:docsubtype: implementation
 :keywords: ogcdoc, OGC document, API, openapi, html, joins
 :submitting-organizations: Finnish Geospatial Research Institute / National Land Survey of Finland
 :docfile: document.adoc

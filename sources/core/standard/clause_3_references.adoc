@@ -29,9 +29,9 @@ The following normative documents contain provisions that, through reference in 
 
 * [[[OGC06-121r9,OGC 06-121r9]]], *OGC Web Services Common*, https://www.opengeospatial.org/standards/common
 
-* [[[OGC19-072, OGC 19-072]]], Heazel, C. (ed.): OGC: OGC 19-072, *OGC API - Common - Part 1: Core* (in development), 2021. Available at: http://docs.opengeospatial.org/DRAFTS/19-072.pdf
+* [[[OGC19-072, OGC 19-072]]],
 
-* [[[OGC20-024, OGC 20-024]]], Heazel, C. (ed.): OGC: OGC 20-024, *OGC API - Common - Part 2: Geospatial Data* (in development), 2021. Available at: http://docs.opengeospatial.org/DRAFTS/20-024.pdf
+* [[[OGC20-024, OGC 20-024]]], OGC: OGC 20-024, *OGC API - Common - Part 2: Geospatial Data* (draft in development), 2021. Available at: http://docs.opengeospatial.org/DRAFTS/20-024.pdf
 
 * [[[OpenAPI, OpenAPI]]], Open API Initiative (OAI): *The OpenAPI specification 3.0*, 2020. Available at: https://github.com/OAI/OpenAPI-Specification/blob/master/versions/
 

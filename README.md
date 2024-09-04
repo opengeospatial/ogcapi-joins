@@ -80,6 +80,16 @@ Communicate your ideas or comments to the Standards Working Group by posting [Gi
 
 Most all work on the specification takes place in [GitHub issues](https://github.com/opengeospatial/ogcapi-joins/issues), so browse there to get a good idea of what is happening, as well as past decisions.
 
+## Building
+
+After cloning the repository, navigate to the folder.
+
+` cd /ogcapi-joins/sources/core`
+
+Then compile with docker (on Linux or MacOS):
+
+`docker run -v "$(pwd)":/metanorma -v ${HOME}/.fontist/fonts/:/config/fonts  metanorma/metanorma  metanorma compile --agree-to-terms -t ogc -x html,pdf standard/22-026.adoc`
+
 
 ## [Contributing](CONTRIBUTING.md)
 

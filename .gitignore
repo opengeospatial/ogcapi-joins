@@ -1,3 +1,9 @@
 .vscode
 /sources/core/iev
 /sources/core/relaton
+.DS_Store
+*.abort
+sources/relaton/
+sources/iev
+sources/core/standard/iev
+sources/core/standard/relaton
