@@ -1,0 +1,33 @@
+[permission,type="general",id="/per/core/collections-collectionid-keys-keyfieldid-get-op",label="/per/core/collections-collectionid-keys-keyfieldid-get-op",obligation="permission"]
+====
+[.component,class=part]
+--
+The server MAY support the query parameter `key` to filter the results by key value. 	
+The `key` parameter SHALL possess the following characteristics (using an OpenAPI Specification 3.0 fragment):
+----
+name: key
+in: query
+required: false
+schema:
+  type: string
+----
+--
+
+[.component,class=part]
+--
+The server MAY support the query parameter `limit` to limit the number of key values that can be returned in a single response.
+
+The `limit` parameter SHALL possess the following characteristics (using an OpenAPI Specification 3.0 fragment):
+----
+name: limit
+in: query
+required: false
+schema:
+  type: integer
+  minimum: 1
+  maximum: 10000
+  default: 1000
+----
+Note The values for minimum, maximum and default are only examples and MAY be changed.
+--
+====

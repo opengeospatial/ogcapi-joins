@@ -4,7 +4,7 @@
 ====
 [%metadata]
 label:: http://www.opengis.net/ogcapi-joins-1/1.0/req/geojson
-subject:: Implementation Specification
+subject:: Implementation Standard
 inherit:: <<rc_core,Requirements Class "Core">>
 inherit:: <<rfc8259,IETF RFC 8259: The JavaScript Object Notation (JSON) Data Interchange Format>>
 inherit:: <<rfc7946,The GeoJSON Format>>

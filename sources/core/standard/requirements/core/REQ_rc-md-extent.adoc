@@ -3,7 +3,7 @@
 ====
 [.component,class=part]
 --
-For each spatial collection resource, the `extent` property, if provided, SHALL define boundaries that encompass the spatial and temporal properties of all of the resources in this collection. The temporal extent may use null values to indicate an open time interval.
+For each geospatial collection resource, the `extent` property, if provided, SHALL define boundaries that encompass the spatial and temporal properties of all of the resources in this collection. The temporal extent may use null values to indicate an open time interval.
 --
 
 [.component,class=part]

@@ -11,9 +11,9 @@ The typical HTML media type for all "web pages" in a server would be `text/html`
 
 === Joined Data Outputs
 
-The server implementations are required to support the media type `application/geo+json` for the joined data outputs.
+Server implementations are required to support the media type `application/geo+json` for the joined data outputs.
 
-The server implementations may support any other media types for the joined data outputs.
+Server implementations may support any other media types for the joined data outputs.
 
 === Problem Details Media Types
 

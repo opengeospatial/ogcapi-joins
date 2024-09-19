@@ -8,6 +8,6 @@ The server SHALL conform to <<rfc2616,HTTP 1.1.>>
 
 [.component,class=part]
 --
-If the API supports HTTPS, then the API SHALL also conform to <<rfc2818,HTTP over TLS>>.
+If the API implementation supports HTTPS, then the API implementation SHALL also conform to <<rfc2818,HTTP over TLS>>.
 --
 ====

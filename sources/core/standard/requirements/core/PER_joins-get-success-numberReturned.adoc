@@ -1,0 +1,7 @@
+[permission,type="general",id="/per/core/joins-get-success-numberReturned",label="/per/core/joins-get-success-numberReturned",obligation="permission"]
+====
+[.component,class=part]
+--
+A server MAY omit this information in a response, if the information about the number of resources in the response is not known or difficult to compute.
+--
+====

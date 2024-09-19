@@ -1,0 +1,8 @@
+[requirement,type="general",id="/req/core/joins-post-op-header",label="/req/core/joins-post-op-header",obligation="requirement"]
+[[req_core_joins-post-op]]
+====
+[.component,class=part]
+--
+The input CSV files SHALL contain a header row in the first row. The data values SHALL begin from the second row. The names of the joined attributes are the names of the joined columns from the CSV file header row.
+--
+====

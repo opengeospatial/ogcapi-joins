@@ -8,7 +8,7 @@ A successful execution of the operation with other `output-format` parameter val
 
 [.component,class=part]
 --
-The content of the response in `A` is based on the <<join_schema, Join Schema>>. 
+The content of the response in `A` SHALL be based on the <<join_schema, Join Schema>>. 
 --
 
 [.component,class=part]

@@ -3,7 +3,7 @@
 ====
 [.component,class=part]
 --
-If the server implements the __file joining operations__ operation set it SHALL support the HTTP POST operation at path `{root}/filejoin`.
+If the server implements __file joining operations__ the implementation SHALL support the HTTP POST operation at path `{root}/filejoin`.
 --
 
 [.component,class=part]

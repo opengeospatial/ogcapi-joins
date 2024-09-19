@@ -1,5 +1,5 @@
 == Conformance
-This standard defines the requirement class "core" and the encoding requirements classes "JSON", "HTML" and "GeoJSON" 
+This standard defines the OGC API - Joins core requirement class and the encoding requirements classes "JSON", "HTML" and "GeoJSON". 
 
 The standardization targets of all conformance classes are "Web APIs."
 
@@ -7,21 +7,21 @@ The main requirements class is:
 
 * <<rc_core,Core>>.
 
-The core requirements class specifies 3 operation sets: __discovery opeations__, __data joining operations__ and __file joining operations__.
+The core requirements class specifies three operation sets: __discovery operations__, __data joining operations__ and __file joining operations__.
 
-The service implementations SHALL support the operation set __discovery operations__ and they MAY support either one or both of the operation sets: __data joining operations__ and __file joining operations__.
+The server implementations are required to support the __discovery operations__ and they must support either one or both of the __data joining operations__ and/or __file joining operations__ <<req_operations,Operations>>.
 
-The CSV input file format is mandatory to be supported in the operation sets: __data joining operations__ and __file joining operations__.
+The CSV input file format is mandatory for the __data joining operations__ and __file joining operations__.
 
-The GeoJSON input file format is mandatory to be supported in the operation set __file joining operations__.
+The GeoJSON input file format is mandatory for the __file joining operations__.
 
-The JSON encoding format is generally mandatory to be supported for service responses. 
+The JSON encoding format is mandatory to be supported for service responses. 
 
 The support for HTML encoding format is recommended for service responses.
 
-The GeoJSON encoding is mandatory to be supported for the output that contains the joined data in the operation sets: __data joining operations__ and __file joining operations__.
+The GeoJSON encoding is mandatory for the output that contains the joined data in the __data joining operations__ and __file joining operations__.
 
-The Core does not mandate any encoding or format for the formal definition of the API. One option is to use the OpenAPI 3.0 specification and OpenAPI 3.0 Requirements Class, defined in the <<OGC19-072,OGC API - Common - Part 1>> document.
+The Core requirements class does not mandate any encoding or format for the formal definition of the API. One option is to use the OpenAPI 3.0 specification and OpenAPI 3.0 Requirements Class as defined in the <<OGC19-072,OGC API - Common - Part 1>> document.
 
 The conformance class values defined in this core module are listed in <<conformance_classes_table, Table 1>>.
 

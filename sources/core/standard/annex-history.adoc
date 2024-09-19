@@ -4,8 +4,9 @@
 [width="90%",options="header"]
 |===
 |Date |Release |Editor | Primary clauses modified |Description
-|2022-01-27|1.0.0-SNAPSHOT  |P. Latvala | all | File joining separated into its own operation from the join creation operation, updated the whole document
-|2021-12-17|1.0.0-SNAPSHOT  |P. Latvala | all | Changed document into metanorma template, edited the whole document, removed the join update operation
-|2021-11-30|1.0.0-SNAPSHOT  |P. Latvala | 2,7 | Updated chapters 2 and 7 and the whole document
-|2021-11-24|1.0.0-SNAPSHOT  |P. Latvala | all | Initial version
+|2024-09-19|1.0.0  |P. Latvala | all | Document updated from the basis of the comments from the OAB.
+|2022-01-27|1.0.0  |P. Latvala | all | File joining separated into its own operation from the join creation operation, updated the whole document.
+|2021-12-17|1.0.0  |P. Latvala | all | Changed document into metanorma template, edited the whole document, removed the join update operation.
+|2021-11-30|1.0.0  |P. Latvala | 2,7 | Updated chapters 2 and 7 and the whole document.
+|2021-11-24|1.0.0  |P. Latvala | all | Initial version.
 |===

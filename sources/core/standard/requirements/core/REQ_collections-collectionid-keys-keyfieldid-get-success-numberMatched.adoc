@@ -5,9 +5,4 @@
 --
 If a property `numberMatched` is included in the response, the value SHALL be identical to the number of hosted key values that meet the selection parameters provided by the client.
 --
-
-[.component,class=part]
---
-A server MAY omit this information in a response, if the information about the number of matching resources is not known or difficult to compute.
---
 ====

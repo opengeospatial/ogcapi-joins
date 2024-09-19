@@ -1,11 +1,11 @@
 == Scope
 
-This document specifies the behavior of Web APIs that join data from inputted data files either with feature collections that are available on the server or directly with other inputted data files. The core module contains 3 operation sets: __discovery operations__, __data joining operations__ and __file joining operations__.
+The OGC API - Joins specifies the behavior of Web APIs that join data from specified input data files either with feature collections that are available on some server or directly with other specified input data files. The core module defines three sets of operation: __discovery operations__, __data joining operations__ and __file joining operations__.
 
-The operation set __discovery operations__ contains operations for obtaining general information on the service implementation. It includes operations for accessing the API landing page, the API definition document and information on the service’s conformance to the standard.
+The __discovery operations__ specify operations for obtaining general information on the service implementation of the server that supports a join capability. It includes operations for accessing the Joins API landing page, the API definition document and information on the service’s conformance to the Joins API standard.
 
-The operation set __data joining operations__ contains operations for retrieving metadata and key values on the feature collections that are available on the server. It contains also an operation for joining data from inputted data files with the feature collections and operations for accessing and deleting the created joins.
+The __data joining operations__ specify operations for retrieving metadata and key values on the feature collections available on some server. Data joining also includes an operation for joining data from specified input data files with the feature collections and operations for accessing and deleting the created joins.
 
-The operation set __file joining operations__ contains an operation for joining data from inputted data files directly with other inputted data files. 
+The __file joining operations__ specifies an operation for joining data from specified or provided input data files directly with other specified input data files. 
 
-The core module contains support for CSV and GeoJSON input files. The support for other input file formats may be defined in the extension modules.
+The core module specifies requirements for using CSV and GeoJSON input files. The support for other input file formats may be defined in extension modules.
