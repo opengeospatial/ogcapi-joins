@@ -3,7 +3,7 @@
 
 === Encodings
 
-This standard mandates the JSON encoding to be supported for service responses. In addition the support for HTML encoding is recommended.
+The use of a JSON encoding is mandated for service responses. In addition, support for HTML encoding is recommended.
 
-The support for the GeoJSON format is mandatory for the joined data outputs.
+Support for the GeoJSON format is mandatory for the joined data outputs.
 

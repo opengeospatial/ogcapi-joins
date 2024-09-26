@@ -7,7 +7,7 @@
 <<req_core_rc-md-items-links,/req/core/rc-md-items-links>> +
 <<req_core_rc-md-extent,/req/core/rc-md-extent>>
 ^|Test Method | 
-FOR a each Collection document, validate:
+FOR each Collection document, validate:
 
 . That the Collection document includes an `id` property.
 . That the Collection document complies with <<req_core_rc-md-items-links,/req/core/rc-md-items-links>>.

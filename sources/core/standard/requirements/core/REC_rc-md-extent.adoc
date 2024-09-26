@@ -3,7 +3,7 @@
 ====
 [.component,class=part]
 --
-If an extent contains multiple spatial boundaries (multiple bbox, etc.), then the extent SHOULD include in the first bbox a boundary which represents the union of all of the other boundaries.
+If an extent contains multiple spatial boundaries (multiple bounding boxes [bbox], etc.), then the extent SHOULD include in the first bbox a boundary which represents the union of all of the other boundaries.
 --
 
 [.component,class=part]

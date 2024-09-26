@@ -3,7 +3,7 @@
 ====
 [.component,class=part]
 --
-`200`-response SHALL include the following links in the `links` property of the response:
+A `200`-response SHALL include the following links in the `links` property of the response:
 
 * A link to this response document (relation: `self`)
 
