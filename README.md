@@ -65,7 +65,7 @@ Joins data between two input files
 
 ## Using the draft standard
 
-The draft standard can be read [here](https://htmlpreview.github.io/?https://github.com/opengeospatial/ogcapi-joins/blob/master/drafts/OGC%20API%20-%20Joins%20-%20Part%201%20Core.html).
+The draft standard can be read [here](https://docs.ogc.org/DRAFTS/22-026.html).
 
 Those who want to just see the endpoints and responses can explore [examples of
 OpenAPI definitions](https://github.com/opengeospatial/ogcapi-joins/tree/master/sources/core/openapi).
