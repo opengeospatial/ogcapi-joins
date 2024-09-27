@@ -3,11 +3,11 @@
 ====
 [.component,class=part]
 --
-If the server implements the __data joining operations__ operation set it SHALL support the HTTP GET operation at the path `/joins/{joinId}`.
+If the server implements __data joining operations__ the implementation SHALL support the HTTP GET operation at the path `/joins/{joinId}`.
 --
 
 [.component,class=part]
 --
-The parameter `joinId` is each id property in the `joins` response (JSONPath: `$.joins[*].id`).
+The parameter `joinId` SHALL be each id property in the `joins` response (JSONPath: `$.joins[*].id`).
 --
 ====

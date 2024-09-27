@@ -3,12 +3,12 @@
 ====
 [.component,class=part]
 --
-A successful execution of the operation SHALL be reported as a response with an HTTP status code `200`. 
+A successful execution of the API landing page operation SHALL be reported as a response with an HTTP status code `200`. 
 --
 
 [.component,class=part]
 --
-The content of that response SHALL be based upon <<landing_page_schema,Landing Page Schema>>. 
+The content of that response SHALL be based upon the <<landing_page_schema,Landing Page Schema>>. 
 
 The response SHALL include <<link-relation-types,links>> to following resources:
 

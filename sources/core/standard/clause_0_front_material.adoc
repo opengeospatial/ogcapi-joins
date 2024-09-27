@@ -1,12 +1,10 @@
 .Preface
 
-This document defines the core module of the OGC API - Joins standard. The specification is a multi-part document that can be extended by specifying extension modules to the core module.
+This document defines the core module of the OGC API - Joins Standard. The OGC API - Joins Standard is a multi-part document that can be extended by specifying extensions modules to the core module.
 
-The document originates from the work that was executed in order to renew the OGC standard: OpenGIS® Georeferenced Table Joining Service (TJS) Implementation Standard (document nr. <<OGC10-070r2,10-070r2>>), specified in 2010.
+This Standard originates from the OGC Standard: OpenGIS® Georeferenced Table Joining Service (TJS) Implementation Standard (document nr. <<OGC10-070r2,10-070r2>>), specified in 2010.
 
-This document specifies a service interface that allows data to be joined from inputted data files with feature collections that are available on the server or directly with other inputted files. The core module contains support for CSV and GeoJSON input files.
-
-Other functionalities include: viewing general metadata on the service implementation, metadata and key values on the available feature collections and functionalities for accessing and deleting the created joins.
+This document specifies a service interface that supports join operations between input data files that could be feature collections available on some server or directly using other input files. The core module specifies requirements for CSV and GeoJSON input files.
 
 ////
 *OGC Declaration*
@@ -33,7 +31,10 @@ Attention is drawn to the possibility that some of the elements of this document
 [abstract]
 == Abstract
 
-This document is the specification for the core module of the OGC API - Joins standard. It specifies a Web API that allows data to be joined from inputted data files either with feature collections that are available on the server or directly with other inputted files. 
+This document specifies the core module of the OGC API - Joins Standard. This Standard can be used for online joining of tabular data with some other data, such as geospatial data. The data joining process is executed through common key values that are available in both datasets. 
 
+The OGC API - Joins Standard specifies requirements for a Web API that supports join operation(s) for input tabular data files that could be joined with feature collections available on some server or directly using other input files. The input data files can be either uploaded to the server with the join query or provided by referencing via an URI address. The server implementations have a mandatory requirement to support the GeoJSON format for the joined data, and in addition, they can support any other file formats.
 
-The document defines also functionalities for viewing general metadata on the service implementation, metadata and key values on the feature collections and functionalities for accessing and deleting the created joins.
+The API Joins Standard also defines operations for viewing general metadata on the service implementation, metadata and key values on the feature collections, and operations for accessing and deleting the created joins.
+
+Please note that for the purposes of brevity, the OGC API – Joins: Core Standard may be referend to as “the OGC Joins API” or “this document” or “this “Standard”.

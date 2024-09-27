@@ -1,0 +1,14 @@
+[permission,type="general",id="/per/core/joins-joinid-delete-op",label="/per/core/joins-joinid-delete-op",obligation="permission"]
+[[req_core_joins-joinid-delete-op]]
+====
+[.component,class=part]
+--
+If the server implements the __data joining operations__ operation set it MAY support the HTTP DELETE operation at the path `{root}/joins/{joinId}`.
+--
+
+
+[.component,class=part]
+--
+The parameter `joinId` is the `id` property in the `joins` response (JSONPath: `$.joins.id`).
+--
+====
