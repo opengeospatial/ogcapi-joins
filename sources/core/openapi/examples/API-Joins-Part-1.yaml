@@ -321,6 +321,12 @@ paths:
                   type: string
                 csv-file-delimiter:
                   type: string
+                csv-file-header-row-number:
+                  type: integer
+                  default: 1
+                csv-file-data-start-row-number:
+                  type: integer
+                  default: 2
                 output-formats:
                   type: string
                   default: http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson
@@ -464,6 +470,12 @@ paths:
                   type: string
                 csv-file-delimiter:
                   type: string
+                csv-file-header-row-number:
+                  type: integer
+                  default: 1
+                csv-file-data-start-row-number:
+                  type: integer
+                  default: 2
       responses:
         200:
           description: Response of the join operation
