@@ -43,7 +43,7 @@ Returns a list of the joins available on the server
 POST /joins
 ```
 
-Creates a new join by joining attribute data from a inputted attribute data file with a specific collection or directly with an inputted spatial data file
+Creates a new join by joining attribute data from a inputted attribute data file with a specific collection
 
 ```
 GET /joins/{joinId}
