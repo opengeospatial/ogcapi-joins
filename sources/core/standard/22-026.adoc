@@ -19,7 +19,7 @@
 :mn-output-extensions: xml,html,doc,pdf
 :local-cache-only:
 :data-uri-image:
-:pdf-uri: ./document.pdf
+:pdf-uri: ./22-026.pdf
 :xml-uri: ./document.xml
 :doc-uri: ./document.doc
 :edition: 1.0.0
