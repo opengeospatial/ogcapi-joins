@@ -337,7 +337,7 @@ The HTTP GET operation at path `{root}/collections/{collectionId}/keys/{keyField
 
 include::./requirements/core/REQ_collections-collectionid-keys-keyfieldid-get-op.adoc[]
 
-include::./requirements/core/PER_collections-collectionid-keys-keyfieldid-get-op.adoc
+include::./requirements/core/PER_collections-collectionid-keys-keyfieldid-get-op.adoc[]
 
 ==== Response
 
