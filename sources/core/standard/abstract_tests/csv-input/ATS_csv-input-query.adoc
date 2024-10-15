@@ -1,5 +1,6 @@
 [[ats_csv_input-query]]
 [width="90%",cols="2,6a"]
+.CSV Input Query.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/csv-input/query*
 ^|Test Purpose | 1. If the server supports the data joining functionality, validate that server supports the CSV input files for the join creation operation.

@@ -64,7 +64,7 @@ include::./requirements/core/REQ_http.adoc[]
 <<http_status_codes,Table 5>> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.
 
 [[http_status_codes]]
-.Typical HTTP status codes
+.Typical HTTP status codes.
 [width="100%",cols="1,6"]
 |===
 ^|*Status code*|*Description*

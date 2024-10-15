@@ -1,5 +1,6 @@
 [[ats_core_root-success]]
 [width="90%",cols="2,6a"]
+.Root Success.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/root-success*
 ^|Test Purpose | Validate that a landing page complies with the required structure and contents.

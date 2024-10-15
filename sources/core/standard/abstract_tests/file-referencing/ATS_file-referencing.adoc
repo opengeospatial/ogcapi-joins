@@ -1,5 +1,6 @@
 [[ats_file-referencing-file-referencing]]
 [width="90%",cols="2,6a"]
+.File Referencing.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/file-referencing/file-referencing*
 ^|Test Purpose | 1. Validate that the input data file can be referenced via URL in the data joining functionality.

@@ -1,5 +1,6 @@
 [[ats_data_joining_collections-collectionid-keys-keyfieldid-op]]
 [width="90%",cols="2,6a"]
+.Collection Keys Keyfield.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/data-joining/collections-collectionid-keys-keyfield-op*
 ^|Test Purpose | Validate that the key values of a Collection's key field can be retrieved from the expected location.

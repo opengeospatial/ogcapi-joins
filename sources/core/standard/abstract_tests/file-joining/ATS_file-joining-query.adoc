@@ -1,5 +1,6 @@
 [[ats_file_joining-query]]
 [width="90%",cols="2,6a"]
+.File Joining.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/file-joining/query*
 ^|Test Purpose | Validate that the data can be joined from an inputted attribute dataset file directly with a inputted file from the expected location.

@@ -1,5 +1,6 @@
 [[ats_file-upload_file-upload]]
 [width="90%",cols="2,6a"]
+.File Upload.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/file-upload/file-upload*
 ^|Test Purpose | 1. Validate that the input data file can be uploaded with the query to the server in the data joining functionality.

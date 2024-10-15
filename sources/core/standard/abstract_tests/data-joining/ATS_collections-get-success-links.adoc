@@ -1,5 +1,6 @@
 [[ats_data_joiningcollections-get-success-links]]
 [width="90%",cols="2,6a"]
+.Collections Success Links.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/data-joining/collections-get-success-links*
 ^|Test Purpose | Validate that the required links are included in the Collections document.

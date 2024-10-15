@@ -1,5 +1,6 @@
 [[ats_html_definition]]
 [width="90%",cols="2,6a"]
+.HTML Definition.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/html/definition*
 ^|Test Purpose | Verify support for HTML

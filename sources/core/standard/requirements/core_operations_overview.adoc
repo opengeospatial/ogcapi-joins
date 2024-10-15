@@ -1,5 +1,5 @@
 [[core-overview-table]]
-.Overview of the resources defined in the OGC API - Joins core module
+.Overview of the resources defined in the OGC API - Joins core module.
 [width="95%", cols="15,5,10", options="header"]
 |===
 ^|*Path*|*HTTP method*|*Description*

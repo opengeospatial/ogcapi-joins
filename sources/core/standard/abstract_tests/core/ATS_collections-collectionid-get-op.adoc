@@ -1,5 +1,6 @@
 [[ats_core_collections-collectionid-get-op]]
 [width="90%",cols="2,6a"]
+.Collection.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/collections-collectionid-get-op*
 ^|Test Purpose | Validate that a collection information can be retrieved from the expected location.

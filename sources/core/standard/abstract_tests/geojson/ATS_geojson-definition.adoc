@@ -1,5 +1,6 @@
 [[ats_geojson-definition]]
 [width="90%",cols="2,6a"]
+.GeoJSON Definition.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/geojson/definition*
 ^|Test Purpose | Verify support for GeoJSON ouput for joined data.

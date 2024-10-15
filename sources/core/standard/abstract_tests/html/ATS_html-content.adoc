@@ -1,5 +1,6 @@
 [[ats_html_content]]
 [width="90%",cols="2,6a"]
+.HTML Content.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/html/content*
 ^|Test Purpose | Verify the content of an HTML document given an input document and schema.

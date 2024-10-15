@@ -1,5 +1,6 @@
 [[ats_data_joining-success]]
 [width="90%",cols="2,6a"]
+.Data Joining Success.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/data-joining/success*
 ^|Test Purpose |  Validate that the data join response complies with the required structure and contents.

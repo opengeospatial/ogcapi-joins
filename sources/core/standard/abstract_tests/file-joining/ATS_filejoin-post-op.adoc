@@ -1,5 +1,6 @@
 [[ats_file_joining_filejoin-post-op]]
 [width="90%",cols="2,6a"]
+.File Join.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/file-joining/filejoin-post-op*
 ^|Test Purpose | Validate that the data can be joined from an inputted data file directly with a other inputted data file from the expected location.

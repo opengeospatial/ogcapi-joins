@@ -1,5 +1,6 @@
 [[ats_data_joining_collections-get-success-items]]
 [width="90%",cols="2,6a"]
+.Collections Success Items.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/data-joining/collections-get-success-items*
 ^|Test Purpose | Validate that each collection accessible through the API is described in the Collections document.

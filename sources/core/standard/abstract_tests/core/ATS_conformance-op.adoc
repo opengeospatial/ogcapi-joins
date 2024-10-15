@@ -1,5 +1,6 @@
 [[ats_core_conformance-op]]
 [width="90%",cols="2,6a"]
+.Conformance.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/conformance-op*
 ^|Test Purpose | Validate that a conformance declaration can be retrieved from the expected locations.

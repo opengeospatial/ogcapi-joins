@@ -2,8 +2,10 @@
 == Revision History
 
 [width="90%",options="header",cols="2,1,2,1,4"]
+.Revision History.
 |===
 |Date |Release |Editor | Primary clauses modified |Description
+|2024-10-15|1.0.0  |P. Latvala | all | Fixed styling issues and link relations.
 |2024-09-26|1.0.0  |P. Latvala | all | Document updated from the basis of the comments from the OAB. Added new parameters to join creation and file joining operations.
 |2022-01-27|1.0.0  |P. Latvala | all | File joining separated into its own operation from the join creation operation, updated the whole document.
 |2021-12-17|1.0.0  |P. Latvala | all | Changed document into metanorma template, edited the whole document, removed the join update operation.

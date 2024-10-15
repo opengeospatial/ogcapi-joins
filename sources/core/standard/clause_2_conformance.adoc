@@ -26,7 +26,7 @@ The Core requirements class does not mandate any encoding or format for the form
 The conformance class values defined in this core module are listed in <<conformance_classes_table, Table 1>>.
 
 [[conformance_classes_table]]
-.Conformance classes defined in this module
+.Conformance classes defined in this module.
 [width="90%",cols="3,6a",options="header"]
 |===
 ^|*Conformance class* |*URI*
@@ -49,7 +49,7 @@ The conformance class values defined in this core module are listed in <<conform
 In addition, come conformance classes are used from the specifications <<OGC19-072,OGC API - Common - Part 1>> and <<OGC20-024,OGC API - Common - Part 2>>. They are listed in <<ogc_api_common_conformance_classes_table, Table 2>>.
 
 [[ogc_api_common_conformance_classes_table]]
-.Conformance classes
+.Conformance classes.
 [width="90%",cols="3,6a"]
 |===
 ^|*Conformance class* |*URI*

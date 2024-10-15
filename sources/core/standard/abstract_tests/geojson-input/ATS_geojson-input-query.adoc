@@ -1,5 +1,6 @@
 [[ats_geojson-input-query]]
 [width="90%",cols="2,6a"]
+.GeoJSON Input Query.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/geojson-input/query*
 ^|Test Purpose | If the server supports the file joining functionality, validate that server supports the GeoJSON input files for the left dataset for the right dataset for the file joining operation.

@@ -1,5 +1,6 @@
 [[ats_geojson_direct-query]]
 [width="90%",cols="2,6a"]
+.GeoJSON Direct.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/geojson-direct/query*
 ^|Test Purpose | Validate that the data join response complies with the required structure and contents.

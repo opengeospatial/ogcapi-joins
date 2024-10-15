@@ -1,5 +1,6 @@
 [[ats_data_joining_joins-get-op]]
 [width="90%",cols="2,6a"]
+.Joins.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/data-joining/joins-get-op*
 ^|Test Purpose | Validate that the information about Joins can be retrieved from the expected location.

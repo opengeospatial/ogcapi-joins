@@ -1,5 +1,6 @@
 [[ats_core_api-definition-op]]
 [width="90%",cols="2,6a"]
+.API Definition.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/api-definition-op*
 ^|Test Purpose |Validate that the API definition document can be retrieved from the expected location.

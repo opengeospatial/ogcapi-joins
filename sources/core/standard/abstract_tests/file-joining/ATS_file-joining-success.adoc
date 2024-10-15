@@ -1,5 +1,6 @@
 [[ats_file_joining-success]]
 [width="90%",cols="2,6a"]
+.File Joining Success.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/file_joining/success*
 ^|Test Purpose | Verify the response of the file joining functionality

@@ -1,5 +1,6 @@
 [[ats_core_joins-joinid-delete-op]]
 [width="90%",cols="2,6a"]
+.Join Delete.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/joins-joinid-delete-op*
 ^|Test Purpose | Validate that the join can be deleted from the expected location.

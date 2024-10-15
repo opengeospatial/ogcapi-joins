@@ -1,5 +1,6 @@
 [[ats_geojson-content]]
 [width="90%",cols="2,6a"]
+.GeoJSON Content.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/geojson/content*
 ^|Test Purpose | Verify the content of a GeoJSON document given an input document and schema.

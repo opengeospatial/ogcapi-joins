@@ -1,5 +1,6 @@
 [[ats_core_collections-collectionid-keys-op]]
 [width="90%",cols="2,6a"]
+.Collection Keys.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/collections-collectionid-keys-op*
 ^|Test Purpose | Validate that the information on Collection's key fields' can be retrieved from the expected location.

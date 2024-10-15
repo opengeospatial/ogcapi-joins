@@ -1,5 +1,5 @@
 [[req_core_filejoin-post-op-form-data-parameters]]
-.The Form Data parameters of the File Joining query
+.The Form Data parameters of the File Joining query.
 [width="100%", options="header", cols="1,4,1,1"]
 |===
 ^|Name | Description | Type and values | Required

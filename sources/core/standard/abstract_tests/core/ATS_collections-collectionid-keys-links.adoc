@@ -1,5 +1,6 @@
 [[ats_core_collections-collectionid-keys-links]]
 [width="90%",cols="2,6a"]
+.Collection Keys Links.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/collections-collectionid-keys-links*
 ^|Test Purpose | Validate that the required links are included in the response document.

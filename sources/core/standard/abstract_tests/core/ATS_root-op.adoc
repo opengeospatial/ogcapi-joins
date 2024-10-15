@@ -1,5 +1,6 @@
 [[ats_core_root-op]]
 [width="90%",cols="2,6a"]
+.Root.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/root-op*
 ^|Test Purpose | Validate that the landing page can be retrieved from the expected location.

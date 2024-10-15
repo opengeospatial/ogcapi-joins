@@ -1,5 +1,6 @@
 [[ats_data_joining_joins-post-op]]
 [width="90%",cols="2,6a"]
+.Join Creation.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/data-joining/joins-post-op*
 ^|Test Purpose | 1. Validate that data can be joined from an inputted data file with a Collection available on the server from the expected location.

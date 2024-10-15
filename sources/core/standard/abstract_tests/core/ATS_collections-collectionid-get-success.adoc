@@ -1,5 +1,6 @@
 [[ats_core_collections-collectionid-get-success]]
 [width="90%",cols="2,6a"]
+.Collection Success.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/collections-collectionid-get-success*
 ^|Test Purpose | Validate that the Collection content complies with the required structure and contents.

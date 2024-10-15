@@ -1,5 +1,6 @@
 [[ats_core_joins-post-op]]
 [width="90%",cols="2,6a"]
+.Join Creation.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/joins-post-op*
 ^|Test Purpose | 1. Validate that attribute data can be joined from an inputted attribute dataset file with a Collection available on the server from the expected location.

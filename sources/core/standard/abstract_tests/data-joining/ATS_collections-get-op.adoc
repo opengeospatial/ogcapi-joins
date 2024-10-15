@@ -1,5 +1,6 @@
 [[ats_data_joining_collections-get-op]]
 [width="90%",cols="2,6a"]
+.Collections.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/data-joining/collections-get-op*
 ^|Test Purpose | Validate that the information about collections can be retrieved from the expected location.

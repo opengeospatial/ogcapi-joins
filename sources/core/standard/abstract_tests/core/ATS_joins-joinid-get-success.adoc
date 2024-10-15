@@ -1,5 +1,6 @@
 [[ats_core_joins-joinid-get-success]]
 [width="90%",cols="2,6a"]
+.Join Success.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/joins-joinid-get-success*
 ^|Test Purpose | Validate that the Join content complies with the required structure and contents.

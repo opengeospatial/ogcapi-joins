@@ -1,5 +1,6 @@
 [[ats_data_joining_collections-collectionid-rc-md-items-links]]
 [width="90%",cols="2,6a"]
+.Collection Links.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/data-joining/collections-collectionid-rc-md-items-links*
 ^|Test Purpose | Validate that a Collection document includes all required links.

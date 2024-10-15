@@ -1,5 +1,6 @@
 [[ats_json-content]]
 [width="90%",cols="2,6a"]
+.JSON Content.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/json/content*
 ^|Test Purpose | Verify the content of a JSON document given an input document and schema.

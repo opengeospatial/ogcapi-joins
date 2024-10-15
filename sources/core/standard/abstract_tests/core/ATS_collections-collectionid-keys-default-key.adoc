@@ -1,5 +1,6 @@
 [[ats_core_collections-collectionid-keys-default-key]]
 [width="90%",cols="2,6a"]
+.Collection Keys.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/collections-collectionid-keys-default-key*
 ^|Test Purpose | Validate that the response `isDefault` value of the response.

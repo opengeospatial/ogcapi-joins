@@ -1,5 +1,6 @@
 [[ats_core_joins-joinid-get-op]]
 [width="90%",cols="2,6a"]
+.Join.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/joins-joinid-get-op*
 ^|Test Purpose | Validate that the information about a join can be retrieved from the expected location.

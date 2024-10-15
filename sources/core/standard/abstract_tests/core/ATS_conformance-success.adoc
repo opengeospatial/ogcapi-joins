@@ -1,5 +1,6 @@
 [[ats_core_conformance-success]]
 [width="90%",cols="2,6a"]
+.Conformance Success.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/conformance-success*
 ^|Test Purpose | Validate that the conformance declaration response complies with the required structure and contents.

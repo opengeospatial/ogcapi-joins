@@ -1,5 +1,6 @@
 [[ats_core_joins-joinid-delete-success]]
 [width="90%",cols="2,6a"]
+.Join Delete Success.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/core/joins-joinid-delete-success*
 ^|Test Purpose | Validate that the join was deleted from the server.

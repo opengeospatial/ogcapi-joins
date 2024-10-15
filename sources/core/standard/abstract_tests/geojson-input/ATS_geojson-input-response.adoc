@@ -1,5 +1,6 @@
 [[ats_file_joining_response]]
 [width="90%",cols="2,6a"]
+.GeoJSON Input Response.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/file_joining/response*
 ^|Test Purpose | Verify support for File Joining functionality

@@ -1,5 +1,6 @@
 [[ats_json_definition]]
 [width="90%",cols="2,6a"]
+.JSON Definition.
 |===
 ^|*Abstract Test {counter:ats-id}* |*/conf/json/definition*
 ^|Test Purpose | Verify support for JSON.
