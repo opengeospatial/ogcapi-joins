@@ -1,5 +1,0 @@
-[recommendation,type="general",id="/rec/core/collections-collectionid-keys-keyfieldid-get-success-next-1",label="/rec/core/collections-collectionid-keys-keyfieldid-get-success-next-1",obligation="recommendation"]
-[[rec_core_collections-collectionid-keys-keyfieldid-get-success-next-1]]
-====
-A `200`-response SHOULD include a link to the next "page" (relation: `next`), if more resources have been selected than returned in the response.
-====

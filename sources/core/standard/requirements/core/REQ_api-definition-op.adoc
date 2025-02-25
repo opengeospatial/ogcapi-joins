@@ -1,18 +1,10 @@
-[requirement,type="general",id="/req/core/api-definition-op",label="/req/core/api-definition-op",obligation="requirement"]
 [[req_core_api-definition-op]]
+
+[requirement]
 ====
-[.component,class=part]
---
-The server SHALL support the HTTP GET operation on all links from the landing page that have the relation type `service-desc`.
---
-
-[.component,class=part]
---
-The server SHALL support the HTTP GET operation on all links from the landing page that have the relation type `service-doc`.
---
-
-[.component,class=part]
---
-The responses to all HTTP GET requests issued in `A` and `B` SHALL satisfy the requirement <<req_core_api-definition-success,/req/core/api-definition-success>>.
---
+[%metadata]
+identifier:: /req/core/api-definition-op
+part:: The server SHALL support the HTTP GET operation on all links from the landing page that have the relation type `service-desc`.
+part:: The server SHALL support the HTTP GET operation on all links from the landing page that have the relation type `service-doc`.
+part:: The responses to all HTTP GET requests issued in `A` and `B` SHALL satisfy the requirement <<req_core_api-definition-success,/req/core/api-definition-success>>.
 ====

@@ -1,0 +1,15 @@
+[[ats_data_joining_joins-get-success-paged-response]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/joins-get-success-paged-response
+target:: /req/data-joining/joins-get-success-paged-response
+test-purpose:: Validate that the joins response complies with the required structure and contents.
+test-method::
++
+--
+. Execute the test <<ats_data_joining_joins-get-op, /conf/data-joining/joins-get-op>> with a set of selection parameters that result in response where the number of joins in the joins element is less than the number that match the selection parameters.
+. Verify that the `numberMatched` and `numberReturned` properties are included in the response.
+--
+====

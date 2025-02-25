@@ -1,5 +1,0 @@
-[requirement,type="general",id="/req/core/joins-get-success-paged-response",label="/req/core/joins-get-success-paged-response",obligation="requirement"]
-[[req_core_joins-get-success-paged-response]]
-====
-If the number of joins in the `joins` element is less than the number that match the selection paarameters, then the `numberMatched` and `numberReturned` properties SHALL be included in the response.
-====

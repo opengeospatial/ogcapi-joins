@@ -1,0 +1,18 @@
+[[ats_data_joining_joins-get-success-limit]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/joins-get-success-limit
+target:: /req/data-joining/joins-get-success-limit
+test-purpose:: Validate that the joins response complies with the limit parameter.
+test-method::
++
+--
+. If the server supports the limit parameter, execute the test <<ats_data_joining_joins-get-op, /conf/data-joining/joins-get-op>> with a `limit` parameter value that is supported by the server. 
+. Verify that the response contains no more resources than the value of the `limit` parameter.
+
+. If the server specifies the maximum value for the `limit` parameter, execute the test <<ats_data_joining_joins-get-op, /conf/data-joining/joins-get-op>> with a limit parameter that exceeds the maximum value.
+. Verify that the response contains no more resources than the maximum value.
+--
+====

@@ -1,0 +1,9 @@
+[[req_file_joining_filejoin-post-success]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/file-joining/filejoin-post-success
+part:: A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
+part:: The content of the response in `A` SHALL be the joined dataset in the GeoJSON format.
+====

@@ -1,0 +1,7 @@
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/collections-get-success
+part:: A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
+part:: The content of that response SHALL be based upon the <<collections_schema,Collections schema>>.
+====

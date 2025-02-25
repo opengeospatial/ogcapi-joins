@@ -1,0 +1,9 @@
+[[req_data_joining_collections-collectionid-get-success-extent]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/collections-collectionid-get-success-extent   
+part:: For each geospatial collection resource, the `extent` property, if provided, SHALL define boundaries that encompass the spatial and temporal properties of all of the resources in this collection. The temporal extent may use null values to indicate an open time interval.
+part:: If a spatial resource has multiple properties with spatial or temporal information, it is the decision of the API implementation whether only a single spatial or temporal geometry property is used to determine the extent or all relevant geometries.
+====

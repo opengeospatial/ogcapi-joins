@@ -1,14 +1,15 @@
 [[ats_data_joining_collections-get-op]]
-[width="90%",cols="2,6a"]
-.Collections.
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/data-joining/collections-get-op*
-^|Test Purpose | Validate that the information about collections can be retrieved from the expected location.
-^|Requirement | 
-<<req_core_collections-get-op,/req/core/collections-get-op>> +
-<<req_core_collections-get-success,/req/core/collections-get-success>>
-^|Test Method |
-. Issue an HTTP GET request without query parameters to the URL `{root}/collections`.
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-get-op
+target:: /req/data-joining/collections-get-op
+test-purpose:: Validate that the information about collections can be retrieved from the expected location.
+test-method::
++
+--
+. Issue an HTTP GET request wihout query parameters to the URL `{root}/collections`.
 . Validate that a document was returned with a status code `200`.
-. Validate the contents of the returned document using test <<ats_data_joining_collections-get-success, /conf/data-joining/collections-get-success>>
-|===
+. Validate the contents of the returned document using test <<ats_data_joining_collections-get-success, /conf/data_joining/collections-get-success>>
+--
+====

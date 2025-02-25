@@ -1,0 +1,16 @@
+[[ats_data_joining_joins-get-success-limit-unsupported]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/joins-get-success-limit-unsupported
+target:: /req/data-joining/joins-get-success-limit-unsupported
+test-purpose:: Validate that the joins content complies with the required structure and contents.
+test-method::
++
+--
+. If the server does not support the limit parameter, execute the test <<ats_data_joining_joins-get-op, /conf/data-joining/joins-get-op>> with a set limit parameter value.
+. Execute the test <<ats_data_joining_joins-get-op, /conf/data-joining/joins-get-op>> without a limit parameter.
+. Verify that both queries return the same response.
+--
+====

@@ -1,0 +1,42 @@
+[[req_data_joining_joins-post-op-form-data-parameters]]
+
+.The Form Data parameters of the Join Creation query.
+[width="100%", options="header", cols="1,4,1,1"]
+|===
+^|Name				            | Description 	     | Type and values | Required
+^| collection-id	            | The value of the `id` attribute of the collection available on the server, to which the attribute data will be joined. | String | Mandatory
+^| collection-key	            | The value of the `id` attribute of the key field of the collection that will be used in the join operation. | String | Optional^a^
+^|right-dataset-format          | The format of the attribute dataset. | String | Mandatory^b^
+^|right-dataset-file	        | The attribute dataset file (uploaded file). | File | Optional^c^
+^|right-dataset-url	            | The attribute dataset URL. | URL | Optional^c^
+^|right-dataset-key	            | The key field in the attribute dataset that contains the key values. | String | Mandatory^d^
+^|right-dataset-data-value-list	| Fields in the attribute dataset that contain the attribute values that will be joined. | String, separated by commas | Mandatory^e^
+^|csv-file-delimiter	        | The delimiter character used in the CSV file. | String | Optional^f^
+^|csv-file-header-row-number	| The row number of CSV file’s header row in the CSV file (counting starts from 1). | Integer | Optional^g^
+^|csv-file-data-start-row-number| The row number where the data values start in the CSV file. (counting starts from 1) | Integer | Optional^h^
+^| output-formats		    | List of output formats for the joined data that will be included to the response document.   | String, separated by commas | Optional^i^
+^| include-join-metadata    | Includes the joinInformation element to the response document. | Boolean, values: {true, false} | Optional^j^ 
+4+| ^a^ If the `collection-key` parameter is not provided in the request, a default key field value of the collection is used in the join operation.
+4+| ^b^  The core module contains support for the format: 
+
+ 'http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-csv'.
+
+4+| ^c^  One of the parameters: __right-dataset-file__ or __right-dataset-url__ is mandatory to be used with the operation. The __right-dataset-file__ parameter can be used for uploading an attribute dataset file to the server. The __right-dataset-url__ parameter can be used for providing the attribute dataset file through URL link. If both parameters are provided in the query, the server SHALL send HTTP exception `400`.
+4+| ^d^ The key field in the attribute dataset that contains the key values. For CSV format, this value is the column number that contains the key values (counting starts from 0).
+4+| ^e^  For CSV format, the values are the column numbers that contain the attribute values that will be joined with the collection (counting starts from 0).
+4+| ^f^ The __csv-file-delimiter__ parameter is mandatory to be used with the __right-dataset-format__ parameter value: 'http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-csv'. The parameter is not required for other formats that may be defined in the extension modules.
+4+| ^g^  If omitted, the header row is expected to be at the first row of the CSV file. The names of the joined attributes in the result dataset are the names of the columns from the CSV file header row.
+4+| ^h^  If omitted, the data start row is expected to be at the second row of the CSV file. 
+4+| ^i^  Comma-separated list of the outputs that will be included to the response document. The output formats that the server supports SHALL be listed in the server's conformance declaration. If the parameter value is not provided in the request, a default value 
+
+`http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output-geojson` 
+
+is used. If the server supports the direct geojson response for the join it SHALL support the value 
+
+`http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output-geojson-direct`.
+
+4+| ^j^ If parameter is not provided in the request, a default value __false__ is used. The parameter is not used with the `output-formats` parameter value
+
+`http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output-geojson-direct`
+
+|===

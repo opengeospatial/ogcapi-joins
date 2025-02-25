@@ -1,0 +1,8 @@
+[[req_data_joining_joins-get-success-paged-response]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/joins-get-success-paged-response
+part:: If the number of joins in the `joins` element is less than the number that match the selection paarameters, then the `numberMatched` and `numberReturned` properties SHALL be included in the response.
+====

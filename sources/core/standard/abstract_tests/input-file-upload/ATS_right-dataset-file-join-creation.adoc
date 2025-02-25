@@ -1,0 +1,19 @@
+[[ats_input_file_upload_right-dataset-file-join-creation]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/input-file-upload/right-dataset-file-join-creation
+target:: /req/input-file-upload/right-dataset-file-join-creation
+test-purpose:: 
+Validate that the input data file can be uploaded with the query to the server in the data joining functionality.
+test-method::
++
+--
+Execute the abstract test: <<ats_data_joining_joins-post-op, /conf/data-joining/joins-post-op>> where:
+
+* The request contains the form data parameter `right-dataset-file` that contains the uploaded file. 
+
+* The request contains the header `Content-Disposition: form-data; filename=”[right dataset file’s name]”; name=”right-dataset-file`; +
+--
+====

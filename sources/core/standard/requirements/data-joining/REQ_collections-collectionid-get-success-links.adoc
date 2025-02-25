@@ -1,0 +1,15 @@
+[[req_data_joining_collections-collectionid-get-success-links]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/collections-collectionid-get-success-links
+part:: A `200`-response SHALL include the following links in the `links` property of the response:
+
+* A link to this response document (relation: `self`)
+
+* A link to the response document in every other media type supported by the service (relation: `alternate`)
+
+* A link to key fields metadata of this collection (relation: `keys`)
+part:: All links SHALL include the `rel` and `type` properties.
+====

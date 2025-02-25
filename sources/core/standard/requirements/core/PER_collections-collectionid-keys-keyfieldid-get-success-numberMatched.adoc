@@ -1,7 +1,0 @@
-[permission,type="general",id="/per/core/collections-collectionid-keys-keyfieldid-get-success-numberMatched",label="/per/core/collections-collectionid-keys-keyfieldid-get-success-numberMatched",obligation="permission"]
-====
-[.component,class=part]
---
-A server MAY omit the `numberMatched` information in a response, if the information about the number of matching resources is not known or difficult to compute.
---
-====

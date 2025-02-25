@@ -1,0 +1,8 @@
+[[per_data_joining_joins-get-success-server-limit]]
+
+[permission]
+====
+[%metadata]
+identifier:: /per/data-joining/joins-get-success-server-limit
+part:: If a server is configured with a maximum response size, then the server MAY page responses which exceed that threshold.
+====

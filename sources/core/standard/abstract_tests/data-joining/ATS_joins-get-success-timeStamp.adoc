@@ -1,0 +1,14 @@
+[[ats_data_joining_joins-get-success-timeStamp]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/joins-get-success-timeStamp
+target:: /req/data-joining/joins-get-success-timeStamp
+test-purpose:: Validate that the joins content complies with the required structure and contents.
+test-method::
++
+--
+If a property timeStamp is included in the response, verify that the value is the time when the response was generated.
+--
+====

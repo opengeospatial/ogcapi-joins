@@ -1,0 +1,17 @@
+[[ats_input_csv-right-dataset-format-file-joining]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/input-csv/right-dataset-format-file-joining
+target:: /req/input-csv/right-dataset-format-file-joining
+test-purpose:: 
+If the server supports the file joining functionality, validate that the server supports the CSV input files for the right dataset for the file joining operation.
+test-method::
++
+--
+Test method: Execute the abstract test: <<ats_file_joining_filejoin-post-op, /conf/file-joining/filejoin-post-op>> where: +
+- The form data parameter `right-dataset-format` has the value `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-csv`. +
+- The request contains either the uploaded CSV file in the form data parameter `right-dataset-file`or it is referenced via URL in the form data parameter `right-dataset-url`.
+--
+====

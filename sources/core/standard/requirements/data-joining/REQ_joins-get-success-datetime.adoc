@@ -1,0 +1,8 @@
+[[req_data_joining_joins-get-success-datetime]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/joins-get-success-datetime
+part:: If the `datetime` parameter is provided by the client and supported by the server, then only joins that have a `timeStamp` property that intersects the temporal information in the `datetime` parameter SHALL be part of the result set.
+====

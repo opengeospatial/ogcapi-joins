@@ -1,0 +1,8 @@
+[[req_geojson-geojson-file-joining]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/geojson/geojson-file-joining
+part:: The server SHALL support the GeoJSON format for the file Joining operation output when the `left-dataset-format` form data parameter values is `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-geojson`.
+====

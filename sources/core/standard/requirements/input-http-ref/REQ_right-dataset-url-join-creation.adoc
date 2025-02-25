@@ -1,0 +1,8 @@
+[[req_input_http_ref_right-dataset-url-join-creation]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/input-http-ref/right-dataset-url-join-creation
+part:: If the server support input file referencing via URL links to the server with the <<join_creation,Join Creation>> query, the Join Creation operation SHALL support the form data parameter `right-dataset-url`. 
+====

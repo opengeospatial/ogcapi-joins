@@ -1,0 +1,9 @@
+[[req_join_delete_joins-joinid-delete-success]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/join-delete/joins-joinid-delete-success
+part:: A successful execution of the operation SHALL be reported as a response with a HTTP status code `204`. 
+part:: The body of the response body SHALL be empty.
+====

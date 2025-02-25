@@ -1,0 +1,17 @@
+[[ats_input_http_ref-right-dataset-url-file-joining]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/input-http-ref/right-dataset-url-file-joining
+target:: /req/input-http-ref/right-dataset-url-file-joining
+test-purpose:: 
+Validate that the right dataset input file can be referenced via URLs in the file joining functionality.
+test-method::
++
+--
+Execute the abstract test: <<ats_file_joining_filejoin-post-op, /conf/file-joining/filejoin-post-op>> where:
+
+* The request contains the form data parameter `right-dataset-url` that contains the URL of the right dataset file.
+--
+====

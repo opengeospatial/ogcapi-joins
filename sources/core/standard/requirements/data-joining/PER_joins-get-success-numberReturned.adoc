@@ -1,0 +1,8 @@
+[[per_data_joining_joins-get-success-numberReturned]]
+
+[permission]
+====
+[%metadata]
+identifier:: /per/data-joining/joins-get-success-numberReturned
+part:: A server MAY omit this information in a response, if the information about the number of resources in the response is not known or difficult to compute.
+====

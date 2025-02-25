@@ -1,0 +1,13 @@
+[[requirements_class_input-http-ref]]
+
+[requirements_class]
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/input-http-ref
+subject:: Web API
+inherit:: /req/data-joining/joins-post-op
+inherit:: /req/file-joining/filejoin-post-op
+requirement:: /req/input-http-ref/right-dataset-url-join-creation
+requirement:: /req/input-http-ref/right-dataset-url-file-joining
+requirement:: /req/input-http-ref/left-dataset-url-file-joining
+====

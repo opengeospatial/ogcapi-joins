@@ -1,0 +1,9 @@
+[[req_join_delete_joins-joinid-delete-op]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/join-delete/joins-joinid-delete-op
+part:: If the server implements the __data joining operations__ operation set and the Join Delete requirements class, it SHALL support the HTTP DELETE operation at the path `{root}/joins/{joinId}`.
+part:: The parameter `joinId` is the `id` property in the `joins` response (JSONPath: `$.joins.id`).
+====

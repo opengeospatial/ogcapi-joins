@@ -1,0 +1,16 @@
+[[req_data_joining_joins-post-op]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/joins-post-op
+part:: If the server implements __data joining operations__ the implementation SHALL support the HTTP POST operation at path `{root}/joins`.
+part:: The request is made as a <<rfc7578,multipart/form-data>> request. 
+The request SHALL contain the header:
+Content-Type: multipart/form-data;
+part:: If the attribute dataset file is uploaded with the query, it SHALL contain the header:
+Content-Disposition: form-data; filename="[right dataset file's name]"; name="right-dataset-file";
+part:: The input data files SHALL be encoded with the `UTF-8` encoding.
+part:: The server SHALL support the GeoJSON output format for the joined data.
+part:: The Form Data parameters of the query are listed in a <<req_data_joining_joins-post-op-form-data-parameters,Table 6>>:
+====

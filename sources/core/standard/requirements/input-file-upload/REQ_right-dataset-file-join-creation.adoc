@@ -1,0 +1,8 @@
+[[req_input_file_upload_right-dataset-file-join-creation]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/input-file-upload/right-dataset-file-join-creation
+part:: If the server supports input file uploading to the server with the <<join_creation,Join Creation>> query, the Join Creation operation SHALL support the form data parameter `right-dataset-file`. 
+====

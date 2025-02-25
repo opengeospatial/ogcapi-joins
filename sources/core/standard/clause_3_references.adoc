@@ -5,9 +5,9 @@ The following normative documents contain provisions that, through reference in 
 
 * [[[rfc2616, RFC 2616]]], Fielding, R., Gettys, J., Mogul, J., Frystyk, H., Masinter, L., Leach, P. and  Berners-Lee, T.: IETF RFC 2616, *Hypertext Transfer Protocol -- HTTP/1.1*, 1999. Available at:  https://tools.ietf.org/html/rfc2616
 
-* [[[rfc2818,  RFC 2818]]], Rescorla, E.: IETF RFC 2818, *HTTP Over TLS*, 2000. Available at: http://tools.ietf.org/rfc/rfc2818.txt
+* [[[rfc2818,  RFC 2818]]], Rescorla, E.: IETF RFC 2818, *HTTP Over TLS*, 2000. Available at: https://tools.ietf.org/rfc/rfc2818.txt
 
-* [[[rfc3339, RFC 3339]]], Klyne, G., Newman, C.: IETF RFC 3339, Date and Time on the Internet: Timestamps, 2002. Available at: http://tools.ietf.org/rfc/rfc3339.txt
+* [[[rfc3339, RFC 3339]]], Klyne, G., Newman, C.: IETF RFC 3339, Date and Time on the Internet: Timestamps, 2002. Available at: https://tools.ietf.org/rfc/rfc3339.txt
 
 * [[[rfc3986, RFC 3986]]], Berners-Lee, T., Fielding, R. and Masinter, L.: IETF RFC 3986, *Uniform Resource Identifier (URI): Generic Syntax*, 2005. Available at: https://tools.ietf.org/html/rfc3986
 
@@ -21,9 +21,11 @@ The following normative documents contain provisions that, through reference in 
 
 * [[[rfc7946, RFC 7946]]],  Butler, H., Daly, M., Doyle, A., Gillies, S., Hagen, S., and Schaub, T.: IETF RFC 7946 *The GeoJSON Format*, 2016. Available at: https://tools.ietf.org/html/rfc7946
 
-* [[[rfc8259, RFC 8259]]], Bray, T. (ed.): IETF RFC 8259, *The JavaScript Object Notation (JSON) Data Interchange Format*, 2017. Available at: http://tools.ietf.org/rfc/rfc8259.txt
+* [[[rfc8259, RFC 8259]]], Bray, T. (ed.): IETF RFC 8259, *The JavaScript Object Notation (JSON) Data Interchange Format*, 2017. Available at: https://tools.ietf.org/rfc/rfc8259.txt
 
-* [[[rfc8288, RFC 8288]]], Nottingham, M. (ed.): IETF RFC 8288 *Web Linking*, 2017. Available at: http://tools.ietf.org/rfc/rfc8288
+* [[[rfc8288, RFC 8288]]], Nottingham, M. (ed.): IETF RFC 8288 *Web Linking*, 2017. Available at: https://tools.ietf.org/rfc/rfc8288
+
+* [[[rfc9535, RFC 9535]]], Gössner, S., Normington, G., Bormann, C. (ed.): IETF RFC 9535 *JSONPath: Query Expressions for JSON*, 2024. Available at: https://www.rfc-editor.org/rfc/rfc9535
 
 * [[[json-schema, json-schema]]], json-schema.org: *JSON Schema*, December 2020. Available at: https://json-schema.org/specification.html
 
@@ -31,10 +33,10 @@ The following normative documents contain provisions that, through reference in 
 
 * [[[OGC19-072, OGC 19-072]]],
 
-* [[[OGC20-024, OGC 20-024]]], OGC: OGC 20-024, *OGC API - Common - Part 2: Geospatial Data* (draft in development), 2021. Available at: http://docs.opengeospatial.org/DRAFTS/20-024.pdf
+* [[[OGC20-024, OGC 20-024]]], OGC: OGC 20-024, *OGC API - Common - Part 2: Geospatial Data* (draft in development), 2021. Available at: https://docs.opengeospatial.org/DRAFTS/20-024.pdf
 
 * [[[OpenAPI, OpenAPI]]], Open API Initiative (OAI): *The OpenAPI specification 3.0*, 2020. Available at: https://github.com/OAI/OpenAPI-Specification/blob/master/versions/
 
-* [[[schema.org, schema.org]]], *Schema.org*: http://schema.org/docs/schemas.html
+* [[[schema.org, schema.org]]], *Schema.org*: https://schema.org/docs/schemas.html
 
-* [[[html5, HTML5]]], W3C: *HTML5*, W3C Recommendation. Available at: http://www.w3.org/TR/html5/
+* [[[html5, HTML5]]], W3C: *HTML5*, W3C Recommendation. Available at: https://www.w3.org/TR/html5/

@@ -1,0 +1,8 @@
+[[rec_data_joining_collections_get_success_descriptions]]
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/data-joining/collections-get-success-descriptions
+part:: If external schemas or descriptions exist that provide additional information about the structure or semantics for the resource, a `200`-response SHOULD include links to each of those resources in the links property of the response (relation: `describedby`).
+part:: The `type` link parameter SHOULD be provided for each link. This applies to resources that describe the whole dataset.
+====

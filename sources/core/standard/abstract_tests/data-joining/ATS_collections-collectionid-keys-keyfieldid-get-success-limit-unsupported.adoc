@@ -1,0 +1,16 @@
+[[ats_data_joining_collections-collectionid-keys-keyfieldid-get-success-limit-unsupported]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-collectionid-keys-keyfieldid-get-success-limit-unsupported
+target:: /req/data-joining/collections-collectionid-keys-keyfieldid-get-success-limit-unsupported
+test-purpose:: Validate that the Collection key field's response complies with the unsupported limit parameter.
+test-method::
++
+--
+. If the server does not support the limit parameter, execute the test <<ats_data_joining_collections-collectionid-keys-keyfieldid-get-op, /conf/data-joining/collections-collectionid-keys-keyfieldid-get-op>> with a set limit parameter value.
+. Execute the test <<ats_data_joining_collections-collectionid-keys-keyfieldid-get-op, /conf/data-joining/collections-collectionid-keys-keyfieldid-get-op>> without a limit parameter.
+. Verify that both queries return the same response.
+--
+====

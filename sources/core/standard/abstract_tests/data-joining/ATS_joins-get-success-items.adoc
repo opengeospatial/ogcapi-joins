@@ -1,0 +1,17 @@
+[[ats_data_joining_joins-get-success-items]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/joins-get-success-items
+target:: /req/data-joining/joins-get-success-items
+test-purpose:: Validate that the joins content complies with the required structure and contents.
+test-method::
++
+--
+. Verify that the Join document includes a `joins` property.
+. Verify that the `joins` property is an array.
+. Verify that there is an entry in the `joins` property for each join accessible through the API.
+. Verify that each entry in the `joins` array is valid according to <<ats_data_joining_joins-joinid-get-success, joins-joinid-get-success>>.
+--
+====

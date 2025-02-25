@@ -1,11 +1,14 @@
-[requirement,type="class",id="http://www.opengis.net/ogcapi-joins-1/1.0/req/geojson",obligation="requirement"]
+[[requirements_class_geojson]]
 
 [requirements_class]
+.GeoJSON
 ====
 [%metadata]
-label:: http://www.opengis.net/ogcapi-joins-1/1.0/req/geojson
-subject:: Implementation Standard
-inherit:: <<rc_core,Requirements Class "Core">>
-inherit:: <<rfc8259,IETF RFC 8259: The JavaScript Object Notation (JSON) Data Interchange Format>>
+identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/geojson
+subject:: Web API
+inherit:: <<rc_data_joining,Requirements Class: "Data Joining">>
+inherit:: <<rc_file_joining,Requirements Class: "File Joining">>
 inherit:: <<rfc7946,The GeoJSON Format>>
+requirement:: /req/geojson/geojson-join-creation
+requirement:: /req/geojson/geojson-file-joining
 ====

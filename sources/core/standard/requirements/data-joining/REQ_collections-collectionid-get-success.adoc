@@ -1,0 +1,9 @@
+[[req_data_joining_collections-collectionid-get-success]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/collections-collectionid-get-success
+part:: A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
+part:: The content of that response SHALL be based upon the <<response_schema_for_the_collection,Response Schema for the Collection>>.
+====

@@ -1,0 +1,14 @@
+[[ats_data_joining_joins-post-success-attribute-data-file-csv-multiple-keys]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/joins-post-success-attribute-data-file-csv-multiple-keys
+target:: /req/data-joining/joins-post-success-attribute-data-file-csv-multiple-keys
+test-purpose:: Validate that the data join response complies with the required structure and contents.
+test-method::
++
+--
+. Validate that if the attribute data file is in CSV format and it contains multiple rows with the same key value, the value is used in the join operation from the row where it is encountered first.
+--
+====

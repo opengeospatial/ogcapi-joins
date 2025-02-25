@@ -1,5 +1,0 @@
-[requirement,type="general",id="/req/core/collections-get-op-limit-unsupported",label="/req/core/collections-get-op-limit-unsupported",obligation="requirement"]
-[[req_core_collections-get-op-limit-unsupported]]
-====
-If the `limit` parameter is provided by the client but it is not supported by the server, then the server SHALL process the request as if the parameter had not been provided.
-====

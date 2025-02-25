@@ -52,7 +52,7 @@ API definitions are considered service descriptions.
 
 ==== Response Schema for the Link Object
 [[link_schema]]
-The individual hyperlink elements that make up a "links" elements are defined in the http://beta.schemas.opengis.net/ogcapi/common/part1/0.1/core/openapi/schemas/link.json[hyperlink schema], originally defined in the section 6.3 of the <<OGC19-072, OGC API - Common - Part 1 specification>>.
+The individual hyperlink elements that make up a "links" elements are defined in the https://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/link.yaml[Hyperlink Schema], originally defined in the section 6.3 of the <<OGC19-072, OGC API - Common - Part 1 document>>.
 
 include::./../schemas/link_schema.adoc[]
 

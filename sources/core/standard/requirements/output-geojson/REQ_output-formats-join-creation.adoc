@@ -1,0 +1,8 @@
+[[req_output_geojson-output-formats-join-creation]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/output-geojson/output-formats-join-creation
+part:: If the server supports the <<join_creation,Join Creation>> query, the Join Creation operation SHALL support the form data parameter `output-formats` value `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output-geojson`. 
+====

@@ -1,0 +1,8 @@
+[[per_data_joining_joins-get-success-prev]]
+
+[permission]
+====
+[%metadata]
+identifier:: /per/data-joining/joins-get-success-prev
+part:: A response to a `next` link MAY include a `prev` link to the resource that included the `next` link.
+====

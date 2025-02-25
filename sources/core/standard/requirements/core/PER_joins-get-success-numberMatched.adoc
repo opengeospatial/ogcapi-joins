@@ -1,7 +1,0 @@
-[permission,type="general",id="/per/core/joins-get-success-numberMatched",label="/per/core/joins-get-success-numberMatched",obligation="permission"]
-====
-[.component,class=part]
---
-A server MAY omit this information in a response, if the information about the number of matching resources is not known or difficult to compute.
---
-====

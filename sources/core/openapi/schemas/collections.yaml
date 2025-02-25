@@ -7,9 +7,6 @@ properties:
     type: array
     items:
       $ref: link.yaml
-  timeStamp:
-    type: string
-    format: date-time
   numberMatched:
     type: integer
     minimum: 0

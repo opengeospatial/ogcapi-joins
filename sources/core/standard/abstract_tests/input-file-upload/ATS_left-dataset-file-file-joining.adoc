@@ -1,0 +1,19 @@
+[[ats_input_file_upload_left-dataset-file-file-joining]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/input-file-upload/left-dataset-file-file-joining
+target:: /req/input-file-upload/left-dataset-file-file-joining
+test-purpose:: 
+Validate that the left input data file can be uploaded with the query to the server in the file joining functionality.
+test-method::
++
+--
+Execute the abstract test: <<ats_file_joining_filejoin-post-op, /conf/file-joining/filejoin-post-op>> where:
+
+* The request contains the form data parameter `left-dataset-file` that contains the uploaded file. 
+
+ * The request contains the header `Content-Disposition: form-data; filename=”[left dataset file’s name]”; name=”left-dataset-file`;
+--
+====

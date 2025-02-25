@@ -1,5 +1,0 @@
-[requirement,type="general",id="/req/geojson/definition",label="/req/geojson/definition",obligation="requirement"]
-[[req_geojson-definition]]
-====
-The server SHALL support the GeoJSON format for the joined data outputs.
-====

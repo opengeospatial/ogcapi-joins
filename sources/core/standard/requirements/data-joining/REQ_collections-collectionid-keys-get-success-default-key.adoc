@@ -1,0 +1,8 @@
+[[req_data_joining_collections-collectionid-keys-get-success-default-key]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/collections-collectionid-keys-get-success-default-key
+part:: Exactly one object in the response's `keys` array SHALL have the `isDefault` property value `true`.
+====

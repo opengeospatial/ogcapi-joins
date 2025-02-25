@@ -1,0 +1,8 @@
+[[rec_data_joining_joins-get-success-server-limit]]
+
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/data-joining/joins-get-success-server-limit
+part:: Clients SHOULD be prepared to handle a paged response even if they have not specified a `limit` parameter in their query.
+====

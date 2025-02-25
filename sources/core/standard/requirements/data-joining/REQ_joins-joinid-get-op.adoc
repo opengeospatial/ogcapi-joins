@@ -1,0 +1,9 @@
+[[req_data_joining_joins-joinid-get-op]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/joins-joinid-get-op
+part:: If the server implements __data joining operations__ the implementation SHALL support the HTTP GET operation at the path `/joins/{joinId}`.
+part:: The parameter `joinId` SHALL be each id property in the `joins` response (JSONPath: `$.joins[*].id`).
+====

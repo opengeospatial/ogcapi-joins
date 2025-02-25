@@ -1,0 +1,18 @@
+[[ats_output_geojson_direct_output-formats-join-creation]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/output-geojson-direct/output-formats-join-creation
+target:: /req/output-geojson-direct/output-formats-join-creation
+test-purpose:: 
+If the server supports the data joining functionality, validate that the server supports the direct GeoJSON output format for the joined data.
+test-method::
++
+--
+Test method: Execute the abstract test: <<ats_data_joining_joins-post-op, /conf/data-joining/joins-post-op>> where: +
+- The form data parameter `output-formats` has the value `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output-geojson-direct`. +
+
+- Validate that the response is a valid GeoJSON document.
+--
+====

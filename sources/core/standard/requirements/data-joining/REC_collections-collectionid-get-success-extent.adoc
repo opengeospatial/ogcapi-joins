@@ -1,0 +1,9 @@
+[[rec_data_joining_collections-collectionid-get-success-extent]]
+
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/data-joining/collections-collectionid-get-success-extent
+part:: If an extent contains multiple spatial boundaries (multiple bounding boxes [bbox], etc.), then the extent SHOULD include in the first bbox a boundary which represents the union of all of the other boundaries.
+part:: If an extent contains multiple temporal intervals, then the extent SHOULD include as the first interval an interval which represents the union of all of the other intervals.
+====

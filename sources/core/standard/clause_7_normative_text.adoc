@@ -1,61 +1,15 @@
 [[rc_core]]
 == Requirements Class "Core"
-
-include::./requirements/requirements_class_core.adoc[]
-
 [[core-overview]]
 === Overview
+include::./requirements/requirements_class_core.adoc[]
 
-The OGC API - Joins core requirements class specifies three operation sets: __discovery operations__, __data joining operations__ and __file joining operations__. <<core-overview-table,Table 4>> contains an overview of the operations specified in the core module.
+The OGC API - Joins core requirements class specifies operations for accessing the API landing page, the API definition document, and the information on the server implementation's conformance to the Joins API Standard. 
 
-__Discovery operations__ defines operations for accessing the API landing page, the API definition document, and the information on the server implementation's conformance to the Joins API Standard. 
-
-__Data joining operations__ defines operations for accessing metadata and key values on the feature collections that are available on the server, operations for joining data from input data files with the collections, and operations for accessing and deleting the created joins.
-
-__File joining operations__ defines operations for joining data from input data files directly with other input data files.
-
-The core requirements class specifies the following input data file format support:
-
-* CSV format for the __data joining operations__.
-* CSV and GeoJSON format for the __file joining operations__.
-
+=== Operations
 include::./requirements/core/REQ_operations.adoc[]
 
-*Overview on the functionalities*
-
-The `Landing page` (path `/`) provides an entry point to the API. It contains links to:
-
-* The `API definition` (link relations `service-desc` and `service-doc`).
-* The `Conformance declaration` (path `/conformance`, link relation `http://www.opengis.net/def/rel/ogc/1.0/conformance`).
-* The `Collections` (path `/collections`, link relation `http://www.opengis.net/def/rel/ogc/1.0/data`).
-* The `Joins` (path `/joins`, link relation `joins`).
-
-The `API definition` describes the capabilities of the server that can be used by clients to connect to the server or by development tools to support the implementation of servers and clients. Accessing the `API definition` using HTTP GET returns a description of the deployed API implementation instance. The API definition can be hosted on the API server(s) or on a separate server.
-
-The `Conformance declaration` states the conformance classes from standards or community specifications, identified by a URI, that the API implementation instance conforms to. Clients can - but are not required to use this information. Accessing the `Conformance declaration` using HTTP GET returns the list of URIs of conformance classes implemented by the server.
-
-Accessing the `Collections` using HTTP GET returns a list of feature collections that are available on the server. 
-
-Each `Collection` element in the Collections list can be accessed further in order to get the metadata on each individual Collection by making an HTTP GET request at path `/collections/{collectionId}`.
-
-Accessing the `Collection's Key Fields` using HTTP GET at path `/collections/{collectionId}/keys` provides information on the key fields of a Collection.
-
-Accessing the `Collection's Key Field` using HTTP GET at path `/collections/{collectionId}/keys/{keyFieldId}` provides the key values of the specific key field. The data joining is executed through these key values.
-
-Accessing the `Joins` using HTTP GET returns a list of Joins that are available on the server. 
-
-New `Joins` can be created by making a HTTP POST query at path `/joins`. This is done by joining data from input data file with a Collection available on the server. 
-
-Each `Join` element in the Joins list can be accessed further in order to get the metadata on each individual Join by making an HTTP GET request at path `/joins/{joinId}`.
-
-Each `Join` can be deleted by making a HTTP DELETE request at path `/joins/{joinId}`.
-
-The data from the input data file can be joined directly with other input data file(s) by making a HTTP POST request at path `/filejoin`.
-
-include::./requirements/core_operations_overview.adoc[]
-
 === HTTP 1.1
-[[req_core_http]]
 
 include::./requirements/core/REQ_http.adoc[]
 
@@ -87,19 +41,16 @@ include::./requirements/core/REQ_http.adoc[]
 
 The return status codes described in <<http_status_codes,Table 5>> do not cover all possible conditions. See <<rfc7231,IETF RFC 7231>> for a complete list of HTTP status codes.
 
-[[per_core_additional-status-codes]]
 include::./requirements/core/PER_additional_status_codes.adoc[]
 
 When the server encounters an error during the processing of the request, the server may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be preferred. <<rfc7807,IETF RFC 7807>> addresses this need by providing "Problem Details" response schemas for both JSON and XML.
 
-[[problem_details]]
 include::./requirements/core/REC_problem_details.adoc[]
 
 === Support for Cross-Origin Requests
 
 If the data is located on another host than the webpage ("same-origin policy"), access to data from a HTML page is by default prohibited for security reasons. A typical example is a web-application accessing feature data from multiple distributed datasets.
 
-[[cross-origin]]
 include::./requirements/core/REC_cross_origin.adoc[]
 
 Two common mechanisms to support cross-origin requests are:
@@ -108,6 +59,11 @@ Two common mechanisms to support cross-origin requests are:
 
 * link:https://en.wikipedia.org/wiki/JSONP[JSONP (JSON with padding)]
 
+=== Asynchronous queries
+
+The OGC API - Joins standard doesn't specify a way to handle asynchronous queries. Different services may use different practices for performing them in situations where synchronous responding is not possible.
+
+One option for asynchronous query handling is to send an HTTP 308 response that includes a Location response header field with the URI of the location of the data where it will be located once the query has completed. If the user makes queries to the URI of the end-product before the data is available, the responses should use an HTTP code 202 and it they should include Retry-after response header field with a suggested interval in seconds to retry the data retrieval.
 
 === API Landing Page
 
@@ -126,19 +82,19 @@ include::./requirements/core/REQ_root-op.adoc[]
 
 include::./requirements/core/REQ_root-success.adoc[]
 
-[[landing-page-op]]
 ===== Response Schema for the  Landing Page
-The landing page response is based on the following schema (from <<OGC19-072,OGC - API - Common: Part 1>> document).
+The landing page response is based on the https://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/landingPage.yaml[Landing Page Schema], originally defined in the <<OGC19-072,OGC - API - Common: Part 1>> document.
 
 include::./../schemas/root_schema.adoc[]
+
+In addition to the required resources, links to additional resources may be included in the Landing Page.
 
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
-[[api-definition-op]]
 === API Definition
 
-Servers SHOULD provide an API Definition resource that describes the capabilities of the server. This resource can be used by client developers to understand the supported services, by software clients to connect to the server, and by development tools to support the implementation of servers and clients.
+Every API implementation should provide an API Definition resource that describes the capabilities provided by that API. This resource can be used by client developers to understand the supported services, by software clients to connect to the server, and by development tools to support the implementation of servers and clients.
 
 ==== Request
 include::./requirements/core/REQ_api-definition-op.adoc[]
@@ -155,8 +111,6 @@ include::./requirements/core/REC_api-definition-oas.adoc[]
 
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
-
-[[conformance-op]]
 === Declaration of Conformance Classes
 
 The HTTP GET operation at path `{root}/conformance` returns a list of conformance classes that the server supports.
@@ -171,7 +125,7 @@ include::./requirements/core/REQ_conformance-success.adoc[]
 
 ===== Response Schema for the Conformance Declaration
 
-The schema for the conformance response is based on the following schema (from <<OGC19-072,OGC API - Common - Part 1>> document).
+The schema for the conformance response is based on the https://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/confClasses.yaml[Conformance Declaration Schema] (from <<OGC19-072,OGC API - Common - Part 1>> document).
 
 include::./../schemas/conformance_schema.adoc[]
 
@@ -179,22 +133,27 @@ include::./../schemas/conformance_schema.adoc[]
 
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
-[[collections-op]]
+[[rc_data_joining]]
+== Requirements Class "Data Joining"
+
+=== Overview
+include::./requirements/requirements_class_data_joining.adoc[]
+
 === Collections
 
 The HTTP GET operation at path `{root}/collections` returns metadata on the collections that are available on the server.
 
 ==== Request
 
-include::./requirements/core/REQ_collections-get-op.adoc[]
+include::./requirements/data-joining/REQ_collections-get-op.adoc[]
 
 ==== Response
 
-include::./requirements/core/REQ_collections-get-success.adoc[]
+include::./requirements/data-joining/REQ_collections-get-success.adoc[]
 
 ===== Response Schema for the Collections
 
-The response is based on the following schema (from <<OGC20-024,OGC - API - Common: Part 2>> document).
+The response is based on the https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collections.yaml[Collections Schema] (from <<OGC20-024,OGC - API - Common: Part 2>> document).
 
 include::../schemas/collections_schema.adoc[]
 
@@ -202,21 +161,19 @@ This schema is further constrained by the following requirements and recommendat
 
 To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the whole dataset.
 
-include::./requirements/core/REQ_collections-get-success-links.adoc[]
+include::./requirements/data-joining/REQ_collections-get-success-links.adoc[]
 
 Additional information may be available to assist in understanding and using this dataset. Links to those resources should be provided as well.
 
-include::./requirements/core/REC_collections-get-success-descriptions.adoc[]
-
-The `timeStamp` property of the Collections response indicates when the response was generated.
-
-include::./requirements/core/REQ_collections-get-success-timestamp.adoc[]
+include::./requirements/data-joining/REC_collections-get-success-descriptions.adoc[]
 
 The `collections` property of the Collections response provides a description of each individual collection hosted by the server. These descriptions are based on the <<collections_collectionid_schema, Collection Schema>>.
 
-include::./requirements/core/REQ_collections-get-success-items.adoc[]
+include::./requirements/data-joining/REQ_collections-get-success-items.adoc[]
 
-include::./requirements/core/PER_collections-get-success-items.adoc[]
+The array items included in the collection property are described in the <<collection-op,Collection Resource>> section of this Requirements Class.
+
+This Requirements Class does not define any parameters for use against a collections resource.
 
 ==== Error Situations
 
@@ -229,63 +186,61 @@ The HTTP GET operation at path `{root}/collections/{collectionId}` returns metad
 
 ==== Request
 
-include::./requirements/core/REQ_collections-collectionid-get-op.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-get-op.adoc[]
 
 ==== Response
 
-include::./requirements/core/REQ_collections-collectionid-get-success.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-get-success.adoc[]
 
 [[response_schema_for_the_collection]]
 ===== Response Schema for the Collection
-The Collection response is based on the following schema (from <<OGC20-024,OGC - API - Common: Part 2>> document).
+The Collection response is based on the following schema.
 
 include::./../schemas/collections_collectionid_schema.adoc[]
 
 [[req_core_collections-collectionid-resource-definition]]
 
-The requirements of the response are originally defined in the http://www.opengis.net/spec/ogcapi-common-2/1.0/rm/collection Requirements Class described in the <<OGC20-024,OGC - API - Common: Part 2>> document.
-
 ====== Extent
-include::./requirements/core/REQ_rc-md-extent.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-get-success-extent.adoc[]
 
-include::./requirements/core/REC_rc-md-extent.adoc[]
+include::./requirements/data-joining/REC_collections-collectionid-get-success-extent.adoc[]
 
-include::./requirements/core/REC_rc-md-extent-single.adoc[]
+include::./requirements/data-joining/REC_collections-collectionid-get-success-extent-single.adoc[]
 
 //[discrete]
 ====== Item Type
 
 The collections defined by this core module provide information on their key fields and key values.
 
-include::./requirements/core/REC_rc-md-items-type.adoc[]
+include::./requirements/data-joining/REC_collections-collectionid-get-success-item-type.adoc[]
 
 //[discrete]
 ====== Links
 To support hypermedia navigation, the links property must be populated with sufficient hyperlinks to navigate through the whole dataset.
 
-include::./requirements/core/REQ_rc-md-items-links.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-get-success-links.adoc[]
 
 Additional information may be available to assist in understanding and using this dataset. Links to those resources should be provided as well.
 
-include::./requirements/core/REQ_rc-md-items-descriptions.adoc[]
+====== Describedby
+include::./requirements/data-joining/REC_collections-collectionid-get-success-describedby.adoc[]
 
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
 If the parameter `collectionId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 5>>).
 
-[[collection_key_fields-op]]
 === Collection's Key Fields
 
 The HTTP GET operation at path `{root}/collections/{collectionId}/keys` returns a list of key fields of a specific collection.
 
 ==== Request
 
-include::./requirements/core/REQ_collections-collectionid-keys-get-op.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-keys-get-op.adoc[]
 
 ==== Response
 
-include::./requirements/core/REQ_collections-collectionid-keys-get-success.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-keys-get-success.adoc[]
 
 =====  Response Schema for the Collection's Key Fields
 include::../schemas/collections_collectionid_keys_schema.adoc[]
@@ -297,7 +252,7 @@ include::../schemas/collections_collectionid_keys_schema.adoc[]
 
 Information on the Collection's default key field for the data joins. Value `true` indicates the default key field. 
 
-include::./requirements/core/REQ_collections-collectionid-keys-default-key.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-keys-get-success-default-key.adoc[]
 
 //[discrete]
 ====== language
@@ -317,31 +272,30 @@ To support hypermedia navigation, the `links` property must be populated with su
 [[req_core_collections-collectionid-keys-key-values-link]]
 Description of the `links` property of the `CollectionKeysResponseObject`:
 
-include::./requirements/core/REQ_collections-collectionid-keys-links.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-keys-get-success-links.adoc[]
 
 Description of `links` property of the `CollectionKeysObject`:
 
-include::./requirements/core/REQ_collections-collectionid-keys-items-links.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-keys-get-success-items-links.adoc[]
 
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
 If the parameter `collectionId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 5>>).
 
-[[collection_key_field-op]]
 === Collection's Key Field
 
 The HTTP GET operation at path `{root}/collections/{collectionId}/keys/{keyFieldId}` returns a list of key values of a specific key field of a specific collection.
 
 ==== Request
 
-include::./requirements/core/REQ_collections-collectionid-keys-keyfieldid-get-op.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-keys-keyfieldid-get-op.adoc[]
 
-include::./requirements/core/PER_collections-collectionid-keys-keyfieldid-get-op.adoc[]
+include::./requirements/data-joining/PER_collections-collectionid-keys-keyfieldid-get-op.adoc[]
 
 ==== Response
 
-include::./requirements/core/REQ_collections-collectionid-keys-keyfieldid-get-success.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-keys-keyfieldid-get-success.adoc[]
 
 ===== Parameter Limit
 
@@ -351,45 +305,45 @@ The client can request a limit to the number of key values returned in a respons
 
 The server may have a default value for the limit and a maximum limit.
 
-include::./requirements/core/REQ_collections-collectionid-keys-keyfieldid-get-success-limit-response.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-keys-keyfieldid-get-success-limit.adoc[]
 
-include::./requirements/core/REQ_collections-collectionid-keys-keyfieldid-get-success-limit-unsupported.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-keys-keyfieldid-get-success-limit-unsupported.adoc[]
 
 ===== Paged response
 
 If the number of items in the `keys` array of the response is less than or equal to the requested/default/maximum limit then the server will include a link to the next set of results.
 
-include::./requirements/core/PER_collections-collectionid-keys-keyfieldid-get-success-server-limit.adoc[]
+include::./requirements/data-joining/PER_collections-collectionid-keys-keyfieldid-get-success-server-limit.adoc[]
 
-include::./requirements/core/REC_collections-collectionid-keys-keyfieldid-get-success-server-limit.adoc[]
+include::./requirements/data-joining/REC_collections-collectionid-keys-keyfieldid-get-success-server-limit.adoc[]
 
 The effect of the `limit` parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first page. Additional pages can be accessed through hyperlink navigation.
 
-include::./requirements/core/REC_collections-collectionid-keys-keyfieldid-get-success-next-1.adoc[]
+include::./requirements/data-joining/REC_collections-collectionid-keys-keyfieldid-get-success-next-1.adoc[]
 
-include::./requirements/core/REC_collections-collectionid-keys-keyfieldid-get-success-next-2.adoc[]
+include::./requirements/data-joining/REC_collections-collectionid-keys-keyfieldid-get-success-next-2.adoc[]
 
-include::./requirements/core/REC_collections-collectionid-keys-keyfieldid-get-success-next-3.adoc[]
+include::./requirements/data-joining/REC_collections-collectionid-keys-keyfieldid-get-success-next-3.adoc[]
 
 Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach it may be too complex to implement.
 
-include::./requirements/core/PER_collections-collectionid-keys-keyfieldid-get-success-prev.adoc[]
+include::./requirements/data-joining/PER_collections-collectionid-keys-keyfieldid-get-success-prev.adoc[]
 
 If the server response does not contain all of the key values that match the selection parameters, then the client must be informed of that fact.
 
-include::./requirements/core/REQ_collections-collectionid-keys-keyfieldid-get-success-paged-response.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-keys-keyfieldid-get-success-paged-response.adoc[]
 
 The `numberMatched` property of the response indicates the number of key values that are available in the server that match the selection parameters in the request.
 
-include::./requirements/core/REQ_collections-collectionid-keys-keyfieldid-get-success-numberMatched.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-keys-keyfieldid-get-success-numberMatched.adoc[]
 
-include::./requirements/core/PER_collections-collectionid-keys-keyfieldid-get-success-numberMatched.adoc[]
+include::./requirements/data-joining/PER_collections-collectionid-keys-keyfieldid-get-success-numberMatched.adoc[]
 
 The number of key values included in a response may be a subset of the number matched. In that case, the `numberReturned` property of the response indicates the number of key values returned in this "page" of the response.
 
-include::./requirements/core/REQ_collections-collectionid-keys-keyfieldid-get-success-numberReturned.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-keys-keyfieldid-get-success-numberReturned.adoc[]
 
-include::./requirements/core/PER_collections-collectionid-keys-keyfieldid-get-success-numberReturned.adoc[]
+include::./requirements/data-joining/PER_collections-collectionid-keys-keyfieldid-get-success-numberReturned.adoc[]
 
 ===== Response Schema for the Collection's Key Field
 include::./../schemas/collections_collectionid_keys_keyfieldid_schema.adoc[]
@@ -419,7 +373,7 @@ Key value.
 
 To support hypermedia navigation, the links property must be populated with sufficient hyperlinks.
 
-include::./requirements/core/REQ_collections-collectionid-keys-keyfieldid-links.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-keys-keyfieldid-get-success-links.adoc[]
 
 //[discrete]
 ====== title
@@ -433,20 +387,19 @@ If the parameter `collectionId` does not exist on the server, the status code of
 
 If the parameter `keyFieldId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 5>>).
 
-[[joins-get-op]]
 === Joins
 
 The HTTP GET operation at path `{root}/joins` returns a list of joins that are available on the server.
 
 ==== Request
 
-include::./requirements/core/REQ_joins-get-op.adoc[]
+include::./requirements/data-joining/REQ_joins-get-op.adoc[]
 
-include::./requirements/core/PER_joins-get-op.adoc[]
+include::./requirements/data-joining/PER_joins-get-op.adoc[]
 
 ==== Response
 
-include::./requirements/core/REQ_joins-get-success.adoc[]
+include::./requirements/data-joining/REQ_joins-get-success.adoc[]
 
 ===== Parameter Limit
 
@@ -456,61 +409,60 @@ The client can request a limit to the number of joins returned in a response by 
 
 The server may have a default value for the limit and a maximum limit.
 
-include::./requirements/core/REQ_joins-get-success-limit-response.adoc[]
+include::./requirements/data-joining/REQ_joins-get-success-limit.adoc[]
 
-include::./requirements/core/REQ_joins-get-success-datetime.adoc[]
+include::./requirements/data-joining/REQ_joins-get-success-limit-unsupported.adoc[]
 
 ===== Parameter datetime
 
-include::./requirements/core/REQ_joins-get-success-limit-unsupported.adoc[]
+include::./requirements/data-joining/REQ_joins-get-success-datetime.adoc[]
 
 ===== Paged response
 
 If the number of items in the `joins` array of the response is less than or equal to the requested/default/maximum limit then the server will include a link to the next set of results.
 
-include::./requirements/core/PER_joins-get-success-server-limit.adoc[]
+include::./requirements/data-joining/PER_joins-get-success-server-limit.adoc[]
 
-include::./requirements/core/REC_joins-get-success-server-limit.adoc[]
+include::./requirements/data-joining/REC_joins-get-success-server-limit.adoc[]
 
 The effect of the `limit` parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first page. Additional pages can be accessed through hyperlink navigation.
 
-include::./requirements/core/REC_joins-get-success-next-1.adoc[]
+include::./requirements/data-joining/REC_joins-get-success-next-1.adoc[]
 
-include::./requirements/core/REC_joins-get-success-next-2.adoc[]
+include::./requirements/data-joining/REC_joins-get-success-next-2.adoc[]
 
-include::./requirements/core/REC_joins-get-success-next-3.adoc[]
+include::./requirements/data-joining/REC_joins-get-success-next-3.adoc[]
 
 Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach it may be too complex to implement.
 
-include::./requirements/core/PER_joins-get-success-prev.adoc[]
+include::./requirements/data-joining/PER_joins-get-success-prev.adoc[]
 
 If the server response does not contain all of the joins that match the selection parameters, then the client must be informed of that fact.
 
-include::./requirements/core/REQ_joins-get-success-paged-response.adoc[]
+include::./requirements/data-joining/REQ_joins-get-success-paged-response.adoc[]
 
 The `numberMatched` property of the response indicates the number of joins that are available in the server that match the selection parameters in the request.
 
-include::./requirements/core/REQ_joins-get-success-numberMatched.adoc[]
+include::./requirements/data-joining/REQ_joins-get-success-numberMatched.adoc[]
 
-include::./requirements/core/PER_joins-get-success-numberMatched.adoc[]
+include::./requirements/data-joining/PER_joins-get-success-numberMatched.adoc[]
 
 The number of joins included in a response may be a subset of the number matched. In that case, the `numberReturned` property of the response indicates the number of joins returned in this "page" of the response.
 
-include::./requirements/core/REQ_joins-get-success-numberReturned.adoc[]
+include::./requirements/data-joining/REQ_joins-get-success-numberReturned.adoc[]
 
-include::./requirements/core/PER_joins-get-success-numberReturned.adoc[]
+include::./requirements/data-joining/PER_joins-get-success-numberReturned.adoc[]
 
 ===== Response schema for the Joins
 
 include::./../schemas/joins_schema.adoc[]
 
 [[joins-resource-definition]]
-
 //[discrete]
 ====== joins
 The `joins` property of the response provides a description of each individual join hosted by the server.
 
-include::./requirements/core/REQ_joins-get-success-items.adoc[]
+include::./requirements/data-joining/REQ_joins-get-success-items.adoc[]
 
 //[discrete]
 ====== links
@@ -519,11 +471,11 @@ To support hypermedia navigation, the `links` property must be populated with su
 
 Property `links` in the `JoinsResponseObject`:
 
-include::./requirements/core/REQ_joins-get-success-links.adoc[]
+include::./requirements/data-joining/REQ_joins-get-success-links.adoc[]
 
 Property `links` in the `JoinsObject`:
 
-include::./requirements/core/REQ_joins-get-success-items-links.adoc[]
+include::./requirements/data-joining/REQ_joins-get-success-items-links.adoc[]
 
 //[discrete]
 ====== id
@@ -545,7 +497,7 @@ The number of joins returned in the response.
 
 Property `timeStamp` in the `JoinsResponseObject`:
 
-include::./requirements/core/REQ_joins-get-success-timeStamp.adoc[]
+include::./requirements/data-joining/REQ_joins-get-success-timeStamp.adoc[]
 
 Property `timeStamp` in the `JoinsObject`:
 
@@ -554,7 +506,7 @@ The time when the join was generated.
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
-[[joins-post-op]]
+[[join_creation]]
 === Join Creation
 
 The HTTP POST operation at path `{root}/joins` creates a new join. 
@@ -571,19 +523,19 @@ The core module contains support for CSV format for the input data files.
 
 ==== Request
 
-include::./requirements/core/REQ_joins-post-op.adoc[]
+include::./requirements/data-joining/REQ_joins-post-op.adoc[]
 
-include::./requirements/core/REQ_joins-post-op-form-data-parameters.adoc[]
+include::./requirements/data-joining/REQ_joins-post-op-form-data-parameters.adoc[]
 
-include::./requirements/core/PER_joins-post-op.adoc[]
+include::./requirements/data-joining/PER_joins-post-op.adoc[]
 
 ==== Response
 
-include::./requirements/core/REQ_joins-post-success.adoc[]
+include::./requirements/data-joining/REQ_joins-post-success.adoc[]
 
-include::./requirements/core/REQ_joins-post-attribute-data-file-csv-multiple-keys.adoc[]
+include::./requirements/data-joining/REQ_joins-post-success-attribute-data-file-csv-multiple-keys.adoc[]
 
-include::./requirements/core/REQ_joins-post-success-attribute-data-file-csv-attribute-names.adoc[]
+include::./requirements/data-joining/REQ_joins-post-success-attribute-data-file-csv-attribute-names.adoc[]
 
 ===== Response schema for the Join Creation
 
@@ -594,18 +546,17 @@ For responses that produce a GeoJSON output, the response is a GeoJSON file that
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
-[[join-get-op]]
 === Join
 
 The HTTP GET operation at path `{root}/joins/{joinId}` returns metadata on a specific join that is available on the server.
 
 ==== Request
 
-include::./requirements/core/REQ_joins-joinid-get-op.adoc[]
+include::./requirements/data-joining/REQ_joins-joinid-get-op.adoc[]
 
 ==== Response
 
-include::./requirements/core/REQ_joins-joinid-get-success.adoc[]
+include::./requirements/data-joining/REQ_joins-joinid-get-success.adoc[]
 
 ===== Response Schema for the Join
 
@@ -618,7 +569,7 @@ include::./../schemas/join_schema.adoc[]
 
 To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks.
 
-include::./requirements/core/REQ_joins-joinid-links.adoc[]
+include::./requirements/data-joining/REQ_joins-joinid-get-success-links.adoc[]
 
 //[discrete]
 ====== join
@@ -649,14 +600,14 @@ Name or URL of the input attribute data file.
 
 A `link` object that contains information on the collection that was used in the join operation.
 
-include::./requirements/core/REQ_joins-joinid-inputs-collection.adoc[]
+include::./requirements/data-joining/REQ_joins-joinid-get-success-links-collection.adoc[]
 
 //[discrete]
 ====== outputs
 
 Links to the produced outputs that contain the joined data.
 
-include::./requirements/core/REQ_joins-joinid-outputs.adoc[]
+include::./requirements/data-joining/REQ_joins-joinid-get-success-links-outputs.adoc[]
 
 //[discrete]
 ====== joinInformation
@@ -708,18 +659,23 @@ See <<http_status_codes,HTTP status codes>> for general guidance.
 
 If the parameter `joinId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 5>>).
 
-[[join-delete-op]]
+[[rc_join_delete]]
+== Requirements Class "Join Delete"
+
+=== Overview
+include::./requirements/requirements_class_join_delete.adoc[]
+
 === Join Delete
 
 The HTTP DELETE operation at path `{root}/joins/{joinId}` deletes the specific join from the server. 
 
 ==== Request
 
-include::./requirements/core/PER_joins-joinid-delete-op.adoc[]
+include::./requirements/join-delete/REQ_joins-joinid-delete-op.adoc[]
 
 ==== Response
 
-include::./requirements/core/REQ_joins-joinid-delete-success.adoc[]
+include::./requirements/join-delete/REQ_joins-joinid-delete-success.adoc[]
 
 ===== Response schema for the Join Delete
 
@@ -730,7 +686,14 @@ See <<http_status_codes,HTTP status codes>> for general guidance.
 
 If the parameter `joinId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 5>>).
 
-[[filejoin-post-op]]
+
+[[rc_file_joining]]
+== Requirements Class "File Joining"
+
+=== Overview
+include::./requirements/requirements_class_file_joining.adoc[]
+
+[[file_joining]]
 === File Joining
 
 The HTTP POST operation at path `{root}/filejoin` joins data from input data file directly with another input data file.
@@ -749,17 +712,17 @@ The result of the operation is the left dataset that contains also the joined at
 
 ==== Request
 
-include::./requirements/core/REQ_filejoin-post-op.adoc[]
+include::./requirements/file-joining/REQ_filejoin-post-op.adoc[]
 
-include::./requirements/core/REQ_filejoin-post-op-form-data-parameters.adoc[]
+include::./requirements/file-joining/REQ_filejoin-post-op-form-data-parameters.adoc[]
 
 ==== Response
 
-include::./requirements/core/REQ_filejoin-post-success.adoc[]
+include::./requirements/file-joining/REQ_filejoin-post-success.adoc[]
 
-include::./requirements/core/REQ_filejoin-post-attribute-data-file-csv-multiple-keys.adoc[]
+include::./requirements/file-joining/REQ_filejoin-post-success-attribute-data-file-csv-multiple-keys.adoc[]
 
-include::./requirements/core/REQ_filejoin-post-success-attribute-data-file-csv-attribute-names.adoc[]
+include::./requirements/file-joining/REQ_filejoin-post-success-attribute-data-file-csv-attribute-names.adoc[]
 
 ===== Response schema for the File Joining
 
@@ -768,30 +731,134 @@ The response is a GeoJSON file that contains also the joined attributes.
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
+
+[[rc_file_uploading_with_query]]
+== Requirements Class "Input File Upload"
+
+=== Overview
+include::./requirements/requirements_class_input_file_upload.adoc[]
+
+=== Join Creation Operation
+The <<join_creation,Join Creation>> operation of the Data Joining requirement class defines how to create a join with a collection. The Input File Upload requirements class specifies mechanisms for specifying support for input file uploading to the server.
+
+==== Form Data Parameter `right-dataset-file`
+include::./requirements/input-file-upload/REQ_right-dataset-file-join-creation.adoc[]
+
+=== File Joining Operation
+The <<file_joining,File Joining>> operation of the File Joining requirement class defines how to create a join between two input files. The Input File Upload requirements class specifies mechanisms for specifying support for input file uploading to the server.
+
+==== Form Data Parameter `right-dataset-file`
+include::./requirements/input-file-upload/REQ_right-dataset-file-file-joining.adoc[]
+
+==== Form Data Parameter `left-dataset-file`
+include::./requirements/input-file-upload/REQ_left-dataset-file-file-joining.adoc[]
+
+
+[[rc_file_referencing_with_url]]
+== Requirements Class "File Referencing with URL"
+
+=== Overview
+include::./requirements/requirements_class_file_referencing_with_url.adoc[]
+
+=== Join Creation Operation
+The <<join_creation,Join Creation>> operation of the Data Joining requirement class defines how to create a join with a collection. The File Referencing with URL requirements class specifies mechanisms for specifying support for referencing input files via URL links.
+
+==== Form Data Parameter `right-dataset-url`
+include::./requirements/input-http-ref/REQ_right-dataset-url-join-creation.adoc[]
+
+=== File Joining Operation
+The <<file_joining,File Joining>> operation of the File Joining requirement class defines how to create a join between two input files. The File Referencing with URL requirements class specifies mechanisms for specifying support for referencing input files via URL links.
+
+==== Form Data Parameter `right-dataset-url`
+include::./requirements/input-http-ref/REQ_right-dataset-url-file-joining.adoc[]
+
+==== Form Data Parameter `left-dataset-url`
+include::./requirements/input-http-ref/REQ_left-dataset-url-file-joining.adoc[]
+
+
+[[rc_input_csv]]
+== Requirements Class "CSV File Input"
+
+=== Overview
+include::./requirements/requirements_class_csv_file_input.adoc[]
+
+=== Join Creation Operation
+The <<join_creation,Join Creation>> operation of the Data Joining requirement class defines how to create a join with a collection. The CSV File Input requirements class specifies mechanisms for specifying support for CSV input data format.
+
+==== Parameter `right-dataset-format`
+include::./requirements/input-csv/REQ_right-dataset-format-join-creation.adoc[]
+
+=== File Joining Operation
+The <<file_joining,File Joining>> operation of the File Joining requirement class defines how to create a join between two input files. The CSV File Input requirements class specifies mechanisms for specifying support for CSV input data format.
+
+==== Parameter `right-dataset-format`
+include::./requirements/input-csv/REQ_right-dataset-format-file-joining.adoc[]
+
+
+[[rc_input_geojson]]
+== Requirements Class "GeoJSON File Input"
+
+=== Overview
+include::./requirements/requirements_class_geojson_file_input.adoc[]
+
+=== File Joining Operation
+The <<file_joining,File Joining>> operation of the File Joining requirement class defines how to create a join between two input files. The GeoJSON File Input requirements class specifies mechanisms for specifying support for GeoJSON input data format.
+
+==== Parameter `left-dataset-format`
+include::./requirements/input-geojson/REQ_left-dataset-format-file-joining.adoc[]
+
+
+
+[[rc_output_geojson]]
+== Requirements Class "GeoJSON Output for Joined Data"
+
+=== Overview
+include::./requirements/requirements_class_geojson_output.adoc[]
+
+=== Join Creation Operation
+The <<join_creation,Join Creation>> operation of the Data Joining requirement class defines how to create a join with a collection. The GeoJSON Output for Joined Data requirements class specifies mechanisms for specifying support for GeoJSON output for the joined data.
+
+==== Parameter `output-formats`
+include::./requirements/output-geojson/REQ_output-formats-join-creation.adoc[]
+
+
+
+[[rc_output_geojson_direct]]
+== Requirements Class "Direct GeoJSON Output for Joined Data"
+
+=== Overview
+include::./requirements/requirements_class_direct_geojson_output.adoc[]
+
+=== Join Creation Operation
+The <<join_creation,Join Creation>> operation of the Data Joining requirement class defines how to create a join with a collection. The Direct GeoJSON Output for Joined Data requirements class specifies mechanisms for specifying support for direct GeoJSON output for the joined data instead of getting the link via join creation response document.
+
+==== Parameter `output-formats`
+include::./requirements/output-geojson-direct/REQ_output-formats-join-creation.adoc[]
+
+
+
 [[rc_encodings]]
-== Requirements Classes for Encodings
+== Encoding Requirements Classes
 [[encodings-overview]]
 === Overview
 
 This clause specifies three requirements classes for encodings to be used by implementations of the OGC API - Joins Standard. 
 
-* <<requirements_class_html, HTML>>
+* <<rc_html, HTML>>
 
-* <<requirements_class_json, JSON>>
+* <<rc_json, JSON>>
 
-* <<requirements_class_geojson, GeoJSON>>
+* <<rc_geojson, GeoJSON>>
 
-Support for the JSON encoding class is mandatory and support for HTML encoding class is recommended.
+Support for the JSON encoding class is mandatory. Support for HTML encoding class is recommended.
 Support for the GeoJSON format for the joined data output is mandatory.  
 
-[[requirements_class_html]]
+
+[[rc_html]]
 === Requirements Class "HTML"
 
-Geographic information that is only accessible in formats like GeoJSON or GML has two issues:
-
-* The data is not discoverable using the most common mechanism for discovering information, that is the search engines of the Web,
-
-Therefore, sharing data on the Web should include publication in HTML. To be consistent with the Web, it should be done in a way that enables users and search engines to access all data.
+=== Overview
+Sharing data on the Web should include publication in HTML. To be consistent with the Web, it should be done in a way that enables users and search engines to access all data.
 
 This is discussed in detail in document <<SDWBP, Spatial Data on the Web Best Practices>>. The OGC API - Joins Standard therefore recommends supporting HTML as an encoding.
 
@@ -801,22 +868,34 @@ include::./requirements/html/REQ_definition.adoc[]
 
 include::./requirements/html/REQ_content.adoc[]
 
-include::./requirements/html/REQ_schema-org.adoc[]
+include::./requirements/html/REC_schema-org.adoc[]
 
-[[requirements_class_json]]
+
+[[rc_json]]
 === Requirements Class "JSON"
 
-JSON is a text syntax that facilitates structured data interchange between programming languages. It is commonly used for Web-based software-to-software interchanges. The support for JSON is mandatory for OGC API - Joins implementations.
+=== Overview
+JSON is a lightweight data-interchange format designed to facilitate structured data interchange between applications. 
+JSON is commonly used for Web-based software-to-software interchanges. Most Web developers are comfortable with using a JSON-based format. 
+Therefore, support for JSON is recommended for machine-to-machine interactions.
 
 include::./requirements/requirements_class_json.adoc[]
 
-include::./requirements/json/REQ_definition.adoc[]
+include::./requirements/json/REQ_json-definition.adoc[]
 
-include::./requirements/json/REQ_content.adoc[]
+include::./requirements/json/REQ_json-content.adoc[]
 
-[[requirements_class_geojson]]
+include::./requirements/json/REC_json-problem-details.adoc[]
+
+
+[[rc_geojson]]
 === Requirements Class "GeoJSON"
+GeoJSON is a commonly used format that is simple to understand and well supported by tools and software libraries. 
+The support for the GeoJSON format is mandatory.
 
+=== Overview
 include::./requirements/requirements_class_geojson.adoc[]
 
-include::./requirements/geojson/REQ_definition.adoc[]
+include::./requirements/geojson/REQ_geojson-join-creation.adoc[]
+
+include::./requirements/geojson/REQ_geojson-file-joining.adoc[]

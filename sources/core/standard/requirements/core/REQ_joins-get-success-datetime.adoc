@@ -1,5 +1,0 @@
-[requirement,type="general",id="/req/core/joins-get-success-datetime",label="/req/core/joins-get-success-datetime",obligation="requirement"]
-[[req_core_joins-get-success-datetime]]
-====
-If the `datetime` parameter is provided by the client and supported by the server, then only joins that have a `timeStamp` property that intersects the temporal information in the `datetime` parameter SHALL be part of the result set.
-====

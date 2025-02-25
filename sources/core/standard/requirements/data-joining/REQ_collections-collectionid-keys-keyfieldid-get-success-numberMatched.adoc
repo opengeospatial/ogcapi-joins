@@ -1,0 +1,8 @@
+[[req_data_joining_collections-collectionid-keys-keyfieldid-get-success-numberMatched]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/collections-collectionid-keys-keyfieldid-get-success-numberMatched
+part:: If a property `numberMatched` is included in the response, the value SHALL be identical to the number of hosted key values that meet the selection parameters provided by the client.
+====

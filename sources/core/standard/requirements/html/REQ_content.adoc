@@ -1,5 +1,11 @@
-[requirement,type="general",id="/req/html/content",label="/req/html/content",obligation="requirement"]
 [[req_html-content]]
+
+[requirement]
 ====
-Every 200-response of an operation of the server SHALL support the media type text/html.
+[%metadata]
+identifier:: /req/html/content
+part:: Every 200-response of the API with the media type “text/html” SHALL be a <<html5,HTML5>> document that includes the following information in the HTML body:
+
+* All information identified in the schemas of the Response Object in the HTML <body/>, and
+* All links in HTML <a/> elements in the HTML <body/>.
 ====

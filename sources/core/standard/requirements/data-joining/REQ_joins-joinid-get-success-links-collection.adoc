@@ -1,0 +1,11 @@
+[[req_data_joining_joins-joinid-get-success-links-collection]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/joins-joinid-get-success-links-collection
+part:: A `200`-response SHALL include the following links in the `links` property of the `collection` property of the response:
+
+* A link to the `collection` resource that was used in the join operation in every supported media type (relation: `dataset`).
+part:: All links SHALL include the `rel` and `type` properties.
+====

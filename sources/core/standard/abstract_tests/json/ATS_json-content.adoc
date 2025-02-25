@@ -1,11 +1,14 @@
-[[ats_json-content]]
-[width="90%",cols="2,6a"]
-.JSON Content.
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/json/content*
-^|Test Purpose | Verify the content of a JSON document given an input document and schema.
-^|Requirement |
-<<req_json-content,/req/json/content>>
-^|Test Method | . Validate that the document is a JSON <<rfc8259,(IETF RFC 8259)>> document.
+[[ats_json-json-content]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json/json-content
+target:: /req/json/json-content
+test-purpose:: Verify the content of a JSON document given an input document and schema.
+test-method::
++
+--
+. Validate that the document is a JSON <<rfc8259,(IETF RFC 8259)>> document.
 . Validate the document against the schema using a JSON Schema validator.
-|===
+--
+====

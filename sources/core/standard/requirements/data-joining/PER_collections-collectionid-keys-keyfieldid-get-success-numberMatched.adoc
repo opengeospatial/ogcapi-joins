@@ -1,0 +1,8 @@
+[[per_data_joining_collections-collectionid-keys-keyfieldid-get-success-numberMatched]]
+
+[permission]
+====
+[%metadata]
+identifier:: /per/data-joining/collections-collectionid-keys-keyfieldid-get-success-numberMatched
+part:: A server MAY omit the `numberMatched` information in a response, if the information about the number of matching resources is not known or difficult to compute.
+====

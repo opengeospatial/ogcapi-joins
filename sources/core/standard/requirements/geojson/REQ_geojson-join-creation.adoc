@@ -1,0 +1,8 @@
+[[req_geojson-geojson-join-creation]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/geojson/geojson-join-creation
+part:: The server SHALL support the GeoJSON format for the joined data output.
+====
