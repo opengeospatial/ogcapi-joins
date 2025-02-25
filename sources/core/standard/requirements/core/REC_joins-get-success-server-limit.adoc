@@ -1,5 +1,0 @@
-[recommendation,type="general",id="/rec/core/joins-get-success-server-limit",label="/rec/core/joins-get-success-server-limit",obligation="requirement"]
-[[rec_core_joins-get-success-server-limit]]
-====
-Clients SHOULD be prepared to handle a paged response even if they have not specified a `limit` parameter in their query.
-====

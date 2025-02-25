@@ -1,9 +1,0 @@
-[[ats_file_joining_response]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/file_joining/response*
-^|Test Purpose | Verify support for File Joining functionality
-^|Requirement |
-<<req_html-definition,/req/html/definition>>
-^|Test Method | Verify that every `200`-response of every operation of the API where HTML was requested is of media type `text/html`.
-|===

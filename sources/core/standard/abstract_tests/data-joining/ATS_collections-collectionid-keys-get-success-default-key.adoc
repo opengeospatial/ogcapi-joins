@@ -1,0 +1,13 @@
+[[ats_data_joining_collections-collectionid-keys-get-success-default-key]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-collectionid-keys-get-success-default-key
+target:: /req/data-joining/collections-collectionid-keys-get-success-default-key
+test-purpose:: Validate that the response `isDefault` value of the response.
+test-method::
++
+--
+. Validate that the response's `keys` array contains exatly one object that has the `isDefault` property value `true`.
+--
+====

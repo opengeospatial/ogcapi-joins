@@ -1,0 +1,16 @@
+[[ats_geojson-geojson-join-creation]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/geojson/geojson-join-creation
+target:: /req/geojson/geojson-join-creation
+test-purpose:: Verify the GeoJSON output for the joined data in the join creation operation.
+test-method::
++
+--
+. 1. Execute the operation <<req_data_joining_joins-post-op,Join Creation>>, with the `outputFormats` parameter value `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output-geojson`. 
+. 2. Validate that a document was returned with a status code `201`. +
+. 3. Execute the link from the response document that contains the joined data output in the GeoJSON format.
+. 4 Validate that the response is a valid GeoJSON document using an JSON Schema validator.
+--
+====

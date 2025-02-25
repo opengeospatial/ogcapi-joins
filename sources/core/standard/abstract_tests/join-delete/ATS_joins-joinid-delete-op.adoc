@@ -1,11 +1,15 @@
-[[ats_core_joins-joinid-delete-op]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/joins-joinid-delete-op*
-^|Test Purpose | Validate that the join can be deleted from the expected location.
-^|Requirement | <<req_core_joins-joinid-delete-op,/req/core/joins-joinid-delete-op>>
-^|Test Method | 1. Issue an HTTP DELETE request to the URL `{root}/joins/{joinId}` where {joinId} is the `id` property of a join (from query `{root}/joins/{joinId}`).
-2. Validate that a document was returned with a status code `204`.
-3. Validate the contents of the returned document using test <<ats_core_joins-joinid-delete-success, /conf/core/joins-joinid-delete-success>>
-
-|===
+[[ats_join_delete_joins-joinid-delete-op]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/join-delete/joins-joinid-delete-op
+target:: /req/join-delete/joins-joinid-delete-op
+test-purpose:: Validate that the join can be deleted from the expected location.
+test-method::
++
+--
+. 1. Issue an HTTP DELETE request to the URL `{root}/joins/{joinId}` where {joinId} is the `id` property of a join (from query `{root}/joins/{joinId}`).
+. 2. Validate that a document was returned with a status code `204`.
+. 3. Validate the contents of the returned document using test <<ats_join_delete_joins-joinid-delete-success, /conf/join-delete/joins-joinid-delete-success>>
+--
+====

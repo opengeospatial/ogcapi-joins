@@ -1,5 +1,0 @@
-[requirement,type="general",id="/req/core/collections-collectionid-keys-keyfieldid-get-success-paged-response",label="/req/core/collections-collectionid-keys-keyfieldid-get-success-paged-response",obligation="requirement"]
-[[req_core_collections-collectionid-keys-keyfieldid-get-success-paged-response]]
-====
-If the number of key values in the `keys` element is less than the number that match the selection parameters, then the `numberMatched` and `numberReturned` properties SHALL be included in the response.
-====

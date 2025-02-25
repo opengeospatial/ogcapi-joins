@@ -1,0 +1,15 @@
+[[requirements_class_join-delete]]
+
+[requirements_class]
+.Join Delete
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/join-delete
+subject:: Web API
+inherit:: <<requirements_class_core,Requirements Class: Core>>
+inherit:: <<requirements_class_data-joining,Requirements Class: Data Joining>>
+inherit:: <<rfc2616,RFC 2616 (HTTP/1.1)>>
+inherit:: <<rfc2818,RFC 2818 (HTTP over TLS)>>
+requirement:: /req/join-delete/joins-joinid-delete-op
+requirement:: /req/join-delete/joins-joinid-delete-success
+====

@@ -1,0 +1,14 @@
+[[ats_data_joining_joins-post-success-attribute-data-file-csv-attribute-names]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/joins-post-success-attribute-data-file-csv-attribute-names
+target:: /req/data-joining/joins-post-success-attribute-data-file-csv-attribute-names
+test-purpose:: Validate that the data join response complies with the required structure and contents.
+test-method::
++
+--
+. Validate that if the attribute data file is in CSV format, the names for the joined attributes are the values of the joined columns from the CSV file header row.
+--
+====

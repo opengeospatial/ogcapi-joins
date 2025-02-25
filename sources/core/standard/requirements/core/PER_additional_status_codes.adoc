@@ -1,4 +1,8 @@
-[permission,type="general",id="/per/core/additional-status-codes",label="/per/core/additional-status-codes",obligation="permission"]
+[[per_core_additional-status-codes]]
+
+[permission]
 ====
-Servers MAY implement additional capabilities provided by the HTTP protocol. Therefore, they MAY return status codes in addition to those listed in <<http_status_codes,Table 5>>.
+[%metadata]
+identifier:: /per/core/additional-status-codes
+part:: Servers MAY implement additional capabilities provided by the HTTP protocol. Therefore, they MAY return status codes in addition to those listed in <<http_status_codes,Table 5>>.
 ====

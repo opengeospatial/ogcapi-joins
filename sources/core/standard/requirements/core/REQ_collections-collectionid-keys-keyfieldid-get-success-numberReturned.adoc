@@ -1,8 +1,0 @@
-[requirement,type="general",id="/req/core/collections-collectionid-keys-keyfieldid-get-success-numberReturned",label="/req/core/collections-collectionid-keys-keyfieldid-get-success-numberReturned",obligation="requirement"]
-[[req_core_collections-collectionid-keys-keyfieldid-get-success-numberReturned]]
-====
-[.component,class=part]
---
-If a property `numberReturned` is included in the response, the value SHALL be identical to the number of items in the `keys` array in the response document.
---
-====

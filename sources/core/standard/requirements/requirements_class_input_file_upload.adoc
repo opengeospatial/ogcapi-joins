@@ -1,0 +1,13 @@
+[[requirements_class_input-file-upload]]
+
+[requirements_class]
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/input-file-upload
+subject:: Web API
+inherit:: /req/data-joining/joins-post-op
+inherit:: /req/file-joining/filejoin-post-op
+requirement:: /req/input-file-upload/right-dataset-file-join-creation
+requirement:: /req/input-file-upload/right-dataset-file-file-joining
+requirement:: /req/input-file-upload/left-dataset-file-file-joining
+====

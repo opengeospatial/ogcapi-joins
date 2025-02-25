@@ -1,0 +1,8 @@
+[[req_input_file_upload_left-dataset-file-file-joining]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/input-file-upload/left-dataset-file-file-joining
+part:: If the server supports input file uploading to the server with the <<file_joining,File Joining>> query, the File Joining operation SHALL support the form data parameter `left-dataset-file`. 
+====

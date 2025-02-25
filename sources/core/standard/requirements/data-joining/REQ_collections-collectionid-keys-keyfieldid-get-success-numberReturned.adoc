@@ -1,0 +1,8 @@
+[[req_data_joining_collections-collectionid-keys-keyfieldid-get-success-numberReturned]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/collections-collectionid-keys-keyfieldid-get-success-numberReturned
+part:: If a property `numberReturned` is included in the response, the value SHALL be identical to the number of items in the `keys` array in the response document.
+====

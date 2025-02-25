@@ -1,0 +1,11 @@
+[[req_data_joining_joins-post-success]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/joins-post-success
+part:: A successful execution of the operation with other `output-format` parameter values than `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output-geojson-direct` SHALL be reported as a response with a HTTP status code `201`.
+part:: The content of the response in `A` SHALL be based on the <<join_schema, Join Schema>>. 
+part:: A successful execution of the operation for the output format `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output-geojson-direct` SHALL be reported as a response with a HTTP status code `200`. 
+part:: The content of the response in `C` SHALL be the joined data in the GeoJSON format.
+====

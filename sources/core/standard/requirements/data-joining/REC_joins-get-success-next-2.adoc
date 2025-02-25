@@ -1,0 +1,8 @@
+[[rec_data_joining_joins-get-success-next-2]]
+
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/data-joining/joins-get-success-next-2
+part:: Dereferencing a `next` link SHOULD return additional resources from the set of selected resources that have not yet been returned.
+====

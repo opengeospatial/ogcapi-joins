@@ -1,13 +1,9 @@
-[requirement,type="general",id="/req/core/http",label="/req/core/http",obligation="requirement"]
 [[req_core_http]]
-====
-[.component,class=part]
---
-The server SHALL conform to <<rfc2616,HTTP 1.1.>>
---
 
-[.component,class=part]
---
-If the API implementation supports HTTPS, then the API implementation SHALL also conform to <<rfc2818,HTTP over TLS>>.
---
+[requirement]
+====
+[%metadata]
+identifier:: /req/core/http
+part:: The server SHALL conform to <<rfc2616,HTTP 1.1.>>
+part:: If the API implementation supports HTTPS, then the API implementation SHALL also conform to <<rfc2818,HTTP over TLS>>.
 ====

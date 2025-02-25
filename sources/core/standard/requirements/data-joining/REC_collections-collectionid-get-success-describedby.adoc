@@ -1,0 +1,9 @@
+[[rec_data_joining_collections-collectionid-get-success-describedby]]
+
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/data-joining/collections-collectionid-get-success-describedby
+part:: If external schemas or descriptions exist that provide additional information about the structure or semantics of the collection, a `200`-response SHOULD include links to each of those resources in the `links` property of the response (relation: `describedby`).
+part:: The `type` link parameter SHOULD be provided for each link.
+====

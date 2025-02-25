@@ -1,0 +1,8 @@
+[[req_data_joining_joins-get-success-timeStamp]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/joins-get-success-timeStamp
+part:: If a property `timeStamp` is included in the response, the value SHALL be set to the time when the response was generated.
+====

@@ -1,0 +1,8 @@
+[[req_data_joining_joins-get-success-numberReturned]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/joins-get-success-numberReturned
+part:: If a property `numberReturned` is included in the response, the value SHALL be identical to the number of items in the `joins` array in the response document.
+====

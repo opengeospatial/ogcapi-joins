@@ -1,16 +1,20 @@
 [[ats_data_joining_collections-collectionid-get-success-content]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/data-joining/collections-collectionid-get-success-content*
-^|Test Purpose | Validate that a Collection document complies with the required structure and values.
-^|Requirement | <<req_core_collections-get-success, /req/core/collections-collectionid-get-success>> +
-<<req_core_rc-md-items-links,/req/core/rc-md-items-links>> +
-<<req_core_rc-md-extent,/req/core/rc-md-extent>>
-^|Test Method | 
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-collectionid-get-success-content
+target:: /req/data-joining/collections-collectionid-get-success
+target:: /req/data-joining/collections-collectionid-get-success-extent
+target:: /req/data-joining/collections-collectionid-get-success-links
+test-purpose:: Validate that a Collection document complies with the required structure and values.
+test-method::
++
+--
 FOR each Collection document, validate:
 
 . That the Collection document includes an `id` property.
-. That the Collection document complies with <<req_core_rc-md-items-links,/req/core/rc-md-items-links>>.
-. That any extent properties included in the Collection document comply with <<req_core_rc-md-extent,req/core/rc-md-extent>>.
-. Validate the content of the Collection document for all supported media types using the <<collections_collectionid_schema, Collection schema>> and test <<ats_json-content, /conf/json/content>>.
-|===
+. That the Collection document complies with <<req_data_joining_collections-collectionid-get-success-links,/req/data-joining/collections-collectionid-get-success-links>>.
+. That any extent properties included in the Collection document comply with <<ats_data_joining_collections-collectionid-get-success-extent,/req/data-joining/collections-collectionid-get-success-extent>>.
+. Validate the content of the Collection document for all supported media types using the <<collections_collectionid_schema, Collection schema>> and test <<ats_json-json-content, /conf/json/json-content>>.
+--
+====

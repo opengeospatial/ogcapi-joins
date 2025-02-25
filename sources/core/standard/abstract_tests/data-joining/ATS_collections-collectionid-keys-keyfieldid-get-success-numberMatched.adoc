@@ -1,0 +1,15 @@
+[[ats_data_joining_collections-collectionid-keys-keyfieldid-get-success-numberMatched]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-collectionid-keys-keyfieldid-get-success-numberMatched
+target:: /req/data-joining/collections-collectionid-keys-keyfieldid-get-success-numberMatched
+test-purpose:: Validate that the Collection key field's response complies with the required structure and contents.
+test-method::
++
+--
+. Execute the test <<ats_data_joining_collections-collectionid-keys-keyfieldid-get-op, /conf/data-joining/collections-collectionid-keys-keyfieldid-get-op>> with selected filtering parameters.
+. Verify that the numberMatched property is identical to the number of keys that match the selection criteria.
+--
+====

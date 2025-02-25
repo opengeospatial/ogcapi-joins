@@ -1,10 +1,14 @@
 [[ats_core_root-success]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/root-success*
-^|Test Purpose | Validate that a landing page complies with the required structure and contents.
-^|Requirement |<<req_core_root-success,/req/core/root-success>>
-^|Test Method | Validate the landing page for all supported media types using the <<landing_page_schema,landing page schema>>.
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/core/root-success
+target:: /req/core/root-success
+test-purpose:: Validate that a landing page complies with the required structure and contents.
+test-method::
++
+--
+Validate the landing page for all supported media types using the <<landing_page_schema,landing page schema>>.
 
 . Validate that the landing page includes a `service-desc` and/or `service-doc` link to an API Definition.
 
@@ -13,4 +17,5 @@
 . Validate that the landing page includes a `http://www.opengis.net/def/rel/ogc/1.0/data` link to the metadata on collections.
 
 . Validate that the landing page includes a `joins` link to the joins metadata.
-|===
+--
+====

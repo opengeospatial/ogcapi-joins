@@ -1,8 +1,0 @@
-[[ats_core_joins-joinid-get-success]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/joins-joinid-get-success*
-^|Test Purpose | Validate that the Join content complies with the required structure and contents.
-^|Requirement | <<req_core_joins-joinid-get-success,/req/core/joins-joinid-get-success>>
-^|Test Method | Validate that the response document complies with <<join_schema, Join schema>>.
-|===

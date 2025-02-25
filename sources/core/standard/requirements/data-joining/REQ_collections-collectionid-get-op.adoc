@@ -1,0 +1,9 @@
+[[req_data_joining_collections-collectionid-get-op]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/collections-collectionid-get-op
+part:: If the server implements __data joining operations__ the server implementation SHALL support the HTTP GET operation at path `{root}/collections/{collectionId}`.
+part:: The parameter `collectionId` is each `id` property in the `collections` response (JSONPath: `$.collections[*].id`).
+====

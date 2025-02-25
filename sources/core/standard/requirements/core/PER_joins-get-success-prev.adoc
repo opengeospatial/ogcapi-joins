@@ -1,5 +1,0 @@
-[permission,type="general",id="/per/core/joins-get-success-prev",label="/per/core/joins-get-success-prev",obligation="permission"]
-[[per_core_joins-get-success-prev]]
-====
-A response to a `next` link MAY include a `prev` link to the resource that included the `next` link.
-====

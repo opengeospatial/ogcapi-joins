@@ -1,5 +1,0 @@
-[recommendation,type="general",id="/rec/core/collections-collectionid-keys-keyfieldid-get-success-next-2",label="/rec/core/collections-collectionid-keys-keyfieldid-get-success-next-2",obligation="recommendation"]
-[[rec_core_collections-collectionid-keys-keyfieldid-get-success-next-2]]
-====
-Dereferencing a `next` link SHOULD return additional resources from the set of selected resources that have not yet been returned.
-====

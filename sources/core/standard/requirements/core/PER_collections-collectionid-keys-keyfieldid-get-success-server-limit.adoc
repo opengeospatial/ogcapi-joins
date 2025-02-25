@@ -1,5 +1,0 @@
-[permission,type="general",id="/per/core/collections-collectionid-keys-keyfieldid-get-success-server-limit",label="/per/core/collections-collectionid-keys-keyfieldid-get-success-server-limit",obligation="permission"]
-[[per_core_collections-collectionid-keys-keyfieldid-get-success-server-limit]]
-====
-If a server is configured with a maximum response size, then the server MAY page responses which exceed that threshold.
-====

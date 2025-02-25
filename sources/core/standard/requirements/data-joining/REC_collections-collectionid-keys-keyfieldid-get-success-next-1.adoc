@@ -1,0 +1,8 @@
+[[rec_data_joining_collections-collectionid-keys-keyfieldid-get-success-next-1]]
+
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/data-joining/collections-collectionid-keys-keyfieldid-get-success-next-1
+part:: A `200`-response SHOULD include a link to the next "page" (relation: `next`), if more resources have been selected than returned in the response.
+====

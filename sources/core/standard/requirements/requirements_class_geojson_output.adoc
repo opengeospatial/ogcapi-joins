@@ -1,0 +1,11 @@
+[[requirements_class_output-geojson]]
+
+[requirements_class]
+.GeoJSON Output for Joined Data
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/output-geojson
+subject:: Web API
+inherit:: /req/data-joining/joins-post-op
+requirement:: /req/output-geojson/output-formats-join-creation
+====

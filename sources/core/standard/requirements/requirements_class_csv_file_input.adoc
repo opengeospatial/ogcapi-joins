@@ -1,0 +1,13 @@
+[[requirements_class_input-csv]]
+
+[requirements_class]
+.CSV File Input
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/input-csv
+subject:: Web API
+inherit:: /req/data-joining/joins-post-op
+inherit:: /req/file-joining/filejoin-post-op
+requirement:: /req/input-csv/right-dataset-format-join-creation
+requirement:: /req/input-csv/right-dataset-format-file-joining
+====

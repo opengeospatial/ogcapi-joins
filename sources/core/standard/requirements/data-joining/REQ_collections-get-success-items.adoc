@@ -1,0 +1,8 @@
+[[req_data_joining_collections-get-success-items]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/collections-get-success-items
+part:: For each dataset collection provided by the server, metadata describing that collection SHALL be provided in the `collections` property of the Collections response.
+====

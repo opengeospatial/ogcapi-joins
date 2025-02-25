@@ -660,9 +660,6 @@ components:
         numberReturned:
           type: integer
           minimum: 0
-        timeStamp:
-          type: string
-          format: date-time
     CollectionKeysObject:
       required:
       - id

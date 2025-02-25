@@ -1,5 +1,0 @@
-[requirement,type="general",id="/req/core/filejoin-post-attribute-data-file-csv-multiple-keys",label="/req/core/filejoin-post-attribute-data-file-csv-multiple-keys",obligation="requirement"]
-[[req_core_filejoin-post-success-attribute-data-file-csv-multiple-keys]]
-====
-If the right data file is in CSV format and it contains multiple rows with the same key value, the value is used in the join operation from the row where it is encountered first.
-====

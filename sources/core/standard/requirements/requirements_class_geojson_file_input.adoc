@@ -1,0 +1,11 @@
+[[requirements_class_input-geojson]]
+
+[requirements_class]
+.GeoJSON File Input
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/input-geojson
+subject:: Web API
+inherit:: /req/file-joining/filejoin-post-op
+requirement:: /req/input-geojson/left-dataset-format-file-joining
+====

@@ -1,7 +1,10 @@
-[recommendation,type="general",id="/rec/core/api-definition-oas",label="/rec/core/api-definition-oas",obligation="recommendation"]
+[[rec_core_api-definition-oas]]
+
+[recommendation]
 ====
-[%hardbreaks]
-If the API definition document uses the OpenAPI Specification 3.0,
+[%metadata]
+identifier:: /rec/core/api-definition-oas
+part:: If the API definition document uses the OpenAPI Specification 3.0,
 THEN 
 The document SHOULD conform to the OpenAPI Specification 3.0 requirements class 
 `http://www.opengis.net/spec/ogcapi-common-1/1.0/req/oas30`

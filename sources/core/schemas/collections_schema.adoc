@@ -1,36 +1,21 @@
 [[collections_schema]]
 .Collections Schema
 ----
-{
-"$schema": "http://json-schema.org/draft-07/schema#",
-"title": "Collections Schema",
-"description": "This schema defines the resource returned from /collections path.",
-"type": "object",
-"required": [
-    "links",
-    "collections"
-    ],
-"properties": {
-    "links": {
-        "type": "array",
-        "items": {"$href": "link.json"}
-        },
-    "timeStamp": {
-        "type": "string",
-        "format": "date-time"
-        },
-    "numberMatched": {
-        "type": "integer",
-        "min": "0"
-        },
-    "numberReturned": {
-        "type": "integer",
-        "min": "0"
-        },
-    "collections": {
-        "type": "array",
-        "items": {"$href": "collectionDesc.json"}
-        }
-    }
-}
+type: object
+required:
+  - links
+  - collections
+properties:
+  links:
+    type: array
+    items:
+      $ref: '../common-core/link.yaml'
+  numberMatched:
+    $ref: 'numberMatched.yaml'
+  numberReturned:
+    $ref: 'numberReturned.yaml'
+  collections:
+    type: array
+    items:
+      $ref: 'collectionDesc.yaml'
 ----

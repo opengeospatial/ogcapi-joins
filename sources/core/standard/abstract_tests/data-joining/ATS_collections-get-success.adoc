@@ -1,15 +1,15 @@
 [[ats_data_joining_collections-get-success]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/data-joining/collections-get-success*
-^|Test Purpose | Validate that the Collections content complies with the required structure and contents.
-^|Requirement | <<req_core_collections-get-success,/req/core/collections-get-success>> +
- <<req_core_collections-get-success-links,/req/core/collections-get-success-links>> +
- <<req_core_collections-get-success-timestamp, /req/core/collections-get-success-timestamp>> +
-<<req_core_collections-get-success-items, /req/core/collections-get-success-items>>
-^|Test Method | 
-. Validate that the response document complies with <<req_core_collections-get-success-links, /req/core/collections-get-success-links>>
-. Validate that the response document complies with <<req_core_collections-get-success-timestamp, /req/core/collections-get-success-timestamp>>
-. Validate that the response document complies with <<req_core_collections-get-success-items, /req/core/collections-get-success-items>>
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-get-success
+target:: /req/data-joining/collections-get-success
+test-purpose:: Validate that the Collections content complies with the required structure and contents.
+test-method::
++
+--
+. Validate that the response document complies with test <<ats_data_joining_collections-get-success-links, /conf/data-joining/collections-get-success-links>>
+. Validate that the response document complies with  test <<ats_data_joining_collections-get-success-items, /conf/data-joining/collections-get-success-items>>
 . Validate the Collections resource for all supported media types using the schema <<collections_schema, Collections schema>>.
-|===
+--
+====

@@ -1,65 +1,49 @@
 == Conformance
-This standard defines the OGC API - Joins core requirement class and the encoding requirements classes "JSON", "HTML" and "GeoJSON". 
+This standard defines the OGC API - Joins core module. The core module specifies three operation sets: __discovery operations__, __data joining operations__ and __file joining operations__. The server implementations are required to support the __discovery operations__ and they must support either one or both of the __data joining operations__ and/or __file joining operations__.
 
 The standardization targets of all conformance classes are "Web APIs."
 
-The main requirements class is:
+The __discovery operations__ operation set is represented by the requirements class "<<rc_core,core>>".
 
-* <<rc_core,Core>>.
+The __data joining operations__ operation set is represented by the requirements classes: "<<rc_data_joining,data joining>>" and "<<rc_join_delete,join delete>>". The implementation of the "data joining" requirements class is mandatory, and the implementation of the "join delete" is optional for this operation set, t.
 
-The core requirements class specifies three operation sets: __discovery operations__, __data joining operations__ and __file joining operations__.
+The __file joining operations__ operation set is represented by the requirements class "<<rc_file_joining,file joining>>". 
 
-The server implementations are required to support the __discovery operations__ and they must support either one or both of the __data joining operations__ and/or __file joining operations__ <<req_operations,Operations>>.
+The imput and output functionalities are represented by the requirement classes: "<<rc_file_uploading_with_query, Input File Upload>>", "<<rc_file_referencing_with_url, File Referencing with URL>>", "<<rc_input_csv, CSV File Input>>", "<<rc_input_geojson,GeoJSON File Input>>", "<<rc_output_geojson,GeoJSON Output for Joined Data>>" and "<<rc_output_geojson_direct, Direct GeoJSON Output for Joined Data>>". The support for CSV input file format is mandatory for the __data joining operations__ and __file joining operations__. The support for the GeoJSON input file format is mandatory for the __file joining operations__.
 
-The CSV input file format is mandatory for the __data joining operations__ and __file joining operations__.
+The encoding formats are represented by requirements classes: "<<rc_json, JSON>>", "<<rc_html, HTML>>" and "<<rc_geojson, GeoJSON>>". 
 
-The GeoJSON input file format is mandatory for the __file joining operations__.
+The JSON encoding format support is mandatory, and the HTML encoding support is recommendedto for the service responses in the __discovery operations__ and __data joining operations__ operation sets. 
 
-The JSON encoding format is mandatory to be supported for service responses. 
-
-The support for HTML encoding format is recommended for service responses.
-
-The GeoJSON encoding is mandatory for the output that contains the joined data in the __data joining operations__ and __file joining operations__.
+The GeoJSON encoding format is mandatory for the joined data output in the __data joining operations__ and as a general output for the __file joining operations__.
 
 The Core requirements class does not mandate any encoding or format for the formal definition of the API. One option is to use the OpenAPI 3.0 specification and OpenAPI 3.0 Requirements Class as defined in the <<OGC19-072,OGC API - Common - Part 1>> document.
 
-The conformance class values defined in this core module are listed in <<conformance_classes_table, Table 1>>.
+=== Summary of conformance URIs
+
+The conformance class URIs defined in this core module are listed in <<conformance_classes_table, Table 1>>.
 
 [[conformance_classes_table]]
-.Conformance classes defined in this module
+.Conformance class URIs.
 [width="90%",cols="3,6a",options="header"]
 |===
-^|*Conformance class* |*URI*
+^|*Conformance class*|*URI*
 <|<<ats_core,Core>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/core
-<|<<ats_data_joining,Data joining>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/core/data-joining
-<|<<ats_file_joining,File joining>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/core/file-joining
-<|<<ats_join_delete,Join delete>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/core/join-delete
+<|<<ats_data_joining,Data Joining>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/data-joining
+<|<<ats_join_delete,Join Delete>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/join-delete
+<|<<ats_file_joining,File Joining>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/file-joining
+2+|*Input*
+<|<<ats_input_file_upload,Input File Upload>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-file-upload
+<|<<ats_input_http_ref,File Referencing with URL>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-http-ref
+<|<<ats_input_csv,CSV File Input>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-csv
+<|<<ats_input_geojson,GeoJSON File Input>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-geojson
+2+|*Output*
+<|<<ats_output_geojson,GeoJSON Output for Joined Data>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output-geojson
+<|<<ats_geojson_direct,Direct GeoJSON Output for Joined Data>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output-geojson-direct
+2+|*Encodings*
 <|<<ats_html,HTML>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/html
 <|<<ats_json,JSON>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/json
-2+|*Input*
-<|<<ats_file_uploading,File uploading with Query>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/file-upload
-<|<<ats_file_referencing,File referencing with URL>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/http-ref
-<|<<ats_csv_input,CSV file input>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/csv
-<|<<ats_geojson_input,GeoJSON file input>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/geojson
-2+|*Output*
-<|<<ats_geojson,GeoJSON output for joined data>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson
-<|<<ats_geojson_direct,Direct GeoJSON output for joined data>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson-direct
-|===
-
-In addition, come conformance classes are used from the specifications <<OGC19-072,OGC API - Common - Part 1>> and <<OGC20-024,OGC API - Common - Part 2>>. They are listed in <<ogc_api_common_conformance_classes_table, Table 2>>.
-
-[[ogc_api_common_conformance_classes_table]]
-.Conformance classes
-[width="90%",cols="3,6a"]
-|===
-^|*Conformance class* |*URI*
-2+|*OGC API - Common - Part 1*
-<|Core|http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core
-<|Landing Page|http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/landing-page
-<|OpenAPI 3.0|http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/oas30
-2+|*OGC API - Common - Part 2*
-<|Collections|http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/collections
-<|Simple Query|http://www.opengis.net/spec/ogcapi-common-2/1.0/conf/simple-query
+<|<<ats_geojson,GeoJSON>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/geojson
 |===
 
 Conformance with this standard shall be checked using all the relevant tests

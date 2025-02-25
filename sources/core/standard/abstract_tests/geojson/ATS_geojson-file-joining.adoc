@@ -1,0 +1,14 @@
+[[ats_geojson-geojson-file-joining]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/geojson/geojson-file-joining
+target:: /req/geojson/geojson-file-joining
+test-purpose:: Verify the support for GeoJSON ouput for joined data.
+test-method::
++
+--
+. 1. Execute the <<file_joining,File Joining>> operation, with the `outputFormats` parameter value `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output-geojson`. 
+. 2. Validate that a returned document is a valid GeoJSON document.
+--
+====

@@ -1,12 +1,14 @@
 [[ats_core_conformance-op]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/conformance-op*
-^|Test Purpose | Validate that a conformance declaration can be retrieved from the expected locations.
-^|Requirement |
-<<req_core_conformance-op,/req/core/conformance-op>> +
-<<req_core_conformance-op,/req/core/conformance-success>>
-^|Test Method |DO FOR EACH `http://www.opengis.net/def/rel/ogc/1.0/conformance` link on the landing page:
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/core/conformance-op
+target:: /req/core/conformance-op
+test-purpose:: Validate that a conformance declaration can be retrieved from the expected locations.
+test-method::
++
+--
+DO FOR EACH `http://www.opengis.net/def/rel/ogc/1.0/conformance` link on the landing page:
 
 . Issue an HTTP GET request for the link.
 . Validate that a document was returned with a status code `200`.
@@ -18,4 +20,5 @@ DONE
 . Validate that a document was returned with a status code `200`.
 . Validate the contents of the returned document using test <<ats_core_conformance-success, /conf/core/conformance-success>>.
 
-|===
+--
+====

@@ -1,0 +1,17 @@
+[[ats_data_joining_collections-collectionid-keys-get-success]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-collectionid-keys-get-success
+target:: /req/data-joining/collections-collectionid-keys-get-success
+test-purpose:: Validate that the response complies with the required structure and contents.
+test-method::
++
+--
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-keys-get-success-default-key, /conf/data-joining/collections-collectionid-keys-get-success-default-key>>
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-keys-get-success-links, /conf/data-joining/collections-collectionid-keys-get-success-links>>
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-keys-get-success-items-links, /conf/data-joining/collections-collectionid-keys-get-success-items-links>>
+. Validate that the response document complies with <<collections_collectionid_keys_schema,Collection Key Fields schema>>.
+--
+====

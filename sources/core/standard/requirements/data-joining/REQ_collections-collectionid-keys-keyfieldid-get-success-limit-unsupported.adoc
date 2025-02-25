@@ -1,0 +1,8 @@
+[[req_data_joining_collections-collectionid-keys-keyfieldid-get-success-limit-unsupported]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/collections-collectionid-keys-keyfieldid-get-success-limit-unsupported
+part:: If the `limit` parameter is provided by the client but it is not supported by the server, then the server SHALL process the request as if the parameter had not been provided.
+====

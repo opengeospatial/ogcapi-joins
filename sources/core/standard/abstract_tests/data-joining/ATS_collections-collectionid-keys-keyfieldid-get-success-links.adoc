@@ -1,0 +1,19 @@
+[[ats_data_joining_collections-collectionid-keys-keyfieldid-get-success-links]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-collectionid-keys-keyfieldid-get-success-links
+target:: /req/data-joining/collections-collectionid-keys-keyfieldid-get-success-links
+test-purpose:: Validate that the required links are included in the Collection key field's response document.
+test-method::
++
+--
+. Execute the test <<ats_data_joining_collections-collectionid-keys-keyfieldid-get-op, /conf/data-joining/collections-collectionid-keys-keyfieldid-get-op>>.
+
+Verify that the response document includes:
+. A link to this response document (relation: `self`).
+. A link to the response document in every other media type supported by the server (relation: `alternate`).
+
+Verify that all links include the `rel` and `type` link parameters.
+====

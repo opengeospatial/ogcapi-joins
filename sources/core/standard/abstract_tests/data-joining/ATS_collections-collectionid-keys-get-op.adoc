@@ -1,0 +1,16 @@
+[[ats_data_joining_collections-collectionid-keys-get-op]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-collectionid-keys-get-op
+target:: /req/data-joining/collections-collectionid-keys-get-op
+test-purpose:: Validate that the information on Collection's key fields' can be retrieved from the expected location.
+test-method::
++
+--
+. For a Collection (path `{root}/collections/{collectionId}`), issue an HTTP GET request to the URL `{root}/collections/{collectionId}/keys` where {collectionId} is the `id` property of a Collection.
+. Validate that a document was returned with a status code `200`.
+. Validate the contents of the returned document using test <<ats_data_joining_collections-collectionid-keys-get-success, /conf/data-joining/collections-collectionid-keys-get-success>>
+--
+====

@@ -1,0 +1,19 @@
+[[ats_data_joining_collections-collectionid-get-success-extent]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-collectionid-get-success-extent
+target:: /req/data-joining/collections-collectionid-get-success-extent
+test-purpose:: Validate the `extent` property if it is present.
+test-method::
++
+--
+IF the extent property is present, THEN:
+
+. Verify that the `extent` provides bounding boxes that include all spatial geometries in this resource.
+
+. Verify that the `extent` provides time intervals that include all temporal geometries in this resource.
+--
+====
+NOTE:  A temporal extent of `null` indicates an open time interval.

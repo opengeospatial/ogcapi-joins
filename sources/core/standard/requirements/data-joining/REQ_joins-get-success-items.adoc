@@ -1,0 +1,8 @@
+[[req_data_joining_joins-get-success-items]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/joins-get-success-items
+part:: For each join resource accessible through the server, metadata describing that join SHALL be provided in the property `joins`.
+====

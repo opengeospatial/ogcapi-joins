@@ -1,16 +1,19 @@
 [[ats_core_api-definition-op]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/core/api-definition-op*
-^|Test Purpose |Validate that the API definition document can be retrieved from the expected location.
-^|Requirement |
-<<req_core_api-definition-op,/req/core/api-definition-op>> +
-<<req_core_api-definition-success,/req/core/api-definition-success>>
-^|Test Method | DO FOR EACH `service-desc` and `service-doc` link on the landing page:
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/core/api-definition-op
+target:: /req/core/api-definition-op
+test-purpose:: Validate that the API definition document can be retrieved from the expected location.
+test-method::
++
+--
+DO FOR EACH `service-desc` and `service-doc` link on the landing page:
 
 . Issue a HTTP GET request to the link.
 . Validate that a document was returned with a status code `200`.
 . Validate the contents of the returned document using test <<ats_core_api-definition-success, /conf/core/api-definition-success>>
 
 DONE
-|===
+--
+====

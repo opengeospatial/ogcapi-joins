@@ -1,14 +1,18 @@
-[[ats_json_definition]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/json/definition*
-^|Test Purpose | Verify support for JSON.
-^|Requirement |
-<<req_json-definition,/req/json/definition>>
-<<req_json-content,/req/json/content>>
-^|Test Method | DO FOR EACH resource and operation defined in the Core Conformance Class: +
-1. Execute the operation specifing `application/json` as the media type. +
-2. Validate that a document was returned with a status code `200`. +
-3. Validate the contents of the returned document using test <<ats_json-content,/conf/json/content>>. +
+[[ats_json-json-definition]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/json/json-definition
+target:: /req/json/json-definition
+test-purpose:: Verify support for JSON.
+test-method::
++
+--
+DO FOR EACH 
+. Resource and operation defined in the Core Conformance Class: +
+. 1. Execute the operation specifing `application/json` as the media type. +
+. 2. Validate that a document was returned with a status code `200`. +
+. 3. Validate the contents of the returned document using test <<ats_json-json-content,/conf/json/json-content>>. +
 DONE.
-|===
+--
+====

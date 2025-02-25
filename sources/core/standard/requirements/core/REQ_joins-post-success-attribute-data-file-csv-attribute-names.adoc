@@ -1,9 +1,0 @@
-[requirement,type="general",id="/req/core/joins-post-success-attribute-data-file-csv-attribute-names",label="/req/core/joins-post-success-attribute-data-file-csv-attribute-names",obligation="requirement"]
-[[req_core_joins-post-success-attribute-data-file-csv-attribute-names]]
-====
-[.component,class=part]
---
-If the attribute data file is in CSV format and it contains the header row, the names for the joined attributes SHALL be the values of the joined columns from the header row.
---
-
-====

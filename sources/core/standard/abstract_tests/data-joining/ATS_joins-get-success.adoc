@@ -1,13 +1,25 @@
 [[ats_data_joining_joins-get-success]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/data-joining/joins-get-success*
-^|Test Purpose | Validate that the joins content complies with the required structure and contents.
-^|Requirement | <<req_core_joins-get-success, /req/core/joins-get-success>> + 
- <<req_core_joins-get-success-items, /req/core/joins-get-success-items>> + 
- <<req_core_joins-get-success-timeStamp, /req/core/collections-get-success-timeStamp>> + 
- <<req_core_joins-get-success-links, //req/core/joins-get-success-link>> + 
- <<req_core_joins-get-success-items-links, /req/core/joins-get-success-items-links>> + 
-^|Test Method | Validate that the response document complies with <<joins_schema, Joins Schema>>.
 
-|===
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/joins-get-success
+target:: /req/data-joining/joins-get-success
+test-purpose:: Validate that the joins content complies with the required structure and contents.
+test-method::
++
+--
+. Validate that the response document complies with <<joins_schema, Joins Schema>>.
+
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-limit,/req/data-joining/joins-get-success-limit>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-limit-unsupported,/req/data-joining/joins-get-success-limit-unsupported>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-datetime,/req/data-joining/joins-get-success-datetime>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-paged-response,/req/data-joining/joins-get-success-paged-response>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-numberMatched,/req/data-joining/joins-get-success-numberMatched>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-numberReturned,/req/data-joining/joins-get-success-numberReturned>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-items,/req/data-joining/joins-get-success-items>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-links,/req/data-joining/joins-get-success-links>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-items-links,/req/data-joining/joins-get-success-items-links>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-timeStamp,/req/data-joining/joins-get-success-timeStamp>>
+--
+====

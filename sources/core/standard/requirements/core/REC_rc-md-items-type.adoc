@@ -1,5 +1,0 @@
-[recommendation,type="general",id="/rec/core/rc-md-items-type",label="/rec/core/rc-md-items-type",obligation="recommendation"]
-[[rec_core_rc-md-items-type]]
-====
-If the key field metadata and the key values of the key fields of the collection can be accessed by a client, then the `itemType` property SHOULD be included in the collection resource to indicate the type of the collection. The value of the `itemType` property SHOULD be `dataset`.
-====

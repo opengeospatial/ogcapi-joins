@@ -1,0 +1,17 @@
+[[ats_core_operations]]
+[abstract_test]
+====
+[%metadata]
+identifier::  /conf/core/operations
+target:: /req/core/operations
+test-purpose:: Validate that the server implementation contains supports for the operations sets.
+test-method::
++
+--
+. Validate that the server implementation supports the landing page operation by using test <<ats_core_root-op, /conf/core/root-op>>
+. Validate that the server implementation supports the conformance operation by using test <<ats_core_conformance-op, /conf/core/conformance-op>>
+
+. If the server implementation supports the __data joining operations__ operation set, validate the support by using tests in the conformance class <<ats_data_joining, Data Joining>>.
+. If the server implementation supports the __file joining operations__ operation set, validate the support by using tests in the conformance class <<ats_file_joining, File Joining>>.
+--
+====

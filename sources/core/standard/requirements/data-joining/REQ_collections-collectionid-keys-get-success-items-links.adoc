@@ -1,0 +1,11 @@
+[[req_data_joining_collections-collectionid-keys-get-success-items-links]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/collections-collectionid-keys-get-success-items-links
+part:: `200`-response SHALL include a following link in the `links` property for each key field included in the response's `keys` array:
+
+part:: A link to the key field's key values response document (relation: `key-values`).
+part:: The links SHALL include the `rel` and `type` properties.
+====

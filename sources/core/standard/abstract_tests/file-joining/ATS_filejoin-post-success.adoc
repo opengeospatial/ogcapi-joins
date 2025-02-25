@@ -1,9 +1,15 @@
 [[ats_file_joining_filejoin-post-success]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/file_joining/_filejoin-post-success*
-^|Test Purpose | Verify the response of the file joining functionality
-^|Requirement |<<req_core_joins-post-op,/req/core/joins-post-op>> +
-<<req_core_joins-post-success, /req/core/joins-post-success>>
-^|Test Method | Validate that the response is a valid document in the correct output format and that it contains the attributes that were joined from the right dataset file.
-|===
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/file-joining/filejoin-post-success
+target:: /req/file-joining/filejoin-post-success
+test-purpose:: Verify the response of the file joining functionality
+test-method::
++
+--
+. Validate that the response is a valid document in the correct output format and that it contains the attributes that were joined from the right dataset file.
+. Validate that the response document complies with test <<ats_file_joining_filejoin-post-success-attribute-data-file-csv-multiple-keys, /conf/file-joining/filejoin-post-success-attribute-data-file-csv-multiple-keys>>
+. Validate that the response document complies with test <<ats_file_joining_filejoin-post-success-attribute-data-file-csv-attribute-names, /conf/file-joining/filejoin-post-success-attribute-data-file-csv-attribute-names>>
+--
+====

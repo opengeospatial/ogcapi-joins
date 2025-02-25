@@ -1,0 +1,13 @@
+[[req_data_joining_joins-joinid-get-success-links]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/joins-joinid-get-success-links
+part:: A `200`-response SHALL include the following links in the `links` property of the response:
+
+* A link to this response document (relation: `self`)
+
+* Links to this document in other supported media types (link rel: `alternate`)
+part:: All links SHALL include the `rel` and `type` properties.
+====

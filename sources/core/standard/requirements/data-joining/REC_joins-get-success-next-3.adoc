@@ -1,0 +1,8 @@
+[[rec_data_joining_joins-get-success-next-3]]
+
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/data-joining/joins-get-success-next-3
+part:: The number of resources in a response to a `next` link SHOULD follow the same rules as for the response to the original query and again include a `next` link, if there are more resources in the selection that have not yet been returned.
+====

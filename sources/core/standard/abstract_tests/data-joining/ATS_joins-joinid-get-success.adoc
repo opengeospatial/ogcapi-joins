@@ -1,8 +1,18 @@
 [[ats_data_joining_joins-joinid-get-success]]
-[width="90%",cols="2,6a"]
-|===
-^|*Abstract Test {counter:ats-id}* |*/conf/data-joining/joins-joinid-get-success*
-^|Test Purpose | Validate that the Join content complies with the required structure and contents.
-^|Requirement | <<req_core_joins-joinid-get-success,/req/core/joins-joinid-get-success>>
-^|Test Method | Validate that the response document complies with <<join_schema, Join schema>>.
-|===
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/joins-joinid-get-success
+target:: /req/data-joining/joins-joinid-get-success
+test-purpose:: Validate that the Join content complies with the required structure and contents.
+test-method::
++
+--
+Validate that the response document complies with <<join_schema, Join schema>>.
+
+. Validate that the response document complies with test <<ats_data_joining_joins-joinid-get-success-links, /conf/data-joining/joins-joinid-get-success-links>>
+. Validate that the response document complies with test <ats_data_joining_joins-joinid-get-success-links-collection, /conf/data-joining/joins-joinid-get-success-links-collectiony>>
+. Validate that the response document complies with test <<ats_data_joining_joins-joinid-get-success-links-outputs, /conf/data-joining/joins-joinid-get-success-links-outputs>>
+--
+====

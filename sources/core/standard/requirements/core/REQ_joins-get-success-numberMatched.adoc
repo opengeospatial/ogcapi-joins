@@ -1,8 +1,0 @@
-[requirement,type="general",id="/req/core/joins-get-success-numberMatched",label="/req/core/joins-get-success-numberMatched",obligation="requirement"]
-[[req_core_joins-get-success-numberMatched]]
-====
-[.component,class=part]
---
-If a property `numberMatched` is included in the response, the value SHALL be identical to the number of joins that meet the selection parameters provided by the client.
---
-====
