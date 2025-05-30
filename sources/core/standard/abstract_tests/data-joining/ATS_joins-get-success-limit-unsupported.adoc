@@ -9,8 +9,8 @@ test-purpose:: Validate that the joins content complies with the required struct
 test-method::
 +
 --
-. If the server does not support the limit parameter, execute the test <<ats_data_joining_joins-get-op, /conf/data-joining/joins-get-op>> with a set limit parameter value.
-. Execute the test <<ats_data_joining_joins-get-op, /conf/data-joining/joins-get-op>> without a limit parameter.
+. If the server does not support the `limit` parameter, execute the test <<ats_data_joining_joins-get-op, /conf/data-joining/joins-get-op>> with a set `limit` parameter value.
+. Execute the test <<ats_data_joining_joins-get-op, /conf/data-joining/joins-get-op>> without a `limit` parameter.
 . Verify that both queries return the same response.
 --
 ====

@@ -4,12 +4,12 @@
 [%metadata]
 identifier:: /conf/file-joining/filejoin-post-success
 target:: /req/file-joining/filejoin-post-success
-test-purpose:: Verify the response of the file joining functionality
+test-purpose:: Validate the response of the file joining operation.
 test-method::
 +
 --
 . Validate that the response is a valid document in the correct output format and that it contains the attributes that were joined from the right dataset file.
-. Validate that the response document complies with test <<ats_file_joining_filejoin-post-success-attribute-data-file-csv-multiple-keys, /conf/file-joining/filejoin-post-success-attribute-data-file-csv-multiple-keys>>
-. Validate that the response document complies with test <<ats_file_joining_filejoin-post-success-attribute-data-file-csv-attribute-names, /conf/file-joining/filejoin-post-success-attribute-data-file-csv-attribute-names>>
+. Validate that the response document complies with test <<ats_file_joining_filejoin-post-success-attribute-data-file-csv-multiple-keys, /conf/file-joining/filejoin-post-success-attribute-data-file-csv-multiple-keys>>.
+. Validate that the response document complies with test <<ats_file_joining_filejoin-post-success-attribute-data-file-csv-attribute-names, /conf/file-joining/filejoin-post-success-attribute-data-file-csv-attribute-names>>.
 --
 ====

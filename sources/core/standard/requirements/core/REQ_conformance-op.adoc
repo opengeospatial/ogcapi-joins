@@ -4,7 +4,7 @@
 ====
 [%metadata]
 identifier:: /req/core/conformance-op
-part:: The server SHALL support the HTTP GET operation at the path `{root}/conformance`.
+part:: The server SHALL support the HTTP GET operation at the URI `{root}/conformance`.
 part:: The server SHALL support the HTTP GET operation on all links from the landing page that have the relation type `http://www.opengis.net/def/rel/ogc/1.0/conformance`.
 part:: The responses to all HTTP GET requests issued in A and B SHALL satisfy requirement <<req_core_conformance-success,/req/core/conformance-success>>.
 ====

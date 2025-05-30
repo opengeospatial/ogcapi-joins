@@ -1,0 +1,7 @@
+anyOf:
+ - type: string
+ - type: string
+   enum:
+   - map
+   - vector
+   - coverage

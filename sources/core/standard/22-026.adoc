@@ -12,8 +12,8 @@
 :published-date: yyyy-mm-dd
 :fullname: Pekka Latvala
 :docsubtype: implementation
-:keywords: ogcdoc, OGC Standard, API, openapi, html, joins
-:submitting-organizations: Finnish Geospatial Research Institute FGI, National Land Survey of Finland
+:keywords: ogcdoc, OGC Standard, API, openapi, JSON, HTML, GeoJSON, Joins, data joining
+:submitting-organizations: Finnish Geospatial Research Institute FGI, National Land Survey of Finland.
 :docfile: document.adoc
 :mn-document-class: ogc
 :mn-output-extensions: xml,html,doc,pdf

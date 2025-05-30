@@ -9,7 +9,7 @@ test-purpose:: Validate that the information about a join can be retrieved from 
 test-method::
 +
 --
-. For a list of joins (path `{root}/joins`), issue an HTTP GET request to the URL `{root}/joins/{joinId}` where {joinId} is the `id` property of a join.
+. For a list of joins (path `{root}/joins`), issue an HTTP GET request to the URL `{root}/joins/{joinId}` where `joinId` is the `id` property of a join.
 . Validate that a document was returned with a status code `200`.
 . Validate the contents of the returned document using test <<ats_data_joining_joins-joinid-get-success, /conf/data-joining/joins-joinid-get-success>>.
 --

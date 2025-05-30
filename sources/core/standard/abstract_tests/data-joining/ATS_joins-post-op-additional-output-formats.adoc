@@ -1,0 +1,15 @@
+[[ats_data_joining_joins-post-op-additional-output-formats]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/joins-post-op-additional-output-formats
+target:: /req/data-joining/joins-post-op-additional-output-formats
+test-purpose:: If the server supports any additional joined data output formats for the Join Creation operation, validate that they are listed in the conformance declaration response document.
+test-method::
++
+--
+. Issue an HTTP GET request to the URL `{root}/conformance` 
+
+. Validate that the response document includes conformance values for all supported additional joined data output formats.
+--
+====

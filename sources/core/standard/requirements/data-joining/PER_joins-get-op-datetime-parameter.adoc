@@ -1,26 +1,10 @@
-[[per_data_joining_joins-get-op]]
+[[per_data_joining_joins-get-op-datetime-parameter]]
 
 [permission]
 ====
 [%metadata]
-identifier:: /per/data-joining/joins-get-op
+identifier:: /per/data-joining/joins-get-op-datetime-parameter
 part:: 
---
-The server MAY support the query parameter `limit` to limit the number of resources that can be returned in a single response. The `limit` parameter SHALL possess the following characteristics (using an OpenAPI Specification 3.0 fragment):
-----
-name: limit
-in: query
-required: false
-schema:
-  type: integer
-  minimum: 1
-  maximum: 1000
-  default: 10
-----
-Note: The values for minimum, maximum and default are only examples and MAY be changed.
---
-
---
 The server MAY support the query parameter `datetime` to filter the returned joins by their execution timestamp.
 The `datetime` parameter SHALL possess the following characteristics (using an OpenAPI Specification 3.0 fragment):
 ----
@@ -41,5 +25,4 @@ datetime            = date-time / interval
 The syntax of date-time is specified by link:https://tools.ietf.org/html/rfc3339#section-5.6[RFC 3339, 5.6].
 
 Open ranges in time intervals at the start or end are supported using a double-dot (..) or an empty string for the start/end..
---
 ====

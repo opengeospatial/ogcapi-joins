@@ -6,51 +6,51 @@
 3+|*Discovery Operations*
 |/
 |GET
-|API landing page
+|API landing page.
 
 |/api (recommended path)
 |GET
-|API definition
+|API definition.
 
 |/conformance
 |GET
-|API conformance declaration
+|API conformance declaration.
 
 3+|*Data Joining Operations*
 |/collections
 |GET
-|Returns metadata on the collections available on the server
+|Returns metadata on the collections available on the server.
 
 |/collections/{collectionId}
 |GET
-|Returns metadata on a specific collection available on the server
+|Returns metadata on a specific collection available on the server.
 
 |/collections/{collectionId}/keys
 |GET
-|Returns the key fields of a specific collection
+|Returns the key fields of a specific collection.
 
 |/collections/{collectionId}/keys/{keyFieldId}
 |GET
-|Returns the key values of a specific key field of a specific collection
+|Returns the key values of a specific key field of a specific collection.
 
 |/joins
 |GET
-|Returns a list of the joins available on the server
+|Returns a list of the joins available on the server.
 
 |/joins
 |POST
-|Creates a new join by joining attribute data from a inputted attribute data file with a specific collection or directly with an inputted spatial data file
+|Creates a new join by joining tabular data from an input data file with a specific collection.
 
 |/joins/{joinId}
 |GET
-|Returns metadata on a specific join
+|Returns metadata on a specific join.
 
 |/joins/{joinId}
 |DELETE
-|Deletes a specific join
+|Deletes a specific join.
 
 3+|*File Joining Operations*
 |/filejoin
 |POST
-|Joins data between two input files
+|Joins data between two input files.
 |===

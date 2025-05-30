@@ -85,9 +85,10 @@ abstract-test:: /conf/data-joining/joins-get-success-links
 abstract-test:: /conf/data-joining/joins-get-success-items-links
 abstract-test:: /conf/data-joining/joins-get-success-timeStamp
 abstract-test:: /conf/data-joining/joins-post-op
+abstract-test:: /conf/data-joining/joins-post-op-additional-output-formats
 abstract-test:: /conf/data-joining/joins-post-success
-abstract-test:: /conf/data-joining/joins-post-success-attribute-data-file-csv-multiple-keys
-abstract-test:: /conf/data-joining/joins-post-success-attribute-data-file-csv-attribute-names
+abstract-test:: /conf/data-joining/joins-post-success-input-data-file-csv-multiple-keys
+abstract-test:: /conf/data-joining/joins-post-success-input-data-file-csv-attribute-names
 abstract-test:: /conf/data-joining/joins-joinid-get-op
 abstract-test:: /conf/data-joining/joins-joinid-get-success
 abstract-test:: /conf/data-joining/joins-joinid-get-success-links
@@ -169,11 +170,13 @@ include::abstract_tests/data-joining/ATS_joins-get-success-timeStamp.adoc[]
 ==== Join Creation {root}/joins
 include::abstract_tests/data-joining/ATS_joins-post-op.adoc[]
 
+include::abstract_tests/data-joining/ATS_joins-post-op-additional-output-formats.adoc[]
+
 include::abstract_tests/data-joining/ATS_joins-post-success.adoc[]
 
-include::abstract_tests/data-joining/ATS_joins-post-success-attribute-data-file-csv-multiple-keys.adoc[]
+include::abstract_tests/data-joining/ATS_joins-post-success-input-data-file-csv-multiple-keys.adoc[]
 
-include::abstract_tests/data-joining/ATS_joins-post-success-attribute-data-file-csv-attribute-names.adoc[]
+include::abstract_tests/data-joining/ATS_joins-post-success-input-data-file-csv-attribute-names.adoc[]
 
 ==== Join {root}/joins/{joinId}
 include::abstract_tests/data-joining/ATS_joins-joinid-get-op.adoc[]

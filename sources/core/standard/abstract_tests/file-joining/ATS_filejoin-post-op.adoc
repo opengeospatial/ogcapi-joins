@@ -10,10 +10,10 @@ test-method::
 --
 1. Issue an HTTP POST request to the URL `{root}/filejoin` where
 * The request contains the header: `Content-Type: multipart/form-data;` 
-* The request contains either the uploaded right data file or it is referenced via URL.
-* The request contains either the uploaded left data file or it is referenced via URL.
+* The request contains either the uploaded right dataset file or it is referenced via URL.
+* The request contains either the uploaded left dataset file or it is referenced via URL.
 * Other query parameters are set correctly.
 2. Validate that a document was returned with a status code `200`.
-3. Validate the contents of the returned document using test <<ats_file_joining_filejoin-post-success, /conf/file_joining/filejoin-post-success>>
+3. Validate the contents of the returned document using test <<ats_file_joining_filejoin-post-success, /conf/file_joining/filejoin-post-success>>.
 --
 ====

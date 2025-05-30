@@ -10,6 +10,6 @@ test-method::
 +
 --
 . Execute the test <<ats_data_joining_collections-collectionid-keys-keyfieldid-get-op, /conf/data-joining/collections-collectionid-keys-keyfieldid-get-op>> with selected filtering parameters.
-. If the response document contains a numberRetuned property, verify that it is identical to the number of items in the keys array.
+. If the response document contains a `numberRetuned` property, verify that it is identical to the number of items in the `keys` array.
 --
 ====

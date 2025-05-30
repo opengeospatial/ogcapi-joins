@@ -10,11 +10,11 @@ test-method::
 +
 --
 . Validate that the response document complies with Collection Key Field schema <<collections_collectionid_keys_keyfieldid_schema, Collection Key Field schema>>.
-. Validate that the response document complies with <<req_data_joining_collections-collectionid-keys-keyfieldid-get-success-limit, /req/data-joining/collections-collectionid-keys-keyfieldid-get-success-limit>>.
-. Validate that the response document complies with <<req_data_joining_collections-collectionid-keys-keyfieldid-get-success-limit-unsupported, /req/data-joining/collections-collectionid-keys-keyfieldid-get-success-limit-unsupported>>.
-. Validate that the response document complies with <<req_data_joining_collections-collectionid-keys-keyfieldid-get-success-paged-response, /req/data-joining/collections-collectionid-keys-keyfieldid-get-success-paged-response>>.
-. Validate that the response document complies with <<req_data_joining_collections-collectionid-keys-keyfieldid-get-success-numberMatched, /req/data-joining/collections-collectionid-keys-keyfieldid-get-success-numberMatched>>.
-. Validate that the response document complies with <<req_data_joining_collections-collectionid-keys-keyfieldid-get-success-numberReturned, /req/data-joining/collections-collectionid-keys-keyfieldid-get-success-numberReturned>>.
-. Validate that the response document complies with <<req_data_joining_collection-collectionid-keys-keyfieldid-get-success-links, /req/data-joining/collection-collectionid-keys-keyfieldid-get-success-links>>.
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-keys-keyfieldid-get-success-limit, /conf/data-joining/collections-collectionid-keys-keyfieldid-get-success-limit>>.
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-keys-keyfieldid-get-success-limit-unsupported, /conf/data-joining/collections-collectionid-keys-keyfieldid-get-success-limit-unsupported>>.
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-keys-keyfieldid-get-success-paged-response, /conf/data-joining/collections-collectionid-keys-keyfieldid-get-success-paged-response>>.
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-keys-keyfieldid-get-success-numberMatched, /conf/data-joining/collections-collectionid-keys-keyfieldid-get-success-numberMatched>>.
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-keys-keyfieldid-get-success-numbeReturned, /conf/data-joining/collections-collectionid-keys-keyfieldid-get-success-numberReturned>>.
+. Validate that the response document complies with test <<ats_data_joining_collections-collectionid-keys-keyfieldid-get-success-links, /conf/data-joining/collections-collectionid-keys-keyfieldid-get-success-links>>.
 --
 ====

@@ -52,9 +52,10 @@ requirement:: /req/data-joining/joins-get-success-links
 requirement:: /req/data-joining/joins-get-success-items-links
 requirement:: /req/data-joining/joins-get-success-timeStamp
 requirement:: /req/data-joining/joins-post-op
+requirement:: /req/data-joining/joins-post-op-additional-output-formats
 requirement:: /req/data-joining/joins-post-success
-requirement:: /req/data-joining/joins-post-success-attribute-data-file-csv-multiple-keys
-requirement:: /req/data-joining/joins-post-success-attribute-data-file-csv-attribute-names
+requirement:: /req/data-joining/joins-post-success-input-data-file-csv-multiple-keys
+requirement:: /req/data-joining/joins-post-success-input-data-file-csv-attribute-names
 requirement:: /req/data-joining/joins-joinid-get-op
 requirement:: /req/data-joining/joins-joinid-get-success
 requirement:: /req/data-joining/joins-joinid-get-success-links

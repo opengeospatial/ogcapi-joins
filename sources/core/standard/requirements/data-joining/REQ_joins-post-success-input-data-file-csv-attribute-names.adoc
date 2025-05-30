@@ -1,0 +1,8 @@
+[[req_data_joining_joins-post-success-input-data-file-csv-attribute-names]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/joins-post-success-input-data-file-csv-attribute-names
+part:: If the input data file is in CSV format, the names for the joined attributes SHALL be the CSV file header row values of the joined columns.
+====

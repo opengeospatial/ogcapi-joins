@@ -8,7 +8,7 @@ test-purpose:: Validate that the conformance declaration response complies with 
 test-method::
 +
 --
-. Validate the response document against <<conformance_schema, conformance schema>>.
-. Validate that the document lists all conformance classes that are implemented in the deployed API.
+. Validate the response document against link:http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/confClasses.yaml[confClasses.yaml].
+. Validate that the document lists all OGC API conformance classes that the API implements.
 --
 ====

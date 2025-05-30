@@ -9,7 +9,7 @@ test-method::
 +
 --
 DO FOR EACH 
-. Resource and operation defined in the Core Conformance Class: +
+. Resource and operation defined in the "Core" and "Data Joining" Conformance Class: +
 . 1. Execute the operation specifing `application/json` as the media type. +
 . 2. Validate that a document was returned with a status code `200`. +
 . 3. Validate the contents of the returned document using test <<ats_json-json-content,/conf/json/json-content>>. +

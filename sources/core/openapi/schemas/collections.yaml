@@ -6,14 +6,12 @@ properties:
   links:
     type: array
     items:
-      $ref: link.yaml
+      $ref: 'link.yaml'
   numberMatched:
-    type: integer
-    minimum: 0
+    $ref: 'numberMatched.yaml'
   numberReturned:
-    type: integer
-    minimum: 0
+    $ref: 'numberReturned.yaml'
   collections:
     type: array
     items:
-      $ref: collectionDesc.yaml
+      $ref: 'collectionDesc.yaml'

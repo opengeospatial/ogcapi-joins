@@ -11,15 +11,15 @@ test-method::
 --
 . Validate that the response document complies with <<joins_schema, Joins Schema>>.
 
-. Validate that the response document complies with test <<ats_data_joining_joins-get-success-limit,/req/data-joining/joins-get-success-limit>>
-. Validate that the response document complies with test <<ats_data_joining_joins-get-success-limit-unsupported,/req/data-joining/joins-get-success-limit-unsupported>>
-. Validate that the response document complies with test <<ats_data_joining_joins-get-success-datetime,/req/data-joining/joins-get-success-datetime>>
-. Validate that the response document complies with test <<ats_data_joining_joins-get-success-paged-response,/req/data-joining/joins-get-success-paged-response>>
-. Validate that the response document complies with test <<ats_data_joining_joins-get-success-numberMatched,/req/data-joining/joins-get-success-numberMatched>>
-. Validate that the response document complies with test <<ats_data_joining_joins-get-success-numberReturned,/req/data-joining/joins-get-success-numberReturned>>
-. Validate that the response document complies with test <<ats_data_joining_joins-get-success-items,/req/data-joining/joins-get-success-items>>
-. Validate that the response document complies with test <<ats_data_joining_joins-get-success-links,/req/data-joining/joins-get-success-links>>
-. Validate that the response document complies with test <<ats_data_joining_joins-get-success-items-links,/req/data-joining/joins-get-success-items-links>>
-. Validate that the response document complies with test <<ats_data_joining_joins-get-success-timeStamp,/req/data-joining/joins-get-success-timeStamp>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-limit,/conf/data-joining/joins-get-success-limit>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-limit-unsupported,/conf/data-joining/joins-get-success-limit-unsupported>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-datetime,/conf/data-joining/joins-get-success-datetime>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-paged-response,/conf/data-joining/joins-get-success-paged-response>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-numberMatched,/conf/data-joining/joins-get-success-numberMatched>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-numberReturned,/conf/data-joining/joins-get-success-numberReturned>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-items,/conf/data-joining/joins-get-success-items>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-links,/conf/data-joining/joins-get-success-links>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-items-links,/conf/data-joining/joins-get-success-items-links>>
+. Validate that the response document complies with test <<ats_data_joining_joins-get-success-timeStamp,/conf/data-joining/joins-get-success-timeStamp>>
 --
 ====

@@ -9,6 +9,6 @@ test-purpose:: Validate that the joins content complies with the required struct
 test-method::
 +
 --
-If a property timeStamp is included in the response, verify that the value is the time when the response was generated.
+If a property `timeStamp` is included in the response, verify that the value is the time when the response was generated.
 --
 ====

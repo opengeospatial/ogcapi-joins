@@ -6,7 +6,7 @@
 identifier:: /conf/input-http-ref/right-dataset-url-file-joining
 target:: /req/input-http-ref/right-dataset-url-file-joining
 test-purpose:: 
-Validate that the right dataset input file can be referenced via URLs in the file joining functionality.
+Validate that the right dataset input file can be referenced via URL in the file joining functionality.
 test-method::
 +
 --
