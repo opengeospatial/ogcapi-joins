@@ -13,7 +13,6 @@ inherit:: <<requirements_class_input-csv,Requirements Class: CSV File Input>>
 inherit:: <<requirements_class_input-geojson,Requirements Class: GeoJSON File Input>>
 inherit:: <<rfc2616,RFC 2616 (HTTP/1.1)>>
 inherit:: <<rfc2818,RFC 2818 (HTTP over TLS)>>
-inherit:: <<rfc3339,RFC 3339 (Date and Time on the Internet: Timestamps)>>
 inherit:: <<rfc7578,RFC 7578 Returning Values from Forms: multipart/form-data>>
 inherit:: <<rfc8288,RFC 8288 (Web Linking)>>
 requirement:: /req/file-joining/filejoin-post-op

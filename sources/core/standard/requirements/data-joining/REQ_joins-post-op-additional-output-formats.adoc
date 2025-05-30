@@ -1,0 +1,8 @@
+[[req_data_joining_joins-post-op-additional-output-formats]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/joins-post-op-additional-output-formats
+part:: If the server supports any additional joined data output formats for the Join Creation operation, they SHALL be listed in the conformance response document.
+====

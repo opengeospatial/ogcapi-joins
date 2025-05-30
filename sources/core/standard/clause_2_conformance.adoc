@@ -5,7 +5,7 @@ The standardization targets of all conformance classes are "Web APIs."
 
 The __discovery operations__ operation set is represented by the requirements class "<<rc_core,core>>".
 
-The __data joining operations__ operation set is represented by the requirements classes: "<<rc_data_joining,data joining>>" and "<<rc_join_delete,join delete>>". The implementation of the "data joining" requirements class is mandatory, and the implementation of the "join delete" is optional for this operation set, t.
+The __data joining operations__ operation set is represented by the requirements classes: "<<rc_data_joining,data joining>>" and "<<rc_join_delete,join delete>>". The implementation of the "data joining" requirements class is mandatory, and the implementation of the "join delete" is optional for this operation set.
 
 The __file joining operations__ operation set is represented by the requirements class "<<rc_file_joining,file joining>>". 
 
@@ -13,7 +13,7 @@ The imput and output functionalities are represented by the requirement classes:
 
 The encoding formats are represented by requirements classes: "<<rc_json, JSON>>", "<<rc_html, HTML>>" and "<<rc_geojson, GeoJSON>>". 
 
-The JSON encoding format support is mandatory, and the HTML encoding support is recommendedto for the service responses in the __discovery operations__ and __data joining operations__ operation sets. 
+The JSON encoding format support is mandatory, and the HTML encoding support is recommended for the service responses in the __discovery operations__ and __data joining operations__ operation sets. 
 
 The GeoJSON encoding format is mandatory for the joined data output in the __data joining operations__ and as a general output for the __file joining operations__.
 

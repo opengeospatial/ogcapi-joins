@@ -12,7 +12,7 @@ test-method::
 Validate that the response document complies with <<join_schema, Join schema>>.
 
 . Validate that the response document complies with test <<ats_data_joining_joins-joinid-get-success-links, /conf/data-joining/joins-joinid-get-success-links>>
-. Validate that the response document complies with test <ats_data_joining_joins-joinid-get-success-links-collection, /conf/data-joining/joins-joinid-get-success-links-collectiony>>
+. Validate that the response document complies with test <<ats_data_joining_joins-joinid-get-success-links-collection, /conf/data-joining/joins-joinid-get-success-links-collection>>
 . Validate that the response document complies with test <<ats_data_joining_joins-joinid-get-success-links-outputs, /conf/data-joining/joins-joinid-get-success-links-outputs>>
 --
 ====

@@ -17,12 +17,12 @@ The `Landing page` (path `/`) provides an entry point to the API. It contains li
 The `API definition` describes the capabilities of the server that can be used by clients to connect to the server or by development tools to support the implementation of servers and clients. Accessing the `API definition` using HTTP GET returns a description of the deployed API implementation instance. The API definition can be hosted on the API server(s) or on a separate server.
 
 The `Conformance declaration` states the conformance classes from standards or community specifications, identified by a URI, that the API implementation instance conforms to. Clients can - but are not required to use this information. Accessing the `Conformance declaration` using HTTP GET returns the list of URIs of conformance classes implemented by the server.
-The The conformance class values defined in this document are listed in the <<conformance_classes_table, Table 1>>.
+The conformance class values defined in this document are listed in <<conformance_classes_table, Table 1>>.
 
 
 === Data Joining Operations
 
-__Data joining operations__ defines operations for accessing metadata and key values on the feature collections that are available on the server, operations for joining data from input data files with the collections, and operations for accessing and deleting the created joins. The __data joining operations__ is defined in the requirements classes <<rc_data_joining,"Data Joining">> and <<rc_join_delete,"Join Delete">>. For this operation set, the implementation of the "Data Joining" requirements class is mandatory and the "Join Delete" requirements class is optional.
+__Data joining operations__ defines operations for accessing metadata, key fields and key values on the feature collections that are available on the server, operations for joining data from input data files with the collections, and operations for accessing and deleting the created joins. The __data joining operations__ is defined in the requirements classes <<rc_data_joining,"Data Joining">> and <<rc_join_delete,"Join Delete">>. For this operation set, the implementation of the "Data Joining" requirements class is mandatory and the "Join Delete" requirements class is optional.
 
 The __data joining operations__ contains following functionalities:
 
@@ -36,7 +36,7 @@ The __data joining operations__ contains following functionalities:
 
 * Accessing the `Joins` using HTTP GET returns a list of Joins that are available on the server. 
 
-* New `Joins` can be created by making a HTTP POST query at path `/joins`. This is done by joining data from input data file with a Collection available on the server. This standard contains suppport for the CSV input files, defined in the requirements class "<<rc_input_csv, CSV File Input>>" The input files can be either uploaded to the server, represented by the requirements claas "<<rc_file_uploading_with_query, Input File Upload>>" or they can be referenced via URL links, represented by the requirements class "<<rc_file_referencing_with_url, File Referencing with URL>>". The Join Creation operation is required to support the GeoJSON format for the joined data, represented by the requirements class "<<rc_output_geojson, GeoJSON Output for Joined Data>>". The operation may also support a direct GeoJSON output by implementing the requirements class "<<rc_output_geojson_direct, Direct GeoJSON Output for Joined Data>>".
+* New `Joins` can be created by making a HTTP POST query at path `/joins`. This is done by joining data from an input data file with a Collection available on the server. This standard contains suppport for the CSV input files, defined in the requirements class "<<rc_input_csv, CSV File Input>>" The input files can be either uploaded to the server, represented by the requirements claas "<<rc_file_uploading_with_query, Input File Upload>>" or they can be referenced via URL links, represented by the requirements class "<<rc_file_referencing_with_url, File Referencing with URL>>". The Join Creation operation is required to support the GeoJSON format for the joined data, represented by the requirements class "<<rc_output_geojson, GeoJSON Output for Joined Data>>". The operation may also support a direct GeoJSON output by implementing the requirements class "<<rc_output_geojson_direct, Direct GeoJSON Output for Joined Data>>".
 
 * Each `Join` element in the Joins list can be accessed further in order to get the metadata on each individual Join by making an HTTP GET request at path `/joins/{joinId}`.
 
@@ -47,7 +47,7 @@ The __data joining operations__ contains following functionalities:
 
 __File joining operations__ defines functionality for joining data from input data files directly with other input data files.
 
-* Data join between two input files can be created by making a HTTP POST query at path `/filejoin`. This standard contains suppport for joining data from CSV files, defined in the requirements class "<<rc_input_csv, CSV File Input>>", to GeoJSON files, defined in the requirements class "<<rc_input_geojson, GeoJSON File Input>>". The result of the Filejoin operation is the GeoJSON document that contains also the joined attributes from the CSV file. The input files can be either uploaded to the server, represented by the requirements claas "<<rc_file_uploading_with_query, Input File Upload>>" or they can be referenced via URL links, represented by the requirements class <<rc_file_referencing_with_url, File Referencing with URL>>". 
+* Data join between two input files can be created by making a HTTP POST query at path `/filejoin`. This standard contains suppport for joining data from CSV files, defined in the requirements class "<<rc_input_csv, CSV File Input>>", to GeoJSON files, defined in the requirements class "<<rc_input_geojson, GeoJSON File Input>>". The result of the filejoin operation is the GeoJSON document that contains also the joined attributes from the CSV file. The input files can be either uploaded to the server, represented by the requirements class "<<rc_file_uploading_with_query, Input File Upload>>" or they can be referenced via URL links, represented by the requirements class <<rc_file_referencing_with_url, File Referencing with URL>>". 
 
 
 === Encodings

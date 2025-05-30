@@ -6,7 +6,7 @@
 identifier:: /conf/input-file-upload/right-dataset-file-join-creation
 target:: /req/input-file-upload/right-dataset-file-join-creation
 test-purpose:: 
-Validate that the input data file can be uploaded with the query to the server in the data joining functionality.
+Validate that the right input data file can be uploaded with the Join Creation query to the server.
 test-method::
 +
 --

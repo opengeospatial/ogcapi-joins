@@ -12,6 +12,6 @@ test-method::
 . Validate that the response document complies with test <<ats_data_joining_collections-collectionid-keys-get-success-default-key, /conf/data-joining/collections-collectionid-keys-get-success-default-key>>
 . Validate that the response document complies with test <<ats_data_joining_collections-collectionid-keys-get-success-links, /conf/data-joining/collections-collectionid-keys-get-success-links>>
 . Validate that the response document complies with test <<ats_data_joining_collections-collectionid-keys-get-success-items-links, /conf/data-joining/collections-collectionid-keys-get-success-items-links>>
-. Validate that the response document complies with <<collections_collectionid_keys_schema,Collection Key Fields schema>>.
+. Validate that the response document complies with <<collections_collectionid_keys_schema,Collection's Key Fields schema>>.
 --
 ====

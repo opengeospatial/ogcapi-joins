@@ -9,7 +9,7 @@ test-purpose:: Validate that the joins content complies with the required struct
 test-method::
 +
 --
-. If the server supports the datetime parameter, execute the test <<ats_data_joining_joins-get-op, /conf/data-joining/joins-get-op>> with a supported `datetime` parameter value. 
+. If the server supports the `datetime` parameter, execute the test <<ats_data_joining_joins-get-op, /conf/data-joining/joins-get-op>> with a supported `datetime` parameter value. 
 . Verify that the response contains only join elements that match with the give `datetime` paramter value.
 --
 ====

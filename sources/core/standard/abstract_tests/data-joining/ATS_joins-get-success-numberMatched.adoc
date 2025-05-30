@@ -10,6 +10,6 @@ test-method::
 +
 --
 . Execute the test <<ats_data_joining_joins-get-op, /conf/data-joining/joins-get-op>> with selected filtering parameters.
-. Verify that the numberMatched property is identical to the number of joins that match the selection criteria.
+. Verify that the `numberMatched` property is identical to the number of joins that match the selection criteria.
 --
 ====

@@ -9,10 +9,10 @@ test-purpose:: Validate that a response document includes all required links.
 test-method::
 +
 --
-Verify that the each item in the response's `keys` property includes contains:
+Validate that the each item in the response's `keys` property includes contains:
 
 . A `links` property that contains links to the key values of the key field in all media types supported by the server (relation: `key-values`),
 
-. Verify that all links include the `rel` and `type` link parameters.
+. Validate that all links include the `rel` and `type` link parameters.
 --
 ====

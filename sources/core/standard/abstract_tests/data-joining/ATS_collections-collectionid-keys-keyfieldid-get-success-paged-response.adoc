@@ -9,7 +9,7 @@ test-purpose:: Validate that the Collection key field's response complies with t
 test-method::
 +
 --
-. Execute the test <<ats_data_joining_collections-collectionid-keys-keyfieldid-get-op, /conf/data-joining/collections-collectionid-keys-keyfieldid-get-op>> with a set of selection parameters that result in response where the number of key values in the keys element is less than the number that match the selection parameters.
+. Execute the test <<ats_data_joining_collections-collectionid-keys-keyfieldid-get-op, /conf/data-joining/collections-collectionid-keys-keyfieldid-get-op>> with a set of selection parameters that result in response where the number of key values in the `keys` element is less than the number that match the selection parameters.
 . Verify that the `numberMatched` and `numberReturned` properties are included in the response.
 --
 ====

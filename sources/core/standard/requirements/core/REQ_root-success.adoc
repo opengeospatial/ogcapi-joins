@@ -4,8 +4,8 @@
 ====
 [%metadata]
 identifier:: /req/core/root-success
-part:: A successful execution of the API landing page operation SHALL be reported as a response with an HTTP status code `200`.
-part:: The content of that response SHALL be based upon the <<landing_page_schema,Landing Page Schema>>. 
+part:: A successful execution of the operation SHALL be reported as a response with an HTTP status code `200`.
+part:: The content of that response SHALL be based upon the link:http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/confClasses.yaml[landingPage.yaml]. 
 
 The response can include <<link-relation-types,links>> to following resources:
 

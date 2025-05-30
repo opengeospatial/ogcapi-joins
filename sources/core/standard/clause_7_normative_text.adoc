@@ -4,7 +4,7 @@
 === Overview
 include::./requirements/requirements_class_core.adoc[]
 
-The OGC API - Joins core requirements class specifies operations for accessing the API landing page, the API definition document, and the information on the server implementation's conformance to the Joins API Standard. 
+The OGC API - Joins Core requirements class specifies operations for accessing the API landing page, the API definition document, and the information on the server implementation's conformance to the Joins API Standard. 
 
 === Operations
 include::./requirements/core/REQ_operations.adoc[]
@@ -15,7 +15,7 @@ include::./requirements/core/REQ_http.adoc[]
 
 === HTTP Status Codes
 
-<<http_status_codes,Table 5>> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.
+<<http_status_codes,HTTP status codes>> lists the main HTTP status codes that clients should be prepared to receive. This includes support for specific security schemes or URI redirection. In addition, other error situations may occur in the transport layer outside of the server.
 
 [[http_status_codes]]
 .Typical HTTP status codes.
@@ -39,11 +39,11 @@ include::./requirements/core/REQ_http.adoc[]
 ^|500 |	An internal error occurred in the server.
 |===
 
-The return status codes described in <<http_status_codes,Table 5>> do not cover all possible conditions. See <<rfc7231,IETF RFC 7231>> for a complete list of HTTP status codes.
+The return status codes described in <<http_status_codes,HTTP status codes>> do not cover all possible conditions. See <<rfc7231,IETF RFC 7231>> for a complete list of HTTP status codes.
 
 include::./requirements/core/PER_additional_status_codes.adoc[]
 
-When the server encounters an error during the processing of the request, the server may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be preferred. <<rfc7807,IETF RFC 7807>> addresses this need by providing "Problem Details" response schemas for both JSON and XML.
+When a server encounters an error in the processing of the request, the server may wish to include information in addition to the status code in the response. Since Web API interactions are often machine-to-machine, a machine-readable report would be preferred. <<rfc7807,IETF RFC 7807>> addresses this need by providing "Problem Details" response schemas for both JSON and XML.
 
 include::./requirements/core/REC_problem_details.adoc[]
 
@@ -83,7 +83,7 @@ include::./requirements/core/REQ_root-op.adoc[]
 include::./requirements/core/REQ_root-success.adoc[]
 
 ===== Response Schema for the  Landing Page
-The landing page response is based on the https://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/landingPage.yaml[Landing Page Schema], originally defined in the <<OGC19-072,OGC - API - Common: Part 1>> document.
+The landing page response is based on the https://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/landingPage.yaml[Landing Page Schema], originally defined in the <<OGC19-072,OGC - API - Common - Part 1>>.
 
 include::./../schemas/root_schema.adoc[]
 
@@ -125,7 +125,7 @@ include::./requirements/core/REQ_conformance-success.adoc[]
 
 ===== Response Schema for the Conformance Declaration
 
-The schema for the conformance response is based on the https://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/confClasses.yaml[Conformance Declaration Schema] (from <<OGC19-072,OGC API - Common - Part 1>> document).
+The schema for the conformance response is based on the https://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/confClasses.yaml[Conformance Declaration Schema] (from <<OGC19-072,OGC API - Common - Part 1>>).
 
 include::./../schemas/conformance_schema.adoc[]
 
@@ -153,7 +153,7 @@ include::./requirements/data-joining/REQ_collections-get-success.adoc[]
 
 ===== Response Schema for the Collections
 
-The response is based on the https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collections.yaml[Collections Schema] (from <<OGC20-024,OGC - API - Common: Part 2>> document).
+The response is based on the https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collections.yaml[Collections Schema] (from <<OGC20-024,OGC - API - Common - Part 2>>).
 
 include::../schemas/collections_schema.adoc[]
 
@@ -165,7 +165,7 @@ include::./requirements/data-joining/REQ_collections-get-success-links.adoc[]
 
 Additional information may be available to assist in understanding and using this dataset. Links to those resources should be provided as well.
 
-include::./requirements/data-joining/REC_collections-get-success-descriptions.adoc[]
+include::./requirements/data-joining/REC_collections-get-success-describedby.adoc[]
 
 The `collections` property of the Collections response provides a description of each individual collection hosted by the server. These descriptions are based on the <<collections_collectionid_schema, Collection Schema>>.
 
@@ -194,7 +194,7 @@ include::./requirements/data-joining/REQ_collections-collectionid-get-success.ad
 
 [[response_schema_for_the_collection]]
 ===== Response Schema for the Collection
-The Collection response is based on the following schema.
+The Collection response is based on the https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc.yaml[collectionDesc Schema] (from <<OGC20-024,OGC - API - Common - Part 2>>).
 
 include::./../schemas/collections_collectionid_schema.adoc[]
 
@@ -228,7 +228,7 @@ include::./requirements/data-joining/REC_collections-collectionid-get-success-de
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
-If the parameter `collectionId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 5>>).
+If the parameter `collectionId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 4>>).
 
 === Collection's Key Fields
 
@@ -250,7 +250,7 @@ include::../schemas/collections_collectionid_keys_schema.adoc[]
 //[discrete]
 ====== isDefault
 
-Information on the Collection's default key field for the data joins. Value `true` indicates the default key field. 
+`isDefault` property contains information on the Collection's default key field to be used in the data joins. Value `true` indicates the default key field. 
 
 include::./requirements/data-joining/REQ_collections-collectionid-keys-get-success-default-key.adoc[]
 
@@ -281,7 +281,7 @@ include::./requirements/data-joining/REQ_collections-collectionid-keys-get-succe
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
-If the parameter `collectionId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 5>>).
+If the parameter `collectionId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 4>>).
 
 === Collection's Key Field
 
@@ -291,7 +291,9 @@ The HTTP GET operation at path `{root}/collections/{collectionId}/keys/{keyField
 
 include::./requirements/data-joining/REQ_collections-collectionid-keys-keyfieldid-get-op.adoc[]
 
-include::./requirements/data-joining/PER_collections-collectionid-keys-keyfieldid-get-op.adoc[]
+include::./requirements/data-joining/PER_collections-collectionid-keys-keyfieldid-get-op-key-param.adoc[]
+
+include::./requirements/data-joining/PER_collections-collectionid-keys-keyfieldid-get-op-limit-param.adoc[]
 
 ==== Response
 
@@ -383,9 +385,9 @@ Human-readable description of the key value.
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
-If the parameter `collectionId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 5>>).
+If the parameter `collectionId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,HTTP status codes>>).
 
-If the parameter `keyFieldId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 5>>).
+If the parameter `keyFieldId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,HTTP status codes>>).
 
 === Joins
 
@@ -395,7 +397,9 @@ The HTTP GET operation at path `{root}/joins` returns a list of joins that are a
 
 include::./requirements/data-joining/REQ_joins-get-op.adoc[]
 
-include::./requirements/data-joining/PER_joins-get-op.adoc[]
+include::./requirements/data-joining/PER_joins-get-op-limit-parameter.adoc[]
+
+include::./requirements/data-joining/PER_joins-get-op-datetime-parameter.adoc[]
 
 ==== Response
 
@@ -483,14 +487,15 @@ include::./requirements/data-joining/REQ_joins-get-success-items-links.adoc[]
 Identifier of the join.
 
 //[discrete]
-====== numberReturned
+====== numberMatched
 
 The number of joins that are available in the server that match the selection parameters in the request.
 
 //[discrete]
-====== numberMatched
+====== numberReturned
 
 The number of joins returned in the response.
+
 
 //[discrete]
 ====== timeStamp
@@ -513,13 +518,13 @@ The HTTP POST operation at path `{root}/joins` creates a new join.
 
 The operation joins data from an input data file with a collection hosted on the server.
 
-The data file can either be uploaded to the server with the query or referenced via URL link.
+The input data file can either be uploaded to the server with the query, represented by the requirements class "<<rc_file_uploading_with_query, Input File Upload>>" or referenced via URL links, represented by the requirements class "<<rc_file_referencing_with_url, File Referencing with URL>>".
 
-The joins are executed via common key values that are available in both datasets.
+The core module contains support for the CSV format for the input data files, defined in the requirements class "<<rc_input_csv, CSV File Input>>". The CSV files must have a column that contains the key values that will be used in the join operation and a separate column for each joined attribute.
 
-If the input data file contains additional key values that are not available in the collection, they will not be included to the joined output. The extension modules may alter this behavior.
+The joins are executed via common key values that are available in both datasets. If the input data file contains additional key values that are not available in the collection, they will not be included to the joined output. The extension modules may alter this behavior.
 
-The core module contains support for CSV format for the input data files.
+The operation is required to support the GeoJSON format for the joined data, represented by the requirements class "<<requirements_class_output-geojson, GeoJSON Output for Joined Data>>" and it may support direct GeoJSON output, represented by the requirements class "<<requirements_class_output-geojson-direct, Direct GeoJSON Output for Joined Data>>". In addition, the operation may support any other output format for the joined data.
 
 ==== Request
 
@@ -527,21 +532,23 @@ include::./requirements/data-joining/REQ_joins-post-op.adoc[]
 
 include::./requirements/data-joining/REQ_joins-post-op-form-data-parameters.adoc[]
 
-include::./requirements/data-joining/PER_joins-post-op.adoc[]
+include::./requirements/data-joining/PER_joins-post-op-additional-output-formats.adoc[]
+
+include::./requirements/data-joining/REQ_joins-post-op-additional-output-formats.adoc[]
 
 ==== Response
 
 include::./requirements/data-joining/REQ_joins-post-success.adoc[]
 
-include::./requirements/data-joining/REQ_joins-post-success-attribute-data-file-csv-multiple-keys.adoc[]
+include::./requirements/data-joining/REQ_joins-post-success-input-data-file-csv-multiple-keys.adoc[]
 
-include::./requirements/data-joining/REQ_joins-post-success-attribute-data-file-csv-attribute-names.adoc[]
+include::./requirements/data-joining/REQ_joins-post-success-input-data-file-csv-attribute-names.adoc[]
 
 ===== Response schema for the Join Creation
 
 The response schema for queries that create a join resource is expressed with the <<join_schema,Join Schema>>.
 
-For responses that produce a GeoJSON output, the response is a GeoJSON file that contains also the joined attributes.
+For responses that produce a direct GeoJSON output, the response is a GeoJSON file that contains also the joined attributes from the input data file.
 
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
@@ -657,7 +664,7 @@ The number of keys in the attribute data file that had duplicate entries.
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
-If the parameter `joinId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 5>>).
+If the parameter `joinId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,HTTP status codes>>).
 
 [[rc_join_delete]]
 == Requirements Class "Join Delete"
@@ -684,7 +691,7 @@ The response of the operation is empty.
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
-If the parameter `joinId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 5>>).
+If the parameter `joinId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,HTTP status codes>>).
 
 
 [[rc_file_joining]]
@@ -696,15 +703,18 @@ include::./requirements/requirements_class_file_joining.adoc[]
 [[file_joining]]
 === File Joining
 
-The HTTP POST operation at path `{root}/filejoin` joins data from input data file directly with another input data file.
+The HTTP POST operation at path `{root}/filejoin` joins data from an input data file directly with another input data file.
 
-The input data files can be either uploaded to the server with the query or referenced via URL links.
+The input data files can be either uploaded to the server with the query, represented by the requirements class "<<rc_file_uploading_with_query, Input File Upload>>" or referenced via URL links, represented by the requirements class "<<rc_file_referencing_with_url, File Referencing with URL>>".
 
 The core module supports data joining from the right dataset to the left dataset. 
 
-The core module contains support for:
-* The CSV format for the right dataset.
-* The GeoJSON format for the left dataset 
+The core module contains the following format support:
+
+* The CSV format for the right dataset, defined in the requirements class "<<rc_input_csv, CSV File Input>>".
+* The GeoJSON format for the left dataset, defined in the requirements class "<<rc_input_geojson, GeoJSON File Input>>".
+
+The CSV files must have a column that contains the key values that will be used in the join operation and a separate column for each joined attribute.
 
 The joins are executed via common key values that are available in both datasets. If the right dataset contains additional key values that are not available in the left dataset, they will not be included in the joined output. Extension modules may alter this behavior. 
 

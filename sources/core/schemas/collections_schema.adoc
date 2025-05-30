@@ -1,21 +1,18 @@
 [[collections_schema]]
 .Collections Schema
+[source, YAML]
 ----
-type: object
-required:
-  - links
-  - collections
-properties:
-  links:
-    type: array
-    items:
-      $ref: '../common-core/link.yaml'
-  numberMatched:
-    $ref: 'numberMatched.yaml'
-  numberReturned:
-    $ref: 'numberReturned.yaml'
-  collections:
-    type: array
-    items:
-      $ref: 'collectionDesc.yaml'
+include::../openapi/schemas/collections.yaml[]
+----
+
+.numberMatched.yaml
+[source, YAML]
+----
+include::../openapi/schemas/numberMatched.yaml[]
+----
+
+.numberReturned.yaml
+[source, YAML]
+----
+include::../openapi/schemas/numberReturned.yaml[]
 ----

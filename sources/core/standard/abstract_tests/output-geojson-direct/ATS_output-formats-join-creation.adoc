@@ -10,9 +10,6 @@ If the server supports the data joining functionality, validate that the server 
 test-method::
 +
 --
-Test method: Execute the abstract test: <<ats_data_joining_joins-post-op, /conf/data-joining/joins-post-op>> where: +
-- The form data parameter `output-formats` has the value `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output-geojson-direct`. +
-
-- Validate that the response is a valid GeoJSON document.
+Test method: Execute the test method (2) in the abstract test: <<ats_data_joining_joins-post-op, /conf/data-joining/joins-post-op>>
 --
 ====

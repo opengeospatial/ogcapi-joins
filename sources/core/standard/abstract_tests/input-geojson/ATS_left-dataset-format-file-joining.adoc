@@ -5,13 +5,12 @@
 [%metadata]
 identifier:: /conf/input-geojson/left-dataset-format-file-joining
 target:: /req/input-geojson/left-dataset-format-file-joining
-test-purpose:: 
-If the server supports the file joining functionality, validate that server supports the GeoJSON input files for the left dataset for the file joining operation.
+test-purpose:: Validate that server supports the GeoJSON input file format for the left dataset in the File Joining operation.
 test-method::
 +
 --
 Test method: Execute the abstract test: <<ats_file_joining_filejoin-post-op, /conf/file-joining/filejoin-post-op>> where: +
 - The form data parameter `left-dataset-format` has the value `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-geojson`. +
-- The request contains either the uploaded GeoJSON file in the form data parameter `left-dataset-file`or it is referenced via URL in the form data parameter `left-dataset-url`. +
+- The request contains either the uploaded GeoJSON file in the form data parameter `left-dataset-file` or it is referenced via URL in the form data parameter `left-dataset-url`. +
 --
 ====

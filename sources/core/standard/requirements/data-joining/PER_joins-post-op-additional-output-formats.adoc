@@ -1,0 +1,8 @@
+[[per_data_joining_joins-post-op-additional-output-formats]]
+
+[permission]
+====
+[%metadata]
+identifier:: /per/data-joining/joins-post-op-additional-output-formats
+part:: The server MAY support any other output formats for the joined data besides GeoJSON.
+====

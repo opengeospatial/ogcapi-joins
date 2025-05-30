@@ -8,7 +8,7 @@ test-purpose:: Validate that a collection information can be retrieved from the 
 test-method::
 +
 --
-. For every Collection describe in the Collections content, issue a HTTP GET request to the URL `{root}/collections/{collectionId}` where {collectionId} is the `id` property of a collection.
+. For every Collection described in the Collections content, issue a HTTP GET request to the URL `{root}/collections/{collectionId}` where {collectionId} is the `id` property of a collection.
 . Validate that a Collection was returned with a status code `200`.
 . Validate the contents of the returned document using test <<ats_data_joining_collections-collectionid-get-success, /conf/data-joining/collections-collectionid-get-success>>.
 --
