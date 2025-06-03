@@ -62,4 +62,5 @@ All questions regarding this submission should be directed to the editor or the 
 |===
 |Name                                  |Affiliation
 |Pekka Latvala _(editor)_              |Finnish Geospatial Research Institute FGI, National Land Survey of Finland
+|Panu Muhli              |Finnish Geospatial Research Institute FGI, National Land Survey of Finland
 |===
