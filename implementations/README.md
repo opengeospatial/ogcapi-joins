@@ -17,7 +17,7 @@ The columns for each part list the conformance classes of the standard that are 
 
 | Product    | Contact email or GitHub handle |
 | ----------- | ----------- |
-| [geosander extension of pygeoapi](https://geosander.github.io/pygeoapi/)   | [@GeoSander](https://github.com/GeoSander/)     |
+| [Geonovum API Testbed extension of pygeoapi](https://geosander.github.io/pygeoapi/)   | [@GeoSander](https://github.com/GeoSander/)     |
 | [FAO GeoID](https://github.com/un-fao/GeoID)   | [@ccancellieri](https://github.com/ccancellieri)     |
 | [NLS Finland OGC API implementation](https://www.maanmittauslaitos.fi/en)   | TBA    |
 
