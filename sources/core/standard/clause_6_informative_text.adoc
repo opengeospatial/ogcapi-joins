@@ -22,7 +22,7 @@ The conformance class values defined in this document are listed in <<conformanc
 
 === Data Joining Operations
 
-__Data joining operations__ defines operations for accessing metadata, key fields and key values on the feature collections that are available on the server, operations for joining data from input data files with the collections, and operations for accessing and deleting the created joins. The __data joining operations__ is defined in the requirements classes <<rc_data_joining,"Data Joining">> and <<rc_join_delete,"Join Delete">>. For this operation set, the implementation of the "Data Joining" requirements class is mandatory and the "Join Delete" requirements class is optional.
+__Data joining operations__ defines operations for accessing metadata and key fields on the feature collections that are available on the server, operations for joining data from input data files with the collections, and operations for accessing and deleting the created joins. The __data joining operations__ is defined in the requirements classes <<rc_data_joining,"Data Joining">> and <<rc_join_delete,"Join Delete">>. For this operation set, the implementation of the "Data Joining" requirements class is mandatory and the "Join Delete" requirements class is optional.
 
 The __data joining operations__ contains following functionalities:
 
@@ -31,8 +31,6 @@ The __data joining operations__ contains following functionalities:
 * Each `Collection` element in the Collections list can be accessed further in order to get the metadata on each individual Collection by making an HTTP GET request at path `/collections/{collectionId}`.
 
 * Accessing the `Collection's Key Fields` using HTTP GET at path `/collections/{collectionId}/keys` provides information on the key fields of a Collection.
-
-* Accessing the `Collection's Key Field` using HTTP GET at path `/collections/{collectionId}/keys/{keyFieldId}` provides the key values of the specific key field. The data joining is executed through these key values.
 
 * Accessing the `Joins` using HTTP GET returns a list of Joins that are available on the server. 
 

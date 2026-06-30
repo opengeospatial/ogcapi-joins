@@ -4,7 +4,7 @@ The OGC API - Joins specifies the behavior of Web APIs that join data from speci
 
 The __discovery operations__ specify operations for obtaining general information on the service implementation of the server that supports a join capability. It includes operations for accessing the Joins API landing page, the API definition document and information on the service’s conformance to the Joins API standard.
 
-The __data joining operations__ specify operations for retrieving metadata, key field information and key values on the feature collections available on some server. Data joining also includes an operation for joining data from specified input data files with the feature collections and operations for accessing and deleting the created joins.
+The __data joining operations__ specify operations for retrieving metadata and key field information on the feature collections available on some server. Data joining also includes an operation for joining data from specified input data files with the feature collections and operations for accessing and deleting the created joins.
 
 The __file joining operations__ specifies an operation for joining data from specified input data files directly with other specified input data files. 
 

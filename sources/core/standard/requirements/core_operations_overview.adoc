@@ -29,10 +29,6 @@
 |GET
 |Returns the key fields of a specific collection.
 
-|/collections/{collectionId}/keys/{keyFieldId}
-|GET
-|Returns the key values of a specific key field of a specific collection.
-
 |/joins
 |GET
 |Returns a list of the joins available on the server.

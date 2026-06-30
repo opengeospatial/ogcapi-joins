@@ -1,8 +1,0 @@
-[[per_data_joining_collections-collectionid-keys-keyfieldid-get-success-numberReturned]]
-
-[permission]
-====
-[%metadata]
-identifier:: /per/data-joining/collections-collectionid-keys-keyfieldid-get-success-numberReturned
-part:: A server MAY omit the `numberReturned` information in a response, if the information about the number of resources in the response is not known or difficult to compute.
-====

@@ -2,7 +2,6 @@ type: object
 required:
   - id
   - isDefault
-  - links
 properties:
   isDefault:
     type: boolean
@@ -10,7 +9,3 @@ properties:
     type: string
   id:
     type: string
-  links:
-    type: array
-    items:
-      $ref: link.yaml

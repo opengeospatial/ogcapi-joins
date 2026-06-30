@@ -28,12 +28,6 @@ GET /collections/{collectionId}/keys
 Returns the key fields of a specific collection
 
 ```
-GET /collections/{collectionId}/keys/{keyFieldId}
-```
-
-Returns the key values of a specific key field of a specific collection
-
-```
 GET /joins
 ```
 

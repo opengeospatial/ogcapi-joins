@@ -44,7 +44,6 @@ API definitions are considered service descriptions.
 <|conformance | Refers to a resource that identifies the standards that the link's context conforms to.
 <|data | Indicates that the link’s context is a distribution of a dataset that is an API and refers to the root resource of the dataset in an API.
 <|keys | Refers to a resource that is comprised of metadata of the key fields of the collection represented by the link’s context.
-<|key-values | Refers to a resource that is comprised of key values of the collection's key field represented by the link’s context.
 <|joins | Refers to a resource that is comprised of the metadata of the created joins that are available on the server.
 <|join | Refers to a resource that is comprised of the metadata of the specific join that is available on the server.
 <|output |  Refers to an output of the join operation that contains the joined data.

@@ -186,63 +186,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExceptionObject'
-  /collections/{collectionId}/keys/{keyFieldId}:
-    get:
-      summary: Get key values from a specific collection key field.
-      description: Get key values of a specific collection key field.
-      operationId: getCollectionKeyFieldKeyValues
-      parameters:
-      - name: collectionId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: keyFieldId
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: key
-        in: query
-        description: Filters by specific key value
-        schema:
-          type: string
-      - name: limit
-        in: query
-        description: Limit the amount of returned results
-        required: false
-        schema:
-          type: integer
-          minimum: 1
-          maximum: 10000 
-          default: 10
-        style: form
-        explode: false
-      responses:
-        200:
-          description: Key values of a specific key field of a collection.
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CollectionKeysKeyFieldResponseObject'
-        400:
-          description: Bad request
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ExceptionObject'
-        404:
-          description: Collection key field values not found
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ExceptionObject'
-        500:
-          description: A server error occurred
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/ExceptionObject'
   /joins:
     get:
       summary: Get list of all available joins.
@@ -1210,15 +1153,6 @@ components:
                   nullable: true
                 - type: number
             example: [ [ -180, -179 ], [ -179, -178 ] ]
-    KeyObject:
-      required:
-      - key
-      type: object
-      properties:
-        key:
-          type: string
-        title:
-          type: string
     ConformanceResponseObject:
       required:
       - conformsTo
@@ -1228,24 +1162,6 @@ components:
           type: array
           items:
             type: string
-    CollectionKeysKeyFieldResponseObject:
-      required:
-      - keys
-      - links
-      type: object
-      properties:
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/Link'
-        keys:
-          type: array
-          items:
-            $ref: '#/components/schemas/KeyObject'
-        numberMatched:
-          type: integer
-        numberReturned:
-          type: integer
     JoinsResponseObject:
       required:
       - joins
@@ -1331,7 +1247,6 @@ components:
       required:
       - id
       - isDefault
-      - links
       type: object
       properties:
         isDefault:
@@ -1340,10 +1255,6 @@ components:
           type: string
         id:
           type: string
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/Link'
     ExceptionObject:
       required:
       - type

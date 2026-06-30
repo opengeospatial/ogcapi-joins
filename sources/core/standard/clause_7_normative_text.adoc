@@ -210,7 +210,7 @@ include::./requirements/data-joining/REC_collections-collectionid-get-success-ex
 //[discrete]
 ====== Item Type
 
-The collections defined by this core module provide information on their key fields and key values.
+The collections defined by this core module provide information on their key fields.
 
 include::./requirements/data-joining/REC_collections-collectionid-get-success-item-type.adoc[]
 
@@ -267,127 +267,17 @@ Identifier of the key field.
 //[discrete]
 ====== links
 
-To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the collection's key fields' key values.
+To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks.
 
 [[req_core_collections-collectionid-keys-key-values-link]]
 Description of the `links` property of the `CollectionKeysResponseObject`:
 
 include::./requirements/data-joining/REQ_collections-collectionid-keys-get-success-links.adoc[]
 
-Description of `links` property of the `CollectionKeysObject`:
-
-include::./requirements/data-joining/REQ_collections-collectionid-keys-get-success-items-links.adoc[]
-
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
 If the parameter `collectionId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 4>>).
-
-=== Collection's Key Field
-
-The HTTP GET operation at path `{root}/collections/{collectionId}/keys/{keyFieldId}` returns a list of key values of a specific key field of a specific collection.
-
-==== Request
-
-include::./requirements/data-joining/REQ_collections-collectionid-keys-keyfieldid-get-op.adoc[]
-
-include::./requirements/data-joining/PER_collections-collectionid-keys-keyfieldid-get-op-key-param.adoc[]
-
-include::./requirements/data-joining/PER_collections-collectionid-keys-keyfieldid-get-op-limit-param.adoc[]
-
-==== Response
-
-include::./requirements/data-joining/REQ_collections-collectionid-keys-keyfieldid-get-success.adoc[]
-
-===== Parameter Limit
-
-The number of returned key values depends on the server and the value of the `limit` parameter. 
-
-The client can request a limit to the number of key values returned in a response by using the `limit` parameter. The `limit` parameter indicates the maximum number of key values which should be included in a single response.
-
-The server may have a default value for the limit and a maximum limit.
-
-include::./requirements/data-joining/REQ_collections-collectionid-keys-keyfieldid-get-success-limit.adoc[]
-
-include::./requirements/data-joining/REQ_collections-collectionid-keys-keyfieldid-get-success-limit-unsupported.adoc[]
-
-===== Paged response
-
-If the number of items in the `keys` array of the response is less than or equal to the requested/default/maximum limit then the server will include a link to the next set of results.
-
-include::./requirements/data-joining/PER_collections-collectionid-keys-keyfieldid-get-success-server-limit.adoc[]
-
-include::./requirements/data-joining/REC_collections-collectionid-keys-keyfieldid-get-success-server-limit.adoc[]
-
-The effect of the `limit` parameter is to divide the response into a number of pages. Each page (except for the last) contains the specified number of entities. The response contains the first page. Additional pages can be accessed through hyperlink navigation.
-
-include::./requirements/data-joining/REC_collections-collectionid-keys-keyfieldid-get-success-next-1.adoc[]
-
-include::./requirements/data-joining/REC_collections-collectionid-keys-keyfieldid-get-success-next-2.adoc[]
-
-include::./requirements/data-joining/REC_collections-collectionid-keys-keyfieldid-get-success-next-3.adoc[]
-
-Providing `prev` links supports navigating back and forth between pages, but depending on the implementation approach it may be too complex to implement.
-
-include::./requirements/data-joining/PER_collections-collectionid-keys-keyfieldid-get-success-prev.adoc[]
-
-If the server response does not contain all of the key values that match the selection parameters, then the client must be informed of that fact.
-
-include::./requirements/data-joining/REQ_collections-collectionid-keys-keyfieldid-get-success-paged-response.adoc[]
-
-The `numberMatched` property of the response indicates the number of key values that are available in the server that match the selection parameters in the request.
-
-include::./requirements/data-joining/REQ_collections-collectionid-keys-keyfieldid-get-success-numberMatched.adoc[]
-
-include::./requirements/data-joining/PER_collections-collectionid-keys-keyfieldid-get-success-numberMatched.adoc[]
-
-The number of key values included in a response may be a subset of the number matched. In that case, the `numberReturned` property of the response indicates the number of key values returned in this "page" of the response.
-
-include::./requirements/data-joining/REQ_collections-collectionid-keys-keyfieldid-get-success-numberReturned.adoc[]
-
-include::./requirements/data-joining/PER_collections-collectionid-keys-keyfieldid-get-success-numberReturned.adoc[]
-
-===== Response Schema for the Collection's Key Field
-include::./../schemas/collections_collectionid_keys_keyfieldid_schema.adoc[]
-
-[[req_core_collections-collectionid-keys-keyfieldid-resource-definition]]
-
-//[discrete]
-====== keys
-
-Array of key objects.
-
-====== numberMatched
-
-The number of key values that are available in the server that match the selection parameters in the request.
-
-====== numberReturned
-
-The number of key values returned in the response.
-
-//[discrete]
-====== key
-
-Key value.
-
-//[discrete]
-====== links
-
-To support hypermedia navigation, the links property must be populated with sufficient hyperlinks.
-
-include::./requirements/data-joining/REQ_collections-collectionid-keys-keyfieldid-get-success-links.adoc[]
-
-//[discrete]
-====== title
-
-Human-readable description of the key value.
-
-==== Error Situations
-See <<http_status_codes,HTTP status codes>> for general guidance.
-
-If the parameter `collectionId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,HTTP status codes>>).
-
-If the parameter `keyFieldId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,HTTP status codes>>).
 
 === Joins
 
