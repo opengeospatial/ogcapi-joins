@@ -5,6 +5,7 @@
 .Revision History.
 |===
 |Date |Release |Editor | Primary clauses modified |Description
+|2026-06-30|1.0.0  |P. Latvala | all | Removed Collection’s Key Field operation and the related tests and schemas.
 |2025-05-30|1.0.0  |P. Latvala | all | Updated the collection schema from OGC API - Common - Part 2. Edited other schemas. Other small edits.
 |2025-02-25|1.0.0  |P. Latvala | all | Splitted core requirements class into several classes. Added text about asynchronous requests and security considerations. Fixed link relations. Updated Abstract tests. Changed /filejoin GeoJSON file key string to JSONPath.
 |2024-09-26|1.0.0  |P. Latvala | all | Document updated from the basis of the comments from the OAB. Added new parameters to join creation and file joining operations.

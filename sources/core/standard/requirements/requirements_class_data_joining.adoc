@@ -30,15 +30,6 @@ requirement:: /req/data-joining/collections-collectionid-keys-get-op
 requirement:: /req/data-joining/collections-collectionid-keys-get-success
 requirement:: /req/data-joining/collections-collectionid-keys-get-success-default-key
 requirement:: /req/data-joining/collections-collectionid-keys-get-success-links
-requirement:: /req/data-joining/collections-collectionid-keys-get-success-items-links
-requirement:: /req/data-joining/collections-collectionid-keys-keyfieldid-get-op
-requirement:: /req/data-joining/collections-collectionid-keys-keyfieldid-get-success
-requirement:: /req/data-joining/collections-collectionid-keys-keyfieldid-get-success-limit
-requirement:: /req/data-joining/collections-collectionid-keys-keyfieldid-get-success-limit-unsupported
-requirement:: /req/data-joining/collections-collectionid-keys-keyfieldid-get-success-paged-response
-requirement:: /req/data-joining/collections-collectionid-keys-keyfieldid-get-success-numberMatched
-requirement:: /req/data-joining/collections-collectionid-keys-keyfieldid-get-success-numberReturned
-requirement:: /req/data-joining/collections-collectionid-keys-keyfieldid-get-success-links
 requirement:: /req/data-joining/joins-get-op
 requirement:: /req/data-joining/joins-get-success
 requirement:: /req/data-joining/joins-get-success-limit

@@ -23,7 +23,6 @@ CollectionKeysObject:
   required:
   - id
   - isDefault
-  - links
   type: object
   properties:
     isDefault:
@@ -32,8 +31,4 @@ CollectionKeysObject:
       type: string
     id:
       type: string
-    links:
-      type: array
-      items:
-        $ref: '#/components/schemas/Link'
 ----

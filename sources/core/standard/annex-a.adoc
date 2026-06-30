@@ -63,15 +63,6 @@ abstract-test:: /conf/data-joining/collections-collectionid-keys-get-op
 abstract-test:: /conf/data-joining/collections-collectionid-keys-get-success
 abstract-test:: /conf/data-joining/collections-collectionid-keys-get-success-default-key
 abstract-test:: /conf/data-joining/collections-collectionid-keys-get-success-links
-abstract-test:: /conf/data-joining/collections-collectionid-keys-get-success-items-links
-abstract-test:: /conf/data-joining/collections-collectionid-keys-keyfieldid-get-op
-abstract-test:: /conf/data-joining/collections-collectionid-keys-keyfieldid-get-success
-abstract-test:: /conf/data-joining/collections-collectionid-keys-keyfieldid-get-success-limit
-abstract-test:: /conf/data-joining/collections-collectionid-keys-keyfieldid-get-success-limit-unsupported
-abstract-test:: /conf/data-joining/collections-collectionid-keys-keyfieldid-get-success-paged-response
-abstract-test:: /conf/data-joining/collections-collectionid-keys-keyfieldid-get-success-numberMatched
-abstract-test:: /conf/data-joining/collections-collectionid-keys-keyfieldid-get-success-numberReturned
-abstract-test:: /conf/data-joining/collections-collectionid-keys-keyfieldid-get-success-links
 abstract-test:: /conf/data-joining/joins-get-op
 abstract-test:: /conf/data-joining/joins-get-success
 abstract-test:: /conf/data-joining/joins-get-success-limit
@@ -122,25 +113,6 @@ include::abstract_tests/data-joining/ATS_collections-collectionid-keys-get-succe
 include::abstract_tests/data-joining/ATS_collections-collectionid-keys-get-success-default-key.adoc[]
 
 include::abstract_tests/data-joining/ATS_collections-collectionid-keys-get-success-links.adoc[]
-
-include::abstract_tests/data-joining/ATS_collections-collectionid-keys-get-success-items-links.adoc[]
-
-==== Collection Key Field {root}/collections/{collectionId}/keys/{keyFieldId}
-include::abstract_tests/data-joining/ATS_collections-collectionid-keys-keyfieldid-get-op.adoc[]
-
-include::abstract_tests/data-joining/ATS_collections-collectionid-keys-keyfieldid-get-success.adoc[]
-
-include::abstract_tests/data-joining/ATS_collections-collectionid-keys-keyfieldid-get-success-limit.adoc[]
-
-include::abstract_tests/data-joining/ATS_collections-collectionid-keys-keyfieldid-get-success-limit-unsupported.adoc[]
-
-include::abstract_tests/data-joining/ATS_collections-collectionid-keys-keyfieldid-get-success-paged-response.adoc[]
-
-include::abstract_tests/data-joining/ATS_collections-collectionid-keys-keyfieldid-get-success-numberMatched.adoc[]
-
-include::abstract_tests/data-joining/ATS_collections-collectionid-keys-keyfieldid-get-success-numberReturned.adoc[]
-
-include::abstract_tests/data-joining/ATS_collections-collectionid-keys-keyfieldid-get-success-links.adoc[]
 
 ==== Joins {root}/joins
 include::abstract_tests/data-joining/ATS_joins-get-op.adoc[]

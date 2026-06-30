@@ -5,7 +5,7 @@ This document specifies the core module of the OGC API - Joins Standard. This St
 
 The core module specifies requirements for a Web API that supports following use cases:
 
-* Getting metadata on available collections, their key fields and key values.
+* Getting metadata on available collections and their key fields.
 * Executing joins between input tabular data files and collections available on some server.
 * Accessing the created joins.
 * Deleting joins.
