@@ -6,8 +6,7 @@
 identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/input-http-ref
 subject:: Web API
 inherit:: /req/data-joining/collections-collectionid-joins-post-op
-inherit:: /req/file-joining/filejoin-post-op
+inherit:: /req/direct-joining/direct-join-post-op
 requirement:: /req/input-http-ref/right-dataset-url-join-source-creation
-requirement:: /req/input-http-ref/right-dataset-url-file-joining
-requirement:: /req/input-http-ref/left-dataset-url-file-joining
+requirement:: /req/input-http-ref/left-dataset-url-right-dataset-url-direct-join
 ====

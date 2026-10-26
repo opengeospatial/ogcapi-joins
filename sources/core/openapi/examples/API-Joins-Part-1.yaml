@@ -13,13 +13,13 @@ paths:
     get:
       summary: Landing page of the OGC API - Joins
       description: 'The landing page provides links to the API definition, the conformance
-        statements, the feature collections and to the created joins. The landing
+        statements and to the the feature collections. The landing
         page conforms to OGC API - Common - Part 1: Core'
       operationId: landingPage
       responses:
         200:
-          description: Links to the API definition, the conformance statements, the
-            feature collections and to the created joins.
+          description: Links to the API definition, the conformance statements and to the
+            feature collections.
           content:
             application/json:
               schema:
@@ -186,11 +186,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExceptionObject'
-  /joins:
+  /collections/{collectionId}/joins:
     get:
-      summary: Get list of all available joins.
-      description: Get list of all available joins.
-      operationId: getAllJoins
+      summary: Get list of all available join source that are related to a specific collection.
+      description: Get list of all available join sources that are related to a specific collection.
+      operationId: getAllJoinSourcesOfACollectoin
       parameters:
       - name: limit
         in: query
@@ -217,7 +217,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/JoinsResponseObject'
+                $ref: '#/components/schemas/CollectionJoinsResponseObject'
         400:
           description: Bad request
           content:
@@ -237,62 +237,61 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExceptionObject'
     post:
-      summary: Joins data from an input file with a collection.
-      description: Joins data from an input file with a collection.
-      operationId: joinData
+      summary: Create a new join source that is related to a specific collection.
+      description: Creates a new join source that is related to a specific collection from an uploaded input file or input url.
+      operationId: createAJoinSource
       requestBody:
         content:
           multipart/form-data:
             schema:
               type: object
               properties:
-                collection-id:
+                collectionKey:
                   type: string
-                collection-key:
+                  required: true
+                  description: The value of the `id` attribute of the `key` field of the collection that will be used in the join operation.
+                rightDatasetResourceType:
                   type: string
-                right-dataset-format:
-                  type: string
+                  required: true
+                  description: The resource type of the right dataset. The `FileUpload` value indicates that the right dataset is provided via file upload. The uploaded file is defined with the rightDatasetFile parameter. The `FileURL` indicates that the right dataset is provided via a URL link. The `OgcAPI` value indicates that the right dataset is provided via an external OGC API. The `FileURL` and `OgcAPI` addresses are defined with the rightDatasetURL parameter.
                   enum:
-                  - http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/csv
-                right-dataset-file:
+                  - FileUpload
+                  - FileURL
+                  - OgcAPI
+                rightDatasetMimeType:
+                  type: string
+                  required: true
+                  description: The mime type of the right dataset. The server implementations must support the mime type 'text/csv' and they can support any other formats.
+                  enum:
+                  - text/csv
+                rightDatasetFile:
+                  required: false
                   $ref: '#/components/schemas/FormDataContentDisposition'
-                right-dataset-url:
+                  description: The right dataset file (uploaded file). The parameter is used when the rightDatasetResourceType parameter value is `FileUpload`.
+                rightDatasetUrl:
                   type: string
-                right-dataset-key:
+                  required: false
+                  description: A URL link to the right dataset. The parameter is used when the rightDatasetResourceType parameter value is `FileURL` or `OgcAPI`.
+                rightDatasetKey:
                   type: string
-                right-dataset-data-value-list:
+                  required: true
+                  description: The key field in the right dataset that contains the key values that will be used in the join operation.
+                rightDatasetJoinFields:
                   type: string
-                csv-file-delimiter:
+                  required: false
+                  description: The fields in the right dataset that will be saved to the join source.
+                rightDatasetOptions:
                   type: string
-                csv-file-header-row-number:
-                  type: integer
-                  default: 1
-                csv-file-data-start-row-number:
-                  type: integer
-                  default: 2
-                output-formats:
-                  type: string
-                  default: http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson
-                  enum:
-                  - http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson
-                  - http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/output/geojson-direct
-                include-join-metadata:
-                  type: string
-                  default: "false"
-                  enum:
-                  - "true"
-                  - "false"
+                  required: true
+                  description: File format-specific key-value parameter options for the right dataset. The parameters are given as a JSON object that contains key-value pairs. For the rightDatasetMimeType parameter value `text/csv`, the mandatory key is `delimiter` that indicates the csv file's delimiter character. In addition, recommended keys are  `headerRow`, that indicates the row number of the csv file's header row (if omitted, header row is expected to be at the first row of the CSV file) and `dataStartRow` that indictes the row number where the data values start (if omitted, data start row is expected to be at the second row of the CSV file).
+                  example: {"delimiter":";","headerRow":1,"dataStartRow":2}
       responses:
-        200:
-          description: Joined dataset that is returned directly in the GeoJSON format
-          content:
-            application/geo+json: {}
         201:
-          description: Creates a join resource
+          description: Created join source
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/JoinResponseObject'
+                $ref: '#/components/schemas/JoinSourceResponseObject'
         400:
           description: Bad Request
           content:
@@ -311,11 +310,11 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExceptionObject'
-  /joins/{joinId}:
+  /collections/{collectionId}/joins/{joinId}:
     get:
-      summary: Get metadata of a specific join
-      description: Get metadata of a specific join
-      operationId: getJoinId
+      summary: Get metadata of a specific join source
+      description: Get metadata of a specific join source
+      operationId: getJoinSource
       parameters:
       - name: joinId
         in: path
@@ -324,11 +323,11 @@ paths:
           type: string
       responses:
         200:
-          description: Metadata on a specific join
+          description: Metadata on a specific join source
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/JoinResponseObject'
+                $ref: '#/components/schemas/JoinSourceResponseObject'
         400:
           description: Bad request
           content:
@@ -348,9 +347,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExceptionObject'
     delete:
-      summary: Deletes a specific join
-      description: Deletes a specific join
-      operationId: deleteJoin
+      summary: Deletes a specific join source
+      description: Deletes a specific join source
+      operationId: deleteJoinSource
       parameters:
       - name: joinId
         in: path
@@ -359,7 +358,7 @@ paths:
           type: string
       responses:
         204:
-          description: Join deleted
+          description: Join source deleted
         400:
           description: Bad request
           content:
@@ -367,7 +366,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExceptionObject'
         404:
-          description: Join not found
+          description: Join source not found
           content:
             application/json:
               schema:
@@ -378,47 +377,119 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ExceptionObject'
-  /filejoin:
+  /collections/{collectionId}/items:
+    get:
+      summary: Get items of a collection and optionally join values into them from a join source
+      description: Get items of a collection and optionally join values into them from a join source
+      operationId: getItems
+      parameters:
+      - name: joinId
+        in: query
+        description: Joins values from a specified join source with the collection's items
+        required: false
+        schema:
+          type: string
+      responses:
+        200:
+          description: Items of the collection, including possibly joined values from join source
+          content:
+            application/json:
+              schema:
+                $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/ogcapi-features-1.yaml#/components/responses/Features'
+        400:
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/ogcapi-features-1.yaml#/components/responses/InvalidParameter'
+        404:
+          description: Collection items not found
+          content:
+            application/json:
+              schema:
+                $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/ogcapi-features-1.yaml#/components/responses/NotFound'
+        500:
+          description: A server error occurred
+          content:
+            application/json:
+              schema:
+                $ref: 'https://schemas.opengis.net/ogcapi/features/part1/1.0/openapi/ogcapi-features-1.yaml#/components/responses/ServerError'
+  /direct-join:
     post:
-      summary: Join data between two input files
-      description: Join data between two input files
-      operationId: filejoin
+      summary: Join data directly between two input files
+      description: Join data directly between two input files. The core module defines data joining from the right dataset to the left dataset. The core module defines the GeoJSON format for the left dataset and CSV format for the right dataset. 
+      operationId: directJoin
       requestBody:
         content:
           multipart/form-data:
             schema:
               type: object
               properties:
-                left-dataset-format:
+                leftDatasetResourceType:
                   type: string
+                  required: true
+                  description: The resource type of the left dataset. The `FileUpload` value indicates that the left dataset is provided via file upload. The uploaded file is defined with the leftDatasetFile parameter. The `FileURL` indicates that the left dataset is provided via a URL link. The `OgcAPI` value indicates that the left dataset is provided via an external OGC API. The `FileURL` and `OgcAPI` addresses are defined with the rightDatasetURL parameter.
                   enum:
-                  - http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/geojson
-                left-dataset-file:
-                  $ref: '#/components/schemas/FormDataContentDisposition'
-                left-dataset-url:
+                  - FileUpload
+                  - FileURL
+                  - OgcAPI
+                leftDatasetMimeType:
                   type: string
-                left-dataset-key:
-                  type: string
-                right-dataset-format:
-                  type: string
+                  required: true
+                  description: The mime type of the left dataset. The server implementations must support the mime type 'application/geo+json' and they can support any other formats.
                   enum:
-                  - http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input/csv
-                right-dataset-file:
+                  - application/geo+json
+                leftDatasetFile:
+                  required: false
                   $ref: '#/components/schemas/FormDataContentDisposition'
-                right-dataset-url:
+                  description: The left dataset file (uploaded file). The parameter is used when the leftDatasetResourceType parameter value is `FileUpload`.
+                leftDatasetUrl:
                   type: string
-                right-dataset-key:
+                  required: false
+                  description: A URL link to the left dataset. The parameter is used when the leftDatasetResourceType parameter value is `FileURL` or `OgcAPI`.
+                leftDatasetKey:
                   type: string
-                right-dataset-data-value-list:
+                  required: true
+                  description: The key field in the left dataset that contains the key values that will be used in the join operation. For GeoJSON format, the value of the leftDatasetKey parameter is the JSONPath string to the field that contains the key values.
+                lefttDatasetOptions:
                   type: string
-                csv-file-delimiter:
+                  required: false
+                  description: File format-specific key-value parameter options for the left dataset. The parameters are given as a JSON object that contains key-value pairs.
+                rightDatasetResourceType:
                   type: string
-                csv-file-header-row-number:
-                  type: integer
-                  default: 1
-                csv-file-data-start-row-number:
-                  type: integer
-                  default: 2
+                  required: true
+                  description: The resource type of the right dataset. The `FileUpload` value indicates that the right dataset is provided via file upload. The uploaded file is defined with the rightDatasetFile parameter. The `FileURL` indicates that the right dataset is provided via a URL link. The `OgcAPI` value indicates that the right dataset is provided via an external OGC API. The `FileURL` and `OgcAPI` addresses are defined with the rightDatasetURL parameter.
+                  enum:
+                  - FileUpload
+                  - FileURL
+                  - OgcAPI
+                rightDatasetMimeType:
+                  type: string
+                  required: true
+                  description: The mime type of the right dataset. The server implementations must support the mime type 'text/csv' and they can support any other formats.
+                  enum:
+                  - text/csv
+                rightDatasetFile:
+                  required: false
+                  $ref: '#/components/schemas/FormDataContentDisposition'
+                  description: The right dataset file (uploaded file). The parameter is used when the rightDatasetResourceType parameter value is `FileUpload`.
+                rightDatasetUrl:
+                  type: string
+                  required: false
+                  description: A URL link to the right dataset. The parameter is used when the rightDatasetResourceType parameter value is `FileURL` or `OgcAPI`.
+                rightDatasetKey:
+                  type: string
+                  required: true
+                  description: The key field in the right dataset that contains the key values that will be used in the join operation.
+                rightDatasetJoinFields:
+                  type: string
+                  required: false
+                  description: The fields in the right dataset that will be saved to the join source.
+                rightDatasetOptions:
+                  type: string
+                  required: true
+                  description: File format-specific key-value parameter options for the right dataset. The parameters are given as a JSON object that contains key-value pairs. For the rightDatasetMimeType parameter value `text/csv`, the mandatory key is `delimiter` that indicates the csv file's delimiter character. In addition, recommended keys are  `headerRow`, that indicates the row number of the csv file's header row (if omitted, header row is expected to be at the first row of the CSV file) and `dataStartRow` that indictes the row number where the data values start (if omitted, data start row is expected to be at the second row of the CSV file).
+                  example: {"delimiter":";","headerRow":1,"dataStartRow":2}
       responses:
         200:
           description: Response of the join operation
@@ -1162,7 +1233,7 @@ components:
           type: array
           items:
             type: string
-    JoinsResponseObject:
+    CollectionJoinsResponseObject:
       required:
       - joins
       - links
@@ -1183,18 +1254,42 @@ components:
         timeStamp:
           type: string
           format: date-time
-    JoinResponseObject:
+    JoinSourceResponseObject:
       required:
-      - join
+      - details
+      - id
       - links
       type: object
       properties:
+        details:
+          $ref: '#/components/schemas/DetailsObject'
+        id:
+          type: string
         links:
           type: array
           items:
             $ref: '#/components/schemas/Link'
-        join:
-          $ref: '#/components/schemas/JoinObject'
+        timeStamp:
+          type: string
+          format: date-time
+    DetailsObject:
+      type: object
+      properties:
+        collectionKey:
+          type: string
+        created:
+          type: string
+          format: date-time
+        joinFields:
+          type: array
+          items:
+            type: string
+        joinKey:
+          type: string
+        numberOfRows:
+          type: integer
+        sourceFile:
+          type: string
     JoinsObject:
       required:
       - id
@@ -1208,18 +1303,6 @@ components:
           type: string
           format: date-time
         links:
-          type: array
-          items:
-            $ref: '#/components/schemas/Link'
-    JoinInputsObject:
-      required:
-      - attributeDataset
-      - collection
-      type: object
-      properties:
-        attributeDataset:
-          type: string
-        collection:
           type: array
           items:
             $ref: '#/components/schemas/Link'
@@ -1254,6 +1337,8 @@ components:
         language:
           type: string
         id:
+          type: string
+        type:
           type: string
     ExceptionObject:
       required:
@@ -1309,33 +1394,6 @@ components:
           format: int64
         name:
           type: string
-    JoinInformationObject:
-      type: object
-      properties:
-        numberOfMatchedCollectionKeys:
-          type: integer
-        numberOfUnmatchedCollectionKeys:
-          type: integer
-        numberOfAdditionalAttributeKeys:
-          type: integer
-        matchedCollectionKeys:
-          type: array
-          items:
-            type: string
-        unmatchedCollectionKeys:
-          type: array
-          items:
-            type: string
-        additionalAttributeKeys:
-          type: array
-          items:
-            type: string
-        duplicateAttributeKeys:
-          type: array
-          items:
-            type: string
-        numberOfDuplicateAttributeKeys:
-          type: integer
     LandingPageResponseObject:
       required:
       - links
@@ -1351,27 +1409,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Link'
-    JoinObject:
-      required:
-      - id
-      - inputs
-      - outputs
-      - timeStamp
-      type: object
-      properties:
-        id:
-          type: string
-        timeStamp:
-          type: string
-          format: date-time
-        inputs:
-          $ref: '#/components/schemas/JoinInputsObject'
-        outputs:
-          type: array
-          items:
-            $ref: '#/components/schemas/Link'
-        joinInformation:
-          $ref: '#/components/schemas/JoinInformationObject'
     Link:
       required:
       - href

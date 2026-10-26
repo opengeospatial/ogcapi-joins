@@ -80,6 +80,9 @@ abstract-test:: /conf/data-joining/collections-collectionid-joins-post-success
 abstract-test:: /conf/data-joining/collections-collectionid-joins-joinid-get-op
 abstract-test:: /conf/data-joining/collections-collectionid-joins-joinid-get-success
 abstract-test:: /conf/data-joining/collections-collectionid-joins-joinid-get-success-links
+abstract-test:: /conf/data-joining/collections-collectionid-items-get-op
+abstract-test:: /conf/data-joining/collections-collectionid-items-get-op-joinid
+abstract-test:: /conf/data-joining/collections-collectionid-items-get-success-joinid
 ====
 
 ==== Collections {root}/collections
@@ -110,7 +113,7 @@ include::abstract_tests/data-joining/ATS_collections-collectionid-keys-get-succe
 include::abstract_tests/data-joining/ATS_collections-collectionid-keys-get-success-links.adoc[]
 
 
-==== Joins Sources {root}/collections/{collectionId}/joins
+==== Collection Join Sources {root}/collections/{collectionId}/joins
 include::abstract_tests/data-joining/ATS_collections-collectionid-joins-get-op.adoc[]
 
 include::abstract_tests/data-joining/ATS_collections-collectionid-joins-get-success.adoc[]
@@ -135,20 +138,27 @@ include::abstract_tests/data-joining/ATS_collections-collectionid-joins-get-succ
 
 include::abstract_tests/data-joining/ATS_collections-collectionid-joins-get-success-timeStamp.adoc[]
 
-==== Join Source Creation {root}/collections/{collectionId}/joins
+==== Collection Join Source Creation {root}/collections/{collectionId}/joins
 include::abstract_tests/data-joining/ATS_collections-collectionid-joins-post-op.adoc[]
 
 include::abstract_tests/data-joining/ATS_collections-collectionid-joins-post-success.adoc[]
 
-==== Join Source {root}/collections/{collectionId}/joins/{joinId}
+==== Collection Join Source {root}/collections/{collectionId}/joins/{joinId}
 include::abstract_tests/data-joining/ATS_collections-collectionid-joins-joinid-get-op.adoc[]
 
 include::abstract_tests/data-joining/ATS_collections-collectionid-joins-joinid-get-success.adoc[]
 
 include::abstract_tests/data-joining/ATS_collections-collectionid-joins-joinid-get-success-links.adoc[]
 
+==== Collection Features {root}/collections/{collectionId}/items
+include::abstract_tests/data-joining/ATS_collections-collectionid-items-get-op.adoc[]
+
+include::abstract_tests/data-joining/ATS_collections-collectionid-items-get-op-joinid.adoc[]
+
+include::abstract_tests/data-joining/ATS_collections-collectionid-items-get-success-joinid.adoc[]
+
 [[ats_join_source_delete]]
-===  Conformance Class "Join Source Delete"
+===  Conformance Class "Collection's Join Source Delete"
 [conformance_class]
 ====
 [%metadata]
@@ -159,32 +169,32 @@ abstract-test:: /conf/join-source-delete/collections-collectionid-joins-joinid-d
 abstract-test:: /conf/join-source-delete/collections-collectionid-joins-joinid-delete-success
 ====
 
-==== Join Source Delete {root}/collections/{collectionId}/joins/{joinId}
+==== Collection Join Source Delete {root}/collections/{collectionId}/joins/{joinId}
 include::abstract_tests/join-source-delete/ATS_collections-collectionid-joins-joinid-delete-op.adoc[]
 
 include::abstract_tests/join-source-delete/ATS_collections-collectionid-joins-joinid-delete-success.adoc[]
 
-[[ats_file_joining]]
-===  Conformance Class "File Joining"
+[[ats_direct_joining]]
+===  Conformance Class "Direct Joining"
 [conformance_class]
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/file-joining
-target:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/file-joining
+identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/direct-joining
+target:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/direct-joining
 classification:: Target Type:Web API
-abstract-test:: /conf/file-joining/filejoin-post-op
-abstract-test:: /conf/file-joining/filejoin-post-success
-abstract-test:: /conf/file-joining/filejoin-post-success-attribute-data-file-csv-multiple-keys
-abstract-test:: /conf/file-joining/filejoin-post-success-attribute-data-file-csv-attribute-names
+abstract-test:: /conf/direct-joining/direct-join-post-op
+abstract-test:: /conf/direct-joining/direct-join-post-success
+abstract-test:: /conf/direct-joining/direct-join-post-success-attribute-data-file-csv-multiple-keys
+abstract-test:: /conf/direct-joining/direct-join-post-success-attribute-data-file-csv-attribute-names
 ====
 
-include::abstract_tests/file-joining/ATS_filejoin-post-op.adoc[]
+include::abstract_tests/direct-joining/ATS_direct-join-post-op.adoc[]
 
-include::abstract_tests/file-joining/ATS_filejoin-post-success.adoc[]
+include::abstract_tests/direct-joining/ATS_direct-join-post-success.adoc[]
 
-include::abstract_tests/file-joining/ATS_filejoin-post-success-attribute-data-file-csv-multiple-keys.adoc[]
+include::abstract_tests/direct-joining/ATS_direct-join-post-success-attribute-data-file-csv-multiple-keys.adoc[]
 
-include::abstract_tests/file-joining/ATS_filejoin-post-success-attribute-data-file-csv-attribute-names.adoc[]
+include::abstract_tests/direct-joining/ATS_direct-join-post-success-attribute-data-file-csv-attribute-names.adoc[]
 
 
 [[ats_input_file_upload]]
@@ -196,15 +206,12 @@ identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-file-uplo
 target:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/input-file-upload
 classification:: Target Type:Web API
 abstract-test:: /conf/input-file-upload/right-dataset-file-join-source-creation
-abstract-test:: /conf/input-file-upload/right-dataset-file-file-joining
-abstract-test:: /conf/input-file-upload/left-dataset-file-file-joining
+abstract-test:: /conf/input-file-upload/left-dataset-file-right-dataset-file-direct-join
 ====
 
 include::abstract_tests/input-file-upload/ATS_right-dataset-file-join-source-creation.adoc[]
 
-include::abstract_tests/input-file-upload/ATS_right-dataset-file-file-joining.adoc[]
-
-include::abstract_tests/input-file-upload/ATS_left-dataset-file-file-joining.adoc[]
+include::abstract_tests/input-file-upload/ATS_left-dataset-file-right-dataset-file-direct-join.adoc[]
 
 
 [[ats_input_http_ref]]
@@ -216,47 +223,40 @@ identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-http-ref
 target:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/input-http-ref
 classification:: Target Type:Web API
 abstract-test:: /conf/input-http-ref/right-dataset-url-join-source-creation
-abstract-test:: /conf/input-http-ref/right-dataset-url-file-joining
-abstract-test:: /conf/input-http-ref/left-dataset-url-file-joining
+abstract-test:: /conf/input-http-ref/left-dataset-url-right-dataset-url-direct-join
 ====
 
 include::abstract_tests/input-http-ref/ATS_right-dataset-url-join-source-creation.adoc[]
 
-include::abstract_tests/input-http-ref/ATS_right-dataset-url-file-joining.adoc[]
+include::abstract_tests/input-http-ref/ATS_left-dataset-url-right-dataset-url-direct-join.adoc[]
 
-include::abstract_tests/input-http-ref/ATS_left-dataset-url-file-joining.adoc[]
-
-
-[[ats_input_csv]]
-===  Conformance Class "CSV File Input"
+[[ats_oas30]]
+===  Conformance Class "OpenAPI 3.0"
 [conformance_class]
 ====
 [%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-csv
-target:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/input-csv
+identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/oas30  
+target:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/oas30
 classification:: Target Type:Web API
-abstract-test:: /conf/input-csv/right-dataset-format-join-source-creation
-abstract-test:: /conf/input-csv/right-dataset-format-file-joining
+abstract-test:: /conf/oas30/oas-definition-1
+abstract-test:: /conf/oas30/oas-definition-2
+abstract-test:: /conf/oas30/oas-impl
+abstract-test:: /conf/oas30/oas-completeness
+abstract-test:: /conf/oas30/oas-exception-codes
+abstract-test:: /conf/oas30/oas-security
 ====
 
-include::abstract_tests/input-csv/ATS_right-dataset-format-join-source-creation.adoc[]
-include::abstract_tests/input-csv/ATS_right-dataset-format-file-joining.adoc[]
+include::abstract_tests/oas30/ATS_oas30_oas-definition-1.adoc[]
 
+include::abstract_tests/oas30/ATS_oas30_oas-definition-2.adoc[]
 
+include::abstract_tests/oas30/ATS_oas30_oas-impl.adoc[]
 
-[[ats_input_geojson]]
-===  Conformance Class "GeoJSON File Input"
-[conformance_class]
-====
-[%metadata]
-identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-geojson
-target:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/input-geojson
-classification:: Target Type:Web API
-abstract-test:: /conf/input-geojson/left-dataset-format-file-joining
-====
+include::abstract_tests/oas30/ATS_oas30_oas-completeness.adoc[]
 
-include::abstract_tests/input-geojson/ATS_left-dataset-format-file-joining.adoc[]
+include::abstract_tests/oas30/ATS_oas30_oas-exception-codes.adoc[]
 
+include::abstract_tests/oas30/ATS_oas30_oas-security.adoc[]
 
 [[ats_html]]
 ===  Conformance Class "HTML"
@@ -305,8 +305,12 @@ include::abstract_tests/json/ATS_json-content.adoc[]
 identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/geojson    
 target:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/geojson
 classification:: Target Type:Web API
-abstract-test:: /conf/geojson/geojson-file-joining
+abstract-test:: /conf/geojson/geojson-collections-collectionid-items
+abstract-test:: /conf/geojson/geojson-direct-join
 ====
 
-==== File Joining
-include::abstract_tests/geojson/ATS_geojson-file-joining.adoc[]
+==== Collection's Features
+include::abstract_tests/geojson/ATS_geojson-collections-collectionid-items.adoc[]
+
+==== Direct Join
+include::abstract_tests/geojson/ATS_geojson-direct-join.adoc[]

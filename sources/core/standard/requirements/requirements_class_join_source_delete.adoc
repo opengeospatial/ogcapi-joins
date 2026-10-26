@@ -10,6 +10,6 @@ inherit:: <<requirements_class_core,Requirements Class: Core>>
 inherit:: <<requirements_class_data-joining,Requirements Class: Data Joining>>
 inherit:: <<rfc2616,RFC 2616 (HTTP/1.1)>>
 inherit:: <<rfc2818,RFC 2818 (HTTP over TLS)>>
-requirement:: /req/join-delete/collections-collectionid-joins-joinid-delete-op
-requirement:: /req/join-delete/collections-collectionid-joins-joinid-delete-success
+requirement:: /req/join-source-delete/collections-collectionid-joins-joinid-delete-op
+requirement:: /req/join-source-delete/collections-collectionid-joins-joinid-delete-success
 ====

@@ -3,4 +3,5 @@
 [%metadata]
 identifier:: /req/data-joining/collections-get-op
 part:: If the server implements __data joining operations__, it SHALL support the HTTP GET operation at path `{root}/collections`.
+part:: The API landing page SHALL link to this resource listing collections (/collections) using the link relation type `https://www.opengis.net/def/rel/ogc/1.0/data`.
 ====

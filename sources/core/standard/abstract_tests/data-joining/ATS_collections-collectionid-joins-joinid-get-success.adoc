@@ -9,7 +9,7 @@ test-purpose:: Validate that the Join Source content complies with the required 
 test-method::
 +
 --
-Validate that the response document complies with <<collections_collectionid_join_joinid_schema, Join schema>>.
+Validate that the response document complies with <<collections_collectionid_join_joinid_schema, Join Source Schema>>.
 
 . Validate that the response document complies with test <<ats_data_joining_collections-collectionid-joins-joinid-get-success-links, /conf/data-joining/collections-collectionid-joins-joinid-get-success-links>>
 --

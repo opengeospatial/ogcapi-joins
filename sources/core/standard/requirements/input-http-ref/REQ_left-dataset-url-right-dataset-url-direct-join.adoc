@@ -1,0 +1,8 @@
+[[req_input_http_ref_left-dataset-url-right-dataset-url-direct-join]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/input-http-ref/left-dataset-url-right-dataset-url-direct-join
+part:: If the server supports the input data source referencing via URL links in the <<direct_join,Direct Join>> operation, the Direct Join operation SHALL support the form data parameters `leftDatasetUrl` and `rightDatasetUrl`.
+====

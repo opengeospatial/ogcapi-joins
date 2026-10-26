@@ -17,7 +17,5 @@ Validate the landing page for all supported media types using the <<landing_page
 If the server supports the __data joining operations__ operation set:
 
 . Validate that the landing page includes a `http://www.opengis.net/def/rel/ogc/1.0/data` link to the metadata on collections.
-
-. Validate that the landing page includes a `joins` link to the joins metadata.
 --
 ====

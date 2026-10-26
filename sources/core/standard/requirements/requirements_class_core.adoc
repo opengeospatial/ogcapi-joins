@@ -6,7 +6,7 @@
 [%metadata]
 identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/core
 subject:: Web API
-inherit:: <<OGC19-072,OGC 19-072 (OGC - API - Common: Part 1)>>
+inherit:: <<OGC19-072,OGC 19-072 (OGC API - Common: Part 1)>>
 inherit:: <<rfc2616,RFC 2616 (HTTP/1.1)>>
 inherit:: <<rfc2818,RFC 2818 (HTTP over TLS)>>
 requirement:: /req/core/operations

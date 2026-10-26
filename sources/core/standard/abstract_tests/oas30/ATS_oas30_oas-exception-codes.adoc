@@ -1,0 +1,13 @@
+[[ats_oas30_oas-exception-codes]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/oas30/oas-exception-codes
+target:: /req/oas30/oas-exception-codes
+test-purpose:: Verify that the OpenAPI document fully describes potential exception codes.
+test-method::
++
+--
+. Verify that for each operation, the OpenAPI document describes all <<http_status_codes,HTTP Status Codes>> that may be generated.
+--
+====

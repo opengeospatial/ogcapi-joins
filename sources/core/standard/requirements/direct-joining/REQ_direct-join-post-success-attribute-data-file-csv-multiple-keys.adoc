@@ -1,0 +1,8 @@
+[[req_direct_joining_direct-join-post-success-attribute-data-file-csv-multiple-keys]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/direct-joining/direct-join-post-success-attribute-data-file-csv-multiple-keys
+part:: If the __rightDdatasetMimeType__ parameter value is `text/csv` and the CSV file contains multiple rows that have the same key values, the attribute values are used in the join operation from the rows where the key values are encountered first.
+====

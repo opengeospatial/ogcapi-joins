@@ -9,7 +9,7 @@ test-purpose:: Validate that the join sources content complies with the required
 test-method::
 +
 --
-. Execute the test <<ats_data_joining_collections-collectionid-joins-get-op, collections-collectionid-joins-get-op>> with selected filtering parameters.
+. Execute the test <<ats_data_joining_collections-collectionid-joins-get-op, /conf/data-joining/collections-collectionid-joins-get-op>> with selected filtering parameters.
 . If the response document contains a `numberRetuned` property, verify that it is identical to the number of items in the `joins` array.
 --
 ====

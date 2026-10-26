@@ -4,5 +4,5 @@
 ====
 [%metadata]
 identifier:: /req/input-http-ref/right-dataset-url-join-source-creation
-part:: If the server supports the input file referencing via URL links in the <<join_source_creation,Join Source Creation>> query, the Join Creation operation SHALL support the form data parameter `right-dataset-url`. 
+part:: If the server supports the input data source referencing via URL links in the <<join_source_creation,Collection's Join Source Creation>> operation, the Collection's Join Source Creation operation SHALL support the form data parameter `rightDatasetUrl`. 
 ====

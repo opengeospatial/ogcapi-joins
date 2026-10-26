@@ -9,7 +9,9 @@ test-purpose:: Validate that the information about a join source can be retrieve
 test-method::
 +
 --
-. For each collection's lis of join sources (path `{root}/collections/{collectionId}/joins`), issue an HTTP GET request to the URL `{root}/collections/{collectionId}/joins/{joinId}` where `joinId` is the `id` property of a join source.
+. For each collection listed in the <<collections-op, Collections>> response:
+. Issue an HTTP GET request to the URL (path `{root}/collections/{collectionId}/joins`) where `collectionId` is the identifier of each collection to get a list of collection' join sources.
+. For each listed join source, issue an HTTP GET request to the URL `{root}/collections/{collectionId}/joins/{joinId}` where `collectionId` is the identifier of each collection and `joinId` is the `id` property of a each join source in the `joins` array.
 . Validate that a document was returned with a status code `200`.
 . Validate the contents of the returned document using test <<ats_data_joining_collections-collectionid-joins-joinid-get-success, /conf/data-joining/collections-collectionid-joins-joinid-get-success>>.
 --

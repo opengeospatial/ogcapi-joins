@@ -4,5 +4,5 @@
 ====
 [%metadata]
 identifier:: /req/data-joining/collections-collectionid-joins-get-success-numberMatched
-part:: If a property `numberMatched` is included in the response, the value SHALL be identical to the number of joins that meet the selection parameters provided by the client.
+part:: If a property `numberMatched` is included in the response, the value SHALL be identical to the number of join sources that meet the selection parameters provided by the client.
 ====

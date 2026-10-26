@@ -1,23 +1,23 @@
 == Conformance
-This standard defines the OGC API - Joins core module. The core module specifies three operation sets: __discovery operations__, __data joining operations__ and __file joining operations__. The server implementations are required to support the __discovery operations__ and they must support either one or both of the __data joining operations__ and/or __file joining operations__.
+This standard defines the OGC API - Joins core module. The core module specifies three operation sets: __discovery operations__, __data joining operations__ and __direct joining operations__. The server implementations are required to support the __discovery operations__ and they must support either one or both of the __data joining operations__ and/or __direct joining operations__.
 
 The standardization targets of all conformance classes are "Web APIs."
 
-The __discovery operations__ operation set is represented by the requirements class "<<rc_core,core>>".
+The __discovery operations__ operation set is represented by the requirements classes "<<rc_core,Core>>".
 
-The __data joining operations__ operation set is represented by the requirements classes: "<<rc_data_joining,data joining>>" and "<<rc_join_source_delete,join source delete>>". The implementation of the "data joining" requirements class is mandatory, and the implementation of the "join source delete" is optional for this operation set.
+The __data joining operations__ operation set is represented by the requirements classes: "<<rc_data_joining,Data Joining>>" and "<<rc_join_source_delete,Join Source Delete>>". The implementation of the "Data Joining" requirements class is mandatory, and the implementation of the "Join Source Delete" requirements class is optional for this operation set.
 
-The __file joining operations__ operation set is represented by the requirements class "<<rc_file_joining,file joining>>". 
+The __direct joining operations__ operation set is represented by the requirements class "<<rc_direct_joining,Direct Joining>>". 
 
-The input and output functionalities are represented by the requirement classes: "<<rc_file_uploading_with_query, Input File Upload>>", "<<rc_file_referencing_with_url, File Referencing with URL>>", "<<rc_input_csv, CSV File Input>>" and "<<rc_input_geojson,GeoJSON File Input>>". The support for CSV input file format is mandatory for the __data joining operations__ and __file joining operations__. The support for the GeoJSON input file format is mandatory for the __file joining operations__.
+The input data functionalities are represented by the requirement classes: "<<rc_file_uploading_with_query, Input File Upload>>", "<<rc_file_referencing_with_url, File Referencing with URL>>". The support for CSV input data format is mandatory for the __data joining operations__ and __direct joining operations__. The support for the GeoJSON input data format is mandatory for the __direct joining operations__.
 
 The encoding formats are represented by requirements classes: "<<rc_json, JSON>>", "<<rc_html, HTML>>" and "<<rc_geojson, GeoJSON>>". 
 
 The JSON encoding format support is mandatory, and the HTML encoding support is recommended for the service responses in the __discovery operations__ and __data joining operations__ operation sets. 
 
-The GeoJSON encoding format is mandatory for the joined data output in the __data joining operations__ and as a general output for the __file joining operations__.
+The GeoJSON encoding format is mandatory for the joined data output in the __data joining operations__ and __direct joining operations__.
 
-The Core requirements class does not mandate any encoding or format for the formal definition of the API. One option is to use the OpenAPI 3.0 specification and OpenAPI 3.0 Requirements Class as defined in the <<OGC19-072,OGC API - Common - Part 1>> document.
+The Core requirements class does not mandate any encoding or format for the formal definition of the API. One option is to use the OpenAPI 3.0 specification and "<<rc_openapi_3_0, OpenAPI 3.0>>" Requirements Class.
 
 === Summary of conformance URIs
 
@@ -31,12 +31,12 @@ The conformance class URIs defined in this core module are listed in <<conforman
 <|<<ats_core,Core>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/core
 <|<<ats_data_joining,Data Joining>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/data-joining
 <|<<ats_join_source_delete,Join Source Delete>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/join-source-delete
-<|<<ats_file_joining,File Joining>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/file-joining
+<|<<ats_direct_joining,Direct Joining>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/direct-joining
 2+|*Input*
 <|<<ats_input_file_upload,Input File Upload>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-file-upload
 <|<<ats_input_http_ref,File Referencing with URL>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-http-ref
-<|<<ats_input_csv,CSV File Input>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-csv
-<|<<ats_input_geojson,GeoJSON File Input>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-geojson
+2+|*OpenAPI*
+<|<<ats_oas30,OpenAPI 3.0>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/oas30
 2+|*Encodings*
 <|<<ats_html,HTML>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/html
 <|<<ats_json,JSON>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/json

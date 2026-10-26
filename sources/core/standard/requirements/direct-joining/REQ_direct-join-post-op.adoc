@@ -1,0 +1,24 @@
+[[req_direct_joining_direct-join-post-op]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/direct-joining/direct-join-post-op
+part:: If the server implements __direct joining operations__ it SHALL support the HTTP POST operation at path `{root}/direct-join`.
+part:: The operation SHALL join data from the inputted right dataset to the inputted left dataset. 
+part:: The request is made as a <<rfc7578,multipart/form-data>> request. The request SHALL contain the header: Content-Type: multipart/form-data;
+part:: The server SHALL support the CSV input data format for the right dataset via the `rightDatasetMimeType` parameter value `text/csv`.
+part:: The CSV files SHALL contain a header row that contains the column names, a column that contains the key values and a separate column for each attribute. 
+part:: If the server supports any other input data formats for the right dataset, their key-value parameters, defined in the `rightDatasetOptions` parameter and their mime type values, defined with the `rightDatasetMimeType` parameter SHALL be listed in the API definition document.
+part:: If the right dataset is uploaded to the server with the query, it SHALL contain the header:
+Content-Disposition: form-data; filename="[right dataset file's name]"; name="rightDatasetFile";
+part:: The default encoding for right dataset SHALL be `UTF-8`.
+part:: If the server supports any other encodings for the right dataset, it SHALL provide mechanisms in the `rightDatasetOptions` parameter for indicating the right dataset encoding and list those information in the API definition document.
+part:: The server SHALL support the GeoJSON format for the left dataset via the `leftDatasetMimeType` parameter value `application/geo+json`.
+part:: If the server supports any other input data formats for the left dataset, their key-value parameters, defined in the `leftDatasetOptions` parameter and their mime type values, defined with the `leftDatasetMimeType` parameter SHALL be listed in the API definition document.
+part:: If the left dataset is uploaded to the server with the query, it SHALL contain the header
+Content-Disposition: form-data; filename="[left dataset file's name]"; name="leftDatasetFile";
+part:: The default encoding for left dataset SHALL be `UTF-8`.
+part:: If the server supports any other encodings for the left dataset, it SHALL provide mechanisms in the `leftDatasetOptions` parameter for indicating the left dataset encoding and list those information in the API definition document.
+part:: The Form Data parameters of the query are listed in a <<req_direct_joining_direct-join-post-op-form-data-parameters,Table 6>>:
+====

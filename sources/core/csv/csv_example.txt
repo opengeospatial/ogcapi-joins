@@ -1,0 +1,4 @@
+areacode;areavalue;areaname
+A01;1302;Area1
+A02;5328;Area2
+A03;3523;Area3

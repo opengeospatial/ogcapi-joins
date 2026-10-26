@@ -1,0 +1,17 @@
+[[req_data_joining_collections-collectionid-items-get-success-joinid]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/collections-collectionid-items-get-success-joinid
+part::
+A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
+part::
+The response SHALL only include features selected by the request.
+part::
+If the `joinId` parameter is provided by the client, then the response features SHALL contain also the properties joined from the join source, identified by the `joinId` parameter. 
+part::
+The join is executed via the `collectionKey` and the `joinKey` property values from the join source's `details` array that will be used as key fields in the join operation. The `collectionKey` value indicates the key field in the collection's features data. The `joinKey` indicates the key field in the join source data. The join source data SHALL be joined with the collection features data where the `collectionKey` and `joinKey` fields have matching values.   
+part::
+The property names of the joined properties SHALL be the values listed in the join source's `details` array's `joinFields` array.
+====

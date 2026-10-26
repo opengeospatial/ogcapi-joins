@@ -4,5 +4,5 @@
 ====
 [%metadata]
 identifier:: /req/data-joining/collections-collectionid-joins-get-success-items
-part:: For each join source resource accessible through the server, metadata describing that join source SHALL be provided in the property `joins`.
+part:: For each join source resource accessible through the server that are related to the collection identified with the `collectionId` query parameter, metadata describing that join source SHALL be provided in the property `joins`.
 ====

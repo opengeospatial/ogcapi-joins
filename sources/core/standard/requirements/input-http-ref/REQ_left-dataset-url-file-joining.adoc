@@ -1,8 +1,0 @@
-[[req_input_http_ref_left-dataset-url-file-joining]]
-
-[requirement]
-====
-[%metadata]
-identifier:: /req/input-http-ref/left-dataset-url-file-joining
-part:: If the server supports the input file referencing via URL links in the <<file_joining,File Joining>> query, the File Joining operation SHALL support the form data parameter `left-dataset-url`.
-====

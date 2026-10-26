@@ -1,0 +1,8 @@
+[[req_geojson-geojson-direct-join]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/geojson/geojson-direct-join
+part:: The server SHALL support the GeoJSON format for the <<direct_join,Direct Join>> operation response when the `leftDatasetMimeType` form data parameter value is `application/geo+json`.
+====

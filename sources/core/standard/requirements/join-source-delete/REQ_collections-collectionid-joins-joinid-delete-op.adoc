@@ -1,9 +1,9 @@
-[[req_join_delete_collections-collectionid-joins-joinid-delete-op]]
+[[req_join_source-delete_collections-collectionid-joins-joinid-delete-op]]
 
 [requirement]
 ====
 [%metadata]
-identifier:: /req/join-delete/collections-collectionid-joins-joinid-delete-op
+identifier:: /req/join-source-delete/collections-collectionid-joins-joinid-delete-op
 part:: If the server implements the __data joining operations__ and the Join Source Delete requirements class, it SHALL support the HTTP DELETE operation at the path `{root}/collections/{collectionId}/joins/{joinId}`.
-part:: The parameter `joinId` is the `id` property of a join source in the `joins` response (JSONPath: `$.joins.id`).
+part:: The parameter `joinId` is the `id` property of an item from the `joins` array from the <<collection-join-sources-op, Collection's Join Sources>> response (JSONPath: `$.joins.id`).
 ====

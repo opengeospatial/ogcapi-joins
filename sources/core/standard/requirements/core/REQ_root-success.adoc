@@ -5,9 +5,7 @@
 [%metadata]
 identifier:: /req/core/root-success
 part:: A successful execution of the operation SHALL be reported as a response with an HTTP status code `200`.
-part:: The content of that response SHALL be based upon the link:http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/confClasses.yaml[landingPage.yaml]. 
-
-The response can include <<link-relation-types,links>> to following resources:
+part:: The content of that response SHALL be based upon the http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/landingPage.yaml[landingPage.yaml schema] and include at least <<link-relation-types,links>> to the following resources:
 
 * API definition (link rel property value: `service-desc` or `service-doc`) (recommended path `/api`).
 * `/conformance` (link rel property value: `http://www.opengis.net/def/rel/ogc/1.0/conformance`)

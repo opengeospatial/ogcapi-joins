@@ -29,13 +29,15 @@ The following normative documents contain provisions that, through reference in 
 
 * [[[json-schema, json-schema]]], json-schema.org: *JSON Schema*, December 2020. Available at: https://json-schema.org/specification.html
 
-* [[[OGC06-121r9,OGC 06-121r9]]], *OGC Web Services Common*, https://www.opengeospatial.org/standards/common
+* [[[OGC06-121r9,OGC 06-121r9]]]
 
-* [[[OGC19-072, OGC 19-072]]],
+* [[[OGC19-072, OGC 19-072]]]
 
 * [[[OGC20-024, OGC 20-024]]], OGC: OGC 20-024, *OGC API - Common - Part 2: Geospatial Data* (draft in development), 2021. Available at: https://docs.opengeospatial.org/DRAFTS/20-024.pdf
 
-* [[[OpenAPI, OpenAPI]]], Open API Initiative (OAI): *The OpenAPI specification 3.0*, 2020. Available at: https://github.com/OAI/OpenAPI-Specification/blob/master/versions/
+* [[[OGC17-069r4, OGC 17-069r4]]]
+
+* [[[OpenAPI, OpenAPI]]], Open API Initiative (OAI): *The OpenAPI specification 3.0*. The latest patch version at the time of publication of this standard was 3.0.4, Available at: https://spec.openapis.org/oas/v3.0.4.html
 
 * [[[schema.org, schema.org]]], *Schema.org*: https://schema.org/docs/schemas.html
 

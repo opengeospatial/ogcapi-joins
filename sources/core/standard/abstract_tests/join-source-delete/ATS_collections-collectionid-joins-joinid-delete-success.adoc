@@ -1,14 +1,14 @@
-[[ats_join_delete_collections-collectionid-joins-joinid-delete-success]]
+[[ats_join_source_delete_collections-collectionid-joins-joinid-delete-success]]
 [abstract_test]
 ====
 [%metadata]
-identifier:: /conf/join-delete/collections-collectionid-joins-joinid-delete-success
-target:: /req/join-delete/collections-collectionid-joins-joinid-delete-success
+identifier:: /conf/join-source-delete/collections-collectionid-joins-joinid-delete-success
+target:: /req/join-source-delete/collections-collectionid-joins-joinid-delete-success
 test-purpose:: Validate that the join source was deleted from the server.
 test-method::
 +
 --
-. 1. Validate that the join source has been deleted from the server by issuing an HTTP GET request to the URL `{root}/collections/{collectionId}/joins/{joinId}` where {collectionId} and {joinId} are the same `id` properties of the collections and join that were used in the delete request.
+. 1. Validate that the join source has been deleted from the server by issuing an HTTP GET request to the URL `{root}/collections/{collectionId}/joins/{joinId}` where the `collectionId` and `joinId` parameters have the same values that were used in the join source delete request.
 . 2. Validate that the server sent a response code `404`.
 --
 ====

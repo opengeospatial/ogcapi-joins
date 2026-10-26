@@ -1,0 +1,19 @@
+[[ats_input_http_ref-left-dataset-url-right-dataset-url-direct-join]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/input-http-ref/left-dataset-url-right-dataset-url-direct-join
+target:: /req/input-http-ref/left-dataset-url-right-dataset-url-direct-join
+test-purpose:: 
+Validate that the left and right datasets can be referenced via URL in the Direct Join operation.
+test-method::
++
+--
+Execute the abstract test: <<ats_direct_joining_direct-join-post-op, /conf/direct-joining/direct-join-post-op>> where:
+
+* The request contains the form data parameter `leftDatasetUrl` that contains the URL of the left dataset.
+
+* The request contains the form data parameter `rightDatasetUrl` that contains the URL of the right dataset.
+--
+====

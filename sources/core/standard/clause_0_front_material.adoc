@@ -1,24 +1,27 @@
 [abstract]
 == Abstract
 
-This document specifies the core module of the OGC API - Joins Standard. This Standard can be used for online joining of tabular data with some other data, such as geospatial data. The data joining process is executed through common key values that are available in both datasets.
+This document specifies the core module of the OGC API - Joins Standard. This Standard can be used for online joining of tabular data with collection's features data that are available on the server, or with other inputted data sources. The data joining process is executed through common key values that are available in both datasets.
 
-The standard contains two  data joining methods:
+The standard contains two data joining methods:
 
-* The first data joining method consists of joining data with a collection available on the server. In this method, the data is first saved to the server as a join source. The join source data can be then joined with a collection by executing a /items path query and providing the join identifier as a parameter to that query. This method allows the collection data to be filtered dynamically before the data is joined with the resulting collection items data.
-* The second data joining method executes on-the-fly data joining between two input files.
+1. The first data joining method consists of joining data with collection's features data that is available on the server. In this method, the tabular data is first saved to the server as a join source that is related to some collection. The join source data can be then joined with a collection by executing an `/items` query and providing the identifier of a join source as a parameter to that query. This method allows the collection's features data to be filtered before the data is joined with the resulting features data.
 
-The core module specifies requirements for a Web API that supports the following use cases:
+2. The second data joining methdod executes on-the-fly data joining directly between two input data sources without saving the input data to the server.
 
-* Getting metadata on available collections and their key fields.
-* Creating a join source for a specific collection by saving data on the server.
-* Getting metadata of the join sources on the server.
-* Joining data from a join source with a collection available on the server.
-* Deleting joins sources from the server.
-* Executing on-the-fly joins between two input files.
+The core module extends OGC API - Common and OGC API - Features standards and specifies requirements for a Web API that supports the following use cases:
 
-The input data files can be either uploaded to the server with the join source creation or the direct join query or provided by referencing them via URL links. The server implementations have a mandatory requirement to support the GeoJSON format for the joined data, and in addition, they can support any other file formats. 
-The core module supports CSV format for the input tabular data files. The joining between two input data files is supported between GeoJSON and CSV formats.
+* Getting metadata on the available collections and their key fields.
+* Creating a join source for a specific collection by saving tabular data to the server.
+* Getting metadata of the join sources that are available on the server.
+* Joining data from a join source with a collection's features data.
+* Deleting a join source from the server.
+* Executing on-the-fly joins directly between two input data sources.
+
+The input data sources can be files that are uploaded to the server or they can be referenced via URL links. 
+
+* The server implementations are required to support CSV format for the input tabular data and they can support any additional formats. 
+* The server implementations are required to support the GeoJSON format for the joined data and they can support any additional formats. 
 
 Please note that for the purposes of brevity, the OGC API – Joins: Core Standard may be referend to as “the OGC Joins API” or “this document” or “this “Standard”.
 

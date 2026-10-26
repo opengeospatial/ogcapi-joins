@@ -1,8 +1,0 @@
-[[req_file_joining_filejoin-post-success-attribute-data-file-csv-attribute-names]]
-
-[requirement]
-====
-[%metadata]
-identifier:: /req/file-joining/filejoin-post-success-attribute-data-file-csv-attribute-names
-part:: If the right-dataset-file is in CSV format, the names of the joined attributes SHALL be the values of the joined columns from the CSV file header row.
-====
