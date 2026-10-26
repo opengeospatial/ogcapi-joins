@@ -1,0 +1,14 @@
+[[ats_direct_joining_direct-join-post-success-attribute-data-file-csv-multiple-keys]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/direct-joining/direct-join-post-success-attribute-data-file-csv-multiple-keys
+target:: /req/direct-joining/direct-join-post-success-attribute-data-file-csv-multiple-keys
+test-purpose:: Validate the response of the direct-join functionality where the input CSV file contains multiple rows with the same key values.
+test-method::
++
+--
+. Validate that if the attribute data file is in CSV format and if it contains multiple rows with the same key values, the attribute values are used in the join operation from the rows where the key values are encountered first.
+--
+====

@@ -1,0 +1,14 @@
+[[ats_geojson-geojson-direct-join]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/geojson/geojson-direct-join
+target:: /req/geojson/geojson-direct-join
+test-purpose:: Verify the support for GeoJSON ouput for joined data.
+test-method::
++
+--
+. Execute the <<direct_join,Direct Join>> operation, with the `leftDatasetMimeType` parameter value `application/geo+json`. 
+. Validate that a returned document is a valid GeoJSON document.
+--
+====

@@ -1,0 +1,32 @@
+[[req_direct_joining_direct-join-post-op-form-data-parameters]]
+.The Form Data parameters of the Direct Joining query.
+[width="100%", options="header", cols="2,3,1,1"]
+|===
+^|Name | Description | Type and values | Required
+^|leftDatasetResourceType      | The resource type of the left dataset. | String | Mandatory^a^
+^|leftDatasetMimeType          | The mime type of the left dataset. | String | Mandatory^b^
+^|leftDatasetFile              | The left dataset file (uploaded file). | File | Optional^c^
+^|leftDatasetUrl	           | A URL link to the left dataset. | String | Optional^d^
+^|leftDatasetKey               | The key field in the left dataset that contains the key values that will be used in the join operation. | String | Mandatory^e^
+^|leftDatasetOptions           | File format-specific key-value parameter options for the left dataset. | String | Optional^f^
+^|rightDatasetResourceType     | The resource type of the right dataset. | String | Mandatory^g^
+^|rightDatasetMimeType         | The mime type of the right dataset. | String | Mandatory^h^
+^|rightDatasetFile             | The right dataset file (uploaded file). | File | Optional^i^
+^|rightDatasetUrl	           | A URL link to the right dataset. | String | Optional^j^
+^|rightDatasetKey	           | The key field in the right dataset that contains the key values that will be used in the join operation. | String | Mandatory^k^
+^|rightDatasetJoinFields       | The fields in the right dataset that will be joined to the left dataset. | String, separated by commas | Optional^l^
+^|rightDatasetOptions          | File format-specific key-value parameter options for the right dataset. | String | Mandatory^m^
+4+| ^a^  The __leftDatasetResourceType__ parameter value is one of the following: `FileUpload`, `FileURL` or `OgcAPI`. The `FileUpload` value indicates that the left dataset is provided via file upload. The uploaded file is defined with the __leftDatasetFile__ parameter. The `FileURL` indicates that the left dataset is provided via a URL link. The `OgcAPI` value indicates that the left dataset is provided via an external OGC API. The `FileURL` and `OgcAPI` addresses are defined with the __leftDatasetURL__ parameter. For the OgcAPI values, the server implementations can choose how they process the input.
+4+| ^b^  The __leftDatasetMimeType__ parameter indicates the mime type of the left dataset.
+4+| ^c^  The __leftDatasetFile__ parameter is used when the __leftDatasetResourceType__ parameter value is `FileUpload`.
+4+| ^d^  The __leftDatasetURL__ parameter is used when the __leftDatasetResourceType__ parameter value is `FileURL` or `OgcAPI`.
+4+| ^e^  For the leftDatasetMimeType parameter value `application/geo+json`, the value of the __leftDatasetKey__ parameter is the JSONPath string to the field that contains the key values. The key values must be shared between the __leftDatasetKey__ field and the __rightDatasetKey__ field in order to execute a successful join operation.
+4+| ^f^  The file format-specific parameters are given as a JSON object that contains key-value pairs.
+4+| ^g^  The __rightDatasetResourceType__ parameter value is one of the following: `FileUpload`, `FileURL` or `OgcAPI`. The `FileUpload` value indicates that the right dataset is provided via file upload. The uploaded file is defined with the __rightDatasetFile__ parameter. The `FileURL` indicates that the right dataset is provided via a URL link. The `OgcAPI` value indicates that the right dataset is provided via an external OGC API. The `FileURL` and `OgcAPI` addresses are defined with the __rightDatasetURL__ parameter. For the OgcAPI values, the server implementations can choose how they process the input.
+4+| ^h^  The __rightDatasetMimeType__ parameter indicates the mime type of the right dataset.
+4+| ^i^  The __rightDatasetFile__ parameter is used when the __rightDatasetResourceType__ parameter value is `FileUpload`.
+4+| ^j^  The __rightDatasetURL__ parameter is used when the __rightDatasetResourceType__ parameter value is `FileURL` or `OgcAPI`.
+4+| ^k^ For the __rightDatasetMimeType__ parameter value `text/csv`, this value is the column name, taken from the CSV file header row, that contains the key values. The key values must be shared between the __leftDatasetKey__ field and the __rightDatasetKey__ field in order to execute a successful join operation.
+4+| ^l^  For the __rightDatasetMimeType__ parameter value `text/csv`, these are the column names, taken from the CSV file header row that will be joined with the left dataset. If omitted, all CSV file columns will be joined with the left dataset.
+4+| ^m^  The file format-specific parameters are given as a JSON object that contains key-value pairs. For the __rightDatasetMimeType__ parameter value `text/csv`, the mandatory key is `delimiter` that indicates the csv file's delimiter character. In addition, recommended keys are `headerRow`, that indicates the row number of the csv file's header row (if omitted, header row is expected to be at the first row of the CSV file) and `dataStartRow` that indicates the row number where the data values start (if omitted, data start row is expected to be at the second row of the CSV file).
+|===

@@ -13,7 +13,7 @@
 :fullname: Pekka Latvala
 :docsubtype: implementation
 :keywords: ogcdoc, OGC Standard, API, openapi, JSON, HTML, GeoJSON, Joins, data joining
-:submitting-organizations: Finnish Geospatial Research Institute FGI, National Land Survey of Finland.
+:submitting-organizations: Finnish Geospatial Research Institute FGI, National Land Survey of Finland; Geonovum.
 :docfile: document.adoc
 :mn-document-class: ogc
 :mn-output-extensions: xml,html,doc,pdf
@@ -22,9 +22,6 @@
 :pdf-uri: ./22-026.pdf
 :edition: 1.0.0
 
-////
-Make sure to complete each included document
-////
 include::clause_0_front_material.adoc[]
 
 include::clause_1_scope.adoc[]
@@ -43,15 +40,8 @@ include::clause_7_normative_text.adoc[]
 
 include::clause_8_media_types.adoc[]
 
-////
-add or remove annexes after "A" as necessary
-////
 include::annex-a.adoc[]
 
-////
-Revision History should be the last annex before the Bibliography
-Bibliography should be the last annex
-////
 include::annex-history.adoc[]
 
 include::annex-bibliography.adoc[]

@@ -11,7 +11,7 @@ test-method::
 --
 Verify that the each item in the response's `joins` property includes contains:
 
-. A `links` property that contains links to the join source resource in all media types supported by the server (relation: `join source`),
+. A `links` property that contains links to the join source resource in all media types supported by the server (relation: `http://www.opengis.net/def/rel/ogc/1.0/join-source`),
 
 . Verify that all links include the `rel` and `type` link parameters.
 --

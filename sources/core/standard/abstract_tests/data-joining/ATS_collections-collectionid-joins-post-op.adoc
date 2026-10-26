@@ -12,8 +12,8 @@ test-method::
 Test method for (1): +
 1. Issue an HTTP POST request to the URL `{root}/collections/{collectionId}/joins` where: +
 - The request contains the header: `Content-Type: multipart/form-data;` +
-- The form data parameter `right-dataset-format` has the value `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-csv`. +
-- The request contains either the uploaded intput data file or it is referenced via a URL. +
+- The form data parameter `rightDatasetMimeType` has the value `text/csv`. +
+- The request contains either the uploaded input data file or it is referenced via a URL. +
 - Other query parameters are set correctly. +
 2. Validate that a document was returned with a status code `201`. +
 3. Validate the contents of the returned document using test <<ats_data_joining_collections-collectionid-joins-post-success, /conf/data-joining/collections-collectionid-joins-post-success>>

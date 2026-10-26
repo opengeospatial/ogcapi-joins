@@ -4,5 +4,11 @@ This document uses the terms defined in Sub-clause 5.3 of <<OGC06-121r9>>, which
 
 //For the purposes of this document, the following additional terms and definitions apply.
 
-=== join source
-Data that has been stored to the server as a join source. The join source data contains shared key values with the collection data. The join source data can be joined with the collection data in the items query by giving the join identifier as a parameter.
+=== Join Source
+Data that has been saved to the server as a join source under a specific collection. The join source data includes key values that are also present in the collection data. The join source data can be joined with the collection data by executing the collection's `/items` query and providing the join source identifier as a parameter to that query.
+
+=== Join Source Creation
+An operation where join source data is saved on a server.
+
+=== Direct Join
+An operation where data is joined direcly between two input datasets without saving them to the server.

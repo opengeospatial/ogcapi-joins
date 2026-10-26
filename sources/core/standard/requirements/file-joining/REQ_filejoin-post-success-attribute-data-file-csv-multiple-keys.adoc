@@ -1,8 +1,0 @@
-[[req_file_joining_filejoin-post-success-attribute-data-file-csv-multiple-keys]]
-
-[requirement]
-====
-[%metadata]
-identifier:: /req/file-joining/filejoin-post-success-attribute-data-file-csv-multiple-keys
-part:: If the right-dataset-file is in CSV format and contains multiple rows with the same key value, the value is used in the join from the row where it is encountered first.
-====

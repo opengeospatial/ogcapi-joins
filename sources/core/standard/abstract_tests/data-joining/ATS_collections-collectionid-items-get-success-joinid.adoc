@@ -1,0 +1,22 @@
+[[ats_data_joining_collections-collectionid-items-get-success-joinid]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-collectionid-items-get-success-joinid
+target:: /req/data-joining/collections-collectionid-items-get-success-joinid
+test-purpose:: Validate that the `joinId` query parameter is processed correctly.
+test-method::
++
+--
+. Issue an HTTP GET request to the URL `{root}/collections/{collectionId}/items` that contains a valid `joinId` query parameter value that is a value of the `id` property of a join source that is available on the server for the collection specified with the `collectionId` path parameter.
+
+. Validate that a document was returned with a status code `200`.
+
+. Validate that the response contains only features that match with the query parameters.
+
+. Validate that the response features contain the joined values from the join source whose `id` property value matches to the `joinId` query parameter value.
+
+. Validate that the property names of the joined properties are the same than listed in the join source’s `details` array’s `joinFields` array.
+--
+====

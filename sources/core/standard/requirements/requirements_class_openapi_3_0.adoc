@@ -1,0 +1,17 @@
+[[requirements_class_openapi_3_0]]
+
+[requirements_class]
+.OpenAPI 3.0
+====
+[%metadata]
+identifier:: http://www.opengis.net/spec/ogcapi-joins-1/1.0/req/oas30
+subject:: Web API
+inherit:: <<requirements_class_core,Requirements Class: Core>>
+inherit:: <<OpenAPI,OpenAPI Specification v3.0.4>>
+requirement:: /req/oas30/oas-definition-1
+requirement:: /req/oas30/oas-definition-2
+requirement:: /req/oas30/oas-impl
+requirement:: /req/oas30/oas-completeness
+requirement:: /req/oas30/oas-exception-codes
+requirement:: /req/oas30/oas-security
+====

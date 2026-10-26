@@ -10,6 +10,8 @@ part:: A `200`-response SHALL include the following links in the `links` propert
 
 * A link to the response document in every other media type supported by the service (relation: `alternate`)
 
-* A link to key fields metadata of this collection (relation: `keys`)
+* A link to key fields metadata of this collection (relation: `http://www.opengis.net/def/rel/ogc/1.0/keys`)
+
+* A link to join sources metadata of this collection (relation: `http://www.opengis.net/def/rel/ogc/1.0/joins`)
 part:: All links SHALL include the `rel` and `type` properties.
 ====

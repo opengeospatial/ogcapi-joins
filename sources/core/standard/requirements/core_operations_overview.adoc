@@ -35,7 +35,7 @@
 
 |/collections/{collectionId}/joins
 |POST
-|Creates a new join source by saving tabular data from an input data file to the server.
+|Creates a new join source by saving tabular data from an input data source to the server.
 
 |/collections/{collectionId}/joins/{joinId}
 |GET
@@ -47,10 +47,10 @@
 
 |/collections/{collectionId}/items
 |GET
-|Returnd the items of a collection. Join source data can be joined with the collection by provided a `joinId` parameter with the query.
+|Returns the items of a collection. Join source data can be joined with the collection by providing the `joinId` parameter of a join source with the query.
 
-3+|*File Joining Operations*
-|/filejoin
+3+|*Direct Joining Operations*
+|/direct-join
 |POST
-|Joins data between two input files.
+|Joins data directly between two input data sources.
 |===

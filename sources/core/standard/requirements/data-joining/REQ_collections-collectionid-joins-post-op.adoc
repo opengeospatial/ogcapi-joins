@@ -5,11 +5,16 @@
 [%metadata]
 identifier:: /req/data-joining/collections-collectionid-joins-post-op
 part:: If the server implements __data joining operations__, it SHALL support the HTTP POST operation at path `{root}/collections/{collectionId}/joins`.
+part:: The operation SHALL save data from the inputted right dataset to the server as a join source. 
 part:: The request is made as a <<rfc7578,multipart/form-data>> request. 
 The request SHALL contain the header:
 Content-Type: multipart/form-data;
-part:: If the input data file is uploaded with the query, it SHALL contain the header:
-Content-Disposition: form-data; filename="[right dataset file's name]"; name="right-dataset-file";
-part:: The input data file SHALL be encoded with the `UTF-8` encoding.
-part:: The Form Data parameters of the query are listed in a <<req_data_joining_collections-collectionid-joins-post-op-form-data-parameters,Table 5>>:
+part:: The server SHALL support the CSV input data format for the right dataset via the `rightDatasetMimeType` parameter value `text/csv`.
+part:: The CSV files SHALL contain a header row that contains the column names, a column that contains the key values and a separate column for each attribute. 
+part:: If the server supports any other input data formats for the right dataset, their key-value parameters, defined with the `rightDatasetOptions` parameter and their mime type values, defined with the `rightDatasetMimeType` parameter SHALL be listed in the API definition document.
+part:: If the right dataset is uploaded to the server with the query, it SHALL contain the header:
+Content-Disposition: form-data; filename="[right dataset file's name]"; name="rightDatasetFile";
+part:: The default right dataset encoding SHALL be `UTF-8`.
+part:: If the server supports any other encodings for the right dataset, it SHALL provide mechanisms in the `rightDatasetOptions` parameter for indicating the right dataset encoding and list those information in the API definition document.
+part:: The Form Data parameters of the query are listed in <<req_data_joining_collections-collectionid-joins-post-op-form-data-parameters,Table 5>>:
 ====

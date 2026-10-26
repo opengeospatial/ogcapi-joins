@@ -1,0 +1,23 @@
+[[ats_input_file_upload_left-dataset-file-right-dataset-file-direct-join]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/input-file-upload/left-dataset-file-right-dataset-file-direct-join
+target:: /req/input-file-upload/left-dataset-file-right-dataset-file-direct-join
+test-purpose:: 
+Validate that the left dataset file and the right dataset file can be uploaded with the Direct Join query to the server.
+test-method::
++
+--
+Execute the abstract test: <<ats_direct_joining_direct-join-post-op, /conf/direct-joining/direct-join-post-op>> where:
+
+* The request contains the form data parameter `leftDatasetFile` that contains the uploaded file. 
+
+* The request contains the header `Content-Disposition: form-data; filename=”[left dataset file’s name]”; name=”leftDatasetFile`;
+
+* The request contains the form data parameter `rightDatasetFile` that contains the uploaded file. 
+
+* The request contains the header `Content-Disposition: form-data; filename=”[right dataset file’s name]”; name=”rightDatasetFile`;
+--
+====

@@ -5,6 +5,6 @@
 [%metadata]
 identifier:: /req/core/operations
 part:: The server implementations SHALL support the __discovery operations__.
-part:: The server implementations SHALL support at least one of the: __data joining operations__, and/or __file joining operations__.
+part:: The server implementations SHALL support at least one of the: __data joining operations__, and/or __direct joining operations__.
 part:: If a server supports a particular operation set it SHALL implement all mandatory operations that belong to it.
 ====

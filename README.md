@@ -1,61 +1,67 @@
 # OGC API - Joins
 
 This GitHub repository contains a **draft** of the [OGC](https://www.ogc.org)'s
-multi-part standard for Web APIs that join data from input files either with feature collections that are available on the server or directly with other input files.
+multi-part standard for Web APIs that join data from input dat sources either with feature collections that are available on the server or directly with other input sources.
 
 [OGC API standards](https://ogcapi.ogc.org/) define modular API building blocks to spatially enable Web APIs in a consistent way. [OpenAPI](https://openapis.org) is used to define the reusable
 API building blocks with responses in JSON and HTML.
 
-The OGC API family of standards is organized by resource type. OGC API - Joins specifies the behavior of Web APIs that join data from input files either with feature collections that are available on the server or directly with other input files. The core module contains 3 operation sets: discovery operations, data joining operations and file joining operations.
+The OGC API family of standards is organized by resource type. OGC API - Joins specifies the behavior of Web APIs that join data from input sources either with feature collections that are available on the server or directly with other input sources. The core module contains 3 operation sets: discovery operations, data joining operations and file joining operations.
 
 ## Overview
 
-The OGC API - Joins draft standard is an extension of the OGC API - Common standard.
+The OGC API - Joins draft standard is an extension of the OGC API - Common standard. The standard also extends the /items path from the OGC API - Features standard.
 
 ```
 GET /collections
 ```
-Returns metadata on the collections available on the server
+Returns metadata on the collections available on the server.
 
 ```
 GET /collections/{collectionId}
 ```
-Returns metadata on a specific collection available on the server
+Returns metadata on a specific collection available on the server.
 
 ```
 GET /collections/{collectionId}/keys
 ```
-Returns the key fields of a specific collection
+Returns the key fields of a specific collection.
+
+```
+GET /collections/{collectionId}/items
+```
+
+Returns the features of a specific feature collection. The join source data can be joined with the items query response by providing the identifier of the join source via the joinId parameter. 
 
 ```
 GET /collections/{collectionId}/joins
 ```
 
-Returns a list of the available join sources that are related to a specific collection
+Returns a list of the available join sources that are related to a specific collection.
 
 ```
 POST /collections/{collectionId}/joins
 ```
 
-Creates a new join source for the specified collection. The join source is stored to the server and it can be requested with the features items query
+Creates a new join source for the specific collection.
 
 ```
 GET /collections/{collectionId}/joins/{joinId}
 ```
 
-Returns metadata on a specific join source
+Returns metadata on a specific join source.
 
 ```
 DELETE /collections/{collectionId}/joins/{joinId}
 ```
 
-Deletes a specific join source
+Deletes a specific join source.
 
 ```
-POST /filejoin
+POST /direct-join
 ```
 
-Joins data between two input files
+Joins data directly between two input sources.
 
 ## Using the draft standard
 

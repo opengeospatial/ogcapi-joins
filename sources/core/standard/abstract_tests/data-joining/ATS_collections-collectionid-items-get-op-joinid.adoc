@@ -1,0 +1,24 @@
+[[ats_data_joining_collections-collectionid-items-get-op-joinid]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-collectionid-items-get-op-joinid
+target:: /req/data-joining/collections-collectionid-items-get-op-joinid
+test-purpose:: Validate that the `joinId` query parameter is constructed correctly.
+test-method::
++
+--
+. Verify that the `joinId` query parameter complies with the following definition (using an OpenAPI Specification 3.0 fragment):
+
++
+----
+name: joinId
+in: query
+required: false
+schema:
+  type: string
+----
+
+--
+====

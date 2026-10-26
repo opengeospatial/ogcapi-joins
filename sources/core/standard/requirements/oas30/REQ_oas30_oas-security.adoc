@@ -1,0 +1,8 @@
+[[req_oas30_oas-security]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/oas30/oas-security
+part:: If the operations of the API are access-controlled, the security scheme(s) and requirements SHALL be documented in the OpenAPI definition.
+====

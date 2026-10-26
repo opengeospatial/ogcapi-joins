@@ -1,0 +1,9 @@
+[[req_direct_joining_direct-join-post-success]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/direct-joining/direct-join-post-success
+part:: A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
+part:: The content of the response in `A` SHALL be the joined dataset in the format indicated by request's __leftDatasetMimeType__ parameter.
+====

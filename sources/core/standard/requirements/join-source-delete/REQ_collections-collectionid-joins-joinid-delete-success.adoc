@@ -1,9 +1,9 @@
-[[req_join_delete_collections-collectionid-joins-joinid-delete-success]]
+[[req_join_source-delete_collections-collectionid-joins-joinid-delete-success]]
 
 [requirement]
 ====
 [%metadata]
-identifier:: /req/join-delete/collections-collectionid-joins-joinid-delete-success
+identifier:: /req/join-source-delete/collections-collectionid-joins-joinid-delete-success
 part:: A successful execution of the operation SHALL be reported as a response with a HTTP status code `204`. 
-part:: The body of the response body SHALL be empty.
+part:: The body of the response SHALL be empty.
 ====

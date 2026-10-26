@@ -1,0 +1,14 @@
+[[ats_oas30_oas-impl]]
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/oas30/oas-impl
+target:: /req/oas30/oas-impl
+test-purpose:: Verify that all capabilities specified in the OpenAPI definition are implemented by the API.
+test-method::
++
+--
+. Construct an operation for each OpenAPI Path object including all server URL options, HTTP operations and enumerated path parameters.
+. Validate that each operation performs in accordance with the API definition.
+--
+====

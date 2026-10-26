@@ -1,0 +1,21 @@
+[[req_data_joining_collections-collectionid-items-get-op-joinid]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/data-joining/collections-collectionid-items-get-op-joinid
+part:: 
+The HTTP GET operation on the path `{root}/collections/{collectionId}/items` SHALL support a `joinId` parameter based on the following OpenAPI 3.0 fragment:
+
++
+----
+name: joinId
+in: query
+required: false
+schema:
+  type: string
+----
+
+part::
+The value of the `joinId` parameter is the `id` value of a join source that exists on the server for the specified collection.
+====

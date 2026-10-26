@@ -1,0 +1,15 @@
+[[ats_geojson-collections-collectionid-items]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/geojson/geojson-collections-collectionid-items
+target:: /req/geojson/geojson-collections-collectionid-items
+test-purpose:: Verify the support for GeoJSON ouput for joined data.
+test-method::
++
+--
+. Execute the <<collection-items-op,Collection's Features>> operation and request the response in the GeoJSON format. 
+. Validate that a returned document is a valid GeoJSON document.
+--
+====

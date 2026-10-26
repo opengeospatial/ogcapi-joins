@@ -9,8 +9,8 @@ subject:: Web API
 inherit:: <<requirements_class_core,Requirements Class: Core>>
 inherit:: <<requirements_class_input-file-upload,Requirements Class: Input File Upload>>
 inherit:: <<requirements_class_input-http-ref,Requirements Class: File Referencing with URL>>
-inherit:: <<requirements_class_input-csv,Requirements Class: CSV File Input>>
-inherit:: <<OGC20-024,OGC 20-024 (OGC - API - Common: Part 2)>>
+inherit:: <<OGC20-024,OGC 20-024 (OGC API - Common: Part 2)>>
+inherit:: <<OGC17-069r4,OGC 17-069r4 (OGC API - Features: Part 1)>>
 inherit:: <<rfc2616,RFC 2616 (HTTP/1.1)>>
 inherit:: <<rfc2818,RFC 2818 (HTTP over TLS)>>
 inherit:: <<rfc3339,RFC 3339 (Date and Time on the Internet: Timestamps)>>
@@ -45,4 +45,7 @@ requirement:: /req/data-joining/collections-collectionid-joins-post-success
 requirement:: /req/data-joining/collections-collectionid-joins-joinid-get-op
 requirement:: /req/data-joining/collections-collectionid-joins-joinid-get-success
 requirement:: /req/data-joining/collections-collectionid-joins-joinid-get-success-links
+requirement:: /req/data-joining/collections-collectionid-items-get-op
+requirement:: /req/data-joining/collections-collectionid-items-get-op-joinid
+requirement:: /req/data-joining/collections-collectionid-items-get-success-joinid
 ====

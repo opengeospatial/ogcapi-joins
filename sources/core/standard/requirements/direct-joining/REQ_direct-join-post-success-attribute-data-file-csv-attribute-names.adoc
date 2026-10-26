@@ -1,0 +1,8 @@
+[[req_direct_joining_direct-join-post-success-attribute-data-file-csv-attribute-names]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/direct-joining/direct-join-post-success-attribute-data-file-csv-attribute-names
+part:: For the __rightDatasetMimeType__ parameter value `text/csv`, the names of the joined attributes SHALL be the values of the joined columns from the CSV file's header row.
+====

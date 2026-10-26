@@ -1,0 +1,12 @@
+[[exception_example]]
+.Example — An exception response object definition
+----
+description: An error occurred.
+content:
+  application/json:
+    schema:
+      $ref: http://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/exception.yaml
+  text/html:
+    schema:
+      type: string
+----

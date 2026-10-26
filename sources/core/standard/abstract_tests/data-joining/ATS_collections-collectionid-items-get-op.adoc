@@ -1,0 +1,14 @@
+[[ats_data_joining_collections-collectionid-items-get-op]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-collectionid-items-get-op
+target:: /req/data-joining/collections-collectionid-items-get-op
+test-purpose:: Validate that features can be identified and extracted from a Collection using query parameters.
+test-method::
++
+--
+. Validate that the server complies to the tests defined in the section A.2.7. Features `{root}/collections/{collectionId}/items`, in the <<OGC17-069r4, OGC API - Features - Part 1: Core>> standard. 
+--
+====

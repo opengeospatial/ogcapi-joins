@@ -1,8 +1,0 @@
-[[req_input_csv_right-dataset-format-join-source-creation]]
-
-[requirement]
-====
-[%metadata]
-identifier:: /req/input-csv/right-dataset-format-join-source-creation
-part:: If the server supports the CSV input file format in the <<join_source_creation,Join Source Creation>> query, the Join Source Creation operation SHALL support the form data parameter `right-dataset-format` value  `http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-csv`.
-====

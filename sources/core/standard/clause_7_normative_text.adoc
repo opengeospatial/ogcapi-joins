@@ -81,8 +81,8 @@ include::./requirements/core/REQ_root-op.adoc[]
 
 include::./requirements/core/REQ_root-success.adoc[]
 
-===== Response Schema for the  Landing Page
-The landing page response is based on the https://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/landingPage.yaml[Landing Page Schema], originally defined in the <<OGC19-072,OGC - API - Common - Part 1>>.
+===== Response Schema for the Landing Page
+The landing page response is based on the https://schemas.opengis.net/ogcapi/common/part1/1.0/openapi/schemas/landingPage.yaml[Landing Page Schema], originally defined in the <<OGC19-072,OGC API - Common - Part 1>>.
 
 include::./../schemas/root_schema.adoc[]
 
@@ -138,6 +138,7 @@ See <<http_status_codes,HTTP status codes>> for general guidance.
 === Overview
 include::./requirements/requirements_class_data_joining.adoc[]
 
+[[collections-op]]
 === Collections
 
 The HTTP GET operation at path `{root}/collections` returns metadata on the collections that are available on the server.
@@ -152,7 +153,7 @@ include::./requirements/data-joining/REQ_collections-get-success.adoc[]
 
 ===== Response Schema for the Collections
 
-The response is based on the https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collections.yaml[Collections Schema] (from <<OGC20-024,OGC - API - Common - Part 2>>).
+The response is based on the https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collections.yaml[Collections Schema] (from <<OGC20-024,OGC API - Common: Part 2>>).
 
 include::../schemas/collections_schema.adoc[]
 
@@ -166,13 +167,15 @@ Additional information may be available to assist in understanding and using thi
 
 include::./requirements/data-joining/REC_collections-get-success-describedby.adoc[]
 
-The `collections` property of the Collections response provides a description of each individual collection hosted by the server. These descriptions are based on the <<collections_collectionid_schema, Collection Schema>>.
+The `collections` property of the Collections response provides a description of each individual collection distributed by the Web API deployment. These descriptions are based on the <<collections_collectionid_schema, Collection Schema>>.
 
 include::./requirements/data-joining/REQ_collections-get-success-items.adoc[]
 
 The array items included in the collection property are described in the <<collection-op,Collection Resource>> section of this Requirements Class.
 
 This Requirements Class does not define any parameters for use against a collections resource.
+
+NOTE: The Collections operation does not define any query parameters for use against the `/collections` resource. Implementers who plan supporting the offering of large numbers of collections from the same API endpoint may consider extending their API implementations with capabilities defined in the OGC API — Records Standard (with collections acting as the local resources of a local resource catalog), as well as candidate extensions to the OGC API — Common Standard that introduce capabilities for hierarchical collections, searching, filtering, and sorting collections.
 
 ==== Error Situations
 
@@ -193,7 +196,7 @@ include::./requirements/data-joining/REQ_collections-collectionid-get-success.ad
 
 [[response_schema_for_the_collection]]
 ===== Response Schema for the Collection
-The Collection response is based on the https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc.yaml[collectionDesc Schema] (from <<OGC20-024,OGC - API - Common - Part 2>>).
+The Collection response is based on the https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc.yaml[collectionDesc Schema] (from <<OGC20-024,OGC API - Common - Part 2>>).
 
 include::./../schemas/collections_collectionid_schema.adoc[]
 
@@ -206,14 +209,12 @@ include::./requirements/data-joining/REC_collections-collectionid-get-success-ex
 
 include::./requirements/data-joining/REC_collections-collectionid-get-success-extent-single.adoc[]
 
-//[discrete]
 ====== Item Type
 
-The collections defined by this core module provide information on their key fields.
+The `itemType` property in the `Collection` resource identifies the type of the items accessible from that collection.
 
 include::./requirements/data-joining/REC_collections-collectionid-get-success-item-type.adoc[]
 
-//[discrete]
 ====== Links
 To support hypermedia navigation, the links property must be populated with sufficient hyperlinks to navigate through the whole dataset.
 
@@ -229,6 +230,7 @@ See <<http_status_codes,HTTP status codes>> for general guidance.
 
 If the parameter `collectionId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 4>>).
 
+[[collection-keys-op]]
 === Collection's Key Fields
 
 The HTTP GET operation at path `{root}/collections/{collectionId}/keys` returns a list of key fields of a specific collection.
@@ -246,24 +248,24 @@ include::../schemas/collections_collectionid_keys_schema.adoc[]
 
 [[req_core_collections-collectionid-keys-resource-definition]]
 
-//[discrete]
 ====== isDefault
 
 `isDefault` property contains information on the Collection's default key field to be used in the data joins. Value `true` indicates the default key field. 
 
 include::./requirements/data-joining/REQ_collections-collectionid-keys-get-success-default-key.adoc[]
 
-//[discrete]
 ====== language
 
 Language in which the key field's key values are written (if applicable to the key field). The format of the language field follows the ISO 639-1 language code values.
 
-//[discrete]
 ====== id
 
 Identifier of the key field.
 
-//[discrete]
+====== type
+
+Type of the key field.
+
 ====== links
 
 To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks.
@@ -278,10 +280,10 @@ See <<http_status_codes,HTTP status codes>> for general guidance.
 
 If the parameter `collectionId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,Table 4>>).
 
+[[collection-join-sources-op]]
+=== Collection's Join Sources
 
-=== Join Sources
-
-The HTTP GET operation at path `{root}/collections/{collectionId}/joins` returns a list of join sources  available on the server that have been created for the specific collection.
+The HTTP GET operation at path `{root}/collections/{collectionId}/joins` returns a list of join sources available on the server that have been created for the specific collection.
 
 ==== Request
 
@@ -352,13 +354,11 @@ include::../schemas/collections_collectionid_joins_schema.adoc[]
 
 
 [[join-sources-resource-definition]]
-//[discrete]
 ====== joins
-The `joins` property of the response provides a description of each individual join source hosted by the server.
+The `joins` property of the response provides a description of each individual join source, related to a specific collection that are hosted by the server.
 
 include::./requirements/data-joining/REQ_collections-collectionid-joins-get-success-items.adoc[]
 
-//[discrete]
 ====== links
 
 To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the join sources.
@@ -371,27 +371,22 @@ Property `links` in the `JoinsObject`:
 
 include::./requirements/data-joining/REQ_collections-collectionid-joins-get-success-items-links.adoc[]
 
-//[discrete]
 ====== id
 
 Identifier of the join source.
 
-//[discrete]
 ====== joins
 
 An array containing a list of join sources.
 
-//[discrete]
 ====== numberMatched
 
 The number of join sources that are available in the server that match the selection parameters in the request.
 
-//[discrete]
 ====== numberReturned
 
 The number of join sources returned in the response.
 
-//[discrete]
 ====== timeStamp
 
 Property `timeStamp` in the `CollectionJoinsResponseObject`:
@@ -406,17 +401,32 @@ The time when the join source was generated.
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
 [[join_source_creation]]
-=== Join Source Creation
+=== Collection's Join Source Creation
 
-The HTTP POST operation at path `{root}/collections/{collectionId}/joins` creates a new join source. 
+The HTTP POST operation at path `{root}/collections/{collectionId}/joins` creates a new join source on the server under a specific collection. The operation reads data from an input data source (uploaded file, URL address, or OGC API source) and saves it to the server as a join source.
 
-The operation reads data from an input data file and saves it to the server as a join source.
+The input data can be either uploaded to the server with the query, represented by the requirements class "<<rc_file_uploading_with_query, Input File Upload>>" or referenced via a URL link, represented by the requirements class "<<rc_file_referencing_with_url, File Referencing with URL>>".
 
-The input data file can either be uploaded to the server with the query, represented by the requirements class "<<rc_file_uploading_with_query, Input File Upload>>" or referenced via URL links, represented by the requirements class "<<rc_file_referencing_with_url, File Referencing with URL>>".
+The server implementations are required to support the CSV format (mime type: `text/csv`) for the right dataset. The CSV file structure is required to have a header row that contains the column names, a column that contains the key values and a separate column for each attribute. The <<csv_file_example_1, CSV File Example 1>> presents an example file where the first row is the header row, the `areacode` column contains the key values and the `areavalue` and `areaname` columns contain attribute values.
 
-The core module contains support for the CSV format for the input data files, defined in the requirements class "<<rc_input_csv, CSV File Input>>". The CSV files must have a column that contains the key values and a separate column for each joined attribute.
+[[csv_file_example_1]]
+.CSV File Example 1
+[source, csv]
+----
+include::../csv/csv_example.txt[]
+----
 
-The joins are executed when the collection data items query is requested with the joinId parameter by using common key values that are available both, in the join source data and in the collection data.
+The server implementations can support any other formats for the right dataset. This may require defining additional key-value parameters with the `rightDatasetOptions` request parameter. The supported formats and their parameters are described in the API definition document. The <<right_dataset_options_example_1, rightDatasetOptions Parameter Example 1>> presents an example string for `rightDatasetOptions` parameter for the CSV format.
+
+[[right_dataset_options_example_1]]
+.rightDatasetOptions Parameter Example 1
+----
+include::../rightDatasetOptions/rightDatasetOptions.json[]
+----
+
+For the OGC API source input, the server implementations are free to choose how they process the input (they can for example read the input by using the paging mechanism).
+
+After the join source have been created, the join source data can be joined with the collection's features by executing a <<collection-items-op, Collection's Features>> query that contains a `joinId` parameter reference to the created join source.
 
 ==== Request
 
@@ -430,13 +440,13 @@ include::./requirements/data-joining/REQ_collections-collectionid-joins-post-suc
 
 ===== Response schema for the Join Source Creation
 
-The response schema for queries that create a join resource is expressed with the <<collections_collectionid_join_joinid_schema,Join Schema>>.
+The response schema for queries that create a join source is expressed with the <<collections_collectionid_join_joinid_schema,Join Source Schema>>.
 
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
 
-=== Join Source
+=== Collection's Join Source
 
 The HTTP GET operation at path `{root}/collections/{collectionId}/joins/{joinId}` returns metadata on a specific join source that is available on the server.
 
@@ -454,73 +464,83 @@ include::./../schemas/collections_collectionid_joins_join_schema.adoc[]
 
 [[req_core_collections-collectionid-joins-joinid-resource-definition]]
 
-//[discrete]
 ====== details
 
 Details of the join source.
 
-//[discrete]
 ====== collectionKey
 
-Key of the collection that matches to the joinKey.
+Key of the collection whose values match to the joinKey values.
 
-//[discrete]
 ====== created
 
-The time of the join source creation.
+The time when the join source was created.
 
-Add This
-
-//[discrete]
 ====== joinFields
 
 Names of the data fields in the join source.
 
-//[discrete]
 ====== joinKey
 
-Name of the property that is the join source key.
+Name of the join source property that contains the key values that match to the collectionKey values.
 
-//[discrete]
 ====== numberOfRows
 
 The number of rows in the join source.
 
-//[discrete]
 ====== sourceFile
 
 Name of the input data file.
 
-//[discrete]
 ====== id
 
 Unique identifier for the join source.
 
-//[discrete]
 ====== links
 
 To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks.
 
 include::./requirements/data-joining/REQ_collections-collectionid-joins-joinid-get-success-links.adoc[]
 
-//[discrete]
 ====== timeStamp
 
-The time when the join souce output was requested.
+The time when the join souce response was generated.
 
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
 
 If the parameter `joinId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,HTTP status codes>>).
 
+[[collection-items-op]]
+=== Collection's Features
+
+The <<OGC17-069r4, OGC API - Features - Part 1: Core>> standard defines functionality for accessing collection's features with a HTTP GET operation at path `{root}/collections/{collectionId}/items`. The following additional requirements bind the parameter <<collection-items-get-op-joinid-param, joinId>> to the GET operation on this path. Specifically, this clause defines the `joinId` parameter that can be used for joining data from a join source available on the server with the collection's features. 
+
+==== Request
+
+include::./requirements/data-joining/REQ_collections-collectionid-items-get-op.adoc[]
+
+[[collection-items-get-op-joinid-param]]
+==== Parameter joinId
+
+include::./requirements/data-joining/REQ_collections-collectionid-items-get-op-joinid.adoc[]
+
+==== Response
+
+include::./requirements/data-joining/REQ_collections-collectionid-items-get-success-joinid.adoc[]
+
+==== Error Situations
+See <<http_status_codes,HTTP status codes>> for general guidance.
+
+If the collection identified with the path parameter `collectionId` does not exist on the server, or if the join source identified by the parameter `joinId` does not exist on the server for the specified collection, the status code of the response will be `404`. (see <<http_status_codes,HTTP status codes>>).
 
 [[rc_join_source_delete]]
-== Requirements Class "Join Source Delete"
+== Requirements Class "Collection's Join Source Delete"
 
 === Overview
 include::./requirements/requirements_class_join_source_delete.adoc[]
 
-=== Join Source Delete
+=== Collection Join Source Delete
 
 The HTTP DELETE operation at path `{root}/collections/{collectionId}/joins/{joinId}` deletes the specific join source from the server. 
 
@@ -532,7 +552,7 @@ include::./requirements/join-source-delete/REQ_collections-collectionid-joins-jo
 
 include::./requirements/join-source-delete/REQ_collections-collectionid-joins-joinid-delete-success.adoc[]
 
-===== Response schema for the Join Source Delete
+===== Response schema for the Collection's Join Source Delete
 
 The response of the operation is empty.
 
@@ -542,47 +562,59 @@ See <<http_status_codes,HTTP status codes>> for general guidance.
 If the parameter `joinId` does not exist on the server, the status code of the response will be `404`. (see <<http_status_codes,HTTP status codes>>).
 
 
-[[rc_file_joining]]
-== Requirements Class "File Joining"
+[[rc_direct_joining]]
+== Requirements Class "Direct Joining"
 
 === Overview
-include::./requirements/requirements_class_file_joining.adoc[]
+include::./requirements/requirements_class_direct_joining.adoc[]
 
-[[file_joining]]
-=== File Joining
+[[direct_join]]
+=== Direct Join
 
-The HTTP POST operation at path `{root}/filejoin` joins data from an input data file directly with another input data file.
+The HTTP POST operation at path `{root}/direct-join` joins data from an input data source directly with another input data source without saving the data to the server. The input data sources can be provided as uploaded files, URL addresses, or OGC API sources.
 
-The input data files can be either uploaded to the server with the query, represented by the requirements class "<<rc_file_uploading_with_query, Input File Upload>>" or referenced via URL links, represented by the requirements class "<<rc_file_referencing_with_url, File Referencing with URL>>".
+The input data can be either uploaded to the server with the query, represented by the requirements class "<<rc_file_uploading_with_query, Input File Upload>>" or referenced via URL links, represented by the requirements class "<<rc_file_referencing_with_url, File Referencing with URL>>".
 
-The core module supports data joining from the right dataset to the left dataset. 
+The core module supports data joining from the right dataset to the left dataset.
 
-The core module contains the following format support:
+The server implementations are required to support the CSV format (mime type: `text/csv`) for the right dataset. The CSV file structure is required to have a header row that contains the column names, a column that contains the key values and a separate column for each attribute. The <<csv_file_example_2, CSV File Example 2>> presents an example file where the first row is the header row, the `areacode` column contains the key values and the `areavalue` and `areaname` columns contain attribute values.
 
-* The CSV format for the right dataset, defined in the requirements class "<<rc_input_csv, CSV File Input>>".
-* The GeoJSON format for the left dataset, defined in the requirements class "<<rc_input_geojson, GeoJSON File Input>>".
+[[csv_file_example_2]]
+.CSV File Example 2
+[source, csv]
+----
+include::../csv/csv_example.txt[]
+----
 
-The CSV files must have a column that contains the key values that will be used in the join operation and a separate column for each joined attribute.
+The server implementations can support any other formats for the right dataset. This may require defining additional key-value parameters with the `rightDatasetOptions` request parameter. The supported formats and their parameters are described in the API definition document. The <<right_dataset_options_example_2, rightDatasetOptions Parameter Example 2>> presents an example string for `rightDatasetOptions` parameter for the CSV format.
 
-The joins are executed via common key values that are available in both datasets. If the right dataset contains additional key values that are not available in the left dataset, they will not be included in the joined output. Extension modules may alter this behavior. 
+[[right_dataset_options_example_2]]
+.rightDatasetOptions Parameter Example 2
+----
+include::../rightDatasetOptions/rightDatasetOptions.json[]
+----
 
-The result of the operation is the left dataset that contains also the joined attributes from the right dataset.
+For the OGC API source input, the server implementations are free to choose how they process the input (they can for example read the input by using the paging mechanism).
+
+The server implementations are required to support the GeoJSON format (mime type: `application/geo+json`) for the left dataset. The server implementations can support any other formats for the left dataset. This may require defining additional key-value parameters with the `leftDatasetOptions` request parameter. The supported formats and their parameters are described in the API definition document. The `leftDatasetOptions` parameter structure is similar to <<right_dataset_options_example_2, rightDatasetOptions Parameter Example 2>>.
+
+The joins are executed via common key values that are available in both datasets. The result of the operation is the left dataset that contains also the joined attributes from the right dataset.
 
 ==== Request
 
-include::./requirements/file-joining/REQ_filejoin-post-op.adoc[]
+include::./requirements/direct-joining/REQ_direct-join-post-op.adoc[]
 
-include::./requirements/file-joining/REQ_filejoin-post-op-form-data-parameters.adoc[]
+include::./requirements/direct-joining/REQ_direct-join-post-op-form-data-parameters.adoc[]
 
 ==== Response
 
-include::./requirements/file-joining/REQ_filejoin-post-success.adoc[]
+include::./requirements/direct-joining/REQ_direct-join-post-success.adoc[]
 
-include::./requirements/file-joining/REQ_filejoin-post-success-attribute-data-file-csv-multiple-keys.adoc[]
+include::./requirements/direct-joining/REQ_direct-join-post-success-attribute-data-file-csv-multiple-keys.adoc[]
 
-include::./requirements/file-joining/REQ_filejoin-post-success-attribute-data-file-csv-attribute-names.adoc[]
+include::./requirements/direct-joining/REQ_direct-join-post-success-attribute-data-file-csv-attribute-names.adoc[]
 
-===== Response schema for the File Joining
+===== Response schema for the Direct Join
 
 The response is a GeoJSON file that contains also the joined attributes.
 
@@ -596,20 +628,18 @@ See <<http_status_codes,HTTP status codes>> for general guidance.
 === Overview
 include::./requirements/requirements_class_input_file_upload.adoc[]
 
-=== Join Creation Operation
-The <<join_source_creation,Join Source Creation>> operation of the Data Joining requirement class defines how to save a join source data to a server. The Input File Upload requirements class specifies mechanisms for specifying support for input file uploading to the server.
+=== Collection's Join Source Creation Operation
+The <<join_source_creation,Collection's Join Source Creation>> operation of the Data Joining requirement class defines how to save a join source data to a server. The Input File Upload requirements class specifies mechanisms for defining support for input file uploading to the server.
 
-==== Form Data Parameter `right-dataset-file`
+==== Form Data Parameter `rightDatasetFile`
 include::./requirements/input-file-upload/REQ_right-dataset-file-join-source-creation.adoc[]
 
-=== File Joining Operation
-The <<file_joining,File Joining>> operation of the File Joining requirement class defines how to create a join between two input files. The Input File Upload requirements class specifies mechanisms for specifying support for input file uploading to the server.
 
-==== Form Data Parameter `right-dataset-file`
-include::./requirements/input-file-upload/REQ_right-dataset-file-file-joining.adoc[]
+=== Direct Join Operation
+The <<direct_join,Direct Join>> operation of the Direct Joining requirement class defines how to create a join between two input data sources. The Input File Upload requirements class specifies mechanisms for defining support for input file uploading to the server.
 
-==== Form Data Parameter `left-dataset-file`
-include::./requirements/input-file-upload/REQ_left-dataset-file-file-joining.adoc[]
+==== Form Data Parameters `leftDatasetFile` and `rightDatasetFile`
+include::./requirements/input-file-upload/REQ_left-dataset-file-right-dataset-file-direct-join.adoc[]
 
 
 [[rc_file_referencing_with_url]]
@@ -618,59 +648,73 @@ include::./requirements/input-file-upload/REQ_left-dataset-file-file-joining.ado
 === Overview
 include::./requirements/requirements_class_file_referencing_with_url.adoc[]
 
-=== Join Creation Operation
-The <<join_source_creation,Join Source Creation>> operation of the Data Joining requirement class defines how to save join source data to a server. The File Referencing with URL requirements class specifies mechanisms for specifying support for referencing input files via URL links.
+=== Collections's Join Source Creation Operation
+The <<join_source_creation,Collection's Join Source Creation>> operation of the Data Joining requirement class defines how to save join source data to a server. The File Referencing with URL requirements class specifies mechanisms for specifying support for referencing input data sources via URL links.
 
-==== Form Data Parameter `right-dataset-url`
+==== Form Data Parameter `rightDatasetUrl`
 include::./requirements/input-http-ref/REQ_right-dataset-url-join-source-creation.adoc[]
 
-=== File Joining Operation
-The <<file_joining,File Joining>> operation of the File Joining requirement class defines how to create a join between two input files. The File Referencing with URL requirements class specifies mechanisms for specifying support for referencing input files via URL links.
+=== Direct Join Operation
+The <<direct_join,Direct Join>> operation of the Direct Joining requirement class defines how to create a join between two input data sources. The File Referencing with URL requirements class specifies mechanisms for specifying support for referencing input data sources via URL links.
 
-==== Form Data Parameter `right-dataset-url`
-include::./requirements/input-http-ref/REQ_right-dataset-url-file-joining.adoc[]
+==== Form Data Parameters `leftDatasetUrl` and `rightDatasetUrl`
+include::./requirements/input-http-ref/REQ_left-dataset-url-right-dataset-url-direct-join.adoc[]
 
-==== Form Data Parameter `left-dataset-url`
-include::./requirements/input-http-ref/REQ_left-dataset-url-file-joining.adoc[]
+[[rc_openapi_3_0]]
+== Requirements Class "OpenAPI 3.0"
+
+=== Basic Requirements
+Servers conforming to this requirements class define their API by an https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.4.md#oasDocument[OpenAPI document].
+
+include::./requirements/requirements_class_openapi_3_0.adoc[]
+
+include::./requirements/oas30/REQ_oas30_oas-definition-1.adoc[]
+
+The requirements <<req_core_root-success,/req/core/root-success>> and <<req_core_api-definition-op, /req/core/api-definition-op>> require that the API definition documents are referenced from the landing page.
+
+include::./requirements/oas30/REQ_oas30_oas-definition-2.adoc[]
+
+include::./requirements/oas30/REQ_oas30_oas-impl.adoc[]
+
+=== Complete Definition
+
+include::./requirements/oas30/REQ_oas30_oas-completeness.adoc[]
+
+Note that servers that, for example, are access-controlled (see <<oas_security,Security>>), support web cache validation, CORS or that use HTTP redirection will make use of additional HTTP status codes beyond regular codes such as `200` for successful GET requests and `400`, `404` or `500` for error situations. See <<http_status_codes,HTTP status codes>>.
+
+Clients should be prepared to receive responses not documented in the OpenAPI definition. For example, additional errors may occur in the transport layer outside of the server.
+
+=== Exceptions
+
+include::./requirements/oas30/REQ_oas30_oas-exception-codes.adoc[]
+
+include::./../exception/exceptionExample.adoc[]
 
 
-[[rc_input_csv]]
-== Requirements Class "CSV File Input"
+[[oas_security]]
+=== Security
 
-=== Overview
-include::./requirements/requirements_class_csv_file_input.adoc[]
+OpenAPI uses two constructs to describe the security features of an API; Security Requirements and Security Schemes. Security Requirements are packaged in an array. Only one of the Security Requirements in the array must be met in-order to authorize a request. Security Requirements are associated with one or more Security Schemes. Each Security Scheme describes a security control (ex. HTTP authentication). All of the security schemes associated with a Security Requirement must be satisfied in order for that Security Requirement to be met.
 
-=== Join Creation Operation
-The <<join_source_creation,Join Source Creation>> operation of the Data Joining requirement class defines how to save a Join Source data to a server. The CSV File Input requirements class specifies mechanisms for specifying support for CSV input data format.
+Security Requirements can be defined at the following levels.
 
-==== Parameter `right-dataset-format`
-include::./requirements/input-csv/REQ_right-dataset-format-join-source-creation.adoc[]
+* Root — applicable to the whole API except when overridden by Security Requirements defined at a lower level of the API.
 
-=== File Joining Operation
-The <<file_joining,File Joining>> operation of the File Joining requirement class defines how to create a join between two input files. The CSV File Input requirements class specifies mechanisms for specifying support for CSV input data format.
+* Operation — only applicable to this operation. Overrides any requirements defined at the Root level.
 
-==== Parameter `right-dataset-format`
-include::./requirements/input-csv/REQ_right-dataset-format-file-joining.adoc[]
+The OpenAPI specification currently supports the following https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.4.md#security-scheme-object[security schemes]:
 
+* HTTP authentication,
+* An API key (either as a header or as a query parameter),
+* OAuth2’s common flows (implicit, password, application and access code) as defined in RFC6749, and
+* OpenID Connect Discovery.
 
-[[rc_input_geojson]]
-== Requirements Class "GeoJSON File Input"
-
-=== Overview
-include::./requirements/requirements_class_geojson_file_input.adoc[]
-
-=== File Joining Operation
-The <<file_joining,File Joining>> operation of the File Joining requirement class defines how to create a join between two input files. The GeoJSON File Input requirements class specifies mechanisms for specifying support for GeoJSON input data format.
-
-==== Parameter `left-dataset-format`
-include::./requirements/input-geojson/REQ_left-dataset-format-file-joining.adoc[]
-
+include::./requirements/oas30/REQ_oas30_oas-security.adoc[]
 
 [[rc_encodings]]
 == Encoding Requirements Classes
 [[encodings-overview]]
 === Overview
-
 This clause specifies three requirements classes for encodings to be used by implementations of the OGC API - Joins Standard. 
 
 * <<rc_html, HTML>>
@@ -725,4 +769,6 @@ The support for the GeoJSON format is mandatory.
 === Overview
 include::./requirements/requirements_class_geojson.adoc[]
 
-include::./requirements/geojson/REQ_geojson-file-joining.adoc[]
+include::./requirements/geojson/REQ_geojson-collections-collectionid-items.adoc[]
+
+include::./requirements/geojson/REQ_geojson-direct-join.adoc[]

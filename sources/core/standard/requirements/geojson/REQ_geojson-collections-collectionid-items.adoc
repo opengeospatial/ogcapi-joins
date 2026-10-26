@@ -1,0 +1,8 @@
+[[req_geojson-collections-collectionid-items]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/geojson/geojson-collections-collectionid-items
+part:: The server SHALL support the GeoJSON format for the <<collection-items-op,Collection's Features>> operation response.
+====

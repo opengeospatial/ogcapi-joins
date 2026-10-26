@@ -5,5 +5,6 @@
 ====
 [%metadata]
 identifier:: /req/html/definition
-part:: Every 200-response of an operation of the server SHALL support the media type text/html.
+part:: Every `200`-response of an operation of the server, except the `200`-response of the <<direct_join,Direct Join>> operation, SHALL support the media type `text/html`.
+part:: The <<direct_join,Direct Join>> operation of the server returns the `200`-response in the format requested by the __leftDatasetMimeType__ parameter.
 ====

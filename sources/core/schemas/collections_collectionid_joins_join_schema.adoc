@@ -31,8 +31,10 @@ DetailsObject:
     created:
       type: string
       format: date-time
-    joinFields
+    joinFields:
       type: array
+      items:
+        type: string
     joinKey:
       type: string
     numberOfRows:

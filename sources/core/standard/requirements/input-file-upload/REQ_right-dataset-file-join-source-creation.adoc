@@ -4,5 +4,5 @@
 ====
 [%metadata]
 identifier:: /req/input-file-upload/right-dataset-file-join-source-creation
-part:: If the server supports input file uploading to the server with the <<join_source_creation,Join Source Creation>> query, the Join Source Creation operation SHALL support the form data parameter `right-dataset-file`. 
+part:: If the server supports input file uploading to the server in the <<join_source_creation,Collection's Join Source Creation>> operation, the Collection's Join Source Creation operation SHALL support the form data parameter `rightDatasetFile`. 
 ====

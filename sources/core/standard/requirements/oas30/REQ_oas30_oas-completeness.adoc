@@ -1,0 +1,9 @@
+[[req_oas30_oas-completeness]]
+
+[requirement]
+====
+[%metadata]
+identifier:: /req/oas30/oas-completeness
+part:: The OpenAPI definition SHALL specify for each operation all https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.4.md#http-status-codes[HTTP Status Codes] and https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.4.md#response-object[Response Objects] that the server uses in responses.
+part:: This includes the successful execution of an operation as well as all error situations that originate from the server.
+====

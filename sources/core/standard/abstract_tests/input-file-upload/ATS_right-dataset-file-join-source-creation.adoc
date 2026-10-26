@@ -6,14 +6,14 @@
 identifier:: /conf/input-file-upload/right-dataset-file-join-source-creation
 target:: /req/input-file-upload/right-dataset-file-join-source-creation
 test-purpose:: 
-Validate that the right input data file can be uploaded with the join source creation query to the server.
+Validate that the right dataset file can be uploaded with the Collection's Join Source Creation query to the server.
 test-method::
 +
 --
 Execute the abstract test: <<ats_data_joining_collections-collectionid-joins-post-op, /conf/data-joining/collections-collectionid-joins-post-op>> where:
 
-* The request contains the form data parameter `right-dataset-file` that contains the uploaded file. 
+* The request contains the form data parameter `rightDatasetFile` that contains the uploaded file. 
 
-* The request contains the header `Content-Disposition: form-data; filename=”[right dataset file’s name]”; name=”right-dataset-file`; +
+* The request contains the header `Content-Disposition: form-data; filename=”[right dataset file’s name]”; name=”rightDatasetFile`; +
 --
 ====

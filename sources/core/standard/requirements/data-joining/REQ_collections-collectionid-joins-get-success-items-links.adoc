@@ -4,6 +4,6 @@
 ====
 [%metadata]
 identifier:: /req/data-joining/collections-collectionid-joins-get-success-items-links
-part:: For each item included in the `joins` array in the response, the `links` property of that item SHALL include a link for each supported encoding to the join source resource (relation: `join`).
+part:: For each item included in the `joins` array in the response, the `links` property of that item SHALL include a link for each supported encoding to the join source resource (relation: `http://www.opengis.net/def/rel/ogc/1.0/join-source`).
 part:: All links SHALL include the `rel` and `type` properties.
 ====
