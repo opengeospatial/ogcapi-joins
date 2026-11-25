@@ -5,16 +5,10 @@
 include::../openapi/schemas/collectionDesc.yaml[]
 ----
 
-.format.yaml
+.collectionProperties Schema
 [source, YAML]
 ----
-include::../openapi/schemas/format.yaml[]
-----
-
-.theme.yaml
-[source, YAML]
-----
-include::../openapi/schemas/theme.yaml[]
+include::../openapi/schemas/collectionProperties.yaml[]
 ----
 
 .contact.yaml
@@ -27,6 +21,18 @@ include::../openapi/schemas/contact.yaml[]
 [source, YAML]
 ----
 include::../openapi/schemas/roles.yaml[]
+----
+
+.format.yaml
+[source, YAML]
+----
+include::../openapi/schemas/format.yaml[]
+----
+
+.theme.yaml
+[source, YAML]
+----
+include::../openapi/schemas/theme.yaml[]
 ----
 
 .language.yaml
@@ -47,6 +53,12 @@ include::../openapi/schemas/dataType.yaml[]
 include::../openapi/schemas/extent.yaml[]
 ----
 
+.spatialExtent.yaml
+[source, YAML]
+----
+include::../openapi/schemas/spatialExtent.yaml[]
+----
+
 .grid.yaml
 [source, YAML]
 ----
@@ -63,4 +75,16 @@ include::../openapi/schemas/regularGrid.yaml[]
 [source, YAML]
 ----
 include::../openapi/schemas/irregularGrid.yaml[]
+----
+
+.temporalExtent.yaml
+[source, YAML]
+----
+include::../openapi/schemas/temporalExtent.yaml[]
+----
+
+.additionalDimensionExtent.yaml
+[source, YAML]
+----
+include::../openapi/schemas/additionalDimensionExtent.yaml[]
 ----

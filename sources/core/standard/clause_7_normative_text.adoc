@@ -167,11 +167,11 @@ Additional information may be available to assist in understanding and using thi
 
 include::./requirements/data-joining/REC_collections-get-success-describedby.adoc[]
 
-The `collections` property of the Collections response provides a description of each individual collection distributed by the Web API deployment. These descriptions are based on the <<collections_collectionid_schema, Collection Schema>>.
+The `collections` property of the Collections response provides a description of each individual collection distributed by the Web API deployment. These descriptions are based on the https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc.yaml[collectionDesc.yaml] schema.
 
 include::./requirements/data-joining/REQ_collections-get-success-items.adoc[]
 
-The array items included in the collection property are described in the <<collection-op,Collection Resource>> section of this Requirements Class.
+The array items included in the `collection` property are described in the <<collection-op,Collection>> section of this Requirements Class.
 
 This Requirements Class does not define any parameters for use against a collections resource.
 
@@ -196,18 +196,28 @@ include::./requirements/data-joining/REQ_collections-collectionid-get-success.ad
 
 [[response_schema_for_the_collection]]
 ===== Response Schema for the Collection
-The Collection response is based on the https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc.yaml[collectionDesc Schema] (from <<OGC20-024,OGC API - Common - Part 2>>).
+The Collection response is based on the https://github.com/opengeospatial/ogcapi-common/blob/master/collections/openapi/schemas/common-geodata/collectionDesc.yaml[collectionDesc.yaml] schema (from <<OGC20-024,OGC API - Common - Part 2>>).
 
-include::./../schemas/collections_collectionid_schema.adoc[]
+Most of the properties of the Collection response are self-explanatory. However, a few properties require additional explanation.
+
+//include::./../schemas/collections_collectionid_schema.adoc[]
 
 [[req_core_collections-collectionid-resource-definition]]
 
 ====== Extent
 include::./requirements/data-joining/REQ_collections-collectionid-get-success-extent.adoc[]
 
-include::./requirements/data-joining/REC_collections-collectionid-get-success-extent.adoc[]
+include::./requirements/data-joining/REQ_collections-collectionid-get-success-extent-multi.adoc[]
+
+NOTE: As a consequence, the first bounding box is a union of all subsequent bounding boxes, and the first temporal interval is a union of all subsequent temporal intervals.
 
 include::./requirements/data-joining/REC_collections-collectionid-get-success-extent-single.adoc[]
+
+include::./requirements/data-joining/PER_collections-collectionid-get-success-extent-extensions.adoc[]
+
+include::./requirements/data-joining/REC_collections-collectionid-get-success-extent-storage-crs-bbox.adoc[]
+
+include::./requirements/data-joining/PER_collections-collectionid-get-success-reference-systems.adoc[]
 
 ====== Item Type
 
@@ -248,9 +258,13 @@ include::../schemas/collections_collectionid_keys_schema.adoc[]
 
 [[req_core_collections-collectionid-keys-resource-definition]]
 
+====== exampleKeyValue
+
+Example key value of the key field.
+
 ====== isDefault
 
-`isDefault` property contains information on the Collection's default key field to be used in the data joins. Value `true` indicates the default key field. 
+`isDefault` property contains information on the Collection's default key field to be used in the data joins. Value `true` indicates the default key field.
 
 include::./requirements/data-joining/REQ_collections-collectionid-keys-get-success-default-key.adoc[]
 
@@ -264,14 +278,14 @@ Identifier of the key field.
 
 ====== type
 
-Type of the key field.
+Data type of the key field.
 
 ====== links
 
 To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks.
 
 [[req_core_collections-collectionid-keys-key-values-link]]
-Description of the `links` property of the `CollectionKeysResponseObject`:
+Description of the `links` property of the `collectionKeys.yaml`:
 
 include::./requirements/data-joining/REQ_collections-collectionid-keys-get-success-links.adoc[]
 
@@ -363,11 +377,11 @@ include::./requirements/data-joining/REQ_collections-collectionid-joins-get-succ
 
 To support hypermedia navigation, the `links` property must be populated with sufficient hyperlinks to navigate through the join sources.
 
-Property `links` in the `CollectionJoinsResponseObject`:
+Property `links` in the `collectionJoins.yaml`:
 
 include::./requirements/data-joining/REQ_collections-collectionid-joins-get-success-links.adoc[]
 
-Property `links` in the `JoinsObject`:
+Property `links` in the `joinsObject.yaml`:
 
 include::./requirements/data-joining/REQ_collections-collectionid-joins-get-success-items-links.adoc[]
 
@@ -389,13 +403,13 @@ The number of join sources returned in the response.
 
 ====== timeStamp
 
-Property `timeStamp` in the `CollectionJoinsResponseObject`:
+Property `timeStamp` in the `collectionJoins.yaml`:
 
 include::./requirements/data-joining/REQ_collections-collectionid-joins-get-success-timeStamp.adoc[]
 
-Property `timeStamp` in the `JoinsObject`:
+Property `timeStamp` in the `joinsObject.yaml`:
 
-The time when the join source was generated.
+Time when the join source was generated.
 
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
@@ -405,7 +419,7 @@ See <<http_status_codes,HTTP status codes>> for general guidance.
 
 The HTTP POST operation at path `{root}/collections/{collectionId}/joins` creates a new join source on the server under a specific collection. The operation reads data from an input data source (uploaded file, URL address, or OGC API source) and saves it to the server as a join source.
 
-The input data can be either uploaded to the server with the query, represented by the requirements class "<<rc_file_uploading_with_query, Input File Upload>>" or referenced via a URL link, represented by the requirements class "<<rc_file_referencing_with_url, File Referencing with URL>>".
+The input data can be either uploaded to the server with the query, represented by the requirements class "<<rc_file_uploading_with_query, Input File Upload>>" or referenced via a URL link, represented by the requirements class "<<rc_input_data_source_referencing_with_url, Input Data Source Referencing with URL>>".
 
 The server implementations are required to support the CSV format (mime type: `text/csv`) for the right dataset. The CSV file structure is required to have a header row that contains the column names, a column that contains the key values and a separate column for each attribute. The <<csv_file_example_1, CSV File Example 1>> presents an example file where the first row is the header row, the `areacode` column contains the key values and the `areavalue` and `areaname` columns contain attribute values.
 
@@ -440,7 +454,7 @@ include::./requirements/data-joining/REQ_collections-collectionid-joins-post-suc
 
 ===== Response schema for the Join Source Creation
 
-The response schema for queries that create a join source is expressed with the <<collections_collectionid_join_joinid_schema,Join Source Schema>>.
+The response schema for queries that create a join source is expressed with the <<collections_collectionid_joins_joinid_schema,Join Source Schema>>.
 
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
@@ -460,7 +474,7 @@ include::./requirements/data-joining/REQ_collections-collectionid-joins-joinid-g
 
 ===== Response Schema for the Join Source
 
-include::./../schemas/collections_collectionid_joins_join_schema.adoc[]
+include::./../schemas/collections_collectionid_joins_joinid_schema.adoc[]
 
 [[req_core_collections-collectionid-joins-joinid-resource-definition]]
 
@@ -474,7 +488,7 @@ Key of the collection whose values match to the joinKey values.
 
 ====== created
 
-The time when the join source was created.
+Time when the join source was created.
 
 ====== joinFields
 
@@ -488,9 +502,9 @@ Name of the join source property that contains the key values that match to the 
 
 The number of rows in the join source.
 
-====== sourceFile
+====== inputSource
 
-Name of the input data file.
+Name of the input data file or URL of the input data source.
 
 ====== id
 
@@ -504,7 +518,7 @@ include::./requirements/data-joining/REQ_collections-collectionid-joins-joinid-g
 
 ====== timeStamp
 
-The time when the join souce response was generated.
+Time when the join source response was generated.
 
 ==== Error Situations
 See <<http_status_codes,HTTP status codes>> for general guidance.
@@ -573,7 +587,7 @@ include::./requirements/requirements_class_direct_joining.adoc[]
 
 The HTTP POST operation at path `{root}/direct-join` joins data from an input data source directly with another input data source without saving the data to the server. The input data sources can be provided as uploaded files, URL addresses, or OGC API sources.
 
-The input data can be either uploaded to the server with the query, represented by the requirements class "<<rc_file_uploading_with_query, Input File Upload>>" or referenced via URL links, represented by the requirements class "<<rc_file_referencing_with_url, File Referencing with URL>>".
+The input data can be either uploaded to the server with the query, represented by the requirements class "<<rc_file_uploading_with_query, Input File Upload>>" or referenced via URL links, represented by the requirements class "<<rc_input_data_source_referencing_with_url, Input Data Source Referencing with URL>>".
 
 The core module supports data joining from the right dataset to the left dataset.
 
@@ -642,20 +656,20 @@ The <<direct_join,Direct Join>> operation of the Direct Joining requirement clas
 include::./requirements/input-file-upload/REQ_left-dataset-file-right-dataset-file-direct-join.adoc[]
 
 
-[[rc_file_referencing_with_url]]
-== Requirements Class "File Referencing with URL"
+[[rc_input_data_source_referencing_with_url]]
+== Requirements Class "Input Data Source Referencing with URL"
 
 === Overview
-include::./requirements/requirements_class_file_referencing_with_url.adoc[]
+include::./requirements/requirements_class_input_data_source_referencing_with_url.adoc[]
 
 === Collections's Join Source Creation Operation
-The <<join_source_creation,Collection's Join Source Creation>> operation of the Data Joining requirement class defines how to save join source data to a server. The File Referencing with URL requirements class specifies mechanisms for specifying support for referencing input data sources via URL links.
+The <<join_source_creation,Collection's Join Source Creation>> operation of the Data Joining requirement class defines how to save join source data to a server. The Input Data Source Referencing with URL requirements class specifies mechanisms for indicating support for input data source referencing via URL links.
 
 ==== Form Data Parameter `rightDatasetUrl`
 include::./requirements/input-http-ref/REQ_right-dataset-url-join-source-creation.adoc[]
 
 === Direct Join Operation
-The <<direct_join,Direct Join>> operation of the Direct Joining requirement class defines how to create a join between two input data sources. The File Referencing with URL requirements class specifies mechanisms for specifying support for referencing input data sources via URL links.
+The <<direct_join,Direct Join>> operation of the Direct Joining requirement class defines how to create a join between two input data sources. The Input Data Source Referencing with URL requirements class specifies mechanisms for indicating support for input data source referencing via URL links.
 
 ==== Form Data Parameters `leftDatasetUrl` and `rightDatasetUrl`
 include::./requirements/input-http-ref/REQ_left-dataset-url-right-dataset-url-direct-join.adoc[]

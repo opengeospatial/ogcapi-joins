@@ -4,6 +4,5 @@
 ====
 [%metadata]
 identifier:: /req/data-joining/collections-collectionid-get-op
-part:: If the server implements __data joining operations__, it SHALL support the HTTP GET operation at path `{root}/collections/{collectionId}`.
-part:: The parameter `collectionId` can be any value of the `id` property in the `/collections` response (JSONPath: `$.collections[*].id` in `/collections`).
+part:: If the server implements __data joining operations__, it SHALL support the HTTP GET operation at the path `{root}/collections/{collectionId}` where the parameter `collectionId` can be any value of the `id` property in the response to the list of collections (JSONPath: `$.collections[*].id` in `/collections`).
 ====

@@ -58,6 +58,7 @@ abstract-test:: /conf/data-joining/collections-get-success-items
 abstract-test:: /conf/data-joining/collections-collectionid-get-op
 abstract-test:: /conf/data-joining/collections-collectionid-get-success
 abstract-test:: /conf/data-joining/collections-collectionid-get-success-extent
+abstract-test:: /conf/data-joining/collections-collectionid-get-success-extent-multi
 abstract-test:: /conf/data-joining/collections-collectionid-get-success-links
 abstract-test:: /conf/data-joining/collections-collectionid-keys-get-op
 abstract-test:: /conf/data-joining/collections-collectionid-keys-get-success
@@ -100,6 +101,8 @@ include::abstract_tests/data-joining/ATS_collections-collectionid-get-op.adoc[]
 include::abstract_tests/data-joining/ATS_collections-collectionid-get-success.adoc[]
 
 include::abstract_tests/data-joining/ATS_collections-collectionid-get-success-extent.adoc[]
+
+include::abstract_tests/data-joining/ATS_collections-collectionid-get-success-extent-multi.adoc[]
 
 include::abstract_tests/data-joining/ATS_collections-collectionid-get-success-links.adoc[]
 
@@ -215,7 +218,7 @@ include::abstract_tests/input-file-upload/ATS_left-dataset-file-right-dataset-fi
 
 
 [[ats_input_http_ref]]
-===  Conformance Class "File Referencing with URL"
+===  Conformance Class "Input Data Source Referencing with URL"
 [conformance_class]
 ====
 [%metadata]

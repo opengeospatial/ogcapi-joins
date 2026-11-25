@@ -1,0 +1,18 @@
+[[ats_data_joining_collections-collectionid-get-success-extent-multi]]
+
+[abstract_test]
+====
+[%metadata]
+identifier:: /conf/data-joining/collections-collectionid-get-success-extent-multi
+target:: /req/data-joining/collections-collectionid-get-success-extent-multi
+test-purpose:: Validate the consistency of multi-elements extents property if applicable.
+test-method::
++
+--
+IF the extent property is present, THEN:
+
+. Verify that for `spatial` properties having more than a single bounding box, all bounding boxes are included within the first bounding box.
+
+. Verify that for `temporal` properties having more than a single interval, all intervals are within the first interval. NOTE: A temporal extent of `null` indicates a half-bounded or unbounded time interval.
+--
+====

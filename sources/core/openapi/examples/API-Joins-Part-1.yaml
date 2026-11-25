@@ -1,7 +1,7 @@
 openapi: 3.0.1
 info:
-  title: 'Example for OGC API - Joins - Part 1: Core service'
-  description: 'This is an example for OGC API - Joins - Part 1: Core draft specification service'
+  title: 'Example of an OGC API - Joins - Part 1: Core service'
+  description: 'Example of an OGC API - Joins - Part 1: Core service'
   contact:
     name: Pekka Latvala
     email: pekka.latvala@nls.fi
@@ -33,12 +33,11 @@ paths:
   /conformance:
     get:
       summary: Declaration of conformance classes of OGC API - Joins implementation
-      description: 'Conformance classes of OGC API - Joins implementation. The response
-        conforms  OGC API - Common - Part 1: Core.'
+      description: 'Conformance classes of OGC API - Joins implementation.'
       operationId: conformance
       responses:
         200:
-          description: List of the conformance lasses that the API conforms to.
+          description: List of the conformance classes that the API conforms to.
           content:
             application/json:
               schema:
@@ -57,7 +56,7 @@ paths:
       parameters:
       - name: bbox
         in: query
-        description: Filtes collections by bbox
+        description: Filter collections by bbox
         required: false
         schema:
           type: array
@@ -131,7 +130,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/CollectionObject'
+                $ref: '#/components/schemas/CollectionResponseObject'
         400:
           description: Bad request
           content:
@@ -152,8 +151,8 @@ paths:
                 $ref: '#/components/schemas/ExceptionObject'
   /collections/{collectionId}/keys:
     get:
-      summary: Get key fields of specific collection
-      description: Get key fields of specific collection
+      summary: Get key fields of a specific collection
+      description: Get key fields of a specific collection
       operationId: getCollectionKeys
       parameters:
       - name: collectionId
@@ -175,7 +174,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExceptionObject'
         404:
-          description: Spatial dataset keys not found
+          description: Collection key fields not found
           content:
             application/json:
               schema:
@@ -188,10 +187,15 @@ paths:
                 $ref: '#/components/schemas/ExceptionObject'
   /collections/{collectionId}/joins:
     get:
-      summary: Get list of all available join source that are related to a specific collection.
+      summary: Get list of all available join sources that are related to a specific collection.
       description: Get list of all available join sources that are related to a specific collection.
       operationId: getAllJoinSourcesOfACollectoin
       parameters:
+      - name: collectionId
+        in: path
+        required: true
+        schema:
+          type: string
       - name: limit
         in: query
         description: Limit the amount of returned results
@@ -205,7 +209,7 @@ paths:
         explode: false
       - name: datetime
         in: query
-        description: Filter collections by datetime
+        description: Filter join sources by datetime
         required: false
         schema:
           type: string
@@ -213,7 +217,7 @@ paths:
         explode: false
       responses:
         200:
-          description: A list of available joins
+          description: A list of available join sources
           content:
             application/json:
               schema:
@@ -225,7 +229,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExceptionObject'
         404:
-          description: Joins not found
+          description: Collection join sources not found
           content:
             application/json:
               schema:
@@ -240,6 +244,12 @@ paths:
       summary: Create a new join source that is related to a specific collection.
       description: Creates a new join source that is related to a specific collection from an uploaded input file or input url.
       operationId: createAJoinSource
+      parameters:
+      - name: collectionId
+        in: path
+        required: true
+        schema:
+          type: string
       requestBody:
         content:
           multipart/form-data:
@@ -248,8 +258,8 @@ paths:
               properties:
                 collectionKey:
                   type: string
-                  required: true
-                  description: The value of the `id` attribute of the `key` field of the collection that will be used in the join operation.
+                  required: false
+                  description: The value of the `id` attribute of an object in the `keys` array the Collection’s Key Fields response of this collection. The collectionKey value will be used as a join key in the data joining.
                 rightDatasetResourceType:
                   type: string
                   required: true
@@ -279,11 +289,11 @@ paths:
                 rightDatasetJoinFields:
                   type: string
                   required: false
-                  description: The fields in the right dataset that will be saved to the join source.
+                  description: The fields in the right dataset that will be saved to the join source. If omitted, all fields will be saved to the join source.
                 rightDatasetOptions:
                   type: string
                   required: true
-                  description: File format-specific key-value parameter options for the right dataset. The parameters are given as a JSON object that contains key-value pairs. For the rightDatasetMimeType parameter value `text/csv`, the mandatory key is `delimiter` that indicates the csv file's delimiter character. In addition, recommended keys are  `headerRow`, that indicates the row number of the csv file's header row (if omitted, header row is expected to be at the first row of the CSV file) and `dataStartRow` that indictes the row number where the data values start (if omitted, data start row is expected to be at the second row of the CSV file).
+                  description: File format-specific key-value parameter options for the right dataset. The parameters are given as a JSON object that contains key-value pairs. For the rightDatasetMimeType parameter value `text/csv`, the mandatory key is `delimiter` that indicates the csv file's delimiter character. In addition, recommended keys are `headerRow`, that indicates the row number of the csv file's header row (if omitted, header row is expected to be at the first row of the CSV file) and `dataStartRow` that indictes the row number where the data values start (if omitted, data start row is expected to be at the second row of the CSV file).
                   example: {"delimiter":";","headerRow":1,"dataStartRow":2}
       responses:
         201:
@@ -299,7 +309,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExceptionObject'
         404:
-          description: Spatial dataset not found
+          description: Collection not found
           content:
             application/json:
               schema:
@@ -316,6 +326,11 @@ paths:
       description: Get metadata of a specific join source
       operationId: getJoinSource
       parameters:
+      - name: collectionId
+        in: path
+        required: true
+        schema:
+          type: string
       - name: joinId
         in: path
         required: true
@@ -351,6 +366,11 @@ paths:
       description: Deletes a specific join source
       operationId: deleteJoinSource
       parameters:
+      - name: collectionId
+        in: path
+        required: true
+        schema:
+          type: string
       - name: joinId
         in: path
         required: true
@@ -379,13 +399,18 @@ paths:
                 $ref: '#/components/schemas/ExceptionObject'
   /collections/{collectionId}/items:
     get:
-      summary: Get items of a collection and optionally join values into them from a join source
-      description: Get items of a collection and optionally join values into them from a join source
+      summary: Get items of a collection and optionally join data values into them from a join source
+      description: Get items of a collection and optionally join data values into them from a join source
       operationId: getItems
       parameters:
+      - name: collectionId
+        in: path
+        required: true
+        schema:
+          type: string
       - name: joinId
         in: query
-        description: Joins values from a specified join source with the collection's items
+        description: Joins data values from a specified join source with the collection's items
         required: false
         schema:
           type: string
@@ -451,10 +476,11 @@ paths:
                   type: string
                   required: true
                   description: The key field in the left dataset that contains the key values that will be used in the join operation. For GeoJSON format, the value of the leftDatasetKey parameter is the JSONPath string to the field that contains the key values.
-                lefttDatasetOptions:
+                leftDatasetOptions:
                   type: string
                   required: false
                   description: File format-specific key-value parameter options for the left dataset. The parameters are given as a JSON object that contains key-value pairs.
+                  example: {"option1":"value1", "option2":"value2"}
                 rightDatasetResourceType:
                   type: string
                   required: true
@@ -484,11 +510,11 @@ paths:
                 rightDatasetJoinFields:
                   type: string
                   required: false
-                  description: The fields in the right dataset that will be saved to the join source.
+                  description: The fields in the right dataset that will be will be joined to the left dataset. If omitted, all fields will be joined to the right dataset.
                 rightDatasetOptions:
                   type: string
                   required: true
-                  description: File format-specific key-value parameter options for the right dataset. The parameters are given as a JSON object that contains key-value pairs. For the rightDatasetMimeType parameter value `text/csv`, the mandatory key is `delimiter` that indicates the csv file's delimiter character. In addition, recommended keys are  `headerRow`, that indicates the row number of the csv file's header row (if omitted, header row is expected to be at the first row of the CSV file) and `dataStartRow` that indictes the row number where the data values start (if omitted, data start row is expected to be at the second row of the CSV file).
+                  description: File format-specific key-value parameter options for the right dataset. The parameters are given as a JSON object that contains key-value pairs. For the rightDatasetMimeType parameter value `text/csv`, the mandatory key is `delimiter` that indicates the csv file's delimiter character. In addition, recommended keys are `headerRow`, that indicates the row number of the csv file's header row (if omitted, header row is expected to be at the first row of the CSV file) and `dataStartRow` that indictes the row number where the data values start (if omitted, data start row is expected to be at the second row of the CSV file).
                   example: {"delimiter":";","headerRow":1,"dataStartRow":2}
       responses:
         200:
@@ -509,837 +535,55 @@ paths:
                 $ref: '#/components/schemas/ExceptionObject'
 components:
   schemas:
-    CollectionObject:
+    LandingPageResponseObject:
       required:
-        - id
-        - links
+      - links
       type: object
       properties:
-        id:
-          type: string
-          description: identifier of the collection used, for example, in URIs
-          example: dem
         title:
           type: string
-          description: human readable title of the collection
-          example: Digital Elevation Model
+          title: The title of the API.
+          description: While a title is not required, implementers are strongly advised to include one.
+          example: Buildings in Bonn
         description:
           type: string
-          description: a description of the data in the collection
-          example: A Digital Elevation Model.
+          example: Access to data about buildings in the city of Bonn via a Web API that conforms to the OGC API Common specification.
         attribution:
           type: string
-          title: attribution for the collection
-        accessConstraints:
-          description: |-
-            Restrictions on the availability of the collection that the user needs to be aware of before using or redistributing the data:
-
-            * unclassified: Available for general disclosure
-            * restricted: Not for general disclosure
-            * confidential: Available for someone who can be entrusted with information
-            * secret: Kept or meant to be kept private, unknown, or hidden from all but a select group of people
-            * topSecret: Of the highest secrecy
-          enum:
-          - unclassified
-          - restricted
-          - confidential
-          - secret
-          - topSecret
-        publisher:
-          type: string
-          description: Organization or individual responsible for making the data available
-        license:
-          type: string
-          description: The legal provisions under which the data ofthis collection is made available.
-        rights:
-          type: string
-          description: A statement that concerns all rights not addressed by the license such as a copyright statement.
-        formats:
-          description: A list of formats in which the data of this collection is distributed
-          type: array
-          items:
-            $ref: '#/components/schemas/FormatObject'
-        keywords:
-          type: array
-          description: The topic or topics of the resource. Typically represented using free-form keywords, tags, key phrases, or classification codes.
-          items:
-            type: string
-        themes:
-          type: array
-          description:
-            A knowledge organization system used to classify the resource.
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/ThemeObject'
-        contacts:
-          type: array
-          description:
-            A list of contacts qualified by their role(s) in association to the collection.
-          minItems: 1
-          items:
-            $ref: '#/components/schemas/ContactObject'
-        resourceLanguages:
-          type: array
-          description: The list of languages in which the data of this collection is available.
-          items:
-            $ref: '#/components/schemas/LanguageObject'
-        links:
-          type: array
-          example:
-            - href: http://data.example.org/collections/dem?f=json
-              rel: self
-              type: application/json
-              title: Digital Elevation Model
-          items:
-            $ref: '#/components/schemas/Link'
-        itemType:
-          description: indicator about the type of the items in the collection if the collection has an accessible /collections/{collectionId}/items endpoint
-          type: string
-          default: feature
-        crs:
-          description: the list of coordinate reference systems supported by the API; the first item is the default coordinate reference system
-          type: array
-          items:
-            type: string
-            default:
-            - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-            example:
-            - http://www.opengis.net/def/crs/OGC/1.3/CRS84
-            - http://www.opengis.net/def/crs/EPSG/0/4326
-        storageCrs:
-          description: the native coordinate reference system (i.e., the most efficient CRS in which to request the data, possibly how the data is stored on the server); this is the default output coordinate reference system for Maps and Coverages
-          type: string
-          default: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-          example: http://www.opengis.net/def/crs/OGC/1.3/CRS84
-        epoch:
-          description: Epoch of the native (storage) Coordinate Reference System (CRS)
-          type: number
-          example: 2021.33
-        dataType:
-          allOf:
-          - description: Type of data represented in the collection
-          - $ref: '#/components/schemas/DataTypeObject'
-        geoDataClasses:
-          description: URIs identifying a class of data contained in the geospatial data (useful for example to determine compatibility with styles or processes)
-          type: array
-          items:
-            type: string
-            format: uri
-        geometryDimension:
-          description: 'The geometry dimension of the features shown in this layer (0: points, 1: curves, 2: surfaces, 3: solids), unspecified: mixed or unknown'
-          type: integer
-          minimum: 0
-          maximum: 3
-        minScaleDenominator:
-          description: Minimum scale denominator for usage of the collection
-          type: number
-        maxScaleDenominator:
-          description: Maximum scale denominator for usage of the collection
-          type: number
-        minCellSize:
-          description: Minimum cell size for usage of the collection
-          type: number
-        maxCellSize:
-          description: Maximum cell size for usage of the collection
-          type: number
-        created:
-          description: Timestamp indicating when the collection was first produced
-          type: string
-          format: date-time
-        updated:
-          description: Timestamp of the last change/revision to the collection
-          type: string
-          format: date-time
-        extent:
-          $ref: '#/components/schemas/ExtentObject'
-    FormatObject:
-      type: object
-      anyOf:
-      - required:
-        - name
-      - required:
-        - mediaType
-      properties:
-        name:
-          type: string
-        mediaType:
-          type: string
-    ThemeObject:
-      type: object
-      required:
-        - concepts
-        - scheme
-      properties:
-        concepts:
-          type: array
-          description:
-            One or more entity/concept identifiers from this knowledge
-            system. it is recommended that a resolvable URI be used for
-            each entity/concept identifier.
-          minItems: 1
-          items:
-            type: object
-            required:
-              - id
-            properties:
-              id:
-                type: string
-                description: An identifier for the concept.
-              title:
-                type: string
-                description: A human readable title for the concept.
-              description:
-                type: string
-                description: A human readable description for the concept.
-              url:
-                type: string
-                format: uri
-                description: A URI providing further description of the concept.
-        scheme:
-          type: string
-          description:
-            An identifier for the knowledge organization system used
-            to classify the resource.  It is recommended that the
-            identifier be a resolvable URI.  The list of schemes used
-            in a searchable catalog can be determined by inspecting
-            the server's OpenAPI document or, if the server implements
-            CQL2, by exposing a queryable (e.g. named `scheme`) and
-            enumerating the list of schemes in the queryable's schema
-            definition.
-    ContactObject:
-      type: object
-      description: |-
-        Identification of, and means of communication with, person responsible
-        for the resource.
-      anyOf:
-        - required:
-          - name
-        - required:
-          - organization
-      properties:
-        identifier:
-          type: string
-          description: |-
-            A value uniquely identifying a contact.
-        name:
-          type: string
-          description: |-
-            The name of the responsible person.
-        position:
-          type: string
-          description:
-            The name of the role or position of the responsible person taken
-            from the organization's formal organizational hierarchy or chart.
-        organization:
-          type: string
-          description:
-            Organization/affiliation of the contact.
-        logo:
-          description:
-            Graphic identifying a contact. The link relation should be `icon`
-            and the media type should be an image media type.
-          allOf:
-            - $ref: '#/components/schemas/Link'
-            - type: object
-              required:
-                - rel
-                - type
-              properties:
-                rel:
-                  enum:
-                    - icon
-        phones:
-          type: array
-          description: Telephone numbers at which contact can be made.
-          items:
-            type: object
-            required:
-              - value
-            properties:
-              value:
-                type: string
-                description: The value is the phone number itself.
-                pattern: "^\\+[1-9]{1}[0-9]{3,14}$"
-                example: "+14165550142"
-              roles:
-                description:
-                  The type of phone number (e.g. home, work, fax, etc.).
-                $ref: '#/components/schemas/RolesObject'
-        emails:
-          type: array
-          description: Email addresses at which contact can be made.
-          items:
-            type: object
-            required:
-              - value
-            properties:
-              value:
-                type: string
-                description: The value is the email number itself.
-                format: email
-              roles:
-                description:
-                  The type of email (e.g. home, work, etc.).
-                $ref: '#/components/schemas/RolesObject'
-        addresses:
-          type: array
-          description: Physical location at which contact can be made.
-          items:
-            type: object
-            properties:
-              deliveryPoint:
-                type: array
-                description: Address lines for the location.
-                items:
-                  type: string
-              city:
-                type: string
-                description: City for the location.
-              administrativeArea:
-                type: string
-                description: State or province of the location.
-              postalCode:
-                type: string
-                description: ZIP or other postal code.
-              country:
-                type: string
-                description: Country of the physical address.  ISO 3166-1 is recommended.
-              roles:
-                description:
-                  The type of address (e.g. office, home, etc.).
-                $ref: '#/components/schemas/RolesObject'
-        links:
-          type: array
-          description: On-line information about the contact.
-          items:
-            allOf:
-              - $ref: '#/components/schemas/Link'
-              - type: object
-          required:
-            - type
-        hoursOfService:
-          type: string
-          description: Time period when the contact can be contacted.
-          example: "Hours: Mo-Fr 10am-7pm Sa 10am-22pm Su 10am-21pm"
-        contactInstructions:
-          type: string
-          description: |-
-            Supplemental instructions on how or when to contact the
-            responsible party.
-        roles:
-          description:
-            The set of named duties, job functions and/or permissions
-            associated with this contact.
-            (e.g. developer, administrator, etc.).
-          $ref: '#/components/schemas/RolesObject'
-    RolesObject:
-      description:
-        The list of duties, job functions or permissions assigned by the system
-        and associated with the context of this member.
-      type: array
-      minItems: 1
-      items:
-        type: string
-    LanguageObject:
-      type: object
-      description:
-        The language used for textual values in this record.
-      required:
-        - code
-      properties:
-        code:
-          type: string
-          description:
-            The language tag as per RFC-5646.
-          example: el
-        name:
-          type: string
-          minLength: 1
-          description:
-            The untranslated name of of the language.
-          example: Ελληνικά
-        alternate:
-          type: string
-          description:
-            The name of the language in another well-understood language,
-            usually English.
-          example: Greek
-        dir:
-          type: string
-          description:
-            The direction for text in this language. The default, `ltr`
-            (left-to-right), represents the most common situation.
-            However, care should be taken to set the value of `dir`
-            appropriately if the language direction is not `ltr`.
-            Other values supported are `rtl` (right-to-left), `ttb`
-            (top-to-bottom), and `btt` (bottom-to-top).
-          enum:
-            - ltr
-            - rtl
-            - ttb
-            - btt
-          default:
-            ltr
-    DataTypeObject:
-      anyOf:
-        - type: string
-        - type: string
-          enum:
-          - map
-          - vector
-          - coverage
-    ExtentObject:
-      title: Extent with (optional) Uniform Additional Dimensions Schema
-      description: |-
-        This extent schema includes optional additional dimensions, but will still validate for
-        objects not conforming to UAD.
-      allOf:
-        - type: object
-          description: |-
-            The extent of the data in the collection. In the Core only spatial and temporal
-            extents are specified. Extensions may add additional members to represent other
-            extents, for example, thermal or pressure ranges.
-
-            The first item in the array describes the overall extent of
-            the data. All subsequent items describe more precise extents,
-            e.g., to identify clusters of data.
-            Clients only interested in the overall extent will only need to
-            access the first item in each array.
-          properties:
-            spatial:
-              description: The spatial extent of the data in the collection.
-              type: object
-              properties:
-                bbox:
-                  description: |-
-                    One or more bounding boxes that describe the spatial extent of the dataset.
-
-                    The first bounding box describes the overall spatial
-                    extent of the data. All subsequent bounding boxes describe
-                    more precise bounding boxes, e.g., to identify clusters of data.
-                    Clients only interested in the overall spatial extent will
-                    only need to access the first item in each array.
-                  type: array
-                  minItems: 1
-                  items:
-                    description: |-
-                      Each bounding box is provided as four or six numbers, depending on
-                      whether the coordinate reference system includes a vertical axis
-                      (height or depth):
-
-                      * Lower left corner, coordinate axis 1
-                      * Lower left corner, coordinate axis 2
-                      * Minimum value, coordinate axis 3 (optional)
-                      * Upper right corner, coordinate axis 1
-                      * Upper right corner, coordinate axis 2
-                      * Maximum value, coordinate axis 3 (optional)
-
-                      If the value consists of four numbers, the coordinate reference system is
-                      WGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)
-                      unless a different coordinate reference system is specified in `crs` property.
-
-                      If the value consists of six numbers, the coordinate reference system is WGS 84
-                      longitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h)
-                      unless a different coordinate reference system is specified in `crs` property.
-
-                      For WGS 84 longitude/latitude the values are in most cases the sequence of
-                      minimum longitude, minimum latitude, maximum longitude and maximum latitude.
-                      However, in cases where the box spans the antimeridian the first value
-                      (west-most box edge) is larger than the third value (east-most box edge).
-
-                      If the vertical axis is included, the third and the sixth number are
-                      the bottom and the top of the 3-dimensional bounding box.
-
-                      If a feature has multiple spatial geometry properties, it is the decision of the
-                      server whether only a single spatial geometry property is used to determine
-                      the extent or all relevant geometries.
-                    type: array
-                    oneOf:
-                    - minItems: 4
-                      maxItems: 4
-                    - minItems: 6
-                      maxItems: 6
-                    items:
-                      type: number
-                    example:
-                      - -180
-                      - -90
-                      - 180
-                      - 90
-                storageCrsBbox:
-                  description: |-
-                    One or more bounding boxes that describe the spatial extent of the dataset in the storage (native) CRS (`storageCrs` property).
-
-                    The first bounding box describes the overall spatial
-                    extent of the data. All subsequent bounding boxes describe
-                    more precise bounding boxes, e.g., to identify clusters of data.
-                    Clients only interested in the overall spatial extent will
-                    only need to access the first item in each array.
-                  type: array
-                  minItems: 1
-                  items:
-                    description: |-
-                      Each bounding box is provided as four or six numbers, depending on
-                      whether the coordinate reference system includes a vertical axis
-                      (height or depth):
-
-                      * Lower left corner, coordinate axis 1
-                      * Lower left corner, coordinate axis 2
-                      * Minimum value, coordinate axis 3 (optional)
-                      * Upper right corner, coordinate axis 1
-                      * Upper right corner, coordinate axis 2
-                      * Maximum value, coordinate axis 3 (optional)
-                    type: array
-                    oneOf:
-                    - minItems: 4
-                      maxItems: 4
-                    - minItems: 6
-                      maxItems: 6
-                    items:
-                      type: number
-                    example:
-                      - -180
-                      - -90
-                      - 180
-                      - 90
-                crs:
-                  description: |-
-                    Coordinate reference system of the coordinates of the `bbox` property.
-                    The default reference system is WGS 84 longitude/latitude.
-                    WGS 84 longitude/latitude/ellipsoidal height for coordinates with height.
-                    For non-terrestrial coordinate reference system, another CRS may be specified.
-                  type: string
-                  enum:
-                    - 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'
-                    - 'http://www.opengis.net/def/crs/OGC/0/CRS84h'
-                  default: 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'
-                grid:
-                  description: |-
-                    Provides information about the limited availability of data within the collection organized
-                    as a grid (regular or irregular) along each spatial dimension.
-                  type: array
-                  minItems: 2
-                  maxItems: 3
-                  items:
-                  $ref: '#/components/schemas/GridObject'
-            temporal:
-              description: |-
-                The temporal extent of the features in the collection.
-              type: object
-              properties:
-                interval:
-                  description: |-
-                    One or more time intervals that describe the temporal extent of the dataset.
-                    In the Core only a single time interval is supported.
-
-                    Extensions may support multiple intervals.
-                    The first time interval describes the overall
-                    temporal extent of the data. All subsequent time intervals describe
-                    more precise time intervals, e.g., to identify clusters of data.
-                    Clients only interested in the overall extent will only need
-                    to access the first item in each array.
-                  type: array
-                  minItems: 1
-                  items:
-                    description: |-
-                      Begin and end times of the time interval. The timestamps are in the
-                      temporal coordinate reference system specified in `trs`. By default
-                      this is the Gregorian calendar, expressed using RFC 3339 section 5.6.
-                      Note that these times may be specified using time zone offsets to UTC time other than zero.
-
-                      The value `null` for start or end time is supported and indicates a half-bounded time interval.
-                    type: array
-                    minItems: 2
-                    maxItems: 2
-                    items:
-                      type: string
-                      format: date-time
-                      nullable: true
-                    example:
-                      - '2011-11-11T12:22:11Z'
-                      - '2011-11-11T08:22:11-04:00'
-                      - null
-                trs:
-                  description: |-
-                    Coordinate reference system of the coordinates in the temporal extent
-                    (property `interval`). The default reference system is the Gregorian calendar.
-                    In the Core this is the only supported temporal coordinate reference system.
-                    Extensions may support additional temporal coordinate reference systems and add
-                    additional enum values.
-                  type: string
-                  enum:
-                    - 'http://www.opengis.net/def/uom/ISO-8601/0/Gregorian'
-                  default: 'http://www.opengis.net/def/uom/ISO-8601/0/Gregorian'
-                grid:
-                  $ref: '#/components/schemas/GridObject'
-        - anyOf:
-          # To validate against the Uniform Additional Dimensions requirements class, remove or comment out the following line
-          - type: object
-          - type: object
-            additionalProperties:
-              description: |-
-                The domain intervals for any additional dimensions of the extent (envelope) beyond those described in temporal and spatial.
-              type: object
-              oneOf:
-                - required: [ interval, definition ]
-                - required: [ interval, trs ]
-                - required: [ interval, vrs ]
-              properties:
-                interval:
-                  description: |-
-                    One or more intervals that describe the extent for this dimension of the dataset.
-                    The value `null` is supported and indicates an unbounded or half-bounded interval.
-                    The first interval describes the overall extent of the data for this dimension.
-                    All subsequent intervals describe more precise intervals, e.g., to identify clusters of data.
-                    Clients only interested in the overall extent will only need
-                    to access the first item (a pair of lower and upper bound values).
-                  type: array
-                  minItems: 1
-                  items:
-                    description: |-
-                      Lower and upper bound values of the interval. The values
-                      are in the coordinate reference system specified in `crs`, `trs` or `vrs`.
-                    type: array
-                    minItems: 2
-                    maxItems: 2
-                    items:
-                      oneOf:
-                        - type: string
-                          nullable: true
-                        - type: number
-                    example:
-                      - '2011-11-11T12:22:11Z'
-                      - '2011-11-11T08:22:11-04:00'
-                      - 32.5
-                      - null
-                trs:
-                  type: string
-                  description: temporal coordinate reference system (e.g. as defined by Features for 'temporal')
-                vrs:
-                  type: string
-                  description: vertical coordinate reference system (e.g. as defined in EDR for 'vertical')
-                grid:
-                  $ref: '#/components/schemas/GridObject'
-                definition:
-                  type: string
-                  format: uri
-                  description: A URI to the definition of the measured or observed property corresponding to this dimension.
-                unit:
-                  type: string
-                  description: The unit of measure in which the interval and/or grid values are expressed.
-                unitLang:
-                  type: string
-                  default: UCUM
-                  description: The language (or vocabulary) in which the unit is expressed (defaults to "UCUM" if not specified).
-                variableType:
-                  description: The type of variable which may inform correct interpretation and interpolation methods
-                  type: string
-                  enum:
-                    - continuous
-                    - numericalOrdinal
-                    - numericalNominal
-                    - categoricalOrdinal
-                    - categoricalNominal
-    GridObject:
-      type: object
-      description: |-
-        Provides information about the limited availability of data within the collection organized as a grid (regular or irregular) along the dimension.
-      allOf:
-        - type: object
-          required: [ cellsCount ]
-          properties:
-            cellsCount:
-              description: Number of samples available along the dimension for data organized as a regular or irregular grid.
-              type: integer
-              example: 50
-        - oneOf:
-          - $ref: '#/components/schemas/RegularGridObject'
-          - $ref: '#/components/schemas/IrregularGridObject'
-    RegularGridObject:
-      type: object
-      description: Regular grid with samples spaced at equal intervals
-      required: [ resolution, firstCoordinate ]
-      properties:
-        resolution:
-          description: |-
-            Resolution of regularly gridded data along the dimension in the collection
-          oneOf:
-            - type: string
-              nullable: true
-            - type: number
-          example:
-            - 0.0006866455078
-            - "PT1H"
-        firstCoordinate:
-          description: |-
-            First coordinate where a regular grid begins, with subsequent coordinates adding `resolution` unit at each step
-          oneOf:
-            - type: string
-              nullable: true
-            - type: number
-          example: -180
-        relativeBounds:
-          description: |-
-            Distance in units from coordinate to the lower and upper bounds of each cell for regular grids, describing the geometry of the cells
-          type: array
-          minItems: 2
-          maxItems: 2
-          items:
-            oneOf:
-              - type: string
-                nullable: true
-              - type: number
-          example: [ -0.5, 0.5 ]
-    IrregularGridObject:
-      type: object
-      description: Irregular grid with samples spaced at different intervals
-      required: [ coordinates ]
-      properties:
-        coordinates:
-          description: |-
-            List of coordinates along the dimension for which data organized as an irregular grid in the collection is available
-            (e.g., 2, 10, 80, 100).
-          type: array
-          minItems: 1
-          items:
-            oneOf:
-              - type: string
-                nullable: true
-              - type: number
-          example:
-            - [2, 10, 80, 100]
-            - ["2020-11-12T12:15:00Z","2020-11-12T12:30:00Z","2020-11-12T12:45:00Z"]
-        boundsCoordinates:
-          description: |-
-            Coordinates of the lower and upper bounds of each cell in absolute units for irregular grids describing the geometry each cell
-          type: array
-          minItems: 1
-          items:
-            type: array
-            minItems: 2
-            maxItems: 2
-            items:
-              oneOf:
-                - type: string
-                  nullable: true
-                - type: number
-            example: [ [ -180, -179 ], [ -179, -178 ] ]
-    ConformanceResponseObject:
-      required:
-      - conformsTo
-      type: object
-      properties:
-        conformsTo:
-          type: array
-          items:
-            type: string
-    CollectionJoinsResponseObject:
-      required:
-      - joins
-      - links
-      type: object
-      properties:
+          title: attribution for the API
+          description: The `attribution` should be short and intended for presentation to a user, for example, in a corner of a map. Parts of the text can be links to other resources if additional information is needed. The string can include HTML markup.
         links:
           type: array
           items:
             $ref: '#/components/schemas/Link'
-        joins:
-          type: array
-          items:
-            $ref: '#/components/schemas/JoinsObject'
-        numberMatched:
-          type: integer
-        numberReturned:
-          type: integer
-        timeStamp:
-          type: string
-          format: date-time
-    JoinSourceResponseObject:
+    Link:
       required:
-      - details
-      - id
-      - links
+      - href
+      - rel
       type: object
       properties:
-        details:
-          $ref: '#/components/schemas/DetailsObject'
-        id:
+        href:
           type: string
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/Link'
-        timeStamp:
+          description: Supplies the URI to a remote resource (or resource fragment).
+          example: http://data.example.com/buildings/123
+        rel:
           type: string
-          format: date-time
-    DetailsObject:
-      type: object
-      properties:
-        collectionKey:
-          type: string
-        created:
-          type: string
-          format: date-time
-        joinFields:
-          type: array
-          items:
-            type: string
-        joinKey:
-          type: string
-        numberOfRows:
-          type: integer
-        sourceFile:
-          type: string
-    JoinsObject:
-      required:
-      - id
-      - links
-      - timeStamp
-      type: object
-      properties:
-        id:
-          type: string
-        timeStamp:
-          type: string
-          format: date-time
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/Link'
-    CollectionsResponseObject:
-      required:
-      - collections
-      - links
-      type: object
-      properties:
-        collections:
-          type: array
-          items:
-            $ref: '#/components/schemas/CollectionObject'
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/Link'
-        numberMatched:
-          type: integer
-          minimum: 0
-        numberReturned:
-          type: integer
-          minimum: 0
-    CollectionKeysObject:
-      required:
-      - id
-      - isDefault
-      type: object
-      properties:
-        isDefault:
-          type: boolean
-        language:
-          type: string
-        id:
-          type: string
+          description: The type or semantics of the relation.
+          example: alternate
         type:
           type: string
+          description: A hint indicating what the media type of the result of dereferencing the link should be.
+          example: application/geo+json
+        hreflang:
+          type: string
+          description: A hint indicating what the language of the result of dereferencing the link should be.
+          example: en
+        title:
+          type: string
+          description: Used to label the destination of a link such that it can be used as a human-readable identifier.
+          example: Trierer Strasse 70, 53115 Bonn
+        length:
+          type: integer
     ExceptionObject:
       required:
       - type
@@ -1355,6 +599,902 @@ components:
           type: string
         instance:
           type: string
+    ConformanceResponseObject:
+      required:
+      - conformsTo
+      type: object
+      properties:
+        conformsTo:
+          type: array
+          items:
+            type: string
+            example: "http://www.opengis.net/spec/ogcapi-common-1/1.0/conf/core"
+    CollectionsResponseObject:
+      required:
+      - collections
+      - links
+      type: object
+      properties:
+        collections:
+          type: array
+          title: Collections descriptions
+          description: Descriptions of each collection in this API.
+          items:
+            $ref: '#/components/schemas/CollectionResponseObject'
+        links:
+          type: array
+          title: Links to resource in the collections
+          description: Links to this or other resources provided by the collections.
+          items:
+            $ref: '#/components/schemas/Link'
+        numberMatched:
+          type: integer
+          title: The total number of elements matched for the request
+          description: The total number of elements (including any subsequent pages) for the request that match the selection parameters like `bbox`. A server may omit this information, if the information about the number of elements is not known or difficult to compute.
+          minimum: 0
+          example: 127
+        numberReturned:
+          type: integer
+          title: The number of elements returned in the response
+          description: The number of elements in the response (the current page, if split across multiple pages). A server may omit this information, if the information about the number of elements is not known or difficult to compute. If the value is provided, the value shall be identical to the number of elements in the response.
+          minimum: 0
+          example: 10
+    CollectionResponseObject:
+      allOf:
+      - $ref: '#/components/schemas/CollectionObject'
+      - type: object
+      properties:
+        extent:
+          $ref: '#/components/schemas/ExtentObject'
+    CollectionObject:
+      required:
+      - id
+      - links
+      type: object
+      properties:
+        id:
+          type: string
+          title: Identifier of the resource
+          description: Identifier of the collection, for example, used in URI path parameters.
+          minLength: 1
+          example: dem
+        title:
+          type: string
+          title: Title of the collection
+          description: A short, human-readable summary of the collection.
+          example: Digital Elevation Model
+        description:
+          type: string
+          title: Description of the collection
+          description: A human-readable explanation about data in the collection.
+          example: A Digital Elevation Model.
+        attribution:
+          type: string
+          title: Attribution for the collection
+          description: |-
+            Attribution for the collection, providing a way to identify the source of the geographic information, which can contain markup text whose format may be indicated in the `attributionMediaType` property. That format can be either plain text (`text/plain`), HTML (`text/html`) or https://commonmark.org/[CommonMark] (`text/markdown`).
+            If the 'attributionMediaType' indicates something other than `text/plain`, the `attribution` element string should be interpreted by a markup parser selected based on that media type to be presented to the user
+            (e.g., `text/markdown` will be parsed by a library supporting CommonMark). By allowing markup, the attribution string can import images (e.g., organization logos) and format the text (e.g., the name of the organization in italics).
+        attributionMediaType:
+          title: Media type of the attribution
+          description: |-
+            Media type for the markup language of the attribution: It can be either plain text (`text/plain`), HTML (`text/html`) or https://commonmark.org/[CommonMark] (`text/markdown`).
+          enum:
+          - text/plain
+          - text/html
+          - text/markdown
+        accessConstraints:
+          title: Access Constraints of the collection
+          description: |-
+            Restrictions on the availability of the collection that the user needs to be aware of before using or redistributing the data:
+            
+            * unclassified: Available for general disclosure
+            * restricted: Not for general disclosure
+            * confidential: Available for someone who can be entrusted with information
+            * secret: Kept or meant to be kept private, unknown, or hidden from all but a select group of people
+            * topSecret: Of the highest secrecy
+          enum:
+          - unclassified
+          - restricted
+          - confidential
+          - secret
+          - topSecret
+        publisher:
+          type: string
+          title: Responsible party publishing the collection
+          description: Organization or individual responsible for making the data available
+        contacts:
+          type: array
+          title: A list of contacts
+          description:
+            A list of contacts qualified by their role(s) in association to the collection.
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/ContactObject'
+        license:
+          type: string
+          title: License associated to the collection
+          description: The legal provisions under which the data of this collection is made available.
+        rights:
+          type: string
+          title: Rights over the collection
+          description: A statement that concerns all rights not addressed by the license such as a copyright statement.
+        formats:
+          title: Formats for distributing the collection
+          description: A list of formats in which the data of this collection is distributed
+          type: array
+          items:
+            $ref: '#/components/schemas/FormatObject'
+        keywords:
+          type: array
+          title: Keywords representing aspects of the collection
+          description: The topic or topics of the resource. Typically represented using free-form keywords, tags, key phrases, or classification codes.
+          items:
+            type: string
+        themes:
+          type: array
+          title: Themes represented by the resource
+          description:
+            A knowledge organization system used to classify the resource.
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/ThemeObject'
+        resourceLanguages:
+          type: array
+          title: The list of languages of the collection
+          description: The list of languages in which the data of this collection is available.
+          items:
+            $ref: '#/components/schemas/LanguageObject'
+        links:
+          type: array
+          title: Links relevant to this collection
+          description: Links to this or other resources related to this collection.
+          example:
+            - href: http://data.example.org/collections/dem?f=json
+              rel: self
+              type: application/json
+              title: 'Digital Elevation Model (description as JSON)'
+            - href: http://data.example.org/collections/dem?f=html
+              rel: alternate
+              type: text/html
+              title: 'Digital Elevation Model (description as HTML)'
+            - href: http://data.example.org/collections/dem/schema?f=json
+              rel: http://www.opengis.net/def/rel/ogc/1.0/schema
+              type: application/schema+json
+              title: 'Digital Elevation Model (logical schema as JSON Schema)'
+            - href: http://data.example.org/collections/dem/coverage
+              rel: '[ogc-rel:coverage]'
+              type: image/tiff; application=geotiff
+              title: 'Digital Elevation Model (coverage as GeoTIFF)'
+          items:
+            $ref: '#/components/schemas/Link'
+        itemType:
+          title: Type of the items in the collection
+          description: Indicator about the type of the items in the collection if the collection has an accessible `/collections/{collectionId}/items` endpoint (e.g., `feature` or `record`).
+          type: string
+          default: feature
+        dataType:
+          title: Nature of the data in the collection
+          description: Nature of the data in the collection. For example, this could be set to `map`, `vector` or `coverage`. It is not an indication of the available data access mechanism, but a hint regarding the internal representation of the data.
+            $ref: '#/components/schemas/DataTypeObject'
+        featureTypes:
+          title: Feature type(s) present in the collection
+          description: The list of feature (or coverage) type(s) which are present inside the collection. This is useful for associating the relevant portrayal rules of a style.
+          type: string
+        parent:
+          title: Identifier of a parent collection (if this collection is part of a hierarchy)
+          description: If this collection is part of a hierarchy, this property allows to identify another collection within the same dataset as its parent (by setting `parent` to the `id` of that collection), enabling clients to construct a hierarchy.
+          type: string
+        geoDataClasses:
+          title: Class of data in the collection
+          description: 'One or more classes of geospatial data, identified by a URI, which implies compatibility with a particular schema (fields/properties, as defined in OGC API - Common - Part 3: Schemas) for one or more collections, each with particular semantic definitions and data types. This is useful for example to determine compatibility with styles or processes, or to identify a particular collection within a dataset based on semantics.'
+          type: array
+          items:
+            type: string
+            format: uri
+        defaultFields:
+          title: List of fields returned by default
+          description: A sorted list of field names. For a Features data access mechanism, it is the list of returnable properties included by default and complementing the geometry of the features. For a Coverage data access mechanism, they are names of fields whose values are included by default. Note that an API may provide a mechanism (e.g., a query parameter called `properties` or `exclude-properties`) to override this default list in customized responses.
+          type: array
+          items:
+            type: string
+          minItems: 1
+        crs:
+          title: List of coordinate reference systems supported in the collection
+          description: The list of coordinate reference systems supported by the API; if present, the list should include the default coordinate reference system (usually listed first). Each item should be a URI to a registered CRS if one is available, or a full description of the CRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
+          type: array
+          items:
+            anyOf:
+              - type: string
+              - type: object
+          default:
+            - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+          example:
+            - http://www.opengis.net/def/crs/OGC/1.3/CRS84
+            - http://www.opengis.net/def/crs/EPSG/0/4326
+        storageCrs:
+          title: Storage or native CRS of the data in the collection
+          description: The native coordinate reference system (i.e., the most efficient CRS in which to request the data, possibly how the data is stored on the server); this is the default output coordinate reference system for Maps and Coverages. This should be a URI to a registered CRS if one is available, or a full description of the CRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
+          anyOf:
+            - type: string
+            - type: object
+          default: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+          example: http://www.opengis.net/def/crs/OGC/1.3/CRS84
+        epoch:
+          title: Epoch of the data in the collection
+          description: Epoch of the native (storage) Coordinate Reference System (CRS)
+          type: number
+          example: 2021.33
+        geometryDimension:
+          title: Number of spatial dimensions of the primary geometry for the data
+          description: 'Number of spatial dimensions of the primary geometry of individual elements of the data: 0 for points, 1 for curves, 2 for surfaces, 3 for solids and unspecified when mixed or unknown. Not to be confused with the dimensions of the domain which are defined by the extent element.'
+          type: integer
+          minimum: 0
+          maximum: 3
+        minScaleDenominator:
+          title: Minimum scale denominator for the collection
+          description: Minimum scale denominator for usage of the collection.
+          type: number
+        maxScaleDenominator:
+          title: Maximum scale denominator for the collection
+          description: Maximum scale denominator for usage of the collection.
+          type: number
+        minCellSize:
+          title: Minimum cell size for the collection
+          description: Minimum cell size for usage of the collection, in degrees of latitude for data referenced to Earth.
+          type: number
+        maxCellSize:
+          title: Maximum cell size for the collection
+          description: Maximum cell size for usage of the collection, in degrees of latitude for data referenced to Earth.
+          type: number
+        created:
+          title: Timestamp when the collection was first produced
+          description: Timestamp indicating when the data in the collection was first produced.
+          type: string
+          format: date-time
+        updated:
+          title: Timestamp of the last change/revision to the collection
+          description: Timestamp of the last change/revision to the data in the collection.
+          type: string
+          format: date-time
+    ContactObject:
+      type: object
+      title: Contact information
+      description: |-
+        Identification of, and means of communication with, person responsible
+        for the resource.
+      anyOf:
+        - required:
+          - name
+        - required:
+          - organization
+      properties:
+        identifier:
+          type: string
+          title: Identifier of the contact
+          description: A value uniquely identifying a contact.
+        name:
+          type: string
+          title: name of the contact person
+          description: The name of the responsible person.
+        position:
+          type: string
+          title: position in the organization
+          description: |-
+            The name of the role or position of the responsible person taken
+            from the organization's formal organizational hierarchy or chart.
+          organization:
+            type: string
+            title: Name of the organization
+            description: Organization/affiliation of the contact.
+          logo:
+            title: Logo of the contact
+            description: |-
+              Link to a graphic identifying a contact. The link relation should be `icon`
+              and the media type should be an image media type.
+            allOf:
+              - $ref: '#/components/schemas/Link'
+              - type: object
+                required:
+                  - rel
+                  - type
+                properties:
+                  rel:
+                    enum:
+                      - icon
+          phones:
+            type: array
+            title: Telephone numbers
+            description: Telephone numbers at which contact can be made.
+            items:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  title: Phone number.
+                  description: The value is the phone number itself.
+                  pattern: "^\\+[1-9]{1}[0-9]{3,14}$"
+                  example: "+14165550142"
+                roles:
+                  title: Type of phone number.
+                  description: The type of phone number (e.g. home, work, fax, etc.).
+                  $ref: '#/components/schemas/RolesObject'
+          emails:
+            type: array
+            title: Email addresses
+            description: Email addresses at which contact can be made.
+            items:
+              type: object
+              required:
+                - value
+              properties:
+                value:
+                  type: string
+                  title: Email address
+                  description: The value is the email itself.
+                  format: email
+                roles:
+                  title: Type of email
+                  description: The type of email (e.g. home, work, etc.).
+                  $ref: '#/components/schemas/RolesObject'
+          addresses:
+            type: array
+            title: Postal addresses
+            description: Physical locations at which contact can be made.
+            items:
+              type: object
+              properties:
+                deliveryPoint:
+                  type: array
+                  title: Details of the address
+                  description: Address lines for the location (e.g. street name and door number).
+                  items:
+                    type: string
+                city:
+                  type: string
+                  title: City
+                  description: City for the location.
+                administrativeArea:
+                  type: string
+                  title: State of province
+                  description: State or province of the location.
+                postalCode:
+                  type: string
+                  title: Postal code
+                  description: ZIP or other postal code.
+                country:
+                  type: string
+                  title: Country
+                  description: Country of the physical address.  ISO 3166-1 is recommended.
+                roles:
+                  title: Type of postal address
+                  description: The type of postal address (e.g. office, home, etc.).
+                  $ref: '#/components/schemas/RolesObject'
+          links:
+            type: array
+            title: Links about the contact
+            description: On-line information about the contact.
+            items:
+              allOf:
+                - $ref: '#/components/schemas/Link'
+                - type: object
+                  required:
+                    - type
+          hoursOfService:
+            type: string
+            title: Hours of service
+            description: Time period when the contact can be contacted.
+            example: "Hours: Mo-Fr 10am-7pm Sa 10am-22pm Su 10am-21pm"
+          contactInstructions:
+            type: string
+            title: Contact instructions
+            description: Supplemental instructions on how or when to contact can be made.
+          roles:
+            title: Types of contact person
+            description:
+              The set of named duties, job functions and/or permissions
+              associated with this contact.
+              (e.g. developer, administrator, etc.).
+            $ref: '#/components/schemas/RolesObject'
+    FormatObject:
+      type: object
+      anyOf:
+      - required:
+        - name
+      - required:
+        - mediaType
+      properties:
+        name:
+          title: Name of the format
+          description: Name of the format.
+          type: string
+        mediaType:
+          title: Media type of the format
+          description: Media type of the format.
+          type: string
+    ThemeObject:
+      type: object
+      required:
+        - concepts
+        - scheme
+      properties:
+        concepts:
+          type: array
+          title: List of concepts in the vocabulary
+          description:
+            One or more entity/concept identifiers from this knowledge
+            system. it is recommended that a resolvable URI be used for
+            each entity/concept identifier.
+          minItems: 1
+          items:
+            type: object
+            required:
+              - id
+            properties:
+              id:
+                type: string
+                title: Identifier for the concept
+                description: Identifier for the concept in the knowledge system.
+                minLength: 1
+              title:
+                type: string
+                title: Title of the concept
+                description: A human readable title for the concept.
+              description:
+                type: string
+                title: Description of the concept
+                description: A human readable description for the concept.
+              url:
+                type: string
+                format: uri
+                title: URI of the concept
+                description: A URI providing further description of the concept. It is called "definition" in STA.
+        scheme:
+          type: string
+          title: Identifier of the vocabulary
+          description:
+            An identifier for the knowledge organization system used
+            to classify the resource.  It is recommended that the
+            identifier be a resolvable URI.  The list of schemes used
+            in a searchable catalog can be determined by inspecting
+            the server's OpenAPI document or, if the server implements
+            CQL2, by exposing a queryable (e.g. named `scheme`) andenumerating the list of schemes in the queryable's schema
+            definition.
+    LanguageObject:
+      type: object
+      title: Resource language
+      description: The language used for textual values in this resource.
+      required:
+        - code
+      properties:
+        code:
+          type: string
+          title: Code
+          description: The language tag as per RFC-5646.
+          example: el
+        name:
+          type: string
+          minLength: 1
+          title: Original name
+          description: The untranslated name of the language.
+          example: Ελληνικά
+        alternate:
+          type: string
+          title: Translated name
+          description:
+            The name of the language in another well-understood language,
+            usually English.
+          example: Greek
+        dir:
+          type: string
+          title: Direction of the text
+          description:
+            The direction for text in this language. The default, `ltr`
+            (left-to-right), represents the most common situation.
+            However, care should be taken to set the value of `dir`
+            appropriately if the language direction is not `ltr`.
+            Other values supported are `rtl` (right-to-left), `ttb`
+            (top-to-bottom), and `btt` (bottom-to-top).
+          enum:
+            - ltr
+            - rtl
+            - ttb
+            - btt
+          default:
+            ltr
+    DataTypeObject:
+      # This list may be extended (e.g. point clouds, meshes)
+      anyOf:
+        - type: string
+        - type: string
+          enum:
+          - map
+          - vector
+          - coverage
+    RolesObject:
+      title: Types or roles
+      description:
+        The list of duties, job functions or permissions assigned by the system
+        and associated with the context of this member.
+      type: array
+      minItems: 1
+      items:
+        type: string
+    ExtentObject:
+      title: Extent with (optional) Uniform Additional Dimensions Schema
+      description: |-
+        The extent of the data in the collection.
+        This extent schema includes optional additional dimensions, but will still validate for objects not conforming to UAD.
+        OGC API - Common - Part 2 "Collections" requirements class specifies only the definition of the spatial and temporal extents.
+        The "Uniform Additional Dimensions" requirements class specifies a generic schema for describing any additional dimension, such as thermal or pressure ranges.
+      allOf:
+        - type: object
+          properties:
+            spatial:
+              $ref: '#/components/schemas/SpatialExtentObject'
+            temporal:
+              $ref: '#/components/schemas/TemporalExtentObject'
+        - anyOf:
+          - type: object
+            description: General object extension point
+          - type: object
+            additionalProperties:
+              $ref: '#/components/schemas/AdditionalDimensionExtentObject'
+    SpatialExtentObject:
+      title: Spatial extent
+      description: The spatial extent of the data in the collection.
+      type: object
+      properties:
+        bbox:
+          title: Bounding box in the 'crs' coordinates
+          description: |-
+            One or more bounding boxes that describe the spatial extent of the dataset.
+            
+            The first bounding box describes the overall spatial
+            extent of the data. All subsequent bounding boxes describe
+            more precise bounding boxes, e.g., to identify clusters of data.
+            Clients only interested in the overall spatial extent will
+            only need to access the first item in each array.
+          type: array
+          minItems: 1
+          items:
+            description: |-
+              Each bounding box is provided as four or six numbers, depending on
+              whether the coordinate reference system includes a vertical axis
+              (height or depth):
+              
+              * Lower left corner, coordinate axis 1
+              * Lower left corner, coordinate axis 2
+              * Minimum value, coordinate axis 3 (optional)
+              * Upper right corner, coordinate axis 1
+              * Upper right corner, coordinate axis 2
+              * Maximum value, coordinate axis 3 (optional)
+              
+              If the value consists of four numbers, the coordinate reference system is
+              WGS 84 longitude/latitude (http://www.opengis.net/def/crs/OGC/1.3/CRS84)
+              unless a different coordinate reference system is specified in `crs` property.
+              
+              If the value consists of six numbers, the coordinate reference system is WGS 84
+              longitude/latitude/ellipsoidal height (http://www.opengis.net/def/crs/OGC/0/CRS84h)
+              unless a different coordinate reference system is specified in `crs` property.
+              
+              For WGS 84 longitude/latitude the values are in most cases the sequence of
+              minimum longitude, minimum latitude, maximum longitude and maximum latitude.
+              However, in cases where the box spans the antimeridian the first value
+              (west-most box edge) is larger than the third value (east-most box edge).
+              
+              If the vertical axis is included, the third and the sixth number are
+              the bottom and the top of the 3-dimensional bounding box.
+              
+              If a feature has multiple spatial geometry properties, it is the decision of the
+              server whether only a single spatial geometry property is used to determine
+              the extent or all relevant geometries.
+            type: array
+            oneOf:
+              - minItems: 4
+                maxItems: 4
+              - minItems: 6
+                maxItems: 6
+            items:
+              type: number
+              example:
+                - -180
+                - -90
+                - 180
+                - 90
+        storageCrsBbox:
+          title: Bounding box in the storage CRS
+          description: |-
+            One or more bounding boxes that describe the spatial extent of the dataset in the storage (native) CRS (`storageCrs` property).
+            
+            The first bounding box describes the overall spatial
+            extent of the data. All subsequent bounding boxes describe
+            more precise bounding boxes, e.g., to identify clusters of data.
+            Clients only interested in the overall spatial extent will
+            only need to access the first item in each array.
+          type: array
+          minItems: 1
+          items:
+            description: |-
+              Each bounding box is provided as four or six numbers, depending on
+              whether the coordinate reference system includes a vertical axis
+              (height or depth):
+              
+              * Lower left corner, coordinate axis 1
+              * Lower left corner, coordinate axis 2
+              * Minimum value, coordinate axis 3 (optional)
+              * Upper right corner, coordinate axis 1
+              * Upper right corner, coordinate axis 2
+              * Maximum value, coordinate axis 3 (optional)
+            type: array
+            oneOf:
+              - minItems: 4
+                maxItems: 4
+              - minItems: 6
+                maxItems: 6
+            items:
+              type: number
+              example:
+                - -180
+                - -90
+                - 180
+                - 90
+        crs:
+          title: Coordinate reference system
+          description: |-
+            Coordinate reference system of the coordinates of the `bbox` property.
+            The default reference system is WGS 84 longitude/latitude.
+            WGS 84 longitude/latitude/ellipsoidal height for coordinates with height.
+            For data not referenced to Earth, another CRS may be specified.
+            This should be a URI to a registered CRS if one is available, or a full description of the CRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
+          anyOf:
+            - type: string
+            - type: string
+              enum:
+                - 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'
+                - 'http://www.opengis.net/def/crs/OGC/0/CRS84h'
+            - type: object
+          default: 'http://www.opengis.net/def/crs/OGC/1.3/CRS84'
+        grid:
+          title: Grid description
+          description: |-
+            Provides information about the limited availability of data within the collection organized
+            as a grid (regular or irregular) along each spatial dimension.
+            All units within the spatial grid object are specified in the `storageCrs`, defaulting to CRS84 if not specified.
+          type: array
+          minItems: 2
+          maxItems: 3
+          items:
+            $ref: '#/components/schemas/GridObject'
+    GridObject:
+      type: object
+      title: Grid.
+      description: |-
+        Provides information about the limited availability of data within the collection organized as a grid (regular or irregular) along the dimension.
+      allOf:
+        - type: object
+          required: [ cellsCount ]
+          properties:
+            cellsCount:
+              title: Cell count
+              description: Number of samples available along the dimension for data organized as a regular or irregular grid.
+              type: integer
+              example: 50
+        - oneOf:
+          - $ref: '#/components/schemas/RegularGridObject'
+          - $ref: '#/components/schemas/IrregularGridObject'
+    RegularGridObject:
+      type: object
+      title: Regular grid
+      description: Regular grid with samples spaced at equal intervals.
+      required: [ resolution, firstCoordinate ]
+      properties:
+        resolution:
+          title: Resolution
+          description: Resolution of regularly gridded data along the dimension in the collection.
+          oneOf:
+            - type: string
+              nullable: true
+              example: "PT1H"
+            - type: number
+              example: 0.0006866455078
+        availableResolutions:
+          title: Available resolutions
+          description: List of resolutions made available by the API. If not specified, there are no limit other than the limits indicated in `minCellSize` and `maxCellSize` of the collection description (though the API might still allow requesting data beyond these).
+          type: array
+          items:
+            oneOf:
+              - type: string
+                nullable: true
+              - type: number
+          example: [ "P1H", "P1D", "P1M" ]
+        firstCoordinate:
+          title: First coordinate
+          description: First coordinate where a regular grid begins, with subsequent coordinates adding `resolution` unit at each step.
+          oneOf:
+            - type: string
+              nullable: true
+            - type: number
+          example: -180
+        relativeBounds:
+          title: Relative bounds
+          description: |-
+            Distance in units from coordinate to the lower and upper bounds of each cell for regular grids, describing the geometry of the cells.
+          type: array
+          minItems: 2
+          maxItems: 2
+          items:
+            oneOf:
+              - type: string
+                nullable: true
+              - type: number
+          example: [ -0.5, 0.5 ]
+    IrregularGridObject:
+      type: object
+      title: Irregular grid.
+      description: Irregular grid with samples spaced at different intervals.
+      required: [ coordinates ]
+      properties:
+        coordinates:
+          title: Coordinates of the irregular cells
+          description: |-
+            List of coordinates along the dimension for which data organized as an irregular grid in the collection is available.
+            (e.g., 2, 10, 80, 100).
+          type: array
+          minItems: 1
+          items:
+            oneOf:
+              - type: string
+                nullable: true
+                example: "2020-11-12T12:15:00Z"
+              - type: number
+                example: 12.3
+          example: [2, 10, 80, 100]
+        boundsCoordinates:
+          title: Bounds coordinates
+          description: |-
+            For irregular grids, an ordered list of the coordinates in absolute units of the lower and upper bounds of the dimension for each cell.
+          type: array
+          minItems: 1
+          items:
+            type: array
+            minItems: 2
+            maxItems: 2
+            items:
+              oneOf:
+                - type: string
+                  nullable: true
+                - type: number
+          example: [ [ -180, -179 ], [ -179, -178 ] ]
+    TemporalExtentObject:
+      title: Temporal extent
+      description: The temporal extent of the data in the collection.
+      type: object
+      properties:
+        interval:
+          title: Temporal intervals
+          description: |-
+            One or more time intervals that describe the temporal extent of the dataset.
+            
+            The first time interval describes the overall
+            temporal extent of the data. All subsequent time intervals describe
+            more precise time intervals, e.g., to identify clusters of data.
+            Clients only interested in the overall extent will only need
+            to access the first item in each array.
+          type: array
+          minItems: 1
+          items:
+            description: |-
+              Begin and end times of the time interval. The timestamps are in the
+              temporal coordinate reference system specified in `trs`. By default
+              this is the Gregorian calendar, expressed using RFC 3339 section 5.6.
+              Note that these times may be specified using time zone offsets to UTC time other than zero.
+              
+              The value `null` for start or end time is supported and indicates a half-bounded time interval.
+            type: array
+            minItems: 2
+            maxItems: 2
+            items:
+              type: string
+              format: date-time
+              nullable: true
+              example: '2011-11-11T12:22:11Z' #, '2011-11-11T08:22:11-04:00', null
+        trs:
+          title: Temporal Coordinate Reference System
+          description: |-
+            Coordinate reference system of the coordinates in the temporal extent
+            (property `interval`). The default reference system is the Gregorian calendar.
+            For data for which the Gregorian calendar is not suitable, such as geological time scale, another temporal reference system may be used.
+            This should be a URI to a registered TRS if one is available, or a full description of the TRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
+          anyOf:
+            - type: string
+            - type: string
+              enum:
+                - 'http://www.opengis.net/def/uom/ISO-8601/0/Gregorian'
+            - type: object
+              default: 'http://www.opengis.net/def/uom/ISO-8601/0/Gregorian'
+        grid:
+          $ref: '#/components/schemas/GridObject'
+    AdditionalDimensionExtentObject:
+      title: Extent of any additional dimensions
+      description: The domain intervals for any additional dimensions of the extent (envelope) beyond those described in temporal and spatial.
+      type: object
+      oneOf:
+        - required: [ interval, definition ]
+        - required: [ interval, trs ]
+        - required: [ interval, vrs ]
+      properties:
+        interval:
+          title: Interval of the extent of this dimension
+          description: |-
+            One or more intervals that describe the extent for this dimension of the dataset.
+            The value `null` is supported and indicates an unbounded or half-bounded interval.
+            The first interval describes the overall extent of the data for this dimension.
+            All subsequent intervals describe more precise intervals, e.g., to identify clusters of data.
+            Clients only interested in the overall extent will only need
+            to access the first item (a pair of lower and upper bound values).
+          type: array
+          minItems: 1
+          items:
+            description: |-
+              Lower and upper bound values of the interval. The values
+              are in the coordinate reference system specified in `crs`, `trs` or `vrs`.
+            type: array
+            minItems: 2
+            maxItems: 2
+            items:
+              oneOf:
+                - type: string
+                  nullable: true
+                  example: '2011-11-11T12:22:11Z' #, '2011-11-11T08:22:11-04:00', null
+                - type: number
+                  example: 32.7
+        trs:
+          title: Temporal Coordinate Reference System
+          description: Temporal Coordinate Reference System (e.g. as defined by Features for 'temporal'). This should be a URI to a registered TRS if one is available, or a full description of the TRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
+          anyOf:
+            - type: string
+            - type: object
+        vrs:
+          title: Vertical Coordinate Reference System
+          description: Vertical Coordinate Reference System (e.g. as defined in EDR for 'vertical'). This should be a URI to a registered VRS if one is available, or a full description of the VRS otherwise using e.g., a WKT2CRS string, or a PROJJSON, or CRS JSON object.
+          anyOf:
+            - type: string
+            - type: object
+        grid:
+          $ref: '#/components/schemas/GridObject'
+        definition:
+          type: string
+          format: uri
+          title: Observed property definition
+          description: A URI for the definition of the measured or observed property corresponding to this dimension.
+        unit:
+          type: string
+          title: Units of measurement
+          description: The unit of measure in which the interval and/or grid values are expressed.
+        unitLang:
+          type: string
+          default: UCUM
+          title: Units of measurement vocabulary
+          description: The language (or vocabulary) in which the unit is expressed (defaults to "UCUM" if not specified).
+        variableType:
+          title: Variable type
+          description: |-
+            The class of variable, distinguishing between continuous vs. discrete, numerical vs. categorical, and ordinal vs. nominal.
+            Continuous variables (`continuous`) represent an infinite spectrum of values (such as spatial coordinates or temporal instants), while discrete variables
+            (`numericalOrdinal`, `numericalNominal`, `categoricalOrdinal`, and `categoricalNominal`) represent a finite or countable set of distinct values.
+            Nominal variables are unordered, while ordinal variables imply a specific order.
+            Numerical variables are identified with integer or real numbers, while categorical variables are identified with textual strings.
+            The variable type informs correct interpretation and interpolation method.
+          type: string
+          enum:
+            - continuous
+            - numericalOrdinal
+            - numericalNominal
+            - categoricalOrdinal
+            - categoricalNominal
     CollectionKeysResponseObject:
       required:
       - keys
@@ -1369,6 +1509,125 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/CollectionKeysObject'
+    CollectionKeysObject:
+      required:
+      - id
+      - isDefault
+      type: object
+      properties:
+        exampleKeyValue:
+          description: Example key value of the key field.
+          example: A01
+        isDefault:
+          type: boolean
+          description: Value 'true' indicates that the key field is the default key field of the collection.
+          example: true
+        language:
+          type: string
+          description: Language in which the key field’s key values are written (if applicable to the key field). The format of the language field follows the ISO 639-1 language code values.
+          example: en
+        id:
+          type: string
+          description: Identifier of the key field.
+        type:
+          type: string
+          desciption: Data type of the key field.
+          example: string
+    CollectionJoinsResponseObject:
+      required:
+        - joins
+        - links
+      type: object
+      properties:
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+        joins:
+          type: array
+          description: An array containing a list of join sources.
+          items:
+            $ref: '#/components/schemas/JoinsObject'
+        numberMatched:
+          type: integer
+          description: The number of join sources that are available in the server that match the selection parameters in the request.
+        numberReturned:
+          type: integer
+          description: The number of join sources returned in the response.
+        timeStamp:
+          type: string
+          format: date-time
+          description: Time when the response was generated.
+    JoinsObject:
+      required:
+      - id
+      - links
+      - timeStamp
+      type: object
+      properties:
+        id:
+          type: string
+          description: Identifier of the join source.
+        timeStamp:
+          type: string
+          format: date-time
+          description: Time when the join source was created.
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+    JoinSourceResponseObject:
+      required:
+      - details
+      - id
+      - links
+      type: object
+      properties:
+        details:
+          $ref: '#/components/schemas/DetailsObject'
+          description: Details of the join source.
+        id:
+          type: string
+          description: Unique identifier for the join source.
+        links:
+          type: array
+          items:
+            $ref: '#/components/schemas/Link'
+        timeStamp:
+          type: string
+          format: date-time
+          description: Time when the join source response was generated.
+    DetailsObject:
+      required:
+      - collectionKey
+      - created
+      - joinFields
+      - joinKey
+      - numberOfRows
+      - inputSource
+      type: object
+      properties:
+        collectionKey:
+          type: string
+          description: Key of the collection whose values match to the joinKey values.
+        created:
+          type: string
+          format: date-time
+          description: Time when the join source was created.
+        joinFields:
+          type: array
+          items:
+            type: string
+            description: Names of the data fields in the join source.
+        joinKey:
+          type: string
+          description: Name of the join source property that contains the key values that match to the collectionKey values.
+        numberOfRows:
+          type: integer
+          description: The number of rows in the join source.
+        inputSource:
+          type: string
+          description: Name of the input data file or URL of the input data source.
     FormDataContentDisposition:
       type: object
       properties:
@@ -1394,36 +1653,3 @@ components:
           format: int64
         name:
           type: string
-    LandingPageResponseObject:
-      required:
-      - links
-      type: object
-      properties:
-        title:
-          type: string
-        description:
-          type: string
-        attribution:
-          type: string
-        links:
-          type: array
-          items:
-            $ref: '#/components/schemas/Link'
-    Link:
-      required:
-      - href
-      - rel
-      type: object
-      properties:
-        href:
-          type: string
-        rel:
-          type: string
-        type:
-          type: string
-        hreflang:
-          type: string
-        title:
-          type: string
-        length:
-          type: integer

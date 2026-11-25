@@ -9,13 +9,13 @@ The __data joining operations__ operation set is represented by the requirements
 
 The __direct joining operations__ operation set is represented by the requirements class "<<rc_direct_joining,Direct Joining>>". 
 
-The input data functionalities are represented by the requirement classes: "<<rc_file_uploading_with_query, Input File Upload>>", "<<rc_file_referencing_with_url, File Referencing with URL>>". The support for CSV input data format is mandatory for the __data joining operations__ and __direct joining operations__. The support for the GeoJSON input data format is mandatory for the __direct joining operations__.
+The input data functionalities are represented by the requirement classes: "<<rc_file_uploading_with_query, Input File Upload>>", "<<rc_input_data_source_referencing_with_url, Input Data Source Referencing with URL>>". The support for CSV input data format is mandatory for the __data joining operations__ and __direct joining operations__. The support for the GeoJSON input data format is mandatory for the __direct joining operations__.
 
 The encoding formats are represented by requirements classes: "<<rc_json, JSON>>", "<<rc_html, HTML>>" and "<<rc_geojson, GeoJSON>>". 
 
 The JSON encoding format support is mandatory, and the HTML encoding support is recommended for the service responses in the __discovery operations__ and __data joining operations__ operation sets. 
 
-The GeoJSON encoding format is mandatory for the joined data output in the __data joining operations__ and __direct joining operations__.
+The GeoJSON encoding format support is mandatory for the joined data output in the __data joining operations__ and __direct joining operations__.
 
 The Core requirements class does not mandate any encoding or format for the formal definition of the API. One option is to use the OpenAPI 3.0 specification and "<<rc_openapi_3_0, OpenAPI 3.0>>" Requirements Class.
 
@@ -34,7 +34,7 @@ The conformance class URIs defined in this core module are listed in <<conforman
 <|<<ats_direct_joining,Direct Joining>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/direct-joining
 2+|*Input*
 <|<<ats_input_file_upload,Input File Upload>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-file-upload
-<|<<ats_input_http_ref,File Referencing with URL>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-http-ref
+<|<<ats_input_http_ref,Input Data Source Referencing with URL>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/input-http-ref
 2+|*OpenAPI*
 <|<<ats_oas30,OpenAPI 3.0>>|http://www.opengis.net/spec/ogcapi-joins-1/1.0/conf/oas30
 2+|*Encodings*

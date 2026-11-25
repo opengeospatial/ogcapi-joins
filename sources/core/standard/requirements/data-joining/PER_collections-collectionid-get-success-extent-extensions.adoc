@@ -1,0 +1,8 @@
+[[per_data_joining_collections-collectionid-get-success-extent-extensions]]
+
+[permission]
+====
+[%metadata]
+identifier:: /per/data-joining/collections-collectionid-get-success-extent-extensions
+part:: This requirements class only specifies requirements for spatial and temporal extents. However, the extent object MAY be extended with additional members to represent other extents, such as thermal or pressure ranges.
+====

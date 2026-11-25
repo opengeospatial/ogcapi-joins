@@ -6,4 +6,5 @@
 identifier:: /rec/data-joining/collections-collectionid-get-success-describedby
 part:: If external schemas or descriptions exist that provide additional information about the structure or semantics of the collection, a `200`-response SHOULD include links to each of those resources in the `links` property of the response (relation: `describedby`).
 part:: The `type` link parameter SHOULD be provided for each link.
+part:: The `http://www.opengis.net/def/rel/ogc/1.0/schema` link relation should be used to reference a logical schema (see <<OGC23-058r2,OGC API — Common — Part 3: Schemas>>).
 ====

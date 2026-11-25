@@ -21,7 +21,7 @@ The conformance class values defined in this document are listed in <<conformanc
 
 === Data Joining Operations
 
-__Data joining operations__ defines operations for accessing metadata and key fields on the feature collections that are available on the server, operations for creating a join source related to some collection that saves data on the server, operations for accessing and deleting the created join sources and `/items` operation that can be used for joining data from the join source with the collection's features. The __data joining operations__ is defined in the requirements classes <<rc_data_joining,"Data Joining">> and <<rc_join_source_delete,"Join Source Delete">>. For this operation set, the implementation of the "Data Joining" requirements class is mandatory and the implementation of the "Join Source Delete" requirements class is optional.
+__Data joining operations__ defines operations for accessing metadata and key fields on the feature collections that are available on the server, operation for creating a join source related to some collection that saves data on the server, operations for accessing and deleting the created join sources and an operation that can be used for accessing the collection's features and joining into them data from a join source. The __data joining operations__ is defined in the requirements classes <<rc_data_joining,"Data Joining">> and <<rc_join_source_delete,"Join Source Delete">>. For this operation set, the implementation of the "Data Joining" requirements class is mandatory and the implementation of the "Join Source Delete" requirements class is optional.
 
 The __data joining operations__ contains following functionalities:
 
@@ -33,7 +33,7 @@ The __data joining operations__ contains following functionalities:
 
 * Accessing the `Join Sources` using HTTP GET at path `/collections/{collectionId}/joins`returns a list of join sources that are related to a specific collection that are available on the server. 
 
-* New `Join Sources` can be created by making a HTTP POST query at path `/collections/{collectionId}/joins`. This standard contains support for CSV input data format. The input data can be either uploaded to the server, represented by the requirements class "<<rc_file_uploading_with_query, Input File Upload>>" or they can be referenced via URL links, represented by the requirements class "<<rc_file_referencing_with_url, File Referencing with URL>>". 
+* New `Join Sources` can be created by making a HTTP POST query at path `/collections/{collectionId}/joins`. This standard contains support for CSV input data format. The input data can be either uploaded to the server, represented by the requirements class "<<rc_file_uploading_with_query, Input File Upload>>" or they can be referenced via URL links, represented by the requirements class "<<rc_input_data_source_referencing_with_url, Input Data Source Referencing with URL>>". 
 
 * The metadata of each `Join Source` resource can be accessed by making an HTTP GET request at path `/collections/{collectionId}/joins/{joinId}`.
 
@@ -46,7 +46,12 @@ The __data joining operations__ contains following functionalities:
 
 __Direct joining operations__ defines functionality for joining data from an input data source directly with an other input data source.
 
-* The data from the input data source can be joined directly with other input data source by making a HTTP POST request at path `/direct-join`. This standard contains support for joining data from CSV files to GeoJSON files. The result of the direct-join operation is the GeoJSON document that contains also the joined attributes from the CSV file. The input data can be either uploaded to the server, represented by the requirements class "<<rc_file_uploading_with_query, Input File Upload>>" or they can be referenced via URL links, represented by the requirements class <<rc_file_referencing_with_url, File Referencing with URL>>". 
+* The data from the input data source can be joined directly with other input data source by making a HTTP POST request at path `/direct-join`. This standard contains support for joining data from CSV files to GeoJSON files. The result of the direct-join operation is the GeoJSON document that contains also the joined attributes from the CSV file. The input data can be either uploaded to the server, represented by the requirements class "<<rc_file_uploading_with_query, Input File Upload>>" or they can be referenced via URL links, represented by the requirements class <<rc_input_data_source_referencing_with_url, Input Data Source Referencing with URL>>". 
+
+=== Open API 3.0 ===
+The OGC API — Joins Standard does not mandate any encoding or format for the formal definition of the API. The preferred option is the OpenAPI 3.0 specification. The OpenAPI 3.0 requirements class has been specified for APIs implementing OpenAPI 3.0.
+
+The OpenAPI 3.0 Requirements Class is specified in the <<rc_openapi_3_0, Open API 3.0>> requirements class.
 
 
 === Encodings

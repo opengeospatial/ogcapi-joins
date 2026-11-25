@@ -1,45 +1,12 @@
 [[collections_collectionid_joins_schema]]
-.Collection Join Sources Schema
+.collectionJoins.yaml
+[source, YAML]
 ----
-schema:
-  $ref: '#/components/schemas/CollectionJoinsResponseObject'
+include::../openapi/schemas/collectionJoins.yaml[]
+----
 
-CollectionJoinsResponseObject:
-  required:
-  - joins
-  - links
-  type: object
-  properties:
-    links:
-      type: array
-      items:
-        $ref: '#/components/schemas/Link'
-    joins:
-      type: array
-      items:
-        $ref: '#/components/schemas/JoinsObject'
-    numberMatched:
-      type: integer
-    numberReturned:
-      type: integer
-    timeStamp:
-      type: string
-      format: date-time
-
-JoinsObject:
-  required:
-  - id
-  - links
-  - timeStamp
-  type: object
-  properties:
-    id:
-      type: string
-    timeStamp:
-      type: string
-      format: date-time
-    links:
-      type: array
-      items:
-        $ref: '#/components/schemas/Link'
+.joins.yaml
+[source, YAML]
+----
+include::../openapi/schemas/joins.yaml[]
 ----

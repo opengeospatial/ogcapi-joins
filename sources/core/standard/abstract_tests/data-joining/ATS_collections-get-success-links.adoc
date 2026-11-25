@@ -14,6 +14,8 @@ Verify that the response document includes:
 
 . A link to the response document in every other media type supported by the server (relation: `alternate`).
 
-Verify that all links include the `rel` and `type` link parameters.
+Verify that all links include the `rel` link property.
+
+Verify that all links where the `rel` property is `self` or `alternate` include the `type` link parameter.
 --
 ====

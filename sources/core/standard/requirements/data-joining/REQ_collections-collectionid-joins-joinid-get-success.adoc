@@ -5,5 +5,5 @@
 [%metadata]
 identifier:: /req/data-joining/collections-collectionid-joins-joinid-get-success
 part:: A successful execution of the operation SHALL be reported as a response with a HTTP status code `200`.
-part:: The content of that response SHALL be based on the <<collections_collectionid_join_joinid_schema,Join Source Schema>>.
+part:: The content of that response SHALL be based on the <<collections_collectionid_joins_joinid_schema,Join Source Schema>>.
 ====

@@ -9,6 +9,6 @@ test-method::
 +
 --
 For test method (1) in the abtract test <<ats_data_joining_collections-collectionid-joins-post-op, /conf/data-joining/collections-collectionid-joins-post-op>>: +
-1. Validate that the response document complies with the <<collections_collectionid_join_joinid_schema, Join Schema>>. +
+1. Validate that the response document complies with the <<collections_collectionid_joins_joinid_schema, Join Schema>>. +
 --
 ====

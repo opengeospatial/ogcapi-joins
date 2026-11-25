@@ -1,36 +1,12 @@
 [[collections_collectionid_keys_schema]]
-.Collection's Key Fields Schema
+.collectionKeys.yaml
+[source, YAML]
 ----
-schema:
-  $ref: '#/components/schemas/CollectionKeysResponseObject'
+include::../openapi/schemas/collectionKeys.yaml[]
+----
 
-CollectionKeysResponseObject:
-  required:
-  - keys
-  - links
-  type: object
-  properties:
-    links:
-      type: array
-      items:
-        $ref: '#/components/schemas/Link'
-    keys:
-      type: array
-      items:
-        $ref: '#/components/schemas/CollectionKeysObject'
-
-CollectionKeysObject:
-  required:
-  - id
-  - isDefault
-  type: object
-  properties:
-    isDefault:
-      type: boolean
-    language:
-      type: string
-    id:
-      type: string
-    type:
-      type: string
+.keys.yaml
+[source, YAML]
+----
+include::../openapi/schemas/keys.yaml[]
 ----

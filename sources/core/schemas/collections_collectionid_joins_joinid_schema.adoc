@@ -1,0 +1,12 @@
+[[collections_collectionid_joins_joinid_schema]]
+.joinSource.yaml
+[source, YAML]
+----
+include::../openapi/schemas/joinSource.yaml[]
+----
+
+.details.yaml
+[source, YAML]
+----
+include::../openapi/schemas/details.yaml[]
+----
