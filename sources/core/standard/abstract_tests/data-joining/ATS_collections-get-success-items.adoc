@@ -4,7 +4,7 @@
 [%metadata]
 identifier:: /conf/data-joining/collections-get-success-items
 target:: /req/data-joining/collections-get-success-items
-test-purpose:: Validate that each collection accessible through the API is described in the Collections document.
+test-purpose:: Validate that each collection accessible through the API implementation is described in the Collections document.
 test-method::
 +
 --

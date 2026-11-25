@@ -11,9 +11,9 @@ test-method::
 --
 IF the extent property is present, THEN:
 
-. Verify that the `extent` provides bounding boxes that include all spatial geometries in this resource.
+. Verify that the `extent` provides bounding boxes that include all spatial geometries in the collection.
 
-. Verify that the `extent` provides time intervals that include all temporal geometries in this resource.
+. Verify that the `extent` provides time intervals that include all temporal geometries in the collection.
 --
 ====
-NOTE:  A temporal extent of `null` indicates an open time interval.
+NOTE:  A temporal extent of `null` indicates a half-bounded or unbounded time interval.

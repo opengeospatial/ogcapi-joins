@@ -5,9 +5,9 @@ required:
 properties:
   links:
     type: array
-  items:
-    $ref: link.yaml
+    items:
+      $ref: link.yaml
   keys:
     type: array
     items:
-      $ref: collectionKeysObject.yaml
+      $ref: keys.yaml

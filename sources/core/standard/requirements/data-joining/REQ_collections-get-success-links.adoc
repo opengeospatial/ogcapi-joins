@@ -8,5 +8,6 @@ part:: A `200`-response SHALL include the following <<link-relation-types,links>
 * A link to this response document (relation: `self`),
 
 * A link to the response document in every other media type supported by the service (relation: `alternate`).
-part:: All links SHALL include the `rel` and `type` link parameters.
+part:: All links SHALL include the `rel` property.
+part:: All links where `rel` is `self` or `alternate` SHALL include the `type` link parameter.
 ====

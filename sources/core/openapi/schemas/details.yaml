@@ -1,0 +1,30 @@
+type: object
+required:
+  - collectionKey
+  - created
+  - joinFields
+  - joinKey
+  - numberOfRows
+  - inputSource
+properties:
+    collectionKey:
+      type: string
+      description: Key of the collection whose values match to the joinKey values.
+    created:
+      type: string
+      format: date-time
+      description: Time when the join source was created.
+    joinFields:
+      type: array
+      items:
+        type: string
+        description: Names of the data fields in the join source.
+    joinKey:
+      type: string
+      description: Name of the join source property that contains the key values that match to the collectionKey values.
+    numberOfRows:
+      type: integer
+      description: The number of rows in the join source.
+    inputSource:
+      type: string
+      description: Name of the input data file or URL of the input data source.

@@ -1,0 +1,24 @@
+type: object
+required:
+  - joins
+  - links
+properties:
+  links:
+    type: array
+    items:
+      $ref: 'link.yaml'
+  joins:
+    type: array
+    description: An array containing a list of join sources.
+    items:
+      $ref: 'joins.yaml'
+  numberMatched:
+    type: integer
+    description: The number of join sources that are available in the server that match the selection parameters in the request.
+  numberReturned:
+    type: integer
+    description: The number of join sources returned in the response.
+  timeStamp:
+    type: string
+    format: date-time
+    description: Time when the response was generated.

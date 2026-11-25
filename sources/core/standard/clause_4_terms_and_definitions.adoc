@@ -4,11 +4,23 @@ This document uses the terms defined in Sub-clause 5.3 of <<OGC06-121r9>>, which
 
 //For the purposes of this document, the following additional terms and definitions apply.
 
-=== Join Source
-Data that has been saved to the server as a join source under a specific collection. The join source data includes key values that are also present in the collection data. The join source data can be joined with the collection data by executing the collection's `/items` query and providing the join source identifier as a parameter to that query.
+=== collection
 
-=== Join Source Creation
-An operation where join source data is saved on a server.
+Set of spatiotemporal data that may be available through one or more access mechanisms defined by OGC API standard(s).
 
-=== Direct Join
-An operation where data is joined direcly between two input datasets without saving them to the server.
+=== feature
+
+Abstraction of real world phenomena.
+
+=== feature collection
+
+Set of features from a dataset.
+
+=== join source
+Data that has been saved to the server as a join source under a specific collection. The join source data includes key values that are also present in the collection data. The join source data can be joined with the collection data by executing a `collections/{collectionId}/items` query where the {collectionId} is the identifier of the collection and providing the join source identifier as a parameter to that query.
+
+=== join source creation
+Operation where join source data is saved on a server.
+
+=== direct join
+Operation where data is joined directly between two input data sources without saving them to the server.

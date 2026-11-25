@@ -4,7 +4,7 @@
 [%metadata]
 identifier:: /conf/data-joining/collections-get-op
 target:: /req/data-joining/collections-get-op
-test-purpose:: Validate that the information about collections can be retrieved from the expected location.
+test-purpose:: Validate that the information about the list of Collections can be retrieved from the expected location.
 test-method::
 +
 --

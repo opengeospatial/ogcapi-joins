@@ -1,20 +1,17 @@
 type: object
 required:
-  - joins
+  - id
   - links
+  - timeStamp
 properties:
+  id:
+    type: string
+    description: Identifier of the join source.
+  timeStamp:
+    type: string
+    format: date-time
+    description: Time when the join source was created.
   links:
     type: array
     items:
       $ref: link.yaml
-  joins:
-    type: array
-    items:
-      $ref: joinsObject.yaml
-  numberMatched:
-    type: integer
-  numberReturned:
-    type: integer
-  timeStamp:
-    type: string
-    format: date-time

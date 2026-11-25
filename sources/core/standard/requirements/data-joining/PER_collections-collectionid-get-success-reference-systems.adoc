@@ -1,0 +1,9 @@
+[[per_data_joining_collections-collectionid-get-success-reference-systems]]
+
+[permission]
+====
+[%metadata]
+identifier:: /per/data-joining/collections-collectionid-get-success-reference-systems
+part:: For data not referenced to the Earth (e.g., the Moon, Mars), the spatial extent’s bbox property MAY be specified in a CRS other than [OGC:CRS84] or [OGC:CRS84h], with this CRS indicated in the crs property of the spatial property.
+part:: For data for which the Gregorian calendar is not suitable, such as geological time scale, another temporal reference system MAY be specified in the trs property of the temporal property.
+====

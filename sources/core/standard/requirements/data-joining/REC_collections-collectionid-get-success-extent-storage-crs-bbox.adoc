@@ -1,0 +1,8 @@
+[[rec_data_joining_collections-collectionid-get-success-extent-storage-crs-bbox]]
+
+[recommendation]
+====
+[%metadata]
+identifier:: /rec/data-joining/collections-collectionid-get-success-extent-storage-crs-bbox
+part:: If the native CRS of the data, as specified in the storageCrs property, is not [OGC:CRS84] or [OGC:CRS84h], the spatial extent of the data in that native CRS SHOULD be specified in the storageCrsBbox of the spatial property.
+====

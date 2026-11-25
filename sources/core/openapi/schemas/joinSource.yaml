@@ -1,0 +1,20 @@
+type: object
+required:
+  - details
+  - id
+  - links
+properties:
+  details:
+    $ref: 'details.yaml'
+    description: Details of the join source.
+  id:
+    type: string
+    description: Unique identifier for the join source.
+  links:
+    type: array
+    items:
+      $ref: 'link.yaml'
+  timeStamp:
+    type: string
+    format: date-time
+    description: Time when the join source response was generated.

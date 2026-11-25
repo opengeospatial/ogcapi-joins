@@ -1,0 +1,23 @@
+type: object
+required:
+  - id
+  - isDefault
+properties:
+  exampleKeyValue:
+    description: Example key value of the key field.
+    example: A01
+  isDefault:
+    type: boolean
+    description: Value 'true' indicates that the key field is the default key field of the collection.
+    example: true
+  language:
+    type: string
+    description: Language in which the key field’s key values are written (if applicable to the key field). The format of the language field follows the ISO 639-1 language code values.
+    example: en
+  id:
+    type: string
+    description: Identifier of the key field.
+  type:
+    type: string
+    description: Data type of the key field.
+    example: string
